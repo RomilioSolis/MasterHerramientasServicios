@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://romiliosolis.github.io/MasterHerramientasServicios/</loc> <!-- URL principal de la landing page -->
+        <lastmod>2025-01-04</lastmod> <!-- Última modificación -->
+        <changefreq>weekly</changefreq> <!-- Cambios semanales -->
+        <priority>1.0</priority> <!-- Alta prioridad para la página principal -->
+    </url>
+    <url>
+        <loc>https://romiliosolis.github.io/MasterHerramientasServicios/#nosotros</loc> <!-- Sección "Nosotros" -->
+        <lastmod>2025-01-04</lastmod>
+        <changefreq>weekly</changefreq> <!-- Cambios semanales -->
+        <priority>0.8</priority> <!-- Prioridad media para esta sección -->
+    </url>
+    <url>
+        <loc>https://romiliosolis.github.io/MasterHerramientasServicios/#equipos</loc> <!-- Sección "Equipos" -->
+        <lastmod>2025-01-04</lastmod>
+        <changefreq>weekly</changefreq> <!-- Cambios semanales -->
+        <priority>0.8</priority> <!-- Prioridad media para esta sección -->
+    </url>
+    <url>
+        <loc>https://romiliosolis.github.io/MasterHerramientasServicios/#contacto</loc> <!-- Sección "Contacto" -->
+        <lastmod>2025-01-04</lastmod>
+        <changefreq>weekly</changefreq> <!-- Cambios semanales -->
+        <priority>0.8</priority> <!-- Prioridad media para esta sección -->
+    </url>
+</urlset>
