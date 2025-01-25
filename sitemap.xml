@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
   <url>
     <loc>https://romiliosolis.github.io/MasterHerramientasServicios/</loc>
     <lastmod>2025-01-18T16:01:31+00:00</lastmod>
-    <changefreq>weekly</changefreq> <!-- Cambio semanal -->
-    <priority>1.0</priority> <!-- Alta prioridad para la página principal -->
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
-
   <url>
     <loc>https://romiliosolis.github.io/MasterHerramientasServicios/#nosotros</loc>
     <lastmod>2025-01-18T16:01:31+00:00</lastmod>
-    <changefreq>weekly</changefreq> <!-- Cambio semanal -->
-    <priority>0.8</priority> <!-- Prioridad media para esta sección -->
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://romiliosolis.github.io/MasterHerramientasServicios/#equipos</loc>
     <lastmod>2025-01-18T16:01:31+00:00</lastmod>
-    <changefreq>weekly</changefreq> <!-- Cambio semanal -->
-    <priority>0.8</priority> <!-- Prioridad media para esta sección -->
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://romiliosolis.github.io/MasterHerramientasServicios/#contacto</loc>
     <lastmod>2025-01-18T16:01:31+00:00</lastmod>
-    <changefreq>weekly</changefreq> <!-- Cambio semanal -->
-    <priority>0.8</priority> <!-- Prioridad media para esta sección -->
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-
 </urlset>
