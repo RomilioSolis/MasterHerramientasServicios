@@ -1,19 +1,16 @@
-// Obtener el botón
-const backToTopButton = document.getElementById('backToTop');
-
-// Mostrar el botón cuando el usuario hace scroll hacia abajo
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {  // Muestra el botón si el scroll es mayor a 200px
-        backToTopButton.style.display = 'block';
+window.onscroll = function() {
+    const backToTop = document.getElementById('backToTop');
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      backToTop.style.display = 'flex';
     } else {
-        backToTopButton.style.display = 'none';
+      backToTop.style.display = 'none';
     }
-});
-
-// Al hacer clic en el botón, se desplaza suavemente hacia arriba
-backToTopButton.addEventListener('click', () => {
+  };
+  
+  document.getElementById('backToTop').addEventListener('click', function(e) {
+    e.preventDefault();
     window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      top: 0,
+      behavior: 'smooth'
     });
-});
+  });
