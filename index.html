@@ -5,16 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  
+
   <!-- Meta SEO -->
-  <meta name="description" content="✅ Alquiler de herramientas profesionales en Cali: gatos, taladros, escaleras y más. Servicio rápido y precios competitivos. ¡Contáctanos vía WhatsApp!">
-  <meta name="keywords" content="alquiler herramientas Cali, alquiler maquinaria construcción, gatos hidráulicos, taladros profesionales, Master Herramientas y Servicios">
+  <meta name="description"
+    content="✅ Alquiler de herramientas profesionales en Cali: gatos, taladros, escaleras y más. Servicio rápido y precios competitivos. ¡Contáctanos vía WhatsApp!">
+  <meta name="keywords"
+    content="alquiler herramientas Cali, alquiler maquinaria construcción, gatos hidráulicos, taladros profesionales, Master Herramientas y Servicios">
   <meta name="author" content="Master Herramientas y Servicios">
   <title>Alquiler de Herramientas en Cali | Master Herramientas y Servicios</title>
   <link rel="canonical" href="https://masterenherramientasyservicios.com.co/" />
 
   <!-- Favicon -->
-  <link rel="icon" href="https://masterenherramientasyservicios.com.co/assets/imagenes/masterfavi.ico" type="image/x-icon">
+  <link rel="icon" href="https://masterenherramientasyservicios.com.co/assets/imagenes/masterfavi.ico"
+    type="image/x-icon">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +27,8 @@
 
   <!-- Open Graph Meta Tags (para Facebook y redes sociales) -->
   <meta property="og:title" content="Alquiler de Herramientas Profesionales en Cali | Master Herramientas y Servicios">
-  <meta property="og:description" content="Alquila herramientas de alta calidad en Cali. Entrega inmediata y soporte técnico especializado.">
+  <meta property="og:description"
+    content="Alquila herramientas de alta calidad en Cali. Entrega inmediata y soporte técnico especializado.">
   <meta property="og:image" content="https://masterenherramientasyservicios.com.co/assets/imagenes/logo.svg">
   <meta property="og:url" content="https://masterenherramientasyservicios.com.co/">
   <meta property="og:type" content="website">
@@ -73,21 +77,19 @@
 
 
 <body>
-  <!-- Header -->
-  <header class="bg-dark text-white text-center py-3">
-    <div class="container">
-      <img src="assets/imagenes/logo.svg" alt="Logo de Master Herramientas y Servicios - Alquiler de herramientas en Cali"
-        class="img-fluid mb-3" style="max-height: 80px;" loading="eager" width="200" height="80">
-      <h1>Master Herramientas y Servicios</h1>
-      <nav class="mt-3" aria-label="Menú de navegación principal">
-        <ul class="nav justify-content-center">
-          <li class="nav-item"><a class="nav-link text-white" href="#nosotros">Nosotros</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#equipos">Equipos</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <!-- Header cargado dinámicamente -->
+  <div id="header-container"></div>
+
+  <!-- Resto del contenido... -->
+
+  <script>
+    // Cargar header
+    fetch('components/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      });
+  </script>
 
   <!-- Contenido Principal -->
   <main>
@@ -147,8 +149,8 @@
           <!-- Taladros -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/taladros.png" class="card-img-top" alt="Alquiler de taladros profesionales en Cali"
-                loading="lazy" width="400" height="300">
+              <img src="assets/imagenes/taladros.png" class="card-img-top"
+                alt="Alquiler de taladros profesionales en Cali" loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Taladros</h5>
                 <p class="card-text">Taladros potentes para perforar distintos materiales, adaptados a tus necesidades.
@@ -217,8 +219,8 @@
           <!-- Trompo Mezclador -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/TrompoMezclador.png" class="card-img-top" alt="Alquiler de trompo mezclador en Cali"
-                loading="lazy" width="400" height="300">
+              <img src="assets/imagenes/TrompoMezclador.png" class="card-img-top"
+                alt="Alquiler de trompo mezclador en Cali" loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Trompo Mezclador</h5>
                 <p class="card-text">Trompo mezclador para preparar concreto de manera eficiente y homogénea.</p>
@@ -252,8 +254,8 @@
           <!-- Vibrocompactadora -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/VibroCompactadora.png" class="card-img-top" alt="Alquiler de vibrocompactadora en Cali"
-                loading="lazy" width="400" height="300">
+              <img src="assets/imagenes/VibroCompactadora.png" class="card-img-top"
+                alt="Alquiler de vibrocompactadora en Cali" loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Vibrocompactadora</h5>
                 <p class="card-text">Vibrocompactadora para compactar suelos y asegurar una base firme en proyectos de
@@ -288,8 +290,8 @@
           <!-- Parasol -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/Parasol.png" class="card-img-top" alt="Venta de parasoles en Cali" loading="lazy"
-                width="400" height="300">
+              <img src="assets/imagenes/Parasol.png" class="card-img-top" alt="Venta de parasoles en Cali"
+                loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Parasol</h5>
                 <p class="card-text">Parasoles de alta calidad para protegerte del sol en cualquier ocasión.</p>
@@ -305,8 +307,8 @@
           <!-- Gancho Colgante -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/GanchosColgantes.png" class="card-img-top" alt="Alquiler de ganchos colgantes en Cali"
-                loading="lazy" width="400" height="300">
+              <img src="assets/imagenes/GanchosColgantes.png" class="card-img-top"
+                alt="Alquiler de ganchos colgantes en Cali" loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Gancho Colgante</h5>
                 <p class="card-text">Ganchos colgantes resistentes para levantar y sostener cargas de manera segura.</p>
@@ -322,8 +324,8 @@
           <!-- Soldador -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/Soldador.png" class="card-img-top" alt="Alquiler de soldador en Cali" loading="lazy"
-                width="400" height="300">
+              <img src="assets/imagenes/Soldador.png" class="card-img-top" alt="Alquiler de soldador en Cali"
+                loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Soldador</h5>
                 <p class="card-text">Soldador profesional para trabajos de soldadura en diversos materiales.</p>
@@ -340,8 +342,8 @@
           <!-- Extractor -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/Extractor.png" class="card-img-top" alt="Alquiler de extractor en Cali" loading="lazy"
-                width="400" height="300">
+              <img src="assets/imagenes/Extractor.png" class="card-img-top" alt="Alquiler de extractor en Cali"
+                loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Extractor</h5>
                 <p class="card-text">Extractor de aire para ventilación y extracción de gases en espacios cerrados.</p>
@@ -357,8 +359,8 @@
           <!-- Estantería -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/Estanteria.png" class="card-img-top" alt="Venta de estanterías en Cali" loading="lazy"
-                width="400" height="300">
+              <img src="assets/imagenes/Estanteria.png" class="card-img-top" alt="Venta de estanterías en Cali"
+                loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Estantería</h5>
                 <p class="card-text">Estanterías robustas y versátiles para organizar y almacenar tus herramientas y
@@ -375,8 +377,8 @@
           <!-- Planta Energía -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/PlantaEnergia.png" class="card-img-top" alt="Alquiler de planta eléctrica en Cali"
-                loading="lazy" width="400" height="300">
+              <img src="assets/imagenes/PlantaEnergia.png" class="card-img-top"
+                alt="Alquiler de planta eléctrica en Cali" loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Planta Eléctrica</h5>
                 <p class="card-text">Planta eléctrica para suministrar energía en lugares sin conexión eléctrica o
@@ -393,8 +395,8 @@
           <!-- Winche -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/Winches.png" class="card-img-top" alt="Alquiler de winches en Cali" loading="lazy"
-                width="400" height="300">
+              <img src="assets/imagenes/Winches.png" class="card-img-top" alt="Alquiler de winches en Cali"
+                loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Winche</h5>
                 <p class="card-text">Alquiler de winches de alta resistencia para construcción y elevación de cargas.
@@ -412,8 +414,8 @@
           <!-- Pluma Grúa -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/PlumaGrua.png" class="card-img-top" alt="Alquiler de pluma grúa en Cali" loading="lazy"
-                width="400" height="300">
+              <img src="assets/imagenes/PlumaGrua.png" class="card-img-top" alt="Alquiler de pluma grúa en Cali"
+                loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Pluma Grúa</h5>
                 <p class="card-text">Alquiler de pluma grúa para elevación y manipulación de cargas pesadas.</p>
@@ -467,8 +469,8 @@
           <!-- Esmeriladora -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/Esmeril.png" class="card-img-top" alt="Alquiler de esmeriladora en Cali" loading="lazy"
-                width="400" height="300">
+              <img src="assets/imagenes/Esmeril.png" class="card-img-top" alt="Alquiler de esmeriladora en Cali"
+                loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Esmeriladora</h5>
                 <p class="card-text">Alquiler de esmeriladora para corte, desbaste y pulido de materiales.</p>
@@ -541,8 +543,8 @@
           <!-- Equipo Oxicorte -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/EquiOxicorte.png" class="card-img-top" alt="Alquiler de equipo de oxicorte en Cali"
-                loading="lazy" width="400" height="300">
+              <img src="assets/imagenes/EquiOxicorte.png" class="card-img-top"
+                alt="Alquiler de equipo de oxicorte en Cali" loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Equipo de Oxicorte</h5>
                 <p class="card-text">Alquiler de equipo de oxicorte para corte y soldadura de metales.</p>
@@ -597,8 +599,8 @@
           <!-- Extractor de Núcleo -->
           <article class="col-md-4 mb-4">
             <div class="card h-100">
-              <img src="assets/imagenes/ExtraNucleo.png" class="card-img-top" alt="Servicio de extracción de núcleo en Cali"
-                loading="lazy" width="400" height="300">
+              <img src="assets/imagenes/ExtraNucleo.png" class="card-img-top"
+                alt="Servicio de extracción de núcleo en Cali" loading="lazy" width="400" height="300">
               <div class="card-body">
                 <h5 class="card-title">Servicio de Extracción de Núcleo</h5>
                 <p class="card-text">Contrata el servicio de extracción de núcleo para perforaciones precisas en
@@ -659,10 +661,10 @@
   </footer>
 
   <!-- Botón Volver Arriba -->
-  <button id="backToTop" class="btn btn-primary" style="display: none;" 
-        aria-label="Volver al inicio" title="Volver arriba">
-  <i class="fas fa-arrow-up"></i>
-</button>
+  <button id="backToTop" class="btn btn-primary" style="display: none;" aria-label="Volver al inicio"
+    title="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
