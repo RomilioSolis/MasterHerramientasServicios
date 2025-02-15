@@ -77,6 +77,47 @@
 
 
 <body>
+  <!-- Agrega esto justo después de la etiqueta <body> -->
+  <div class="alert alert-warning alert-dismissible fade show text-center mb-0 fixed-top" role="alert"
+    style="z-index: 9999; border-radius: 0; transition: all 0.3s ease;">
+    <div class="container">
+      <i class="fas fa-tools me-2"></i>
+      🚧 Estamos mejorando nuestro sitio web - Los cambios se implementarán gradualmente 🚧
+      <small class="d-block mt-1">Agradecemos tu paciencia durante esta transición</small>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const alerta = document.querySelector('.alert');
+      const header = document.querySelector('header');
+
+      // Añadir padding temporal al body
+      document.body.style.paddingTop = alerta.offsetHeight + 'px';
+
+      // Cerrar automáticamente después de 5 segundos
+      setTimeout(() => {
+        alerta.style.transform = 'translateY(-100%)';
+        document.body.style.paddingTop = '0';
+
+        // Eliminar completamente el elemento después de la animación
+        setTimeout(() => {
+          alerta.remove();
+        }, 300);
+      }, 5000);
+
+      // Cierre manual al hacer clic en cualquier parte del mensaje
+      alerta.addEventListener('click', function () {
+        this.style.transform = 'translateY(-100%)';
+        document.body.style.paddingTop = '0';
+
+        setTimeout(() => {
+          this.remove();
+        }, 300);
+      });
+    });
+  </script>
+
   <!-- Header cargado dinámicamente -->
   <div id="header-container"></div>
 
