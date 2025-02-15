@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "type": "msedge",
+          "request": "launch",
+          "name": "Launch index.html",
+          "file": "c:\\Users\\Usuario1\\Desktop\\CONTABILIDAD MASTER\\OneDrive\\MasterHerramientasServicios\\index.html"
+      },
+      {
+          "name": "Attach to Microsoft Edge",
+          "type": "msedge",
+          "request": "attach",
+          "port": 9223,
+          "webRoot": "${workspaceFolder}"
+      }
+  ]
+}
