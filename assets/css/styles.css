@@ -244,3 +244,53 @@
       height: 45px;
     }
   }
+
+/* Estilos para el buscador */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.btn-search {
+  background: #28a745;
+  color: white;
+  border-color: #28a745;
+  transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+  background: #218838;
+  border-color: #1e7e34;
+}
+
+.search-feedback {
+  display: none;
+  font-size: 0.9rem;
+  color: #6c757d;
+  padding: 5px 10px;
+}
+
+.search-feedback.has-results {
+  color: #28a745;
+}
+
+/* Efecto para tarjetas no encontradas */
+.no-result {
+  position: relative;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.no-result::after {
+  content: "No disponible";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 10px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  color: #dc3545;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
