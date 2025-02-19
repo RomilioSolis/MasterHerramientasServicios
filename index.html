@@ -147,6 +147,21 @@
       </div>
     </section>
 
+    <section class="py-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center"> <!-- Contenedor centrado -->
+            <div class="ratio ratio-16x9 d-inline-block" style="max-width: 550px; width: 90%;">
+              <video controls class="shadow-lg rounded-3">
+                <source src="assets/Videos/Video1.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="equipos" class="py-5">
       <div class="container">
         <h2 class="text-center mb-4">Equipos Disponibles para Alquiler</h2>
@@ -292,24 +307,24 @@
     });
   </script>
 
-<script src="components/BotonWhatsapp/whatsapp-button.js"></script>
-<link rel="stylesheet" href="components/BotonWhatsapp/whatsapp-button.css">
+  <script src="components/BotonWhatsapp/whatsapp-button.js"></script>
+  <link rel="stylesheet" href="components/BotonWhatsapp/whatsapp-button.css">
 
-<!-- Cargar botones flotantes -->
-<div id="social-buttons-container"></div>
+  <!-- Cargar botones flotantes -->
+  <div id="social-buttons-container"></div>
 
-<!-- Scripts -->
-<script src="assets/js/backtotop.js"></script>
-<script>
+  <!-- Scripts -->
+  <script src="assets/js/backtotop.js"></script>
+  <script>
     // Cargar los botones sociales
     fetch('components/social-buttons.html')
-        .then(response => response.text())
-        .then(html => {
-            const container = document.getElementById('social-buttons-container');
-            container.innerHTML = html;
-        })
-        .catch(error => console.error('Error:', error));
-</script>
+      .then(response => response.text())
+      .then(html => {
+        const container = document.getElementById('social-buttons-container');
+        container.innerHTML = html;
+      })
+      .catch(error => console.error('Error:', error));
+  </script>
 </body>
 
 </html>
