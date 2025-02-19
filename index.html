@@ -238,17 +238,18 @@
   <!-- Custom JS -->
   <script src="assets/js/backtotop.js"></script>
   <script>
-    // Buscador mejorado
     document.addEventListener('DOMContentLoaded', function () {
       const initBuscador = () => {
         const buscador = document.getElementById('buscadorHerramientas');
-        const cards = document.querySelectorAll('#equipos .col-md-4');
+        const resultadoDiv = document.getElementById('resultadoBusqueda');
+        const container = document.getElementById('herramientas-container');
 
-        if (!buscador || cards.length === 0) return;
+        if (!buscador || !container) return;
 
         const normalizar = texto => texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
         const buscarHerramientas = (termino) => {
+          const cards = container.querySelectorAll('.col-md-4');
           let resultados = 0;
           const terminoNormalizado = normalizar(termino);
 
@@ -262,19 +263,31 @@
             if (mostrar) resultados++;
           });
 
-          const resultadoDiv = document.getElementById('resultadoBusqueda');
           resultadoDiv.innerHTML = termino ?
             `${resultados} herramienta${resultados !== 1 ? 's' : ''} encontrada${resultados !== 1 ? 's' : ''}` :
             'Ingrese el nombre de la herramienta';
           resultadoDiv.classList.toggle('has-results', resultados > 0);
         }
 
+        // Configurar MutationObserver
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach(() => {
+            buscarHerramientas(buscador.value);
+          });
+        });
+
+        observer.observe(container, {
+          childList: true,
+          subtree: true
+        });
+
+        // Event listeners
         buscador.addEventListener('input', (e) => buscarHerramientas(e.target.value));
-        buscarHerramientas(''); // Mostrar todas al inicio
+        buscarHerramientas(''); // Búsqueda inicial
       }
 
-      // Esperar a que todo el contenido esté listo
-      setTimeout(initBuscador, 100);
+      // Iniciar después de 500ms para asegurar carga inicial
+      setTimeout(initBuscador, 500);
     });
   </script>
 </body>
