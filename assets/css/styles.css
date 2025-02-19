@@ -1,249 +1,266 @@
 /* styles.css - Versión Mejorada */
 :root {
-    --primary-color: #ff6600;
-    --secondary-color: #333;
-    --background-color: #f4f4f4;
-    --text-color: #333;
-    --light-text-color: #fff;
-    --card-spacing: 1.5rem;
-  }
-  
-  /* Animaciones clave */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes gradientWave {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  /* Estructura principal */
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    scroll-behavior: smooth;
-  }
-  
-  /* Encabezado mejorado */
-  header {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, #2a2a2a 100%);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--primary-color);
-    animation: gradientWave 3s ease infinite;
-    background-size: 200% 200%;
-  }
-  
-  /* Navegación */
-  .nav-link {
-    position: relative;
-    transition: all 0.3s ease;
-  }
-  
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width 0.3s ease;
-  }
-  
-  .nav-link:hover::after {
-    width: 100%;
-  }
-  
-  /* Categorías */
-  .categoria-titulo {
-    font-size: 2.2rem;
-    color: var(--secondary-color);
-    margin: 4rem 0 2rem;
-    padding-left: 1rem;
-    border-left: 4px solid var(--primary-color);
-    animation: fadeInUp 0.8s ease-out;
-    transform-origin: left center;
-  }
-  
-  .categoria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--card-spacing);
-    animation: fadeInUp 0.8s ease-out forwards;
+  --primary-color: #ff6600;
+  --secondary-color: #333;
+  --background-color: #f4f4f4;
+  --text-color: #333;
+  --light-text-color: #fff;
+  --card-spacing: 1.5rem;
+}
+
+/* Animaciones clave */
+@keyframes fadeInUp {
+  from {
     opacity: 0;
-    animation-delay: 0.2s;
-  }
-  
-  /* Tarjetas mejoradas */
-  .card {
-    border: none;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    animation: fadeInUp 0.6s ease-out forwards;
-    opacity: 0;
-  }
-  
-  .card:nth-child(1) { animation-delay: 0.1s; }
-  .card:nth-child(2) { animation-delay: 0.2s; }
-  .card:nth-child(3) { animation-delay: 0.3s; }
-  
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-  }
-  
-  .card-img-top {
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 12px 12px 0 0;
-  }
-  
-  .card:hover .card-img-top {
-    transform: scale(1.03);
-  }
-  
-  .card-body {
-    padding: 1.8rem;
-    background: rgba(255,255,255,0.9);
-  }
-  
-  .card-title {
-    font-weight: 600;
-    color: var(--secondary-color);
-    transition: color 0.3s ease;
-  }
-  
-  .card:hover .card-title {
-    color: var(--primary-color);
-  }
-  
-  /* Botones mejorados */
-  .btn-success {
-    background: var(--primary-color);
-    border: none;
-    border-radius: 8px;
-    padding: 0.8rem 1.8rem;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .btn-success::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.4s ease, height 0.4s ease;
-  }
-  
-  .btn-success:hover::before {
-    width: 300px;
-    height: 300px;
-  }
-  
-  .btn-success:hover {
-    box-shadow: 0 5px 15px rgba(255,102,0,0.3);
-  }
-  
-  /* Footer animado */
-  footer {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, #2a2a2a 100%);
-    position: relative;
-  }
-  
-  footer::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--primary-color);
-    animation: gradientWave 3s ease infinite;
-  }
-  
-  /* Responsividad */
-  @media (max-width: 992px) {
-    .categoria-grid {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .categoria-titulo {
-      font-size: 1.8rem;
-      margin: 3rem 0 1.5rem;
-    }
-    
-    .card {
-      margin-bottom: var(--card-spacing);
-    }
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      animation: none !important;
-      transition: none !important;
-    }
+    transform: translateY(20px);
   }
 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientWave {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Estructura principal */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+}
+
+/* Encabezado mejorado */
+header {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #2a2a2a 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-color);
+  animation: gradientWave 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Navegación */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Categorías */
+.categoria-titulo {
+  font-size: 2.2rem;
+  color: var(--secondary-color);
+  margin: 4rem 0 2rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--primary-color);
+  animation: fadeInUp 0.8s ease-out;
+  transform-origin: left center;
+}
+
+.categoria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--card-spacing);
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+/* Tarjetas mejoradas */
+.card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-img-top {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px 12px 0 0;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.03);
+}
+
+.card-body {
+  padding: 1.8rem;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.card-title {
+  font-weight: 600;
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+.card:hover .card-title {
+  color: var(--primary-color);
+}
+
+/* Botones mejorados */
+.btn-success {
+  background: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.8rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-success::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn-success:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-success:hover {
+  box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+}
+
+/* Footer animado */
+footer {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #2a2a2a 100%);
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-color);
+  animation: gradientWave 3s ease infinite;
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+  .categoria-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .categoria-titulo {
+    font-size: 1.8rem;
+    margin: 3rem 0 1.5rem;
+  }
+
+  .card {
+    margin-bottom: var(--card-spacing);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s;
+}
+
+#backToTop:hover {
+  transform: scale(1.1);
+}
+
+/* Opcional: Ajustes para móviles */
+@media (max-width: 768px) {
   #backToTop {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: opacity 0.3s;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
   }
-  
-  #backToTop:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Opcional: Ajustes para móviles */
-  @media (max-width: 768px) {
-    #backToTop {
-      bottom: 20px;
-      right: 20px;
-      width: 45px;
-      height: 45px;
-    }
-  }
+}
 
 /* Estilos para el buscador */
 .search-container {
@@ -292,7 +309,7 @@
   border-radius: 3px;
   font-size: 0.9rem;
   color: #dc3545;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Añadir estos estilos boton llamar*/
@@ -316,8 +333,9 @@
     font-size: 0.9rem;
     padding: 0.5rem 0.8rem;
   }
-  
+
   .card .btn i {
     margin-right: 0.3rem;
   }
 }
+

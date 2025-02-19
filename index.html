@@ -73,6 +73,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="https://masterenherramientasyservicios.com.co/assets/css/styles.css">
+  <link rel="stylesheet" href="components/social-buttons.css">
 </head>
 
 
@@ -294,6 +295,21 @@
 <script src="components/BotonWhatsapp/whatsapp-button.js"></script>
 <link rel="stylesheet" href="components/BotonWhatsapp/whatsapp-button.css">
 
+<!-- Cargar botones flotantes -->
+<div id="social-buttons-container"></div>
+
+<!-- Scripts -->
+<script src="assets/js/backtotop.js"></script>
+<script>
+    // Cargar los botones sociales
+    fetch('components/social-buttons.html')
+        .then(response => response.text())
+        .then(html => {
+            const container = document.getElementById('social-buttons-container');
+            container.innerHTML = html;
+        })
+        .catch(error => console.error('Error:', error));
+</script>
 </body>
 
 </html>
