@@ -1,0 +1,549 @@
+ <!-- Sección Equipos -->
+    <section id="equipos" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Equipos Disponibles para Alquiler</h2>
+        <div class="row">
+          <!-- Gatos -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/gatos.png" class="card-img-top"
+                alt="Alquiler de gatos hidráulicos para construcción en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Gatos Metálicos</h5>
+                <p class="card-text">Equipo de gatos, ideal para levantar maquinaria pesada con seguridad y eficacia.
+                </p>
+
+                <!-- Contenedor de botones -->
+                <div class="d-flex flex-column flex-md-row gap-2">
+                  <!-- Botón WhatsApp -->
+                  <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20un%20gato%20hidráulico."
+                    class="btn btn-success flex-fill" target="_blank" aria-label="Contactar por WhatsApp sobre gatos"
+                    rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+
+                  <!-- Nuevo botón Llamar -->
+                  <a href="tel:+573165345675" class="btn btn-primary flex-fill" aria-label="Llamar para alquilar gatos">
+                    <i class="fas fa-phone-alt"></i> Llamar
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Escaleras -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/escaleras.png" class="card-img-top"
+                alt="Alquiler de escaleras para trabajo en alturas en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Escaleras</h5>
+                <p class="card-text">Escaleras resistentes y seguras para trabajos en alturas, ideales para cualquier
+                  proyecto.</p>
+
+                <!-- Contenedor de botones -->
+                <div class="d-flex flex-column flex-md-row gap-2">
+                  <!-- Botón WhatsApp -->
+                  <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20escalera."
+                    class="btn btn-success flex-fill" target="_blank"
+                    aria-label="Contactar por WhatsApp sobre escaleras" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+
+                  <!-- Botón Llamar -->
+                  <a href="tel:+573165345675" class="btn btn-primary flex-fill"
+                    aria-label="Llamar para alquilar escaleras">
+                    <i class="fas fa-phone-alt"></i> Llamar
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Taladros -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/taladros.png" class="card-img-top"
+                alt="Alquiler de taladros profesionales en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Taladros</h5>
+                <p class="card-text">Taladros potentes para perforar distintos materiales, adaptados a tus necesidades.
+                </p>
+
+                <div class="d-flex flex-column flex-md-row gap-2">
+                  <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20un%20taladro."
+                    class="btn btn-success flex-fill" target="_blank" aria-label="Contactar por WhatsApp sobre taladros"
+                    rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+
+                  <a href="tel:+573165345675" class="btn btn-primary flex-fill"
+                    aria-label="Llamar para alquilar taladros">
+                    <i class="fas fa-phone-alt"></i> Llamar
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Estibador -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/estibador.png" class="card-img-top"
+                alt="Alquiler de estibador para manejo de cargas en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Gato Estibador</h5>
+                <p class="card-text">Estibador para la manipulación segura y eficiente de cargas pesadas.</p>
+
+                <div class="d-flex flex-column flex-md-row gap-2">
+                  <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20un%20estibador."
+                    class="btn btn-success flex-fill" target="_blank"
+                    aria-label="Contactar por WhatsApp sobre estibador" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+
+                  <a href="tel:+573165345675" class="btn btn-primary flex-fill"
+                    aria-label="Llamar para alquilar estibador">
+                    <i class="fas fa-phone-alt"></i> Llamar
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Compresor -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/compresor.png" class="card-img-top"
+                alt="Alquiler de compresor para herramientas neumáticas en Cali" loading="lazy" width="400"
+                height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Compresor</h5>
+                <p class="card-text">Compresor confiable para el funcionamiento óptimo de herramientas neumáticas.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20un%20compresor."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre compresor"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Diferencial -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/diferencial.png" class="card-img-top"
+                alt="Alquiler de diferencial para equipos mecánicos en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Diferencial</h5>
+                <p class="card-text">Diferencial diseñado para mejorar el rendimiento de equipos mecánicos.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20un%20diferencial."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre diferencial"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Trompo Mezclador -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/TrompoMezclador.png" class="card-img-top"
+                alt="Alquiler de trompo mezclador en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler o Venta Trompo Mezclador</h5>
+                <p class="card-text">Trompo mezclador para preparar concreto de manera eficiente y homogénea.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20un%20trompo%20mezclador."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre trompo mezclador"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hidrolavadora -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Hidrolavadora.png" class="card-img-top" alt="Alquiler de hidrolavadora en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Hidrolavadora</h5>
+                <p class="card-text">Hidrolavadora de alta presión para limpieza profunda de superficies y vehículos.
+                </p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20hidrolavadora."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre hidrolavadora"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Vibrocompactadora -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/VibroCompactadora.png" class="card-img-top"
+                alt="Alquiler de vibrocompactadora en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Vibrocompactadora</h5>
+                <p class="card-text">Vibrocompactadora para compactar suelos y asegurar una base firme en proyectos de
+                  construcción.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20vibrocompactadora."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre vibrocompactadora"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Andamios -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Andamios.png" class="card-img-top" alt="Alquiler de torre de andamios en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Torre de Andamios</h5>
+                <p class="card-text">Torres de andamios seguras y resistentes para trabajos en altura, ideales para
+                  construcción y mantenimiento.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20torre%20de%20andamios."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre torre de andamios"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Parasol -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Parasol.png" class="card-img-top" alt="Venta de parasoles en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Venta Parasol</h5>
+                <p class="card-text">Parasoles de alta calidad para protegerte del sol en cualquier ocasión.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20comprar%20un%20parasol."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre parasoles"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Gancho Colgante -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/GanchosColgantes.png" class="card-img-top"
+                alt="Alquiler de ganchos colgantes en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler o Venta Andamios Ganchos Colgante</h5>
+                <p class="card-text">Ganchos colgantes resistentes para levantar y sostener cargas de manera segura.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20ganchos%20colgantes."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre ganchos colgantes"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Soldador -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Soldador.png" class="card-img-top" alt="Alquiler de soldador en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Soldador</h5>
+                <p class="card-text">Soldador profesional para trabajos de soldadura en diversos materiales.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20un%20soldador."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre soldador"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Extractor -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Extractor.png" class="card-img-top" alt="Alquiler de extractor en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Extractor</h5>
+                <p class="card-text">Extractor de aire para ventilación y extracción de gases en espacios cerrados.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20un%20extractor."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre extractor"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Estantería -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Estanteria.png" class="card-img-top" alt="Venta de estanterías en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Venta Estantería</h5>
+                <p class="card-text">Estanterías robustas y versátiles para organizar y almacenar tus herramientas y
+                  materiales.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20comprar%20una%20estantería."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre estanterías"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Planta Energía -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/PlantaEnergia.png" class="card-img-top"
+                alt="Alquiler de planta eléctrica en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler, Venta, Reparación o Mantenimiento Planta Eléctrica</h5>
+                <p class="card-text">Planta eléctrica para suministrar energía en lugares sin conexión eléctrica o
+                  durante cortes de energía.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20planta%20eléctrica."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre planta eléctrica"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Winche -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Winches.png" class="card-img-top" alt="Alquiler de winches en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Winche</h5>
+                <p class="card-text">Alquiler de winches de alta resistencia para construcción y elevación de cargas.
+                </p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20un%20winche."
+                  class="btn btn-success" target="_blank" aria-label="Contactar por WhatsApp sobre alquiler de winches"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Pluma Grúa -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/PlumaGrua.png" class="card-img-top" alt="Alquiler de pluma grúa en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler o Venta Pluma Grúa</h5>
+                <p class="card-text">Alquiler de pluma grúa para elevación y manipulación de cargas pesadas.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20pluma%20grúa."
+                  class="btn btn-success" target="_blank"
+                  aria-label="Contactar por WhatsApp sobre alquiler de pluma grúa" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Carretillas -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Carretilla.png" class="card-img-top"
+                alt="Alquiler de carretillas para transporte en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Carretillas</h5>
+                <p class="card-text">Alquiler de carretillas para transporte de empaques y trasteos de manera eficiente.
+                </p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20carretilla."
+                  class="btn btn-success" target="_blank"
+                  aria-label="Contactar por WhatsApp sobre alquiler de carretillas" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Sonda Eléctrica -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/SondaElectrica.png" class="card-img-top"
+                alt="Alquiler de sonda eléctrica para destapar cañerías en Cali" loading="lazy" width="400"
+                height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Sonda Eléctrica</h5>
+                <p class="card-text">Alquiler de sonda eléctrica para destapar cañerías de manera rápida y eficiente.
+                </p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20sonda%20eléctrica%20para%20destapar%20cañerías."
+                  class="btn btn-success" target="_blank"
+                  aria-label="Contactar por WhatsApp sobre alquiler de sonda eléctrica" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Esmeriladora -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Esmeril.png" class="card-img-top" alt="Alquiler de esmeriladora en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Esmeriladora</h5>
+                <p class="card-text">Alquiler de esmeriladora para corte, desbaste y pulido de materiales.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20esmeriladora."
+                  class="btn btn-success" target="_blank"
+                  aria-label="Contactar por WhatsApp sobre alquiler de esmeriladora" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Motosierra -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Motosierra.png" class="card-img-top" alt="Alquiler de motosierra en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Motosierra</h5>
+                <p class="card-text">Alquiler de motosierra para corte de madera y poda de árboles.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20motosierra."
+                  class="btn btn-success" target="_blank"
+                  aria-label="Contactar por WhatsApp sobre alquiler de motosierra" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Buggy, Pico y Pala -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Buggy.png" class="card-img-top" alt="Alquiler de buggy, pico y pala en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Buggy, Pico y Pala</h5>
+                <p class="card-text">Alquiler de buggy, pico y pala para trabajos de construcción y movimiento de
+                  materiales.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20un%20buggy,%20pico%20y%20pala."
+                  class="btn btn-success" target="_blank"
+                  aria-label="Contactar por WhatsApp sobre alquiler de buggy, pico y pala" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Aspiradora Trupel -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/Aspiradora.png" class="card-img-top" alt="Alquiler de aspiradora Trupel en Cali"
+                loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Aspiradora Trupel</h5>
+                <p class="card-text">Alquiler de aspiradora marca Trupel para limpieza eficiente de polvo y líquidos.
+                </p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20aspiradora%20Trupel."
+                  class="btn btn-success" target="_blank"
+                  aria-label="Contactar por WhatsApp sobre alquiler de aspiradora Trupel" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Equipo Oxicorte -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/EquiOxicorte.png" class="card-img-top"
+                alt="Alquiler de equipo de oxicorte en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Equipo de Oxicorte</h5>
+                <p class="card-text">Alquiler de equipo de oxicorte para corte y soldadura de metales.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20un%20equipo%20de%20oxicorte."
+                  class="btn btn-success" target="_blank"
+                  aria-label="Contactar por WhatsApp sobre alquiler de equipo de oxicorte" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Cortadora de Porcelanato -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/CortadoraPorcelanato.png" class="card-img-top"
+                alt="Alquiler de cortadora de porcelanato en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Cortadora de Porcelanato</h5>
+                <p class="card-text">Alquiler de cortadora de porcelanato para corte preciso de baldosas.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20cortadora%20de%20porcelanato."
+                  class="btn btn-success" target="_blank"
+                  aria-label="Contactar por WhatsApp sobre alquiler de cortadora de porcelanato"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Motobomba Lapicero Sumergible -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/MotoBombaLapi.png" class="card-img-top"
+                alt="Alquiler de motobomba lapicero sumergible en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Alquiler Motobomba Lapicero Sumergible</h5>
+                <p class="card-text">Alquiler de motobomba tipo lapicero sumergible para drenaje y bombeo de agua.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20alquilar%20una%20motobomba%20lapicero%20sumergible."
+                  class="btn btn-success" target="_blank"
+                  aria-label="Contactar por WhatsApp sobre alquiler de motobomba lapicero sumergible"
+                  rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Extractor de Núcleo -->
+          <article class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="assets/imagenes/ExtraNucleo.png" class="card-img-top"
+                alt="Servicio de extracción de núcleo en Cali" loading="lazy" width="400" height="300">
+              <div class="card-body">
+                <h5 class="card-title">Servicio de Extracción de Núcleo</h5>
+                <p class="card-text">Contrata el servicio de extracción de núcleo para perforaciones precisas en
+                  concreto.</p>
+                <a href="https://wa.me/573165345675?text=Hola,%20quisiera%20contratar%20el%20servicio%20de%20extracción%20de%20núcleo."
+                  class="btn btn-success" target="_blank"
+                  aria-label="Contactar por WhatsApp sobre servicio de extracción de núcleo" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
