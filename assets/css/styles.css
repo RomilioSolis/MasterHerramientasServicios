@@ -365,3 +365,42 @@ footer::before {
   padding: 15px;
   background-size: 60%;
 }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.search-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-feedback {
+  height: 20px;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.escalera-3d {
+  transition: transform 0.3s ease;
+}
+
+#logo:hover .escalera-3d {
+  transform: 
+    translateY(-2px) 
+    rotateX(5deg);
+  filter: drop-shadow(0 2px 4px rgba(46, 196, 182, 0.3));
+}
+
+@keyframes escalera-anim {
+  0% { opacity: 0.9; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-3px); }
+  100% { opacity: 0.9; transform: translateY(0); }
+}
+
+#isotipo:hover .escalera-3d {
+  animation: escalera-anim 1.5s ease-in-out infinite;
+}

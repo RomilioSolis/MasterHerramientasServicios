@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="420" height="130" viewBox="0 0 420 130" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo con escalera 3D integrada -->
+  <g id="logo" transform="translate(20,15)">
+    
+    <!-- Isotipo con escalera 3D -->
+    <g id="isotipo">
+      <!-- Base de la escalera -->
+      <path d="M0 70 L30 30 L60 70 L45 90 L15 90 Z" 
+            fill="#3A86FF" 
+            stroke="#FFFFFF" 
+            stroke-width="1.2"/>
+      
+      <!-- Escalera 3D -->
+      <g transform="translate(5,32)" class="escalera-3d">
+        <!-- Laterales -->
+        <path d="M0 35 L15 0 L50 0 L35 35 Z" 
+              fill="#2EC4B6" 
+              stroke="#FFFFFF" 
+              stroke-width="1"/>
+        
+        <!-- Peldaños -->
+        <path d="M3 27 L12 3 M8 20 L17 3 M13 13 L22 3 M18 6 L27 3" 
+              stroke="#FFFFFF" 
+              stroke-width="1.2" 
+              stroke-linecap="round"/>
+        
+        <!-- Sombra 3D -->
+        <path d="M35 35 L50 0 L50 35 Z" 
+              fill="#3A86FF" 
+              opacity="0.8"/>
+      </g>
+    </g>
+
+    <!-- Texto jerárquico -->
+    <g id="texto" transform="translate(70,5)">
+      <text x="0" y="38" 
+            font-family="'Inter', sans-serif" 
+            font-weight="700" 
+            font-size="34" 
+            fill="#FFFFFF"
+            letter-spacing="-0.5">
+        MASTER
+      </text>
+      
+      <text x="0" y="68" 
+            font-family="'Inter', sans-serif" 
+            font-weight="400" 
+            font-size="20" 
+            fill="#EAEAEA"
+            letter-spacing="0.3">
+        Herramientas y Servicios
+      </text>
+      
+      <!-- Línea dinámica -->
+      <path d="M0 78 L320 78" 
+            stroke="#2EC4B6" 
+            stroke-width="3" 
+            stroke-dasharray="8 4"/>
+    </g>
+  </g>
+</svg>
