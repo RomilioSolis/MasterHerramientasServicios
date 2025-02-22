@@ -1,0 +1,12 @@
+# Configuración de caché
+/*.html
+  Cache-Control: max-age=3600
+
+/assets/css/*
+  Cache-Control: max-age=31536000, immutable
+
+/assets/js/*
+  Cache-Control: max-age=31536000, immutable
+
+/assets/imagenes/*
+  Cache-Control: max-age=31536000, immutable
