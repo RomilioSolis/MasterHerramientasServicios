@@ -1,7 +1,7 @@
 /* styles.css - Versión Mejorada */
 :root {
-  --primary-color: #ff6600;
-  --secondary-color: #333;
+  --primary-color: #d84315;
+  --secondary-color:#2d2d2d;
   --background-color: #f4f4f4;
   --text-color: #333;
   --light-text-color: #fff;
@@ -58,7 +58,7 @@ header::after {
   left: 0;
   width: 100%;
   height: 3px;
-  background: var(--primary-color);
+  background: #1a7a4a;
   animation: gradientWave 3s ease infinite;
   background-size: 200% 200%;
 }
@@ -149,7 +149,7 @@ header::after {
 
 .card-title {
   font-weight: 600;
-  color: var(--secondary-color);
+  color: #2d2d2d;
   transition: color 0.3s ease;
 }
 
@@ -157,15 +157,21 @@ header::after {
   color: var(--primary-color);
 }
 
+.card-text {
+  color: #444;
+}
+
 /* Botones mejorados */
 .btn-success {
-  background: var(--primary-color);
+  background: #1a7a4a;
   border: none;
   border-radius: 8px;
   padding: 0.8rem 1.8rem;
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fff;
+  border-color: #166438;
 }
 
 .btn-success::before {
@@ -187,7 +193,9 @@ header::after {
 }
 
 .btn-success:hover {
-  box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+  background: #13653d;
+  border-color: #105530;
+  box-shadow: 0 3px 10px rgba(26, 122, 74, 0.3);
 }
 
 /* Footer animado */
@@ -319,13 +327,13 @@ footer::before {
 
 .btn-primary {
   background-color: #2a5cff;
-  border-color: #2a5cff;
-  transition: all 0.3s ease;
+  border-color: #1a4ae6;
+  color: #fff;
 }
 
 .btn-primary:hover {
   background-color: #1a4ae6;
-  border-color: #1a4ae6;
+  border-color: #0d3acf;
 }
 
 @media (max-width: 768px) {
