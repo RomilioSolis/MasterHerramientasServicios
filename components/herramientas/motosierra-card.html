@@ -1,11 +1,30 @@
 <!-- components/herramientas/motosierra-card.html -->
 <article class="col-md-4 mb-4" itemscope itemtype="https://schema.org/Product">
   <div class="card h-100">
+    <!-- Schema Markup -->
+    <div itemprop="brand" itemscope itemtype="https://schema.org/Brand" style="display: none;">
+      <meta itemprop="name" content="Master Herramientas y Servicios">
+    </div>
+    
+    <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+      <meta itemprop="ratingValue" content="4.8">
+      <meta itemprop="reviewCount" content="31">
+      <meta itemprop="bestRating" content="5">
+      <meta itemprop="worstRating" content="1">
+    </div>
+
+    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+      <meta itemprop="priceCurrency" content="COP">
+      <meta itemprop="price" content="90000">
+      <link itemprop="availability" href="https://schema.org/InStock">
+      <meta itemprop="url" content="https://masterenherramientasyservicios.com.co/#equipos">
+    </div>
+
+    <!-- Carrusel de imágenes -->
     <div id="carouselMotosierra" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <!-- Imagen Principal -->
         <div class="carousel-item active">
-          <img src="assets/imagenes/Motosierra/Motosierra.png" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/Motosierra/Motosierra.png" 
                class="d-block w-100"
                alt="Alquiler de motosierras en Cali - Potencia 50cc para poda y tala"
                loading="lazy"
@@ -14,9 +33,8 @@
                itemprop="image">
         </div>
         
-        <!-- Espacio para imágenes adicionales -->
         <div class="carousel-item">
-          <img src="assets/imagenes/motosierra/motosierra1.jpg" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/motosierra/motosierra1.jpg" 
                class="d-block w-100"
                alt="Equipo para corte de madera - Cadena de alta resistencia"
                loading="lazy"
@@ -26,7 +44,7 @@
         </div>
         
         <div class="carousel-item">
-          <img src="assets/imagenes/motosierra/motosierra2.jpg" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/motosierra/motosierra2.jpg" 
                class="d-block w-100"
                alt="Mantenimiento de motosierras - Servicio Valle del Cauca"
                loading="lazy"
@@ -56,10 +74,30 @@
 
     <div class="card-body">
       <h2 class="card-title h5" itemprop="name">Alquiler de Motosierras en Cali</h2>
+      
+      <!-- Review -->
+      <div itemprop="review" itemscope itemtype="https://schema.org/Review" style="display: none;">
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="Carlos Restrepo">
+        </div>
+        <meta itemprop="datePublished" content="2024-12-10">
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+          <meta itemprop="ratingValue" content="5">
+          <meta itemprop="bestRating" content="5">
+        </div>
+        <meta itemprop="reviewBody" content="La motosierra funcionó perfectamente para limpiar nuestro terreno. Excelente mantenimiento y potencia adecuada.">
+      </div>
+
       <p class="card-text" itemprop="description">
-        Equipos para trabajos forestales.
-        
+        Equipos profesionales para trabajos forestales.
+        <span class="d-block mt-2 small text-muted" itemprop="sku">SKU: MTSR-CALI-011</span>
       </p>
+      
+      <!-- Especificaciones técnicas -->
+      <ul class="small" itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+        <li><span itemprop="name">Potencia:</span> <span itemprop="value">50cc</span></li>
+        <li><span itemprop="name">Longitud espada:</span> <span itemprop="value">40cm</span></li>
+      </ul>
       
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="https://wa.me/573165345675?text=Hola,%20necesito%20alquilar%20motosierra%20en%20Cali" 

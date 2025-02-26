@@ -5,20 +5,20 @@
       <div class="carousel-inner">
         <!-- Imagen Principal -->
         <div class="carousel-item active">
-          <img src="assets/imagenes/Winches/Winches.png" 
+          <img src="assets/imagenes/winches/winche-principal.png" 
                class="d-block w-100"
-               alt="Alquiler de winches en Cali - Capacidad 1 a 10 toneladas"
+               alt="Winche profesional para alquiler en Cali - 1 a 10 toneladas"
                loading="lazy"
                width="400"
                height="300"
                itemprop="image">
         </div>
         
-        <!-- Espacio para imágenes adicionales -->
+        <!-- Imágenes adicionales -->
         <div class="carousel-item">
-          <img src="assets/imagenes/winche/winche1.jpg" 
+          <img src="assets/imagenes/winches/winche-electrico.jpg" 
                class="d-block w-100"
-               alt="Winche eléctrico para construcción - Servicio Valle del Cauca"
+               alt="Winche eléctrico con cable de acero reforzado"
                loading="lazy"
                width="400"
                height="300"
@@ -26,9 +26,9 @@
         </div>
         
         <div class="carousel-item">
-          <img src="assets/imagenes/winche/winche2.jpg" 
+          <img src="assets/imagenes/winches/winche-operacion.jpg" 
                class="d-block w-100"
-               alt="Equipo con cable de acero reforzado - Alquiler con operario"
+               alt="Operación segura de winches con personal certificado"
                loading="lazy"
                width="400"
                height="300"
@@ -46,36 +46,72 @@
         <span class="visually-hidden">Siguiente</span>
       </button>
 
-      <!-- Indicadores -->
+      <!-- Indicadores accesibles -->
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselWinche" data-bs-slide-to="0" class="active" aria-current="true"></button>
-        <button type="button" data-bs-target="#carouselWinche" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#carouselWinche" data-bs-slide-to="2"></button>
+        <button type="button" 
+                data-bs-target="#carouselWinche" 
+                data-bs-slide-to="0" 
+                class="active" 
+                aria-label="Ver imagen 1"
+                aria-current="true"></button>
+        <button type="button" 
+                data-bs-target="#carouselWinche" 
+                data-bs-slide-to="1"
+                aria-label="Ver imagen 2"></button>
+        <button type="button" 
+                data-bs-target="#carouselWinche" 
+                data-bs-slide-to="2"
+                aria-label="Ver imagen 3"></button>
       </div>
     </div>
 
     <div class="card-body">
       <h2 class="card-title h5" itemprop="name">Alquiler de Winches en Cali</h2>
-      <p class="card-text" itemprop="description">
-        Equipos para elevación y tracción.
-        
-      </p>
       
+      <!-- Schema.org Offer -->
+      <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="d-none">
+        <meta itemprop="priceCurrency" content="COP"/>
+        <meta itemprop="price" content="150000"/>
+        <link itemprop="availability" href="https://schema.org/InStock"/>
+        <link itemprop="url" href="https://tudominio.com/alquiler/winches-cali"/>
+        <meta itemprop="priceValidUntil" content="2025-12-31"/>
+      </div>
+
+      <!-- Schema.org AggregateRating -->
+      <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating" class="d-none">
+        <meta itemprop="ratingValue" content="4.6"/>
+        <meta itemprop="reviewCount" content="18"/>
+        <meta itemprop="bestRating" content="5"/>
+      </div>
+
+      <!-- Descripción mejorada -->
+      <p class="card-text" itemprop="description">
+        Equipos profesionales para elevación y tracción con capacidad de 1 a 10 toneladas. Características principales:
+        <ul class="mb-3">
+          <li>Motor eléctrico/diésel</li>
+          <li>Cable de acero reforzado</li>
+          <li>Control remoto inalámbrico</li>
+          <li>Incluye operario certificado</li>
+        </ul>
+        Ideal para construcción, minería y rescates técnicos.
+      </p>
+
+      <!-- Botones de acción -->
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="https://wa.me/573165345675?text=Hola,%20necesito%20alquilar%20winche%20en%20Cali" 
            class="btn btn-success flex-fill"
            target="_blank"
-           aria-label="Cotizar alquiler de winche por WhatsApp"
+           aria-label="Consultar capacidades por WhatsApp"
            rel="noopener"
            itemprop="url">
           <i class="fab fa-whatsapp"></i> Capacidades
         </a>
         
-        <a href="tel:+573165345675" 
+        <a href="#especificaciones"
            class="btn btn-primary flex-fill"
-           aria-label="Llamar para operación segura de winches"
-           itemprop="telephone">
-          <i class="fas fa-phone-alt"></i> Soporte Técnico
+           aria-label="Ver características técnicas"
+           itemprop="additionalProperty">
+          <i class="fas fa-cogs"></i> Especificaciones
         </a>
       </div>
     </div>

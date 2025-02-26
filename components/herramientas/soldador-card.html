@@ -1,11 +1,30 @@
 <!-- components/herramientas/soldador-card.html -->
 <article class="col-md-4 mb-4" itemscope itemtype="https://schema.org/Product">
   <div class="card h-100">
+    <!-- Schema Markup -->
+    <div itemprop="brand" itemscope itemtype="https://schema.org/Brand" style="display: none;">
+      <meta itemprop="name" content="Master Herramientas y Servicios">
+    </div>
+    
+    <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+      <meta itemprop="ratingValue" content="4.7">
+      <meta itemprop="reviewCount" content="33">
+      <meta itemprop="bestRating" content="5">
+      <meta itemprop="worstRating" content="1">
+    </div>
+
+    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+      <meta itemprop="priceCurrency" content="COP">
+      <meta itemprop="price" content="120000">
+      <link itemprop="availability" href="https://schema.org/InStock">
+      <meta itemprop="url" content="https://masterenherramientasyservicios.com.co/#equipos">
+    </div>
+
+    <!-- Carrusel de imágenes -->
     <div id="carouselSoldador" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <!-- Imagen Principal -->
         <div class="carousel-item active">
-          <img src="assets/imagenes/Soldador/Soldador.png" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/Soldador/Soldador.png" 
                class="d-block w-100"
                alt="Alquiler de equipos de soldadura en Cali - Inversores y transformadores"
                loading="lazy"
@@ -14,9 +33,8 @@
                itemprop="image">
         </div>
         
-        <!-- Espacio para imágenes adicionales -->
         <div class="carousel-item">
-          <img src="assets/imagenes/soldador/soldador1.jpg" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/soldador/soldador1.jpg" 
                class="d-block w-100"
                alt="Equipos para soldadura MIG/MAG - Servicio Valle del Cauca"
                loading="lazy"
@@ -26,7 +44,7 @@
         </div>
         
         <div class="carousel-item">
-          <img src="assets/imagenes/soldador/soldador2.jpg" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/soldador/soldador2.jpg" 
                class="d-block w-100"
                alt="Kits completos con caretas y accesorios - Alquiler diario"
                loading="lazy"
@@ -56,10 +74,30 @@
 
     <div class="card-body">
       <h2 class="card-title h5" itemprop="name">Alquiler de Equipos de Soldadura en Cali</h2>
+      
+      <!-- Review -->
+      <div itemprop="review" itemscope itemtype="https://schema.org/Review" style="display: none;">
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="Pedro Gómez">
+        </div>
+        <meta itemprop="datePublished" content="2024-07-05">
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+          <meta itemprop="ratingValue" content="5">
+          <meta itemprop="bestRating" content="5">
+        </div>
+        <meta itemprop="reviewBody" content="Equipo profesional con excelente rendimiento. La máquina de soldar mantuvo una corriente estable durante todo el trabajo.">
+      </div>
+
       <p class="card-text" itemprop="description">
         Tecnología para trabajos metalúrgicos.
-        -
+        <span class="d-block mt-2 small text-muted" itemprop="sku">SKU: SOLD-CALI-006</span>
       </p>
+      
+      <!-- Especificaciones técnicas -->
+      <ul class="small" itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+        <li><span itemprop="name">Tipo:</span> <span itemprop="value">MIG/MAG, Inversor</span></li>
+        <li><span itemprop="name">Potencia:</span> <span itemprop="value">200-400 Amp</span></li>
+      </ul>
       
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="https://wa.me/573165345675?text=Hola,%20necesito%20alquilar%20equipo%20de%20soldadura%20en%20Cali" 

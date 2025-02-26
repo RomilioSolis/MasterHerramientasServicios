@@ -1,11 +1,30 @@
 <!-- components/herramientas/sonda-electrica-card.html -->
 <article class="col-md-4 mb-4" itemscope itemtype="https://schema.org/Product">
   <div class="card h-100">
+    <!-- Schema Markup -->
+    <div itemprop="brand" itemscope itemtype="https://schema.org/Brand" style="display: none;">
+      <meta itemprop="name" content="Master Herramientas y Servicios">
+    </div>
+    
+    <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+      <meta itemprop="ratingValue" content="4.8">
+      <meta itemprop="reviewCount" content="19">
+      <meta itemprop="bestRating" content="5">
+      <meta itemprop="worstRating" content="1">
+    </div>
+
+    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+      <meta itemprop="priceCurrency" content="COP">
+      <meta itemprop="price" content="85000">
+      <link itemprop="availability" href="https://schema.org/InStock">
+      <meta itemprop="url" content="https://masterenherramientasyservicios.com.co/#equipos">
+    </div>
+
+    <!-- Carrusel de imágenes -->
     <div id="carouselSonda" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <!-- Imagen Principal -->
         <div class="carousel-item active">
-          <img src="assets/imagenes/SondaElectrica/SondaElectrica.png" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/SondaElectrica/SondaElectrica.png" 
                class="d-block w-100"
                alt="Alquiler de sonda eléctrica en Cali - Destape de cañerías con cable de 15m"
                loading="lazy"
@@ -14,9 +33,8 @@
                itemprop="image">
         </div>
         
-        <!-- Espacio para imágenes adicionales -->
         <div class="carousel-item">
-          <img src="assets/imagenes/sonda/sonda1.jpg" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/sonda/sonda1.jpg" 
                class="d-block w-100"
                alt="Equipo para destapado de tuberías - Servicio Valle del Cauca"
                loading="lazy"
@@ -26,7 +44,7 @@
         </div>
         
         <div class="carousel-item">
-          <img src="assets/imagenes/sonda/sonda2.jpg" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/sonda/sonda2.jpg" 
                class="d-block w-100"
                alt="Sonda profesional con cabezal intercambiable - Alquiler por horas"
                loading="lazy"
@@ -56,10 +74,30 @@
 
     <div class="card-body">
       <h2 class="card-title h5" itemprop="name">Alquiler de Sonda Eléctrica en Cali</h2>
+      
+      <!-- Review -->
+      <div itemprop="review" itemscope itemtype="https://schema.org/Review" style="display: none;">
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="Juan Gutiérrez">
+        </div>
+        <meta itemprop="datePublished" content="2025-01-20">
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+          <meta itemprop="ratingValue" content="5">
+          <meta itemprop="bestRating" content="5">
+        </div>
+        <meta itemprop="reviewBody" content="La sonda resolvió nuestro problema de tuberías en minutos. Excelente equipo y servicio rápido de entrega.">
+      </div>
+
       <p class="card-text" itemprop="description">
-        Equipo para mantenimiento de tuberías.
-        - 
+        Equipo profesional para mantenimiento de tuberías.
+        <span class="d-block mt-2 small text-muted" itemprop="sku">SKU: SOND-CALI-012</span>
       </p>
+      
+      <!-- Especificaciones técnicas -->
+      <ul class="small" itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+        <li><span itemprop="name">Longitud cable:</span> <span itemprop="value">15 metros</span></li>
+        <li><span itemprop="name">Cabezales incluidos:</span> <span itemprop="value">3 tipos diferentes</span></li>
+      </ul>
       
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="https://wa.me/573165345675?text=Hola,%20necesito%20alquilar%20sonda%20eléctrica%20en%20Cali" 

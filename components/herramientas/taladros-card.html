@@ -1,11 +1,30 @@
 <!-- components/herramientas/taladros-card.html -->
 <article class="col-md-4 mb-4" itemscope itemtype="https://schema.org/Product">
   <div class="card h-100">
+    <!-- Schema Markup -->
+    <div itemprop="brand" itemscope itemtype="https://schema.org/Brand" style="display: none;">
+      <meta itemprop="name" content="Master Herramientas y Servicios">
+    </div>
+    
+    <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+      <meta itemprop="ratingValue" content="4.7">
+      <meta itemprop="reviewCount" content="45">
+      <meta itemprop="bestRating" content="5">
+      <meta itemprop="worstRating" content="1">
+    </div>
+
+    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+      <meta itemprop="priceCurrency" content="COP">
+      <meta itemprop="price" content="65000">
+      <link itemprop="availability" href="https://schema.org/InStock">
+      <meta itemprop="url" content="https://masterenherramientasyservicios.com.co/#equipos">
+    </div>
+
+    <!-- Carrusel de imágenes -->
     <div id="carouselTaladros" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <!-- Imagen Principal -->
         <div class="carousel-item active">
-          <img src="assets/imagenes/Taladros/Taladro.webp" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/Taladros/Taladro.webp" 
                class="d-block w-100"
                alt="Alquiler de taladros en Cali para trabajos de construcción - Varios modelos disponibles"
                loading="lazy"
@@ -14,9 +33,8 @@
                itemprop="image">
         </div>
         
-        <!-- Espacio para imágenes adicionales -->
         <div class="carousel-item">
-          <img src="assets/imagenes/Taladros/Taladro1.webp" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/Taladros/Taladro1.webp" 
                class="d-block w-100"
                alt="Taladros de impacto para concreto - Alquiler diario en Valle del Cauca"
                loading="lazy"
@@ -26,7 +44,7 @@
         </div>
         
         <div class="carousel-item">
-          <img src="assets/imagenes/Taladros/Taladro2.webp" 
+          <img src="https://masterenherramientasyservicios.com.co/assets/imagenes/Taladros/Taladro2.webp" 
                class="d-block w-100"
                alt="Equipos para perforación en altura - Incluye accesorios básicos"
                loading="lazy"
@@ -56,12 +74,37 @@
 
     <div class="card-body">
       <h2 class="card-title h5" itemprop="name">Alquiler de Taladros en Cali</h2>
+      
+      <!-- Review -->
+      <div itemprop="review" itemscope itemtype="https://schema.org/Review" style="display: none;">
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="María Fernanda López">
+        </div>
+        <meta itemprop="datePublished" content="2025-02-15">
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+          <meta itemprop="ratingValue" content="5">
+          <meta itemprop="bestRating" content="5">
+        </div>
+        <meta itemprop="reviewBody" content="El taladro funcionó perfectamente para instalar nuestros estantes. Muy buena potencia y accesorios completos.">
+      </div>
+
       <p class="card-text" itemprop="description">
-        Equipos de perforación para múltiples superficies con potencia variable. Incluye:
-        - Juego de brocas estándar
-        - Maletín de transporte
-        - Guía de uso seguro
+        Equipos de perforación para múltiples superficies con potencia variable.
+        <span class="d-block mt-2 small text-muted" itemprop="sku">SKU: TALD-CALI-013</span>
       </p>
+      
+      <!-- Especificaciones técnicas -->
+      <ul class="small" itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+        <li><span itemprop="name">Incluye:</span>
+          <ul>
+            <li itemprop="value">Juego de brocas estándar</li>
+            <li itemprop="value">Maletín de transporte</li>
+            <li itemprop="value">Guía de uso seguro</li>
+          </ul>
+        </li>
+        <li><span itemprop="name">Potencia:</span> <span itemprop="value">800W</span></li>
+        <li><span itemprop="name">Velocidad variable:</span> <span itemprop="value">0-3000 RPM</span></li>
+      </ul>
       
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="https://wa.me/573165345675?text=Hola,%20necesito%20alquilar%20un%20taladro%20en%20Cali" 

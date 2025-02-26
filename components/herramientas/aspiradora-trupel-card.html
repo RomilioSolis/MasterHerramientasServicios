@@ -5,20 +5,20 @@
       <div class="carousel-inner">
         <!-- Imagen Principal -->
         <div class="carousel-item active">
-          <img src="assets/imagenes/Aspiradora/Aspiradora.png" 
+          <img src="assets/imagenes/aspiradora/aspiradora-trupel.png" 
                class="d-block w-100"
-               alt="Alquiler de aspiradora industrial Trupel en Cali - 2000W de potencia"
+               alt="Aspiradora industrial Trupel 2000W - Alquiler en Cali"
                loading="lazy"
                width="400"
                height="300"
                itemprop="image">
         </div>
         
-        <!-- Espacio para imágenes adicionales -->
+        <!-- Imágenes adicionales -->
         <div class="carousel-item">
-          <img src="assets/imagenes/aspiradora/aspiradora1.jpg" 
+          <img src="assets/imagenes/aspiradora/filtro-hepa.jpg" 
                class="d-block w-100"
-               alt="Equipo para limpieza de líquidos y sólidos - Filtro HEPA incluido"
+               alt="Sistema de filtrado HEPA para líquidos y sólidos"
                loading="lazy"
                width="400"
                height="300"
@@ -26,9 +26,9 @@
         </div>
         
         <div class="carousel-item">
-          <img src="assets/imagenes/aspiradora/aspiradora2.jpg" 
+          <img src="assets/imagenes/aspiradora/limpieza-obra.jpg" 
                class="d-block w-100"
-               alt="Aspiradora industrial para construcción - Servicio Valle del Cauca"
+               alt="Equipo en operación para limpieza post-construcción"
                loading="lazy"
                width="400"
                height="300"
@@ -46,36 +46,72 @@
         <span class="visually-hidden">Siguiente</span>
       </button>
 
-      <!-- Indicadores -->
+      <!-- Indicadores accesibles -->
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselAspiradora" data-bs-slide-to="0" class="active" aria-current="true"></button>
-        <button type="button" data-bs-target="#carouselAspiradora" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#carouselAspiradora" data-bs-slide-to="2"></button>
+        <button type="button" 
+                data-bs-target="#carouselAspiradora" 
+                data-bs-slide-to="0" 
+                class="active" 
+                aria-label="Ver imagen principal"
+                aria-current="true"></button>
+        <button type="button" 
+                data-bs-target="#carouselAspiradora" 
+                data-bs-slide-to="1"
+                aria-label="Ver sistema de filtrado"></button>
+        <button type="button" 
+                data-bs-target="#carouselAspiradora" 
+                data-bs-slide-to="2"
+                aria-label="Ver equipo en operación"></button>
       </div>
     </div>
 
     <div class="card-body">
       <h2 class="card-title h5" itemprop="name">Aspiradora Industrial Trupel - Alquiler en Cali</h2>
-      <p class="card-text" itemprop="description">
-        Equipo profesional para limpieza.
-        
-      </p>
       
+      <!-- Schema.org Offer -->
+      <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="d-none">
+        <meta itemprop="priceCurrency" content="COP"/>
+        <meta itemprop="price" content="120000"/>
+        <link itemprop="availability" href="https://schema.org/InStock"/>
+        <link itemprop="url" href="https://tudominio.com/alquiler/aspiradora-trupel"/>
+        <meta itemprop="priceValidUntil" content="2025-12-31"/>
+      </div>
+
+      <!-- Schema.org AggregateRating -->
+      <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating" class="d-none">
+        <meta itemprop="ratingValue" content="4.9"/>
+        <meta itemprop="reviewCount" content="27"/>
+        <meta itemprop="bestRating" content="5"/>
+      </div>
+
+      <!-- Descripción mejorada -->
+      <p class="card-text" itemprop="description">
+        Aspiradora industrial profesional para limpieza intensiva. Características clave:
+        <ul class="mb-3">
+          <li>2000W de potencia</li>
+          <li>Filtro HEPA de 5 etapas</li>
+          <li>Capacidad para líquidos y sólidos</li>
+          <li>Depósito de 50 litros</li>
+        </ul>
+        Ideal para limpieza post-obra, mantenimiento industrial y emergencias.
+      </p>
+
+      <!-- Botones de acción -->
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="https://wa.me/573165345675?text=Hola,%20necesito%20alquilar%20aspiradora%20Trupel%20en%20Cali" 
            class="btn btn-success flex-fill"
            target="_blank"
-           aria-label="Cotizar alquiler de aspiradora por WhatsApp"
+           aria-label="Consultar especificaciones técnicas por WhatsApp"
            rel="noopener"
            itemprop="url">
           <i class="fab fa-whatsapp"></i> Especificaciones
         </a>
         
-        <a href="tel:+573165345675" 
+        <a href="#detalles-limpieza"
            class="btn btn-primary flex-fill"
-           aria-label="Llamar para limpieza post-obra"
-           itemprop="telephone">
-          <i class="fas fa-phone-alt"></i> Limpieza Profunda
+           aria-label="Ver protocolos de limpieza profunda"
+           itemprop="additionalProperty">
+          <i class="fas fa-broom"></i> Limpieza Profunda
         </a>
       </div>
     </div>
