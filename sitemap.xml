@@ -1,62 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Páginas principales -->
+  <!-- Página principal -->
   <url>
     <loc>https://www.masterenherramientasyservicios.com.co/</loc>
-    <lastmod>2023-11-15</lastmod>
+    <lastmod>2023-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Sección de Herramientas -->
+  <!-- Secciones principales del header -->
   <url>
-    <loc>https://www.masterenherramientasyservicios.com.co/herramientas</loc>
-    <lastmod>2023-11-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.masterenherramientasyservicios.com.co/nosotros</loc>
+    <lastmod>2023-11-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- URLs de productos (ajustadas a tu estructura real) -->
+  <!-- Equipos y subcategorías -->
   <url>
-    <loc>https://www.masterenherramientasyservicios.com.co/herramientas/gatos-hidraulicos</loc>
-    <lastmod>2023-11-15</lastmod>
+    <loc>https://www.masterenherramientasyservicios.com.co/equipos</loc>
+    <lastmod>2023-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.masterenherramientasyservicios.com.co/equipos/andamios</loc>
+    <lastmod>2023-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.masterenherramientasyservicios.com.co/herramientas/cortadora-porcelanato</loc>
-    <lastmod>2023-11-15</lastmod>
+    <loc>https://www.masterenherramientasyservicios.com.co/equipos/escaleras</loc>
+    <lastmod>2023-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.masterenherramientasyservicios.com.co/herramientas/ganchos-colgantes</loc>
-    <lastmod>2023-11-15</lastmod>
+    <loc>https://www.masterenherramientasyservicios.com.co/equipos/taladros</loc>
+    <lastmod>2023-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.masterenherramientasyservicios.com.co/herramientas/diferenciales</loc>
-    <lastmod>2023-11-15</lastmod>
+    <loc>https://www.masterenherramientasyservicios.com.co/equipos/gatos-metalicos</loc>
+    <lastmod>2023-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.masterenherramientasyservicios.com.co/herramientas/hidrolavadora</loc>
-    <lastmod>2023-11-15</lastmod>
+    <loc>https://www.masterenherramientasyservicios.com.co/equipos/gato-estibador</loc>
+    <lastmod>2023-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Otras páginas importantes -->
+  <url>
+    <loc>https://www.masterenherramientasyservicios.com.co/equipos/cortadoras</loc>
+    <lastmod>2023-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Servicios y subcategorías -->
+  <url>
+    <loc>https://www.masterenherramientasyservicios.com.co/servicios</loc>
+    <lastmod>2023-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.masterenherramientasyservicios.com.co/servicios/extraccion-nucleo</loc>
+    <lastmod>2023-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.masterenherramientasyservicios.com.co/servicios/demolicion</loc>
+    <lastmod>2023-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.masterenherramientasyservicios.com.co/servicios/poda-arboles</loc>
+    <lastmod>2023-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contacto -->
   <url>
     <loc>https://www.masterenherramientasyservicios.com.co/contacto</loc>
-    <lastmod>2023-11-15</lastmod>
+    <lastmod>2023-11-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- URLs adicionales del header -->
+  <url>
+    <loc>https://www.masterenherramientasyservicios.com.co/herramientas-electricas</loc>
+    <lastmod>2023-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.masterenherramientasyservicios.com.co/reparaciones-mantenimiento</loc>
+    <lastmod>2023-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.masterenherramientasyservicios.com.co/limpieza-industrial</loc>
+    <lastmod>2023-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
