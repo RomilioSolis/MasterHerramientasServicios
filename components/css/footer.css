@@ -1,0 +1,41 @@
+/* components/css/footer.css */
+footer {
+    background: var(--secondary-color);
+    color: var(--light-text-color);
+    padding: 2.5rem 0;
+    font-size: 0.95rem;
+  }
+  
+  footer a {
+    color: var(--light-text-color);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  footer a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+    }
+  
+    footer .col-md-6 {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+  
+    footer .text-md-end {
+      text-align: center !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    footer {
+      font-size: 0.9rem;
+      padding: 1.5rem 0;
+    }
+  }
