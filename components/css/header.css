@@ -1,81 +1,100 @@
 /* components/css/header.css */
 .custom-header {
-    background: linear-gradient(145deg, var(--secondary-color), #34495e);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid var(--primary-color);
-    padding: 2rem 0;
-    position: relative;
-    z-index: 1000;
-  }
-  
-  .brand-name {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    color: var(--light-text-color);
-    line-height: 1.3;
-    text-align: center;
-  }
-  
-  .brand-letter {
-    font-weight: 700;
-    position: relative;
-    display: inline-block;
-    transition: var(--hover-transition);
-  }
-  
-  .m-letter { color: #2ecc71; }
-  .h-letter { color: #3498db; }
-  .s-letter { color: #f1c40f; }
-  
+  background: linear-gradient(145deg, var(--secondary-color), #34495e);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid var(--primary-color);
+  padding: 2rem 0;
+  position: relative;  /* Se usa relative para que esté en el flujo normal */
+  z-index: 1000;
+}
+
+.brand-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: var(--light-text-color);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.brand-letter {
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  transition: var(--hover-transition);
+}
+
+.m-letter { color: #2ecc71; }
+.h-letter { color: #3498db; }
+.s-letter { color: #f1c40f; }
+
+.nav-button {
+  color: var(--light-text-color) !important;
+  padding: 0.8rem 1.8rem !important;
+  border-radius: 50px !important;
+  transition: var(--hover-transition);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.nav-button:hover {
+  background: var(--primary-color) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow);
+}
+
+.search-input {
+  border-radius: 50px 0 0 50px !important;
+  padding: 1rem 1.8rem;
+  border: 2px solid var(--primary-color) !important;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.btn-search {
+  border-radius: 0 50px 50px 0 !important;
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  padding: 0 1.8rem;
+}
+
+.search-feedback {
+  color: #95a5a6;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .custom-header { padding: 1.5rem 0; }
+  .brand-name { font-size: 1.8rem; }
   .nav-button {
-    color: var(--light-text-color) !important;
-    padding: 0.8rem 1.8rem !important;
-    border-radius: 50px !important;
-    transition: var(--hover-transition);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  }
-  
-  .nav-button:hover {
-    background: var(--primary-color) !important;
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow);
-  }
-  
-  .search-input {
-    border-radius: 50px 0 0 50px !important;
-    padding: 1rem 1.8rem;
-    border: 2px solid var(--primary-color) !important;
-    background: rgba(255, 255, 255, 0.95);
-  }
-  
-  .btn-search {
-    border-radius: 0 50px 50px 0 !important;
-    background: var(--primary-color) !important;
-    border-color: var(--primary-color) !important;
-    padding: 0 1.8rem;
-  }
-  
-  .search-feedback {
-    color: #95a5a6;
+    padding: 0.6rem 1.2rem !important;
     font-size: 0.9rem;
-    text-align: center;
   }
-  
-  /* Responsividad */
-  @media (max-width: 768px) {
-    .custom-header { padding: 1.5rem 0; }
-    
-    .brand-name { font-size: 1.8rem; }
-    
-    .nav-button {
-      padding: 0.6rem 1.2rem !important;
-      font-size: 0.9rem;
-    }
-    
-    .search-input { padding: 0.8rem 1.2rem; }
-  }
-  
-  @media (min-width: 992px) {
-    .brand-name { font-size: 2.5rem; }
-  }
+  .search-input { padding: 0.8rem 1.2rem; }
+}
+
+@media (min-width: 992px) {
+  .brand-name { font-size: 2.5rem; }
+}
+
+/* Scroll suave */
+html {
+scroll-behavior: smooth;
+}
+
+/* Enlace activo */
+.nav-button.active {
+border-bottom: 2px solid #fff;
+padding-bottom: 2px;
+}
+
+/* Transición para hover */
+.nav-button {
+transition: all 0.3s ease;
+}
+
+/* Efecto hover */
+.nav-button:hover {
+transform: translateY(-2px);
+opacity: 0.9;
+}

@@ -1,0 +1,210 @@
+/* components/css/nosotros.css */
+:root {
+    --primary-color: #2ecc71;
+    --secondary-color: #3498db;
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --bg-light: #ffffff;
+    --bg-dark: #1a1a1a;
+    --card-bg-light: #fff;
+    --card-bg-dark: #2d2d2d;
+    --footer-bg-dark: #252525;
+    --border-dark: #404040;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  }
+  
+  /* Estructura general */
+  .nosotros-page {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Títulos */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
+    transition: color 0.3s;
+  }
+  
+  /* Sección principal */
+  #nosotros-detallado {
+    padding: 4rem 0;
+  }
+  
+  /* Tarjetas de misión/visión */
+  .mision-vision-card {
+    background: var(--card-bg-light);
+    border-left: 4px solid;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+  }
+  
+  .mision-vision-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Video */
+  .about-video-card {
+    background: var(--card-bg-light);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+  }
+  
+  /* Valores corporativos */
+  .value-card {
+    background: var(--card-bg-light);
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: var(--transition);
+  }
+  
+  .value-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .value-card i {
+    color: var(--primary-color);
+    transition: color 0.3s;
+  }
+  
+  /* Footer */
+  footer {
+    background: #f8f9fa;
+    color: var(--text-dark);
+    padding: 2rem 0;
+    margin-top: auto;
+  }
+  
+  footer h5 {
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+  }
+  
+  footer a {
+    color: var(--text-dark);
+    transition: color 0.3s;
+  }
+  
+  footer a:hover {
+    color: var(--primary-color);
+  }
+  
+  /* ============ DARK MODE ============ */
+  [data-bs-theme="dark"] {
+    background-color: var(--bg-dark);
+    color: var(--text-light) !important;
+  }
+  
+  [data-bs-theme="dark"] .nosotros-page {
+    background: var(--bg-dark);
+  }
+  
+  [data-bs-theme="dark"] h1,
+  [data-bs-theme="dark"] h2,
+  [data-bs-theme="dark"] h3,
+  [data-bs-theme="dark"] h4,
+  [data-bs-theme="dark"] h5,
+  [data-bs-theme="dark"] h6 {
+    color: var(--text-light) !important;
+  }
+  
+  [data-bs-theme="dark"] .mision-vision-card,
+  [data-bs-theme="dark"] .value-card,
+  [data-bs-theme="dark"] .about-video-card {
+    background: var(--card-bg-dark);
+    border-color: var(--border-dark);
+  }
+  
+  [data-bs-theme="dark"] footer {
+    background: var(--footer-bg-dark) !important;
+    color: var(--text-light) !important;
+  }
+  
+  [data-bs-theme="dark"] footer h5 {
+    color: var(--text-light) !important;
+    border-color: var(--primary-color);
+  }
+  
+  [data-bs-theme="dark"] footer a {
+    color: var(--text-light) !important;
+  }
+  
+  [data-bs-theme="dark"] .value-card i {
+    color: var(--secondary-color);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    #nosotros-detallado {
+      padding: 2rem 0;
+    }
+    
+    .value-card {
+      padding: 1.5rem;
+    }
+    
+    .mision-vision-card {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .about-video-card {
+      margin-top: 1rem;
+    }
+    
+    footer {
+      text-align: center;
+    }
+    
+    footer h5 {
+      margin-top: 1.5rem;
+    }
+  }
+
+  /* components/css/nosotros.css */
+
+/* Estilos para tarjetas */
+.mision-vision-card {
+    transition: all 0.3s ease;
+    background: var(--card-bg-light);
+  }
+  
+  .value-card {
+    transition: transform 0.3s ease, background 0.3s ease;
+    background: var(--card-bg-light);
+  }
+  
+  /* Títulos */
+  h1.display-4 {
+    font-weight: 700;
+    letter-spacing: -0.05rem;
+  }
+  
+  /* Footer */
+  footer {
+    background: #f8f9fa;
+    color: var(--text-dark);
+    padding: 2rem 0;
+    margin-top: 3rem;
+  }
+  
+  footer h5 {
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  footer a {
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+  }
+  
+  footer a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+  }

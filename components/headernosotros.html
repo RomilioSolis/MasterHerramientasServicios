@@ -1,9 +1,18 @@
-<!-- components/header.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Header Nosotros</title>
+  <link rel="stylesheet" href="components/css/headernosotros.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<!-- components/headernosotros.html -->
 <header class="custom-header bg-dark text-white">
   <div class="container">
-    <div class="header-content py-4">
-      <div class="branding text-center mb-4">
-        <h1 class="display-5 fw-bold mb-2">
+    <div class="header-content">
+      <div class="branding text-center">
+        <h1 class="display-5 fw-bold">
           <a href="index.html" class="text-decoration-none text-white">
             <span class="brand-name">
               <span class="brand-letter m-letter">M</span>aster en 
@@ -14,10 +23,10 @@
         </h1>
       </div>
 
-      <nav class="main-nav mb-4">
+      <nav class="main-nav">
         <ul class="nav justify-content-center gap-4">
           <li class="nav-item">
-            <a class="nav-link nav-button" href="nosotros.html"> <!-- Enlace modificado -->
+            <a class="nav-link nav-button" href="index.html#nosotros">
               <i class="fas fa-building me-2"></i>
               <span class="link-text">Nosotros</span>
             </a>
@@ -37,13 +46,13 @@
         </ul>
       </nav>
 
-      <div class="search-container mx-auto" style="max-width: 600px;">
+      <div class="search-container mx-auto">
         <div class="input-group search-group shadow-lg">
           <input type="text" 
                  id="buscadorHerramientas" 
                  class="form-control search-input" 
                  placeholder="Buscar herramientas..."
-                 aria-label="Buscador de herramientas">
+                 aria-label="Buscador">
           <button class="btn btn-search" type="button" aria-label="Buscar">
             <i class="fas fa-search"></i>
           </button>
@@ -54,47 +63,48 @@
   </div>
 </header>
 
-<!-- Estilos -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="stylesheet" href="components/css/header.css">
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll suave para enlaces internos
+  // Scroll suave mejorado
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       if(this.hash && this.pathname === window.location.pathname) {
         e.preventDefault();
         const target = document.querySelector(this.hash);
         if(target) {
-          target.scrollIntoView({
+          window.scrollTo({
             behavior: 'smooth',
-            block: 'start'
+            top: target.offsetTop - 100,
+            left: 0
           });
         }
       }
     });
   });
 
-  // Sistema de búsqueda
+  // Sistema de búsqueda con debounce
   const buscador = document.getElementById('buscadorHerramientas');
   const resultado = document.getElementById('resultadoBusqueda');
-
+  
   const handleSearch = (termino) => {
     if(termino.length > 0) {
       resultado.textContent = `Buscando: ${termino}`;
-      resultado.style.display = 'block';
       window.location.href = `index.html#equipos?search=${encodeURIComponent(termino)}`;
     }
   };
 
-  buscador.addEventListener('input', function(e) {
-    const termino = e.target.value.trim();
-    if(termino.length > 2) handleSearch(termino);
-  });
+  const debounce = (func, delay = 300) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+  };
 
-  buscador.addEventListener('keypress', function(e) {
-    if(e.key === 'Enter') handleSearch(this.value.trim());
-  });
+  buscador.addEventListener('input', debounce((e) => {
+    handleSearch(e.target.value.trim());
+  }));
 });
 </script>
+</body>
+</html>

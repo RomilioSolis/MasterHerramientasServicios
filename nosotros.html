@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO -->
+  <title>Sobre Nosotros | Master Herramientas SAS - Expertos en Alquiler de Equipos</title>
+  <meta name="description" content="Conoce nuestra trayectoria de más de 10 años en alquiler de herramientas profesionales en Cali. Compromiso, calidad y servicio personalizado.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Misión y Visión | Master Herramientas">
+  <meta property="og:description" content="Descubre nuestros principios fundamentales: excelencia en servicio y compromiso con el desarrollo sostenible">
+  <meta property="og:image" content="https://masterenherramientasyservicios.com.co/assets/imagenes/nosotros-og.jpg">
+
+  <!-- Schema markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Sobre Nosotros",
+    "description": "Misión, visión y valores de Master Herramientas SAS",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Master Herramientas y Servicios",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.svg"
+      }
+    }
+  }
+  </script>
+
+  <!-- Enlaces -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/nosotros.css">
+  <link rel="stylesheet" href="../components/social-buttons.css">
+  <link rel="stylesheet" href="../components/BotonWhatsapp/whatsapp-button.css">
+  <link rel="stylesheet" href="../components/dark-mode/dark-mode.css">
+
+  <!-- Estilos dark mode corregidos -->
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --bg-dark: #1a1a1a;
+      --text-light: #f8f9fa;
+      --text-dark: #212529;
+      --card-bg-light: #fff;
+      --card-bg-dark: #2d2d2d;
+      --footer-bg-dark: #252525;
+      --footer-text-dark: #e9ecef;
+      --border-dark: #404040;
+      --primary-color: #2ecc71;
+    }
+
+    /* Modo oscuro general */
+    [data-bs-theme="dark"] {
+      background-color: var(--bg-dark);
+      color: var(--text-light) !important;
+    }
+
+    /* Títulos principales */
+    [data-bs-theme="dark"] h1.display-4 {
+      color: var(--primary-color) !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Tarjetas de misión/visión */
+    [data-bs-theme="dark"] .mision-vision-card {
+      background-color: var(--card-bg-dark) !important;
+      border-left: 4px solid var(--primary-color);
+      color: var(--text-light) !important;
+    }
+
+    [data-bs-theme="dark"] .mision-vision-card h3 {
+      color: var(--text-light) !important;
+    }
+
+    /* Valores corporativos */
+    [data-bs-theme="dark"] .value-card {
+      background-color: var(--card-bg-dark) !important;
+      border: 1px solid var(--border-dark);
+      color: var(--text-light) !important;
+    }
+
+    /* Footer */
+    [data-bs-theme="dark"] footer {
+      background-color: var(--footer-bg-dark) !important;
+      border-top: 3px solid var(--primary-color);
+    }
+
+    [data-bs-theme="dark"] footer * {
+      color: var(--footer-text-dark) !important;
+    }
+
+    [data-bs-theme="dark"] footer a:hover {
+      color: var(--primary-color) !important;
+    }
+  </style>
+</head>
+
+<body class="nosotros-page">
+  <!-- Header -->
+  <div id="header-container"></div>
+
+  <!-- Contenido principal -->
+  <main>
+    <section id="nosotros-detallado" class="py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Video -->
+          <div class="col-lg-6 mb-4">
+            <div class="about-video-card shadow-lg">
+              <div class="ratio ratio-16x9">
+                <video controls 
+                       class="rounded-3"
+                       poster="../assets/imagenes/miniatura-video.jpg"
+                       preload="metadata"
+                       aria-label="Demostración de herramientas">
+                  <source src="../assets/Videos/Video1.mp4" type="video/mp4">
+                  <track kind="captions" src="../assets/videos/captions.vtt" srclang="es" label="Español">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Misión y Visión -->
+          <div class="col-lg-6">
+            <h1 class="display-4 mb-4 text-primary">Misión y Visión</h1>
+            
+            <div class="mision-vision-card p-4 rounded-3 shadow">
+              <h3 class="text-success mb-3">
+                <i class="fas fa-bullseye me-2"></i>Nuestra Misión
+              </h3>
+              <p class="lead">
+                Proveer soluciones integrales en alquiler de herramientas profesionales, 
+                garantizando calidad, seguridad y servicio personalizado para impulsar 
+                el éxito de proyectos de construcción en Colombia.
+              </p>
+            </div>
+
+            <div class="mision-vision-card p-4 rounded-3 shadow">
+              <h3 class="text-info mb-3">
+                <i class="fas fa-binoculars me-2"></i>Nuestra Visión
+              </h3>
+              <p class="lead">
+                Ser líderes en innovación y servicio en el sector de alquiler de equipos, 
+                reconocidos por nuestra excelencia operativa y contribución al desarrollo 
+                de infraestructura sostenible en Latinoamérica para 2025.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Valores Corporativos -->
+        <div class="row mt-5 g-4">
+          <div class="col-md-4">
+            <div class="value-card h-100">
+              <i class="fas fa-shield-alt"></i>
+              <h3>Seguridad Garantizada</h3>
+              <p>Equipos inspeccionados y certificados periódicamente</p>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="value-card h-100">
+              <i class="fas fa-clock"></i>
+              <h3>Entrega Inmediata</h3>
+              <p>Servicio express disponible las 24 horas</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="value-card h-100">
+              <i class="fas fa-users"></i>
+              <h3>Equipo Especializado</h3>
+              <p>Asesoría técnica profesional incluida</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Elementos flotantes -->
+  <button id="backToTop" class="btn btn-primary" style="display: none;" aria-label="Volver al inicio">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <div id="social-buttons-container"></div>
+  <div id="dark-mode-container"></div>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Botón WhatsApp -->
+  <div class="whatsapp-btn">
+    <a href="https://wa.me/573165345675" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/backtotop.js"></script>
+  <script src="../components/dark-mode/dark-mode.js"></script>
+  <script src="../components/BotonWhatsapp/whatsapp-button.js"></script>
+
+  <!-- Carga dinámica mejorada -->
+  <script>
+    const loadComponent = async (url, containerId) => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Error ${response.status}`);
+        const data = await response.text();
+        document.getElementById(containerId).innerHTML = data;
+        
+        // Forzar actualización del DOM
+        setTimeout(() => {
+          document.documentElement.style.overflow = 'hidden';
+          document.documentElement.offsetHeight;
+          document.documentElement.style.overflow = '';
+        }, 50);
+      } catch (error) {
+        console.error(`Error cargando ${url}:`, error);
+        document.getElementById(containerId).innerHTML = `
+          <div class="alert alert-danger m-3">
+            Error al cargar el componente. Por favor recarga la página.
+          </div>
+        `;
+      }
+    };
+
+    // Inicialización
+    window.addEventListener('DOMContentLoaded', () => {
+      // Cargar componentes
+      loadComponent('../components/headernosotros.html', 'header-container');
+      loadComponent('../components/dark-mode/dark-mode-btn.html', 'dark-mode-container');
+      loadComponent('../components/social-buttons.html', 'social-buttons-container');
+      loadComponent('../components/footer.html', 'footer-container');
+
+      // Control del botón "Volver arriba"
+      const backToTop = document.getElementById('backToTop');
+      const updateButton = () => {
+        backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+        backToTop.style.opacity = window.scrollY > 300 ? '1' : '0';
+      };
+      window.addEventListener('scroll', updateButton);
+      updateButton(); // Estado inicial
+      
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
