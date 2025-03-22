@@ -1,0 +1,98 @@
+/* Variables de tema */
+:root {
+  --bg-light: #ffffff;
+  --text-light: #333333;
+  --bg-dark: #1a1a1a;
+  --text-dark: #f8f9fa;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estilos base del modo oscuro */
+[data-theme="dark"] {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-dark) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Corrección específica para secciones clave */
+[data-theme="dark"] #nosotros,
+[data-theme="dark"] #nosotros .container,
+[data-theme="dark"] #nosotros h1,
+[data-theme="dark"] #nosotros h2,
+[data-theme="dark"] #nosotros p {
+  background-color: transparent !important;
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .bg-light {
+  background-color: #2d2d2d !important;
+}
+
+/* Elementos específicos */
+[data-theme="dark"] .card {
+  background-color: #2d2d2d;
+  border-color: #404040;
+}
+
+[data-theme="dark"] .navbar {
+  background-color: #212121 !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .card-text {
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .btn-outline-primary {
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+/* Posicionamiento del botón */
+.theme-switcher {
+  position: fixed;
+  top: 1rem !important;
+  right: 1.5rem !important;
+  z-index: 99999;
+}
+
+/* Eliminar transformaciones no deseadas */
+.theme-switcher button {
+  transition: opacity 0.2s ease !important;
+  transform: none !important;
+}
+
+.theme-switcher button:hover {
+  opacity: 0.9 !important;
+}
+
+.theme-switcher button:active {
+  opacity: 0.7 !important;
+  transform: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .theme-switcher {
+    top: 4.5rem !important;
+    right: 1rem !important;
+  }
+  
+  .theme-switcher button {
+    padding: 0.5rem !important;
+  }
+}
+
+/* Corrección adicional para títulos principales */
+[data-theme="dark"] h1.text-center.mb-4,
+[data-theme="dark"] h2.text-center.mb-4 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #e9ecef !important;
+}

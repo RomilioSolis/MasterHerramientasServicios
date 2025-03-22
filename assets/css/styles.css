@@ -129,3 +129,13 @@ section {
   border-radius: 12px;
   overflow: hidden;
 }
+/* Asegurar contraste en modo oscuro */
+[data-theme="dark"] .text-primary-emphasis {
+  color: #4dabf7 !important;
+}
+
+[data-theme="dark"] .fs-5 {
+  font-size: 1.1rem !important;
+  line-height: 1.8;
+  opacity: 0.9;
+}

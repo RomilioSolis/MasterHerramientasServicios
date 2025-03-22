@@ -100,6 +100,7 @@
   <link rel="stylesheet" href="https://masterenherramientasyservicios.com.co/assets/css/styles.css">
   <link rel="stylesheet" href="components/css/footer.css">
   <link rel="stylesheet" href="components/social-buttons.css">
+  <link rel="stylesheet" href="components/dark-mode/dark-mode.css">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2NF3N12L3"></script>
@@ -175,9 +176,9 @@
     <!-- Sección Nosotros -->
     <section id="nosotros" class="bg-light py-5">
       <div class="container">
-        <h1 class="text-center mb-4">Alquiler de Herramientas en Cali</h1>
-        <h2 class="text-center mb-4">Sobre Nosotros</h2>
-        <p class="text-center">
+        <h1 class="text-center mb-4 text-primary">Alquiler de Herramientas en Cali</h1>
+        <h2 class="text-center mb-4 text-secondary">Sobre Nosotros</h2>
+        <p class="text-center lead">
           Master Herramientas y Servicios es una empresa dedicada al alquiler de herramientas de alta calidad en Cali y
           sus alrededores. Con más de 10 años de experiencia, ofrecemos equipos revisados por expertos, entrega
           inmediata y soporte técnico especializado para garantizar el éxito de tus proyectos.
@@ -298,6 +299,20 @@
       .then(response => response.text())
       .then(data => {
         document.getElementById('footer-container').innerHTML = data;
+      });
+  </script>
+
+  <!-- Botón componente -->
+  <div id="dark-mode-container"></div>
+
+  <!-- Scripts -->
+  <script src="components/dark-mode/dark-mode.js"></script>
+  <script>
+    // Cargar botón
+    fetch('components/dark-mode/dark-mode-btn.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('dark-mode-container').innerHTML = html;
       });
   </script>
 </body>

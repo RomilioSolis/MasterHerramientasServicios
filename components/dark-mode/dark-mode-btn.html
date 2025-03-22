@@ -1,0 +1,25 @@
+<div class="theme-switcher">
+  <button class="btn btn-dark rounded-pill shadow-sm px-3 py-2" 
+          onclick="darkMode.toggle()"
+          aria-label="Alternar modo oscuro">
+    <span class="theme-icon">🌓</span>
+    <span class="d-none d-sm-inline ms-2">Modo</span>
+  </button>
+</div>
+
+<style>
+.theme-switcher {
+  z-index: 99999;
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* Eliminar transformaciones conflictivas */
+.theme-switcher:hover {
+  transform: none !important;
+}
+</style>
