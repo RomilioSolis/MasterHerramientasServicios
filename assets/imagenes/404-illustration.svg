@@ -1,0 +1,48 @@
+<!-- Archivo: 404-illustration.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" aria-labelledby="title desc">
+  <title id="title">Error 404 - Herramienta no encontrada</title>
+  <desc id="desc">Ilustración de una llave inglesa rota formando el número 404</desc>
+  
+  <style>
+    .background {
+      fill: #f8f9fa;
+    }
+    .wrench {
+      fill: none;
+      stroke: #0d6efd;
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .warning {
+      fill: #ffc107;
+    }
+  </style>
+
+  <!-- Fondo -->
+  <rect class="background" width="800" height="600"/>
+  
+  <!-- Número 404 integrado con herramientas -->
+  <g transform="translate(150 200)">
+    <!-- Número 4 (Martillo) -->
+    <path class="wrench" d="M50 150 L50 50 L150 50 L150 150 M100 50 L100 250"/>
+    
+    <!-- Número 0 (Llave inglesa) -->
+    <path class="wrench" d="M250 250 Q325 150 400 250 T550 250" transform="rotate(15 400 250)"/>
+    
+    <!-- Número 4 (Destornillador) -->
+    <path class="wrench" d="M600 50 L600 250 M600 150 L700 50 L700 150"/>
+    
+    <!-- Herramienta rota -->
+    <g transform="translate(400 380)">
+      <path class="wrench" d="M-40 0 L40 0 M0 -40 L0 40" style="stroke: #dc3545;"/>
+      <circle class="warning" cx="0" cy="0" r="30"/>
+      <path d="M-15,-15 L15,15 M-15,15 L15,-15" stroke="#fff" stroke-width="4"/>
+    </g>
+  </g>
+  
+  <!-- Texto opcional (mejor usar HTML para texto real) -->
+  <text x="400" y="550" text-anchor="middle" font-size="40" fill="#0d6efd" font-family="Arial">
+    ¡Herramienta no encontrada!
+  </text>
+</svg>

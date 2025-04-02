@@ -1,0 +1,91 @@
+/* 404.css - Estilos específicos para página de error */
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bs-body-bg);
+}
+
+.error-content {
+    flex: 1;
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.error-code {
+    font-size: 8rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--bs-primary);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.error-title {
+    font-size: 2rem;
+    color: var(--bs-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.error-illustration {
+    max-width: 500px;
+    margin: 2rem auto;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+}
+
+.error-illustration:hover {
+    transform: rotate(-5deg) scale(1.05);
+}
+
+.error-actions {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.error-description {
+    font-size: 1.1rem;
+    color: var(--bs-gray-600);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Dark Mode Compatibility */
+[data-bs-theme="dark"] .error-code {
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .error-illustration {
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 5rem;
+    }
+    
+    .error-title {
+        font-size: 1.5rem;
+    }
+    
+    .error-illustration {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .error-actions .btn {
+        width: 100%;
+    }
+}
