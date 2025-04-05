@@ -64,10 +64,10 @@
         .then(response => response.text())
         .then(html => document.getElementById('header-container').innerHTML = html);
       
-      fetch('components/footer.html')
-        .then(response => response.text())
+      fetch('components/footer.html') 
+        .then(response => response.text())  
         .then(html => document.getElementById('footer-container').innerHTML = html);
     });
-  </script>
+  </script> 
 </body>
-</html>
+</html> 
