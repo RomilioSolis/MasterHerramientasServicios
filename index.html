@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index, follow">
 
   <!-- Meta SEO basados en datos de Google Search Console -->
@@ -115,34 +115,67 @@
     gtag('js', new Date());
     gtag('config', 'G-W2NF3N12L3');
   </script>
+
+  <!-- NUEVO: Añadir Vue 3 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
 </head>
 
 <body>
-  <!-- Alerta superior para notificar mejoras -->
-  <div class="alert alert-warning alert-dismissible fade show text-center mb-0 fixed-top" role="alert"
-    style="z-index: 9999; border-radius: 0; transition: all 0.3s ease;">
-    <div class="container">
-      <i class="fas fa-tools me-2"></i>
-      🚧 Estamos mejorando nuestro sitio web - Los cambios se implementarán gradualmente 🚧
-      <small class="d-block mt-1">Agradecemos tu paciencia durante esta transición</small>
+  <!-- CAMBIO: Alerta superior usando Vue -->
+  <div id="app-alerta">
+    <div v-if="mostrarAlerta" class="alert alert-warning alert-dismissible fade show text-center mb-0 fixed-top" 
+         role="alert" style="z-index: 9999; border-radius: 0; transition: all 0.3s ease;"
+         :style="{ transform: ocultando ? 'translateY(-100%)' : 'translateY(0)' }">
+      <div class="container">
+        <i class="fas fa-tools me-2"></i>
+        🚧 Estamos mejorando nuestro sitio web - Los cambios se implementarán gradualmente 🚧
+        <small class="d-block mt-1">Agradecemos tu paciencia durante esta transición</small>
+      </div>
+      <button type="button" class="btn-close" @click="cerrarAlerta" aria-label="Cerrar"></button>
     </div>
   </div>
 
+  <!-- CAMBIO: Script de Vue para la alerta -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const alerta = document.querySelector('.alert');
-      document.body.style.paddingTop = alerta.offsetHeight + 'px';
-      setTimeout(() => {
-        alerta.style.transform = 'translateY(-100%)';
-        document.body.style.paddingTop = '0';
-        setTimeout(() => { alerta.remove(); }, 300);
-      }, 5000);
-      alerta.addEventListener('click', function () {
-        this.style.transform = 'translateY(-100%)';
-        document.body.style.paddingTop = '0';
-        setTimeout(() => { this.remove(); }, 300);
-      });
-    });
+    const { createApp, ref } = Vue;
+    
+    createApp({
+      setup() {
+        const mostrarAlerta = ref(true);
+        const ocultando = ref(false);
+        
+        // Función para cerrar la alerta
+        const cerrarAlerta = () => {
+          ocultando.value = true;
+          document.body.style.paddingTop = '0';
+          setTimeout(() => {
+            mostrarAlerta.value = false;
+          }, 300);
+        };
+        
+        // Ajustar el padding del body cuando la alerta está visible
+        document.addEventListener('DOMContentLoaded', function() {
+          if (mostrarAlerta.value) {
+            const alerta = document.querySelector('.alert');
+            if (alerta) {
+              document.body.style.paddingTop = alerta.offsetHeight + 'px';
+            }
+          }
+        });
+        
+        // Auto-ocultar después de 5 segundos
+        setTimeout(() => {
+          cerrarAlerta();
+        }, 5000);
+        
+        return {
+          mostrarAlerta,
+          ocultando,
+          cerrarAlerta
+        };
+      }
+    }).mount('#app-alerta');
   </script>
 
   <!-- Header (cargado dinámicamente) -->
