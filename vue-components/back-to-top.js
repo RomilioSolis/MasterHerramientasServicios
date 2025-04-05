@@ -1,5 +1,5 @@
 // Componente Vue para el botón "Volver al inicio"
-// No necesitamos importar Vue aquí, ya está disponible globalmente
+// No es necesario importar Vue, ya está disponible globalmente
 
 // Exportamos una función que crea e inicializa el componente
 export function initBackToTop() {
@@ -20,11 +20,9 @@ export function initBackToTop() {
         // Mostrar/ocultar el botón según la posición del scroll
         onMounted(() => {
           window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-              mostrarBoton.value = true;
-            } else {
-              mostrarBoton.value = false;
-            }
+            // Para depurar, podemos agregar un log:
+            // console.log("ScrollY:", window.scrollY);
+            mostrarBoton.value = window.scrollY > 300;
           });
         });
         
@@ -35,3 +33,4 @@ export function initBackToTop() {
       }
     }).mount('#app-back-to-top');
   }
+  
