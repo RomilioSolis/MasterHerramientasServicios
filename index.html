@@ -278,10 +278,16 @@
 
   <!-- Footer y elementos complementarios -->
   <div id="footer-container"></div>
-  <button id="backToTop" class="btn btn-primary" style="display: none;" aria-label="Volver al inicio"
-    title="Volver arriba">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+  
+  <!-- CAMBIO: Botón "Volver al inicio" con Vue -->
+  <div id="app-back-to-top">
+    <button v-show="mostrarBoton" @click="volverArriba" class="btn btn-primary" 
+            style="position: fixed; bottom: 20px; right: 20px; z-index: 99;"
+            aria-label="Volver al inicio" title="Volver arriba">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </div>
+  
   <div id="social-buttons-container"></div>
 
   <!-- Conservamos la implementación original de Dark Mode -->
@@ -298,7 +304,7 @@
 
   <!-- Scripts externos -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/backtotop.js"></script>
+  <!-- CAMBIO: Eliminamos la referencia a backtotop.js ya que ahora usamos Vue -->
   <script src="assets/js/buscador.js"></script>
   
 
@@ -352,6 +358,16 @@
           </div>
         `;
         });
+    });
+  </script>
+
+  <!-- NUEVO: Importar y inicializar el componente "Volver al inicio" -->
+  <script type="module">
+    import { initBackToTop } from './vue-components/back-to-top.js';
+    
+    // Inicializar el componente cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+      initBackToTop();
     });
   </script>
 
