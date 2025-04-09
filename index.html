@@ -26,77 +26,11 @@
   <!-- Favicon -->
   <link rel="icon" href="/assets/imagenes/masterfavi.ico" type="image/x-icon">
 
-  <!-- Critical CSS inlined -->
-  <style>
-    /* Critical Bootstrap CSS */
-    .container{width:100%;padding-right:var(--bs-gutter-x,.75rem);padding-left:var(--bs-gutter-x,.75rem);margin-right:auto;margin-left:auto}
-    .row{--bs-gutter-x:1.5rem;--bs-gutter-y:0;display:flex;flex-wrap:wrap}
-    .col-12{flex:0 0 auto;width:100%}
-    .text-center{text-align:center}
-    .mb-4{margin-bottom:1.5rem}
-    .py-5{padding-top:3rem;padding-bottom:3rem}
-    
-    /* Critical Font Awesome icons */
-    .fab,.fas{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:inline-block;font-style:normal;font-variant:normal;text-rendering:auto;line-height:1}
-    .fa-whatsapp:before{content:"\f232"}
-    .fa-phone-alt:before{content:"\f879"}
-  </style>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Preload critical fonts -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- Async CSS loading -->
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"></noscript>
-  
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
-
-  <!-- Load CSS asynchronously -->
-  <script>
-    !function(e){"use strict";var t=function(t,n,r,o){var i,l=e.document,d=l.createElement("link");if(n)i=n;else{var a=(l.body||l.getElementsByTagName("head")[0]).childNodes;i=a[a.length-1]}var f=l.styleSheets;if(o)for(var s=f.length-1;s>-1;s--)if(f[s].href===d.href)return;d.rel="stylesheet",d.href=t,d.media="only x",function e(t){if(l.body)return t();setTimeout(function(){e(t)})}(function(){i.parentNode.insertBefore(d,n?i:i.nextSibling)});var u=function(e){for(var t=d.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){u(e)})};function c(){d.addEventListener&&d.removeEventListener("load",c),d.media=r||"all"}d.addEventListener&&d.addEventListener("load",c),(d.onloadcssdefined=u)(c)};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
-  </script>
-
-  <!-- Google Analytics optimizado -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2NF3N12L3&l=dataLayer"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'analytics_storage': 'denied'
-    });
-    gtag('js', new Date());
-    gtag('config', 'G-W2NF3N12L3', {
-      'anonymize_ip': true,
-      'page_load_strategy': 'none',
-      'send_page_view': false
-    });
-    // Enviar pageview solo después de que la página esté lista
-    document.addEventListener('DOMContentLoaded', function() {
-      gtag('event', 'page_view');
-    });
-  </script>
-
-  <!-- Vue.js optimizado -->
-  <script type="module">
-    // Cargar Vue.js solo cuando se necesite
-    let vuePromise = null;
-    window.loadVue = async () => {
-      if (!vuePromise) {
-        vuePromise = import('https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js')
-          .then(m => {
-            window.Vue = m;
-            return m;
-          });
-      }
-      return vuePromise;
-    };
-    // Precargar Vue.js si el navegador está inactivo
-    if (window.requestIdleCallback) {
-      requestIdleCallback(() => loadVue());
-    }
-  </script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Alquiler de Herramientas Profesionales en Cali | Master Herramientas y Servicios">
@@ -194,9 +128,18 @@
   <link rel="stylesheet" href="/components/social-buttons.css">
   <link rel="stylesheet" href="/components/dark-mode/dark-mode.css">
 
-  <!-- Preload critical CSS and fonts -->
-  <link rel="preload" href="/assets/css/styles.css" as="style">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=YourFont&display=swap" as="font" type="font/woff2" crossorigin>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2NF3N12L3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-W2NF3N12L3');
+  </script>
+
+  <!-- NUEVO: Añadir Vue 3 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
 </head>
 
 <body>
@@ -216,7 +159,7 @@
     </script>
 
     <!-- Contenido Principal -->
-    <main>
+    <main style="min-height: 400px;">
       <!-- Sección Nosotros -->
       <section id="nosotros" class="bg-light py-5">
         <div class="container">
@@ -238,13 +181,8 @@
           <div class="row justify-content-center">
             <div class="col-12 text-center">
               <div class="ratio ratio-16x9 d-inline-block" style="max-width: 550px; width: 90%;">
-                <video controls class="shadow-lg rounded-3" 
-                  poster="/assets/imagenes/miniatura-video.webp"
-                  width="550" 
-                  height="309"
-                  fetchpriority="high"
-                  preload="metadata" 
-                  aria-label="Video demostrativo de herramientas disponibles para alquiler">
+                <video controls class="shadow-lg rounded-3" poster="/assets/imagenes/miniatura-video.jpg"
+                  preload="metadata" aria-label="Video demostrativo de herramientas disponibles para alquiler">
                   <source src="/assets/Videos/Video1.mp4" type="video/mp4">
                   <track kind="captions" src="/assets/videos/captions.vtt" srclang="es" label="Español">
                   Tu navegador no soporta la reproducción de videos.
@@ -260,10 +198,7 @@
         <div class="container">
           <h2 class="text-center mb-4">Equipos Disponibles para Alquiler</h2>
           <div class="row" id="herramientas-container">
-            <!-- Placeholder for lazy loading -->
-            <div class="loading-placeholder text-center w-100">
-              <p>Cargando herramientas...</p>
-            </div>
+            <!-- Las tarjetas se cargarán aquí dinámicamente -->
           </div>
         </div>
       </section>
@@ -281,26 +216,13 @@
           'equipo-oxicorte', 'cortadora-porcelanato',
           'motobomba-lapicero', 'extractor-nucleo'
         ];
-
-        // Batch size for loading tools
-        const BATCH_SIZE = 6;
-        let currentBatch = 0;
-
-        function loadToolsBatch() {
+        document.addEventListener('DOMContentLoaded', () => {
           const container = document.getElementById('herramientas-container');
-          const start = currentBatch * BATCH_SIZE;
-          const end = Math.min(start + BATCH_SIZE, herramientas.length);
-          
-          if (start >= herramientas.length) {
-            return false;
-          }
-
-          const batchTools = herramientas.slice(start, end);
-          
-          batchTools.forEach(herramienta => {
+          herramientas.forEach(herramienta => {
             fetch(`/components/herramientas/${herramienta}-card.html`)
               .then(response => response.text())
               .then(html => {
+                // Modify the HTML to add aria-labels to carousel buttons
                 const modifiedHtml = html.replace(
                   /<button type="button" data-bs-target="#(.*?)".*?data-bs-slide-to="(\d+)"(.*?)>/g,
                   (match, target, slideTo, rest) => {
@@ -308,45 +230,14 @@
                     return `<button type="button" data-bs-target="#${target}" data-bs-slide-to="${slideTo}" aria-label="Slide ${slideNumber}" ${rest}>`;
                   }
                 );
-                // Remove loading placeholder if it exists
-                const placeholder = container.querySelector('.loading-placeholder');
-                if (placeholder) placeholder.remove();
-                
-                container.insertAdjacentHTML('beforeend', modifiedHtml);
+                container.innerHTML += modifiedHtml;
               })
               .catch(error => console.error(`Error cargando ${herramienta}:`, error));
           });
-
-          currentBatch++;
-          return true;
-        }
-
-        // Initialize Intersection Observer for lazy loading
-        document.addEventListener('DOMContentLoaded', () => {
-          const options = {
-            root: null,
-            rootMargin: '50px',
-            threshold: 0.1
-          };
-
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                if (!loadToolsBatch()) {
-                  observer.disconnect();
-                }
-              }
-            });
-          }, options);
-
-          // Observe the tools container
-          const container = document.getElementById('herramientas-container');
-          observer.observe(container);
-
-          // Load first batch immediately
-          loadToolsBatch();
         });
       </script>
+
+      <!-- CHECK TOOL CARDS FOR CANONICAL ISSUES -->
 
       <!-- Sección Contacto -->
       <section id="contacto" class="py-5">
@@ -432,19 +323,6 @@
           </div>
         `;
           });
-      });
-    </script>
-
-    <!-- Modificar la inicialización de componentes Vue -->
-    <script type="module">
-      const { loadVue } = window;
-      document.addEventListener('DOMContentLoaded', async () => {
-        const { createApp } = await loadVue();
-        // Inicializar componentes Vue solo cuando sea necesario
-        if (document.querySelector('#app-back-to-top')) {
-          const { initBackToTop } = await import('/vue-components/back-to-top.js');
-          initBackToTop(createApp);
-        }
       });
     </script>
   </div> <!-- Fin del contenedor principal #app -->
