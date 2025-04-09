@@ -128,6 +128,10 @@
   <link rel="stylesheet" href="/components/social-buttons.css">
   <link rel="stylesheet" href="/components/dark-mode/dark-mode.css">
 
+  <!-- Preload critical CSS and fonts -->
+  <link rel="preload" href="/assets/css/styles.css" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=YourFont&display=swap" as="font" type="font/woff2" crossorigin>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2NF3N12L3"></script>
   <script>
@@ -159,7 +163,7 @@
     </script>
 
     <!-- Contenido Principal -->
-    <main style="min-height: 400px;">
+    <main>
       <!-- Sección Nosotros -->
       <section id="nosotros" class="bg-light py-5">
         <div class="container">
