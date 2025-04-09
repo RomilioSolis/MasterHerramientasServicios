@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-<<<<<<< HEAD
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- nuevo -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE"> <!-- nuevo; reemplazar YOUR_VERIFICATION_CODE -->
@@ -11,10 +10,6 @@
   <meta name="language" content="es"> <!-- nuevo -->
   <link rel="alternate" hreflang="es-CO" href="https://masterenherramientasyservicios.com.co/"> <!-- nuevo -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml"> <!-- nuevo -->
-=======
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="index, follow">
->>>>>>> 328dbc791b64b16920a12214a053e3ea064ce184
 
   <!-- Meta SEO basados en datos de Google Search Console -->
   <meta name="description" content="✅ Alquiler de herramientas profesionales en Cali: gatos, taladros, escaleras y más. Servicio rápido y precios competitivos. ¡Contáctanos vía WhatsApp!">
@@ -207,124 +202,6 @@
         </div>
       </section>
 
-<<<<<<< HEAD
-    <script>
-      const herramientas = [
-        'gatosM', 'escaleras', 'taladros', 'estibador',
-        'compresor', 'diferencial', 'trompo-mezclador',
-        'hidrolavadora', 'vibrocompactadora', 'andamios',
-        'parasol', 'ganchos-colgantes', 'soldador',
-        'extractor', 'estanteria', 'planta-energia',
-        'winche', 'pluma-grua', 'carretillas',
-        'sonda-electrica', 'esmeriladora', 'motosierra',
-        'buggy-pico-pala', 'aspiradora-trupel',
-        'equipo-oxicorte', 'cortadora-porcelanato',
-        'motobomba-lapicero', 'extractor-nucleo'
-      ];
-      document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('herramientas-container');
-        herramientas.forEach(herramienta => {
-          fetch(`components/herramientas/${herramienta}-card.html`)
-            .then(response => response.text())
-            .then(html => {
-              container.innerHTML += html;
-            })
-            .catch(error => console.error(`Error cargando ${herramienta}:`, error));
-        });
-      });
-    </script>
-
-    <!-- Sección Contacto -->
-    <section id="contacto" class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-4">Contacto</h2>
-        <p class="text-center">
-          ¿Necesitas más información? Contáctanos directamente a través de WhatsApp o visita nuestras redes sociales.
-        </p>
-        <div class="text-center">
-          <a href="https://wa.me/573165345675" class="btn btn-success" target="_blank"
-            aria-label="Contactar por WhatsApp" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer y elementos complementarios -->
-  <div id="footer-container"></div>
-  <button id="backToTop" class="btn btn-primary" style="display: none;" aria-label="Volver al inicio"
-    title="Volver arriba">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-  <div id="social-buttons-container"></div>
-
-  <!-- Conservamos la implementación original de Dark Mode -->
-  <div id="dark-mode-container"></div>
-  <script src="components/dark-mode/dark-mode.js"></script>
-  <script>
-    fetch('components/dark-mode/dark-mode-btn.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('dark-mode-container').innerHTML = html;
-      })
-      .catch(error => console.error('Error al cargar el botón de dark mode:', error));
-  </script>
-
-  <!-- Scripts externos -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/backtotop.js"></script>
-  <script src="assets/js/buscador.js"></script>
-  
-
-  <script>
-    // Cargar botones sociales
-    fetch('components/social-buttons.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('social-buttons-container').innerHTML = html;
-      })
-      .catch(error => console.error('Error al cargar social buttons:', error));
-
-    // Cargar footer
-    fetch('components/footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-container').innerHTML = data;
-      })
-      .catch(error => console.error('Error al cargar footer:', error));
-  </script>
-
-  <!-- Script de carga del header mejorado -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      fetch('components/header.html')
-        .then(response => {
-          if (!response.ok) throw new Error('Error cargando el header');
-          return response.text();
-        })
-        .then(html => {
-          const container = document.getElementById('header-container');
-          container.innerHTML = html;
-
-          // Ejecutar scripts del header
-          console.debug('Debug: Iniciando ejecución de scripts del header');
-          const scripts = container.querySelectorAll('script');
-          scripts.forEach(oldScript => {
-            if (oldScript.src) {
-              console.debug('Debug: Procesando script con src:', oldScript.src);
-            } else {
-              console.debug('Debug: Procesando script inline');
-            }
-            const newScript = document.createElement('script');
-            if (oldScript.src) {
-              newScript.src = oldScript.src;
-            } else {
-              newScript.textContent = oldScript.textContent;
-            }
-            document.body.appendChild(newScript);
-            console.debug('Debug: Script añadido', newScript);
-=======
       <script>
         const herramientas = [
           'gatosM', 'escaleras', 'taladros', 'estibador',
@@ -347,7 +224,6 @@
                 container.innerHTML += html;
               })
               .catch(error => console.error(`Error cargando ${herramienta}:`, error));
->>>>>>> 328dbc791b64b16920a12214a053e3ea064ce184
           });
         });
       </script>
