@@ -132,10 +132,68 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2NF3N12L3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-W2NF3N12L3');
+    function gtag(){dataLayer.push(arguments);}
+    
+    // Configurar analytics para bfcache
+    function initializeGoogleAnalytics() {
+      gtag('js', new Date());
+      gtag('config', 'G-W2NF3N12L3', {
+        'send_page_view': false
+      });
+    }
+    
+    // Manejar eventos de página
+    document.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        // La página fue restaurada desde bfcache
+        gtag('event', 'page_view');
+      }
+    });
+    
+    // Inicializar GA
+    initializeGoogleAnalytics();
   </script>
+  
+  <!-- Modificar manejo de estado -->
+  <script>
+    // Guardar estado antes de que la página se oculte
+    window.addEventListener('pagehide', function() {
+      // Guardar scroll position
+      sessionStorage.setItem('scrollPos', window.scrollY);
+      // Guardar estado de formularios si existen
+      const forms = document.querySelectorAll('form');
+      forms.forEach((form, index) => {
+        const formData = new FormData(form);
+        sessionStorage.setItem(`form-${index}`, JSON.stringify(Object.fromEntries(formData)));
+      });
+    });
+    
+    // Restaurar estado cuando la página se muestra
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        // Restaurar scroll position
+        const scrollPos = sessionStorage.getItem('scrollPos');
+        if (scrollPos) {
+          window.scrollTo(0, parseInt(scrollPos));
+        }
+        // Restaurar estado de formularios
+        const forms = document.querySelectorAll('form');
+        forms.forEach((form, index) => {
+          const savedData = sessionStorage.getItem(`form-${index}`);
+          if (savedData) {
+            const formData = JSON.parse(savedData);
+            Object.entries(formData).forEach(([key, value]) => {
+              const input = form.elements[key];
+              if (input) input.value = value;
+            });
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- Agregar Cache-Control -->
+  <meta http-equiv="Cache-Control" content="max-age=86400, must-revalidate">
 
   <!-- NUEVO: Añadir Vue 3 -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
