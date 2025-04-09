@@ -222,7 +222,15 @@
             fetch(`/components/herramientas/${herramienta}-card.html`)
               .then(response => response.text())
               .then(html => {
-                container.innerHTML += html;
+                // Modify the HTML to add aria-labels to carousel buttons
+                const modifiedHtml = html.replace(
+                  /<button type="button" data-bs-target="#(.*?)".*?data-bs-slide-to="(\d+)"(.*?)>/g,
+                  (match, target, slideTo, rest) => {
+                    const slideNumber = parseInt(slideTo, 10) + 1;
+                    return `<button type="button" data-bs-target="#${target}" data-bs-slide-to="${slideTo}" aria-label="Slide ${slideNumber}" ${rest}>`;
+                  }
+                );
+                container.innerHTML += modifiedHtml;
               })
               .catch(error => console.error(`Error cargando ${herramienta}:`, error));
           });
@@ -341,3 +349,4 @@
 </body>
 
 </html>
+``` 
