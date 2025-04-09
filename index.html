@@ -58,11 +58,44 @@
     !function(e){"use strict";var t=function(t,n,r,o){var i,l=e.document,d=l.createElement("link");if(n)i=n;else{var a=(l.body||l.getElementsByTagName("head")[0]).childNodes;i=a[a.length-1]}var f=l.styleSheets;if(o)for(var s=f.length-1;s>-1;s--)if(f[s].href===d.href)return;d.rel="stylesheet",d.href=t,d.media="only x",function e(t){if(l.body)return t();setTimeout(function(){e(t)})}(function(){i.parentNode.insertBefore(d,n?i:i.nextSibling)});var u=function(e){for(var t=d.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){u(e)})};function c(){d.addEventListener&&d.removeEventListener("load",c),d.media=r||"all"}d.addEventListener&&d.addEventListener("load",c),(d.onloadcssdefined=u)(c)};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
   </script>
 
-  <!-- Load Vue.js with module preload -->
-  <link rel="modulepreload" href="https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js">
+  <!-- Google Analytics optimizado -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2NF3N12L3&l=dataLayer"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied'
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-W2NF3N12L3', {
+      'anonymize_ip': true,
+      'page_load_strategy': 'none',
+      'send_page_view': false
+    });
+    // Enviar pageview solo después de que la página esté lista
+    document.addEventListener('DOMContentLoaded', function() {
+      gtag('event', 'page_view');
+    });
+  </script>
+
+  <!-- Vue.js optimizado -->
   <script type="module">
-    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js';
-    window.Vue = { createApp };
+    // Cargar Vue.js solo cuando se necesite
+    let vuePromise = null;
+    window.loadVue = async () => {
+      if (!vuePromise) {
+        vuePromise = import('https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js')
+          .then(m => {
+            window.Vue = m;
+            return m;
+          });
+      }
+      return vuePromise;
+    };
+    // Precargar Vue.js si el navegador está inactivo
+    if (window.requestIdleCallback) {
+      requestIdleCallback(() => loadVue());
+    }
   </script>
 
   <!-- Open Graph Meta Tags -->
@@ -164,15 +197,6 @@
   <!-- Preload critical CSS and fonts -->
   <link rel="preload" href="/assets/css/styles.css" as="style">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=YourFont&display=swap" as="font" type="font/woff2" crossorigin>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2NF3N12L3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-W2NF3N12L3');
-  </script>
 </head>
 
 <body>
@@ -408,6 +432,19 @@
           </div>
         `;
           });
+      });
+    </script>
+
+    <!-- Modificar la inicialización de componentes Vue -->
+    <script type="module">
+      const { loadVue } = window;
+      document.addEventListener('DOMContentLoaded', async () => {
+        const { createApp } = await loadVue();
+        // Inicializar componentes Vue solo cuando sea necesario
+        if (document.querySelector('#app-back-to-top')) {
+          const { initBackToTop } = await import('/vue-components/back-to-top.js');
+          initBackToTop(createApp);
+        }
       });
     </script>
   </div> <!-- Fin del contenedor principal #app -->
