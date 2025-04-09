@@ -202,7 +202,10 @@
         <div class="container">
           <h2 class="text-center mb-4">Equipos Disponibles para Alquiler</h2>
           <div class="row" id="herramientas-container">
-            <!-- Las tarjetas se cargarán aquí dinámicamente -->
+            <!-- Placeholder for lazy loading -->
+            <div class="loading-placeholder text-center w-100">
+              <p>Cargando herramientas...</p>
+            </div>
           </div>
         </div>
       </section>
@@ -220,13 +223,26 @@
           'equipo-oxicorte', 'cortadora-porcelanato',
           'motobomba-lapicero', 'extractor-nucleo'
         ];
-        document.addEventListener('DOMContentLoaded', () => {
+
+        // Batch size for loading tools
+        const BATCH_SIZE = 6;
+        let currentBatch = 0;
+
+        function loadToolsBatch() {
           const container = document.getElementById('herramientas-container');
-          herramientas.forEach(herramienta => {
+          const start = currentBatch * BATCH_SIZE;
+          const end = Math.min(start + BATCH_SIZE, herramientas.length);
+          
+          if (start >= herramientas.length) {
+            return false;
+          }
+
+          const batchTools = herramientas.slice(start, end);
+          
+          batchTools.forEach(herramienta => {
             fetch(`/components/herramientas/${herramienta}-card.html`)
               .then(response => response.text())
               .then(html => {
-                // Modify the HTML to add aria-labels to carousel buttons
                 const modifiedHtml = html.replace(
                   /<button type="button" data-bs-target="#(.*?)".*?data-bs-slide-to="(\d+)"(.*?)>/g,
                   (match, target, slideTo, rest) => {
@@ -234,14 +250,45 @@
                     return `<button type="button" data-bs-target="#${target}" data-bs-slide-to="${slideTo}" aria-label="Slide ${slideNumber}" ${rest}>`;
                   }
                 );
-                container.innerHTML += modifiedHtml;
+                // Remove loading placeholder if it exists
+                const placeholder = container.querySelector('.loading-placeholder');
+                if (placeholder) placeholder.remove();
+                
+                container.insertAdjacentHTML('beforeend', modifiedHtml);
               })
               .catch(error => console.error(`Error cargando ${herramienta}:`, error));
           });
+
+          currentBatch++;
+          return true;
+        }
+
+        // Initialize Intersection Observer for lazy loading
+        document.addEventListener('DOMContentLoaded', () => {
+          const options = {
+            root: null,
+            rootMargin: '50px',
+            threshold: 0.1
+          };
+
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                if (!loadToolsBatch()) {
+                  observer.disconnect();
+                }
+              }
+            });
+          }, options);
+
+          // Observe the tools container
+          const container = document.getElementById('herramientas-container');
+          observer.observe(container);
+
+          // Load first batch immediately
+          loadToolsBatch();
         });
       </script>
-
-      <!-- CHECK TOOL CARDS FOR CANONICAL ISSUES -->
 
       <!-- Sección Contacto -->
       <section id="contacto" class="py-5">
