@@ -149,13 +149,35 @@
     <alert-banner></alert-banner>
 
     <!-- Header (cargado dinámicamente) -->
-    <div id="header-container" style="min-height: 50px;"></div>
+    <div id="header-container"></div>
     <script>
-      fetch('/components/header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('header-container').innerHTML = data;
-        });
+      document.addEventListener('DOMContentLoaded', () => {
+        fetch('/components/header.html')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Error cargando el header: ' + response.status);
+            }
+            return response.text();
+          })
+          .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+            // Cargar estilos del header
+            if (!document.querySelector('link[href="/components/css/header.css"]')) {
+              const headerStyles = document.createElement('link');
+              headerStyles.rel = 'stylesheet';
+              headerStyles.href = '/components/css/header.css';
+              document.head.appendChild(headerStyles);
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('header-container').innerHTML = `
+              <div class="alert alert-danger m-3">
+                Error cargando el header. Por favor, recarga la página.
+              </div>
+            `;
+          });
+      });
     </script>
 
     <!-- Contenido Principal -->
