@@ -149,7 +149,7 @@
     <alert-banner></alert-banner>
 
     <!-- Header (cargado dinámicamente) -->
-    <div id="header-container"></div>
+    <div id="header-container" style="min-height: 50px;"></div>
     <script>
       fetch('/components/header.html')
         .then(response => response.text())
@@ -248,11 +248,11 @@
     </main>
 
     <!-- Footer y elementos complementarios -->
-    <div id="footer-container"></div>
+    <div id="footer-container" style="min-height: 100px;"></div>
     
     <!-- Otros elementos (botones sociales, dark mode, etc.) -->
-    <div id="social-buttons-container"></div>
-    <div id="dark-mode-container"></div>
+    <div id="social-buttons-container" style="min-height: 50px;"></div>
+    <div id="dark-mode-container" style="min-height: 40px;"></div>
     <script src="/components/dark-mode/dark-mode.js"></script>
     <script>
       fetch('/components/dark-mode/dark-mode-btn.html')
