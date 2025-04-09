@@ -37,12 +37,19 @@
   <meta property="og:image" content="https://masterenherramientasyservicios.com.co/assets/imagenes/logo.svg">
   <meta property="og:url" content="https://masterenherramientasyservicios.com.co/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Master Herramientas y Servicios">
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alquiler de Herramientas en Cali | Master Herramientas y Servicios">
   <meta name="twitter:description" content="Herramientas profesionales para construcción en Cali. ¡Alquila hoy mismo!">
   <meta name="twitter:image" content="https://masterenherramientasyservicios.com.co/assets/imagenes/logo.svg">
+  <meta name="twitter:site" content="@MasterHerramientas">
+  <meta name="twitter:creator" content="@MasterHerramientas">
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://masterenherramientasyservicios.com.co/">
 
   <!-- Schema Markup (Datos Estructurados para SEO) -->
   <script type="application/ld+json">
@@ -90,6 +97,19 @@
     "potentialAction": {
       "@type": "SeekToAction",
       "target": "https://masterenherramientasyservicios.com.co/#t={seek_to_second_number}"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://masterenherramientasyservicios.com.co/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://masterenherramientasyservicios.com.co/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
     }
   }
   </script>
@@ -300,8 +320,14 @@
           container.innerHTML = html;
 
           // Ejecutar scripts del header
+          console.debug('Debug: Iniciando ejecución de scripts del header');
           const scripts = container.querySelectorAll('script');
           scripts.forEach(oldScript => {
+            if (oldScript.src) {
+              console.debug('Debug: Procesando script con src:', oldScript.src);
+            } else {
+              console.debug('Debug: Procesando script inline');
+            }
             const newScript = document.createElement('script');
             if (oldScript.src) {
               newScript.src = oldScript.src;
@@ -309,6 +335,7 @@
               newScript.textContent = oldScript.textContent;
             }
             document.body.appendChild(newScript);
+            console.debug('Debug: Script añadido', newScript);
           });
         })
         .catch(error => {
