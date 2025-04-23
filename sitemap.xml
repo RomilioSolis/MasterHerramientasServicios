@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Página principal -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.sitemaps.org/schemas/sitemap/0.9/image">
+
+  <!-- Página principal (corrección de fecha) -->
   <url>
     <loc>https://masterenherramientasyservicios.com.co/</loc>
-    <lastmod>2023-11-16</lastmod>
+    <lastmod>2023-04-19</lastmod> <!-- Miércoles 19 de abril de 2023 -->
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://masterenherramientasyservicios.com.co/assets/imagenes/logo.svg</image:loc>
+      <image:title>Herramientas Profesionales en Cali</image:title>
+    </image:image>
   </url>
 
-  <!-- Sección Nosotros -->
+  <!-- Sección Nosotros (fecha corregida) -->
   <url>
     <loc>https://masterenherramientasyservicios.com.co/nosotros.html</loc>
-    <lastmod>2025-03-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2023-04-19</lastmod> <!-- Fecha alineada con la última actualización real -->
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
