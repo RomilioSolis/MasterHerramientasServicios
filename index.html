@@ -8,17 +8,14 @@
   <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="language" content="es-CO">
-  
-  <!-- Mejora en hreflang y canonical -->
+
   <link rel="alternate" hreflang="es-CO" href="https://masterenherramientasyservicios.com.co/">
   <link rel="canonical" href="https://masterenherramientasyservicios.com.co/" />
-  
-  <!-- Mejora en meta descripción y keywords -->
+
   <meta name="description" content="✅ Alquiler profesional de herramientas en Cali: gatos hidráulicos, taladros industriales, escaleras y maquinaria para construcción. Entrega inmediata, precios competitivos y soporte técnico. ¡Contáctanos ahora vía WhatsApp!">
   <meta name="keywords" content="alquiler herramientas Cali, alquiler maquinaria construcción, herramientas profesionales Cali, gatos hidráulicos alquiler, taladros industriales, Master Herramientas y Servicios, alquiler equipos construcción">
   <meta name="author" content="Master Herramientas y Servicios">
 
-  <!-- Mejora en Open Graph -->
   <meta property="og:title" content="Alquiler Profesional de Herramientas en Cali | Master Herramientas y Servicios">
   <meta property="og:description" content="Alquiler de herramientas profesionales y maquinaria para construcción en Cali. Entrega inmediata, mantenimiento garantizado y los mejores precios del mercado.">
   <meta property="og:image" content="https://masterenherramientasyservicios.com.co/assets/imagenes/logo.png">
@@ -27,7 +24,6 @@
   <meta property="og:locale" content="es_CO">
   <meta property="og:site_name" content="Master Herramientas y Servicios">
 
-  <!-- Mejora en Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alquiler de Herramientas Profesionales en Cali | Master Herramientas">
   <meta name="twitter:description" content="Equipos de construcción en alquiler con mantenimiento garantizado. ¡Cotiza ahora mismo por WhatsApp y recibe descuentos especiales!">
@@ -35,7 +31,6 @@
   <meta name="twitter:site" content="@MasterHerramientas">
   <meta name="twitter:creator" content="@MasterHerramientas">
 
-  <!-- Mejora en Schema Markup -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,7 +46,7 @@
       "postalCode": "760001",
       "addressCountry": "CO"
     },
-    "telephone": "+57 316 534 5675",
+    "telephone": "+573165345675",
     "openingHours": "Mo-Sa 08:00-18:00",
     "url": "https://masterenherramientasyservicios.com.co/",
     "sameAs": [
@@ -67,23 +62,17 @@
   }
   </script>
 
-  <!-- Resto del código existente sin cambios hasta el título -->
   <title>Alquiler de Herramientas Profesionales en Cali | Master Herramientas y Servicios</title>
 
-  <!-- Favicon -->
   <link rel="icon" href="/assets/imagenes/masterfavi.ico" type="image/x-icon">
 
-  <!-- Preconexiones para mejorar velocidad -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs">
 
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-  <!-- Font Awesome optimizado -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Mejora en video schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -99,135 +88,77 @@
   }
   </script>
 
-  <!-- Redirección para evitar "www" -->
   <script>
     if (window.location.hostname === 'www.masterenherramientasyservicios.com.co') {
-      window.location.href = '/' + window.location.pathname;
+      window.location.href = `https://${window.location.hostname.replace('www.','')}${window.location.pathname}${window.location.search}`;
     }
   </script>
 
-  <!-- Tus estilos personalizados -->
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="/components/css/footer.css">
   <link rel="stylesheet" href="/components/social-buttons.css">
   <link rel="stylesheet" href="/components/dark-mode/dark-mode.css">
-
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2NF3N12L3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    
-    // Configurar analytics para bfcache
-    function initializeGoogleAnalytics() {
-      gtag('js', new Date());
-      gtag('config', 'G-W2NF3N12L3', {
-        'send_page_view': false
-      });
-    }
-    
-    // Manejar eventos de página
-    document.addEventListener('pageshow', function(event) {
-      if (event.persisted) {
-        // La página fue restaurada desde bfcache
-        gtag('event', 'page_view');
-      }
-    });
-    
-    // Inicializar GA
-    initializeGoogleAnalytics();
+    gtag('js', new Date());
+    gtag('config', 'G-W2NF3N12L3'); // Esto envía un page_view automáticamente.
   </script>
-  
-  <!-- Modificar manejo de estado -->
+
   <script>
-    // Guardar estado antes de que la página se oculte
     window.addEventListener('pagehide', function() {
-      // Guardar scroll position
       sessionStorage.setItem('scrollPos', window.scrollY);
-      // Guardar estado de formularios si existen
       const forms = document.querySelectorAll('form');
       forms.forEach((form, index) => {
         const formData = new FormData(form);
         sessionStorage.setItem(`form-${index}`, JSON.stringify(Object.fromEntries(formData)));
       });
     });
-    
-    // Restaurar estado cuando la página se muestra
+
     window.addEventListener('pageshow', function(event) {
-      if (event.persisted) {
-        // Restaurar scroll position
+      if (event.persisted) { // La página fue restaurada desde bfcache
         const scrollPos = sessionStorage.getItem('scrollPos');
         if (scrollPos) {
-          window.scrollTo(0, parseInt(scrollPos));
+          window.scrollTo(0, parseInt(scrollPos, 10));
         }
-        // Restaurar estado de formularios
         const forms = document.querySelectorAll('form');
         forms.forEach((form, index) => {
           const savedData = sessionStorage.getItem(`form-${index}`);
           if (savedData) {
-            const formData = JSON.parse(savedData);
-            Object.entries(formData).forEach(([key, value]) => {
-              const input = form.elements[key];
-              if (input) input.value = value;
-            });
+            try {
+              const formData = JSON.parse(savedData);
+              Object.entries(formData).forEach(([key, value]) => {
+                const input = form.elements[key];
+                if (input) {
+                  // COMENTARIO: Para checkboxes o radios, podrías necesitar lógica adicional
+                  // ej: if(input.type === 'checkbox' || input.type === 'radio') input.checked = value; else input.value = value;
+                  input.value = value;
+                }
+              });
+            } catch (e) {
+              console.error('Error restaurando datos del formulario:', e);
+            }
           }
         });
       }
     });
   </script>
 
-  <!-- Agregar Cache-Control -->
   <meta http-equiv="Cache-Control" content="max-age=86400, must-revalidate">
 
-  <!-- NUEVO: Añadir Vue 3 -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  
+
 </head>
 
 <body>
-  <!-- Contenedor principal de Vue para el resto de la página -->
   <div id="app">
-    <!-- Componente Vue: AlertBanner -->
-    <alert-banner></alert-banner>
+    <alert-banner></alert-banner> <div id="header-container"></div>
 
-    <!-- Header (cargado dinámicamente) -->
-    <div id="header-container"></div>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        fetch('/components/header.html')
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Error cargando el header: ' + response.status);
-            }
-            return response.text();
-          })
-          .then(data => {
-            document.getElementById('header-container').innerHTML = data;
-            // Cargar estilos del header
-            if (!document.querySelector('link[href="/components/css/header.css"]')) {
-              const headerStyles = document.createElement('link');
-              headerStyles.rel = 'stylesheet';
-              headerStyles.href = '/components/css/header.css';
-              document.head.appendChild(headerStyles);
-            }
-          })
-          .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('header-container').innerHTML = `
-              <div class="alert alert-danger m-3">
-                Error cargando el header. Por favor, recarga la página.
-              </div>
-            `;
-          });
-      });
-    </script>
-
-    <!-- Contenido Principal -->
     <main style="min-height: 400px;">
-      <!-- Sección Nosotros -->
-      <section id="nosotros" class="bg-light py-5">
+      <section id="nosotros" class="bg-light py-5" aria-labelledby="nosotros-titulo">
         <div class="container">
-          <h1 class="text-center mb-4 text-primary">Alquiler de Herramientas en Cali</h1>
+          <h1 id="nosotros-titulo" class="text-center mb-4 text-primary">Alquiler de Herramientas en Cali</h1>
           <h2 class="text-center mb-4 text-secondary">Sobre Nosotros</h2>
           <p class="text-center lead">
             En Master en Herramientas y Servicios nos apasiona brindar soluciones prácticas para la construcción. Desde
@@ -239,14 +170,13 @@
         </div>
       </section>
 
-      <!-- Sección Video -->
-      <section class="py-4">
+      <section class="py-4" aria-labelledby="video-titulo">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 text-center">
-              <div class="ratio ratio-16x9 d-inline-block" style="max-width: 550px; width: 90%;">
+              <h2 id="video-titulo" class="visually-hidden">Video Demostrativo</h2> <div class="ratio ratio-16x9 d-inline-block" style="max-width: 550px; width: 90%;">
                 <video controls class="shadow-lg rounded-3" poster="/assets/imagenes/miniatura-video.jpg"
-                  preload="metadata" aria-label="Video demostrativo de herramientas disponibles para alquiler">
+                  preload="metadata" aria-label="Video demostrativo de herramientas disponibles para alquiler" loading="lazy">
                   <source src="/assets/Videos/Video1.mp4" type="video/mp4">
                   <track kind="captions" src="/assets/videos/captions.vtt" srclang="es" label="Español">
                   Tu navegador no soporta la reproducción de videos.
@@ -257,13 +187,11 @@
         </div>
       </section>
 
-      <!-- Sección Equipos -->
-      <section id="equipos" class="py-5">
+      <section id="equipos" class="py-5" aria-labelledby="equipos-titulo">
         <div class="container">
-          <h2 class="text-center mb-4">Equipos Disponibles para Alquiler</h2>
+          <h2 id="equipos-titulo" class="text-center mb-4">Equipos Disponibles para Alquiler</h2>
           <div class="row" id="herramientas-container">
-            <!-- Las tarjetas se cargarán aquí dinámicamente -->
-          </div>
+            </div>
         </div>
       </section>
 
@@ -282,31 +210,44 @@
         ];
         document.addEventListener('DOMContentLoaded', () => {
           const container = document.getElementById('herramientas-container');
-          herramientas.forEach(herramienta => {
-            fetch(`/components/herramientas/${herramienta}-card.html`)
-              .then(response => response.text())
-              .then(html => {
-                // Modify the HTML to add aria-labels to carousel buttons
-                const modifiedHtml = html.replace(
-                  /<button type="button" data-bs-target="#(.*?)".*?data-bs-slide-to="(\d+)"(.*?)>/g,
-                  (match, target, slideTo, rest) => {
-                    const slideNumber = parseInt(slideTo, 10) + 1;
-                    return `<button type="button" data-bs-target="#${target}" data-bs-slide-to="${slideTo}" aria-label="Slide ${slideNumber}" ${rest}>`;
+          if (container) { // Asegurarse que el contenedor existe
+            herramientas.forEach(herramienta => {
+              fetch(`/components/herramientas/${herramienta}-card.html`)
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error(`Error HTTP ${response.status} cargando ${herramienta}-card.html`);
                   }
-                );
-                container.innerHTML += modifiedHtml;
-              })
-              .catch(error => console.error(`Error cargando ${herramienta}:`, error));
-          });
+                  return response.text();
+                })
+                .then(html => {
+                  // Modify the HTML to add aria-labels to carousel buttons
+                  // COMENTARIO: Esta lógica de reemplazo para aria-label es buena.
+                  const modifiedHtml = html.replace(
+                    /<button type="button" data-bs-target="#(.*?)".*?data-bs-slide-to="(\d+)"(.*?)>/g,
+                    (match, target, slideTo, rest) => {
+                      const slideNumber = parseInt(slideTo, 10) + 1;
+                      return `<button type="button" data-bs-target="#${target}" data-bs-slide-to="${slideTo}" aria-label="Slide ${slideNumber}" ${rest}>`;
+                    }
+                  );
+                  // COMENTARIO: Al cargar HTML dinámicamente, asegúrate que las imágenes dentro de las tarjetas
+                  // también tengan `loading="lazy"` y `width`/`height` si es posible.
+                  container.innerHTML += modifiedHtml;
+                })
+                .catch(error => {
+                  console.error(`Error cargando tarjeta ${herramienta}:`, error);
+                  // COMENTARIO: Considera mostrar un mensaje de error en la UI para el usuario.
+                  // Ejemplo: container.innerHTML += `<div class="col-12"><p class="text-danger">Error al cargar la herramienta: ${herramienta}. Intente más tarde.</p></div>`;
+                });
+            });
+          } else {
+            console.error("Contenedor #herramientas-container no encontrado.");
+          }
         });
       </script>
 
-      <!-- CHECK TOOL CARDS FOR CANONICAL ISSUES -->
-
-      <!-- Sección Contacto -->
-      <section id="contacto" class="py-5">
+      <section id="contacto" class="py-5" aria-labelledby="contacto-titulo">
         <div class="container">
-          <h2 class="text-center mb-4">Contacto</h2>
+          <h2 id="contacto-titulo" class="text-center mb-4">Contacto</h2>
           <p class="text-center">
             ¿Necesitas más información? Contáctanos directamente a través de WhatsApp o visita nuestras redes sociales.
           </p>
@@ -319,80 +260,113 @@
       </section>
     </main>
 
-    <!-- Footer y elementos complementarios -->
     <div id="footer-container" style="min-height: 100px;"></div>
-    
-    <!-- Otros elementos (botones sociales, dark mode, etc.) -->
+
     <div id="social-buttons-container" style="min-height: 50px;"></div>
     <div id="dark-mode-container" style="min-height: 40px;"></div>
+
     <script src="/components/dark-mode/dark-mode.js" defer></script>
     <script>
-      fetch('/components/dark-mode/dark-mode-btn.html')
-        .then(response => response.text())
-        .then(html => {
-          document.getElementById('dark-mode-container').innerHTML = html;
-        })
-        .catch(error => console.error('Error al cargar el botón de dark mode:', error));
-    </script>
-    
-    <!-- Scripts externos -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="/assets/js/buscador.js" defer></script>
-    
-    <script defer>
-      // Cargar botones sociales
-      fetch('/components/social-buttons.html')
-        .then(response => response.text())
-        .then(html => {
-          document.getElementById('social-buttons-container').innerHTML = html;
-        })
-        .catch(error => console.error('Error al cargar social buttons:', error));
-
-      // Cargar footer
-      fetch('/components/footer.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('footer-container').innerHTML = data;
-        })
-        .catch(error => console.error('Error al cargar footer:', error));
-    </script>
-    
-    <!-- Script de carga del header mejorado -->
-    <script>
+      // Cargar botón de dark mode
+      // COMENTARIO: Es buena práctica esperar a DOMContentLoaded para manipular el DOM,
+      // pero como este script está al final del body, el elemento #dark-mode-container ya existirá.
+      // Sin embargo, envolver en DOMContentLoaded es más seguro si este script se moviera.
       document.addEventListener('DOMContentLoaded', () => {
-        fetch('/components/header.html')
-          .then(response => {
-            if (!response.ok) throw new Error('Error cargando el header');
-            return response.text();
-          })
-          .then(html => {
-            const container = document.getElementById('header-container');
-            container.innerHTML = html;
-            const scripts = container.querySelectorAll('script');
-            scripts.forEach(oldScript => {
-              const newScript = document.createElement('script');
-              if (oldScript.src) {
-                newScript.src = oldScript.src;
-              } else {
-                newScript.textContent = oldScript.textContent;
-              }
-              document.body.appendChild(newScript);
-            });
-          })
-          .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('header-container').innerHTML = `
-          <div class="alert alert-danger m-3">
-            Error de navegación. <a href="index.html">Recargar página</a>
-          </div>
-        `;
-          });
+        const darkModeContainer = document.getElementById('dark-mode-container');
+        if (darkModeContainer) {
+            fetch('/components/dark-mode/dark-mode-btn.html')
+            .then(response => response.ok ? response.text() : Promise.reject('Error cargando dark mode button'))
+            .then(html => {
+                darkModeContainer.innerHTML = html;
+            })
+            .catch(error => console.error('Error al cargar el botón de dark mode:', error));
+        }
       });
     </script>
-  </div> <!-- Fin del contenedor principal #app -->
 
-  <!-- Contenedor independiente para el botón "Volver al inicio" -->
-  <div id="app-back-to-top">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="/assets/js/buscador.js" defer></script>
+
+    <script defer>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Cargar botones sociales
+        const socialButtonsContainer = document.getElementById('social-buttons-container');
+        if (socialButtonsContainer) {
+            fetch('/components/social-buttons.html')
+            .then(response => response.ok ? response.text() : Promise.reject('Error cargando social buttons'))
+            .then(html => {
+                socialButtonsContainer.innerHTML = html;
+            })
+            .catch(error => console.error('Error al cargar social buttons:', error));
+        }
+
+        // Cargar footer
+        const footerContainer = document.getElementById('footer-container');
+        if (footerContainer) {
+            fetch('/components/footer.html')
+            .then(response => response.ok ? response.text() : Promise.reject('Error cargando footer'))
+            .then(data => {
+                footerContainer.innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar footer:', error));
+        }
+      });
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const headerContainer = document.getElementById('header-container');
+        if (headerContainer) {
+            fetch('/components/header.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Error cargando el header: ' + response.status);
+                return response.text();
+            })
+            .then(html => {
+                headerContainer.innerHTML = html;
+
+                // Cargar estilos del header si no están ya presentes.
+                // COMENTARIO: Esto aún puede causar FOUC. Idealmente, los estilos del header
+                // se incluirían en el CSS principal o se cargarían de forma más síncrona.
+                if (!document.querySelector('link[href="/components/css/header.css"]')) {
+                    const headerStyles = document.createElement('link');
+                    headerStyles.rel = 'stylesheet';
+                    headerStyles.href = '/components/css/header.css';
+                    document.head.appendChild(headerStyles);
+                }
+
+                // Re-ejecutar scripts dentro del header cargado
+                const scripts = headerContainer.querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                const newScript = document.createElement('script');
+                // Copiar atributos (importante para type="module", async, defer, etc.)
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                if (oldScript.src) {
+                    // Si es un script externo, solo re-asignar src puede no re-ejecutarlo en todos los navegadores
+                    // o puede tener problemas con `document.write`. Es más seguro si el script está diseñado para ser re-añadido.
+                    newScript.src = oldScript.src;
+                } else {
+                    newScript.textContent = oldScript.textContent;
+                }
+                // Reemplazar el script viejo o añadirlo al final del body para asegurar ejecución.
+                // oldScript.parentNode.replaceChild(newScript, oldScript); // Opción 1
+                document.body.appendChild(newScript); // Opción 2: más común para asegurar ejecución global
+                oldScript.remove(); // Eliminar el script original del contenedor del header para no tenerlo duplicado
+                });
+            })
+            .catch(error => {
+                console.error('Error cargando el header:', error);
+                if (headerContainer) { // Doble chequeo por si acaso
+                    headerContainer.innerHTML = `
+                    <div class="alert alert-danger m-3">
+                        Error al cargar la navegación principal. <a href="#" onclick="window.location.reload(); return false;">Recargar página</a>
+                    </div>`;
+                }
+            });
+        }
+      });
+    </script>
+  </div> <div id="app-back-to-top">
     <button v-show="mostrarBoton" @click="volverArriba" class="btn btn-primary"
       style="position: fixed; bottom: 20px; right: 20px; z-index: 99;"
       aria-label="Volver al inicio" title="Volver arriba">
@@ -400,16 +374,13 @@
     </button>
   </div>
 
-  <!-- Inicializar el componente "Volver al inicio" -->
   <script type="module">
     import { initBackToTop } from '/vue-components/back-to-top.js';
     document.addEventListener('DOMContentLoaded', () => {
-      initBackToTop();
+      initBackToTop('#app-back-to-top'); // COMENTARIO: Pasar el selector al montar
     });
   </script>
-  
-  <!-- Componente Vue: AlertBanner -->
+
   <script src="/vue-components/alert-banner.js"></script>
 </body>
-
 </html>
