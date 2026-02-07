@@ -260,42 +260,50 @@
       </section>
     </main>
 
-    <div id="footer-container" style="min-height: 100px;"></div>
+    
+    <!-- Footer Container - SIN min-height -->
+    <div id="footer-container"></div>
 
-    <div id="social-buttons-container" style="min-height: 50px;"></div>
-    <div id="dark-mode-container" style="min-height: 40px;"></div>
+    <!-- Social Buttons Container - SIN min-height -->
+    <div id="social-buttons-container"></div>
 
+    <!-- Dark Mode Container - SIN min-height -->
+    <div id="dark-mode-container"></div>
+
+    <!-- Dark Mode Script -->
     <script src="/components/dark-mode/dark-mode.js" defer></script>
+    
+    <!-- Cargar botón de dark mode -->
     <script>
-      // Cargar botón de dark mode
-      // COMENTARIO: Es buena práctica esperar a DOMContentLoaded para manipular el DOM,
-      // pero como este script está al final del body, el elemento #dark-mode-container ya existirá.
-      // Sin embargo, envolver en DOMContentLoaded es más seguro si este script se moviera.
       document.addEventListener('DOMContentLoaded', () => {
         const darkModeContainer = document.getElementById('dark-mode-container');
         if (darkModeContainer) {
-            fetch('/components/dark-mode/dark-mode-btn.html')
+          fetch('/components/dark-mode/dark-mode-btn.html')
             .then(response => response.ok ? response.text() : Promise.reject('Error cargando dark mode button'))
             .then(html => {
-                darkModeContainer.innerHTML = html;
+              darkModeContainer.innerHTML = html;
             })
             .catch(error => console.error('Error al cargar el botón de dark mode:', error));
         }
       });
     </script>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    
+    <!-- Buscador Script -->
     <script src="/assets/js/buscador.js" defer></script>
 
+    <!-- Cargar componentes (Social Buttons y Footer) -->
     <script defer>
       document.addEventListener('DOMContentLoaded', () => {
         // Cargar botones sociales
         const socialButtonsContainer = document.getElementById('social-buttons-container');
         if (socialButtonsContainer) {
-            fetch('/components/social-buttons.html')
+          fetch('/components/social-buttons.html')
             .then(response => response.ok ? response.text() : Promise.reject('Error cargando social buttons'))
             .then(html => {
-                socialButtonsContainer.innerHTML = html;
+              socialButtonsContainer.innerHTML = html;
             })
             .catch(error => console.error('Error al cargar social buttons:', error));
         }
@@ -303,70 +311,68 @@
         // Cargar footer
         const footerContainer = document.getElementById('footer-container');
         if (footerContainer) {
-            fetch('/components/footer.html')
+          fetch('/components/footer.html')
             .then(response => response.ok ? response.text() : Promise.reject('Error cargando footer'))
             .then(data => {
-                footerContainer.innerHTML = data;
+              footerContainer.innerHTML = data;
             })
             .catch(error => console.error('Error al cargar footer:', error));
         }
       });
     </script>
 
+    <!-- Cargar Header -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const headerContainer = document.getElementById('header-container');
         if (headerContainer) {
-            fetch('/components/header.html')
+          fetch('/components/header.html')
             .then(response => {
-                if (!response.ok) throw new Error('Error cargando el header: ' + response.status);
-                return response.text();
+              if (!response.ok) throw new Error('Error cargando el header: ' + response.status);
+              return response.text();
             })
             .then(html => {
-                headerContainer.innerHTML = html;
+              headerContainer.innerHTML = html;
 
-                // Cargar estilos del header si no están ya presentes.
-                // COMENTARIO: Esto aún puede causar FOUC. Idealmente, los estilos del header
-                // se incluirían en el CSS principal o se cargarían de forma más síncrona.
-                if (!document.querySelector('link[href="/components/css/header.css"]')) {
-                    const headerStyles = document.createElement('link');
-                    headerStyles.rel = 'stylesheet';
-                    headerStyles.href = '/components/css/header.css';
-                    document.head.appendChild(headerStyles);
-                }
+              // Cargar estilos del header si no están ya presentes
+              if (!document.querySelector('link[href="/components/css/header.css"]')) {
+                const headerStyles = document.createElement('link');
+                headerStyles.rel = 'stylesheet';
+                headerStyles.href = '/components/css/header.css';
+                document.head.appendChild(headerStyles);
+              }
 
-                // Re-ejecutar scripts dentro del header cargado
-                const scripts = headerContainer.querySelectorAll('script');
-                scripts.forEach(oldScript => {
+              // Re-ejecutar scripts dentro del header cargado
+              const scripts = headerContainer.querySelectorAll('script');
+              scripts.forEach(oldScript => {
                 const newScript = document.createElement('script');
-                // Copiar atributos (importante para type="module", async, defer, etc.)
                 Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
                 if (oldScript.src) {
-                    // Si es un script externo, solo re-asignar src puede no re-ejecutarlo en todos los navegadores
-                    // o puede tener problemas con `document.write`. Es más seguro si el script está diseñado para ser re-añadido.
-                    newScript.src = oldScript.src;
+                  newScript.src = oldScript.src;
                 } else {
-                    newScript.textContent = oldScript.textContent;
+                  newScript.textContent = oldScript.textContent;
                 }
-                // Reemplazar el script viejo o añadirlo al final del body para asegurar ejecución.
-                // oldScript.parentNode.replaceChild(newScript, oldScript); // Opción 1
-                document.body.appendChild(newScript); // Opción 2: más común para asegurar ejecución global
-                oldScript.remove(); // Eliminar el script original del contenedor del header para no tenerlo duplicado
-                });
+                document.body.appendChild(newScript);
+                oldScript.remove();
+              });
             })
             .catch(error => {
-                console.error('Error cargando el header:', error);
-                if (headerContainer) { // Doble chequeo por si acaso
-                    headerContainer.innerHTML = `
-                    <div class="alert alert-danger m-3">
-                        Error al cargar la navegación principal. <a href="#" onclick="window.location.reload(); return false;">Recargar página</a>
-                    </div>`;
-                }
+              console.error('Error cargando el header:', error);
+              if (headerContainer) {
+                headerContainer.innerHTML = `
+                  <div class="alert alert-danger m-3">
+                    Error al cargar la navegación principal. 
+                    <a href="#" onclick="window.location.reload(); return false;">Recargar página</a>
+                  </div>`;
+              }
             });
         }
       });
     </script>
-  </div> <div id="app-back-to-top">
+  </div> 
+  
+  <!-- Back to Top Button -->
+  <div id="app-back-to-top">
     <button v-show="mostrarBoton" @click="volverArriba" class="btn btn-primary"
       style="position: fixed; bottom: 20px; right: 20px; z-index: 99;"
       aria-label="Volver al inicio" title="Volver arriba">
@@ -377,7 +383,7 @@
   <script type="module">
     import { initBackToTop } from '/vue-components/back-to-top.js';
     document.addEventListener('DOMContentLoaded', () => {
-      initBackToTop('#app-back-to-top'); // COMENTARIO: Pasar el selector al montar
+      initBackToTop('#app-back-to-top');
     });
   </script>
 

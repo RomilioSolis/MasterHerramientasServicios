@@ -1,24 +1,263 @@
 <!-- components/footer.html -->
-<footer class="bg-dark text-white py-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-              <p>&copy; 2025 Master Herramientas y Servicios. Todos los derechos reservados.</p>
-              <p>Email: <a href="mailto:masterenherramientasyservicios@gmail.com"
-                  class="text-white">masterenherramientasyservicios@gmail.com</a></p>
-              <p>Dirección: CRA 23 #36-48 Barrio: El Rodeo, Cali, Colombia</p>
-              <p>Teléfonos: <a href="tel:3165345675" class="text-white">3165345675</a> - <a href="tel:3155500169"
-                  class="text-white">3155500169</a></p>
-            </div>
-            <div class="col-md-6 text-md-end">
-              <p>Síguenos en:</p>
-              <a href="https://www.facebook.com/masters.herramientas/" class="text-white me-3" aria-label="Facebook"
-                rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/masterenherramientasyservisios/" class="text-white me-3"
-                aria-label="Instagram" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.tiktok.com/@tusuario" class="text-white" aria-label="TikTok" rel="noopener noreferrer"><i
-                  class="fab fa-tiktok"></i></a>
-            </div>
-          </div>
+<footer class="footer bg-dark text-light py-4 mt-auto">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Información de la empresa -->
+      <div class="col-md-4 mb-3 mb-md-0">
+        <h5 class="footer-title mb-3 fw-bold">Master en Herramientas y Servicios</h5>
+        <p class="footer-text mb-0">
+          Desde 2014 brindando soluciones profesionales en alquiler de equipos y herramientas para construcción en Cali.
+        </p>
+      </div>
+
+      <!-- Contacto -->
+      <div class="col-md-4 mb-3 mb-md-0">
+        <h5 class="footer-title mb-3 fw-bold">Contacto</h5>
+        <ul class="list-unstyled footer-contact mb-0">
+          <li class="mb-2">
+            <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+            <span>CRA 23 #36-48, Barrio El Rodeo, Cali</span>
+          </li>
+          <li class="mb-2">
+            <i class="fas fa-envelope me-2 text-primary"></i>
+            <a href="mailto:masterenherramientasyservicios@gmail.com" class="text-light text-decoration-none">
+              masterenherramientasyservicios@gmail.com
+            </a>
+          </li>
+          <li class="mb-2">
+            <i class="fas fa-phone me-2 text-primary"></i>
+            <a href="tel:+573165345675" class="text-light text-decoration-none">3165345675</a>
+            <span class="mx-1">-</span>
+            <a href="tel:+573155500169" class="text-light text-decoration-none">3155500169</a>
+          </li>
+          <li class="mb-0">
+            <i class="fas fa-clock me-2 text-primary"></i>
+            <span>Lun - Sáb: 8:00 AM - 6:00 PM</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Redes Sociales y Enlaces -->
+      <div class="col-md-4 mb-3 mb-md-0">
+        <h5 class="footer-title mb-3 fw-bold">Síguenos</h5>
+        <div class="social-links d-flex gap-2 mb-3">
+          <a href="https://www.facebook.com/MasterHerramientas" 
+             class="social-icon facebook" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/MasterHerramientas" 
+             class="social-icon instagram" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@MasterHerramientas" 
+             class="social-icon tiktok" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://wa.me/573165345675" 
+             class="social-icon whatsapp" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        <div>
+          <h6 class="mb-2 fw-semibold">Enlaces Rápidos</h6>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1">
+              <a href="#nosotros" class="text-light text-decoration-none footer-link">
+                <i class="fas fa-angle-right me-1"></i> Nosotros
+              </a>
+            </li>
+            <li class="mb-1">
+              <a href="#equipos" class="text-light text-decoration-none footer-link">
+                <i class="fas fa-angle-right me-1"></i> Equipos
+              </a>
+            </li>
+            <li class="mb-0">
+              <a href="#contacto" class="text-light text-decoration-none footer-link">
+                <i class="fas fa-angle-right me-1"></i> Contacto
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </footer>
+
+    <!-- Copyright -->
+    <div class="row mt-3 pt-3 border-top border-secondary">
+      <div class="col-12 text-center">
+        <p class="mb-1 footer-copyright small">
+          &copy; 2014 - <span id="currentYear"></span> Master Herramientas y Servicios. Todos los derechos reservados.
+        </p>
+        <p class="mb-0 small text-muted">
+          Alquiler de herramientas profesionales en Cali, Valle del Cauca, Colombia
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* Footer base */
+.footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-top: 3px solid #007bff;
+  margin-bottom: 0 !important;
+  padding-bottom: 1rem !important;
+}
+
+.footer-title {
+  color: #fff;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.footer-text {
+  color: #b8b8b8;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.footer-contact {
+  font-size: 0.9rem;
+}
+
+.footer-contact li {
+  color: #b8b8b8;
+  line-height: 1.8;
+}
+
+.footer-contact a:hover {
+  color: #4dabf7 !important;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #4dabf7 !important;
+  padding-left: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Iconos sociales */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: white;
+}
+
+.social-icon.facebook {
+  background: linear-gradient(135deg, #1877F2 0%, #0C5CBD 100%);
+}
+
+.social-icon.instagram {
+  background: linear-gradient(135deg, #E1306C 0%, #C13584 50%, #833AB4 100%);
+}
+
+.social-icon.tiktok {
+  background: linear-gradient(135deg, #000000 0%, #00f2ea 100%);
+}
+
+.social-icon.whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+}
+
+.footer-copyright {
+  color: #b8b8b8;
+}
+
+/* Dark mode */
+body[data-theme="dark"] .footer {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border-top-color: #0056b3;
+}
+
+body[data-theme="dark"] .footer-title {
+  border-bottom-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0 !important;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .col-md-4 {
+    text-align: center;
+  }
+  
+  .footer-title {
+    display: block;
+  }
+  
+  .footer-contact {
+    text-align: left;
+    display: inline-block;
+  }
+}
+
+/* Asegurar que no haya espacio después del footer */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+</style>
+
+<script>
+// Actualizar año dinámicamente
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// Scroll suave para enlaces del footer
+document.querySelectorAll('footer a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href');
+    if(targetId && targetId !== '#') {
+      e.preventDefault();
+      const target = document.querySelector(targetId);
+      if(target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  });
+});
+</script>

@@ -1,41 +1,72 @@
 /* components/css/footer.css */
+#footer-container {
+  margin-top: auto;
+  background: var(--secondary-color);
+  width: 100%;
+  position: relative;
+}
+
 footer {
-    background: var(--secondary-color);
-    color: var(--light-text-color);
-    padding: 2.5rem 0;
-    font-size: 0.95rem;
+  padding: 2.5rem 0 1rem 0;
+  color: var(--light-text-color);
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--light-text-color);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+footer a:hover {
+  opacity: 0.8;
+  transform: translateX(3px);
+}
+
+footer .row > div {
+  margin-bottom: 1rem;
+}
+
+/* Línea decorativa */
+footer::after {
+  content: '';
+  display: block;
+  width: 90%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 2rem auto 1rem;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  footer {
+    padding: 2rem 0 1rem 0;
+    text-align: center;
+  }
+
+  footer .col-md-6 {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  footer .text-md-end {
+    text-align: center !important;
+  }
+
+  footer::after {
+    margin: 1.5rem auto 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    font-size: 0.9rem;
+    padding: 1.5rem 0 0.5rem 0;
   }
   
-  footer a {
-    color: var(--light-text-color);
-    text-decoration: none;
-    transition: opacity 0.3s ease;
+  footer::after {
+    margin: 1rem auto 0.5rem;
   }
-  
-  footer a:hover {
-    opacity: 0.8;
-  }
-  
-  /* Responsividad */
-  @media (max-width: 768px) {
-    footer {
-      padding: 2rem 0;
-      text-align: center;
-    }
-  
-    footer .col-md-6 {
-      width: 100%;
-      margin-bottom: 1.5rem;
-    }
-  
-    footer .text-md-end {
-      text-align: center !important;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    footer {
-      font-size: 0.9rem;
-      padding: 1.5rem 0;
-    }
-  }
+}
