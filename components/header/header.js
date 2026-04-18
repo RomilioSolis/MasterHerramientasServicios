@@ -42,11 +42,11 @@ function getHeaderHTML() {
                     <img src="${headerData.logo.src}" alt="${headerData.logo.alt}" class="header-logo">
                     <span class="logo-text">${headerData.logo.text}</span>
                 </a>
-                <button class="mobile-toggle" aria-label="Abrir menú" onclick="document.querySelector('.nav-main').classList.toggle('active')">
+                <button class="mobile-toggle" aria-label="Abrir menú" onclick="document.querySelector('.navigation-nav').classList.toggle('active')">
                     <i class="bi bi-list"></i>
                 </button>
-                <nav class="nav-main" aria-label="Navegación principal">
-                    ${headerData.nav.map(item => `<a href="${item.href}" class="nav-link">${item.text}</a>`).join('')}
+                <nav class="navigation-nav" aria-label="Navegación principal">
+                    ${headerData.nav.map(item => `<a href="${item.href}" class="navigation-link">${item.text}</a>`).join('')}
                 </nav>
                 <div class="header-right">
                     <div class="search-box">

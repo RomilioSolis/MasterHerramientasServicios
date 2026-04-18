@@ -1,9 +1,12 @@
-.nav-main {
+/* Navigation Component Styles */
+/* Prefijo: .navigation- para evitar colisiones */
+
+.navigation-nav {
     display: flex;
     gap: 20px;
 }
 
-.nav-link {
+.navigation-link {
     color: #fff;
     text-decoration: none;
     padding: 8px 16px;
@@ -11,12 +14,12 @@
     transition: all 0.3s ease;
 }
 
-.nav-link:hover {
+.navigation-link:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 768px) {
-    .nav-main {
+    .navigation-nav {
         display: none;
         position: absolute;
         top: 100%;
@@ -27,7 +30,7 @@
         padding: 20px;
     }
     
-    .nav-main.active {
+    .navigation-nav.active {
         display: flex;
     }
 }
