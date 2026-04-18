@@ -185,7 +185,7 @@
     /* Reducir trabajo del hilo principal - skip rendering off-screen */
     #equipos,#video,#preguntas-frecuentes,#contacto,.py-5{content-visibility:auto;contain-intrinsic-size:1px 500px}
     /* Reserved space para containers lazy load - evitar CLS */
-    #footer-container:not(:empty){min-height:300px}
+    #footer-container:not(:empty){min-height:150px}
     #faq-container:not(:empty){min-height:400px}
     #contacto-container:not(:empty){min-height:500px}
     #chat-widget-container:not(:empty){min-height:80px}
@@ -211,7 +211,7 @@
   <!-- Leaflet CSS - sin media="print" para evitar problemas de carga -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
 
-  <!-- Bootstrap Icons -->
+  <!-- Bootstrap Icons - carga estándar -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
 
@@ -224,7 +224,6 @@
   <!-- Estilos locales (cargados al final) -->
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="/assets/css/footer.css" media="print" onload="this.media='all'">
-  <!-- contacto.css ahora en /components/contacto/contacto.css (cargado lazy) -->
   <link rel="stylesheet" href="/components/dark-mode/dark-mode.css">
   <!-- Gallery CSS -->
   <link rel="stylesheet" href="/components/gallery/gallery.css">
@@ -296,7 +295,7 @@
   <div id="lateral-menu-container"></div>
   <script type="module" src="/components/header/header.js"></script>
 
-  <main style="min-height: 400px;">
+  <main style="min-height: 100px;">
       <!-- Sección Nosotros + Video -->
       <section id="nosotros" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: auto; padding: 3rem 0; display: flex; align-items: center;" aria-labelledby="nosotros-titulo">
         <div class="container">
@@ -488,7 +487,7 @@
     <!-- Social Buttons - componente separado -->
     <script src="/components/social-buttons/sb-init.js" defer></script>
 
-    <!-- Cargar otros componentes lazily -->
+<!-- Cargar otros componentes lazily -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
@@ -503,22 +502,36 @@
             var el = document.getElementById(c.id);
             if (!el || el.dataset.loaded) return;
             el.dataset.loaded = 1;
+            
+            // Cargar CSS primero
             if (c.css && !document.querySelector('link[href="' + c.css + '"]')) {
               var link = document.createElement('link');
               link.rel = 'stylesheet';
               link.href = c.css;
               document.head.appendChild(link);
+              console.log('Cargando CSS:', c.css);
             }
-            fetch(c.url).then(function(r) { return r.text(); }).then(function(html) {
+            
+            // Luego cargar HTML
+            fetch(c.url).then(function(r) { 
+              if (!r.ok) throw new Error('HTTP ' + r.status);
+              return r.text(); 
+            }).then(function(html) {
+              console.log('HTML cargado:', c.id, 'length:', html.length);
               el.innerHTML = html;
+              
+              // Cargar JS después de HTML
               if (c.js) {
                 setTimeout(function() {
                   var script = document.createElement('script');
                   script.src = c.js;
                   document.body.appendChild(script);
+                  console.log('JS cargado:', c.js);
                 }, 100);
               }
-            }).catch(function() {});
+            }).catch(function(err) {
+              console.error('Error cargando', c.id, err);
+            });
           });
         }, 500);
       });

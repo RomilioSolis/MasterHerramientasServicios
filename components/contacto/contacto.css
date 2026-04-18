@@ -173,6 +173,18 @@
   font-size: 1.3rem;
 }
 
+/* Info item icon */
+.info-item > i,
+.card-icon i,
+.social-link i,
+.btn-whatsapp i,
+.btn-directions i {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Social links container */
 .social-links {
   display: flex;
   justify-content: center;
