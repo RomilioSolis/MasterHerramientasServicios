@@ -171,9 +171,58 @@ MasterHerramientasServicios/
 | lateral-menu | ✅ COMPLETADO |
 | navigation | ✅ COMPLETADO |
 | footer | ✅ COMPLETADO |
-| contacto | ⏳ PENDIENTE |
-| faq | ⏳ PENDIENTE |
-| chat-widget | ⏳ PENDIENTE |
+| contacto | ✅ COMPLETADO |
+| faq | ✅ COMPLETADO |
+| chat-widget | ✅ COMPLETADO |
+| horario | ✅ COMPLETADO |
+| gallery | ✅ COMPLETADO |
+
+---
+
+## Equipos del Proyecto
+
+### Total: 38 equipos en 8 categorías
+
+| # | ID | Nombre | Categoría |
+|---|-----|--------|-----------|
+| 1 | gatos-hidraulicos | Gatos Hidraulicos | elevacion |
+| 2 | gato-estibador | Gato Estibador | elevacion |
+| 3 | ganchos-colgantes | Ganchos Colgantes | elevacion |
+| 4 | winches | Winches | elevacion |
+| 5 | pluma-grua | Pluma Grúa | elevacion |
+| 6 | taladros | Taladros | perforacion |
+| 7 | taladro-magnetico | Taladro Magnético | perforacion |
+| 8 | extractores | Extractores | perforacion |
+| 9 | sonda-electrica | Sonda Eléctrica | perforacion |
+| 10 | esmeriladora | Esmeriladora | perforacion |
+| 11 | equipo-oxicorte | Equipo Oxicorte | perforacion |
+| 12 | cortadora-porcelanato | Cortadora Porcelanato | perforacion |
+| 13 | extraccion-nucleos | Extracción Núcleos | perforacion |
+| 14 | trompo-mezclador | Trompo Mezclador | mezclado |
+| 15 | vibrocompactadora | Vibrocompactadora | mezclado |
+| 16 | hidrolavadora | Hidrolavadora | limpieza |
+| 17 | aspiradora-industrial | Aspiradora Industrial | limpieza |
+| 18 | motobomba-sumergible | Motobomba Sumergible | limpieza |
+| 19 | compresor | Compresor | soldadura |
+| 20 | equipos-soldadura | Equipos de Soldadura | soldadura |
+| 21 | planta-electrica | Planta Eléctrica | soldadura |
+| 22 | andamios | Andamios | construccion |
+| 23 | estanterias | Estanterías | construccion |
+| 24 | parasoles | Parasoles | construccion |
+| 25 | diferenciales | Diferenciales | movimiento |
+| 26 | carretillas | Carretillas | movimiento |
+| 27 | buggy | Buggy con Pico y Pala | movimiento |
+| 28 | escaleras | Escaleras | jardin |
+| 29 | motosierra | Motosierra | jardin |
+
+### Imágenes por Equipo
+
+Las imágenes se encuentran en: `/assets/imagenes/{NombreEquipo}/`
+
+Ejemplo: `/assets/imagenes/TaladroMagnetico/` contiene:
+- TaladroMagnetico1.jpeg
+- TaladroMagnetico2.jpeg
+- TaladroMagnetico3.jpeg
 
 ---
 

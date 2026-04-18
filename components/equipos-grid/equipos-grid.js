@@ -8,10 +8,11 @@ const equiposGridData = {
     ],
     perforacion: [
         { id: 'taladros', name: 'Taladros', img: '/assets/imagenes/Taladros/Taladro.webp', text: 'Taladros industriales de percusión.' },
+        { id: 'taladro-magnetico', name: 'Taladro Magnético', img: '/assets/imagenes/TaladroMagnetico/TaladroMagnetico1.jpeg', text: 'Taladro magnético para perforación de metal.' },
         { id: 'extractores', name: 'Extractores', img: '/assets/imagenes/Extractores/Extractor.png', text: 'Extractores de ejes y rodamientos.' },
         { id: 'sonda-electrica', name: 'Sonda Eléctrica', img: '/assets/imagenes/SondaElectrica/SondaElectrica.png', text: 'Sonda eléctrica para barrenado.' },
         { id: 'esmeriladora', name: 'Esmeriladora', img: '/assets/imagenes/Esmeril/Esmeril.png', text: 'Esmeriladora angular de alta potencia.' },
-        { id: 'equipo-oxicorte', name: 'Equipo Oxicorte', img: '/assets/imagenes/Oxicorte/EquiOxicorte.png', text: 'Equipo de oxicorte para corte de金属.' },
+        { id: 'equipo-oxicorte', name: 'Equipo Oxicorte', img: '/assets/imagenes/Oxicorte/EquiOxicorte.png', text: 'Equipo de oxicorte para corte de metal.' },
         { id: 'cortadora-porcelanato', name: 'Cortadora Porcelanato', img: '/assets/imagenes/CortadoraPorcelanato/CortadoraPorcelanato.png', text: 'Cortadora de porcelanato y cerámica.' },
         { id: 'extraccion-nucleos', name: 'Extracción Núcleos', img: '/assets/imagenes/ExtraNucleo/ExtraNucleo.png', text: 'Equipo de extracción de núcleos de concreto.' }
     ],

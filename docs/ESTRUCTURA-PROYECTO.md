@@ -188,15 +188,16 @@ MasterHerramientasServicios/
 **Propósito**: Generar filas tipo Netflix con scroll horizontal
 
 **Funcionamiento**:
-1. Lee `equiposData` (37 equipos en 8 categorías)
+1. Lee `equiposData` (38 equipos en 8 categorías)
 2. Para cada categoría crea una `.netflix-row`
 3. Carga cada equipo desde `/components/equipos/{id}.html`
 4. Genera `.netflix-item` con imagen + título + botón WhatsApp
 5. Inicializa carrusel automático con rotación de imágenes cada 5s
+6. Al hacer click en una imagen abre la **galería interactiva** con todas las fotos del equipo
 
 **Categorías**:
 - Elevación y Levante (5 equipos)
-- Perforación y Corte (7 equipos)
+- Perforación y Corte (8 equipos) ← Actualizado
 - Mezclado y Compactación (2 equipos)
 - Limpieza e Hidráulica (3 equipos)
 - Soldadura y Energía (3 equipos)
@@ -306,5 +307,5 @@ document.getElementById('social-buttons-container').innerHTML
 
 ---
 
-**Última actualización**: 15 de abril, 2026
+**Última actualización**: 18 de abril, 2026 (galería interactiva + Taladro Magnético)
 **Estado del proyecto**: ✅ Operativo - Optimizado

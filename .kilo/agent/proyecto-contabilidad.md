@@ -194,8 +194,8 @@ import SocialButtons from '/components/social-buttons/social-buttons.js';
   - Instagram: `https://www.instagram.com/masterenherramientasyservisios/`
   - WhatsApp: `https://wa.me/573165345675`
 
-- **Equipos**: 37 equipos en 8 categorías
-- **Última actualización**: 18 abril 2026 (galería interactiva agregada)
+- **Equipos**: 38 equipos en 8 categorías (incluye Taladro Magnético)
+- **Última actualización**: 18 abril 2026 (galería interactiva + Taladro Magnético)
 
 ---
 

@@ -8,6 +8,7 @@ const categoriesData = {
     ],
     perforacion: [
         { name: 'Taladros', img: '/assets/imagenes/Taladros/Taladro.webp', wa: 'taladro' },
+        { name: 'Taladro Magnético', img: '/assets/imagenes/TaladroMagnetico/TaladroMagnetico1.jpeg', wa: 'taladro%20magnetico' },
         { name: 'Extractores', img: '/assets/imagenes/Extractores/Extractor.png', wa: 'extractor' },
         { name: 'Sonda Eléctrica', img: '/assets/imagenes/SondaElectrica/SondaElectrica.png', wa: 'sonda%20electrica' },
         { name: 'Esmeriladora', img: '/assets/imagenes/Esmeril/Esmeril.png', wa: 'esmeriladora' },

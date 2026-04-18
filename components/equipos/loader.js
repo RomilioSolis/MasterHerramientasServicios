@@ -9,6 +9,7 @@ const equiposData = {
   ],
   perforacion: [
     { id: 'taladros', name: 'Taladros' },
+    { id: 'taladro-magnetico', name: 'Taladro Magnético' },
     { id: 'extractores', name: 'Extractores' },
     { id: 'sonda-electrica', name: 'Sonda Eléctrica' },
     { id: 'esmeriladora', name: 'Esmeriladora' },
@@ -58,6 +59,23 @@ const categoryNames = {
 };
 
 const BASE_PATH = '/components/equipos/';
+
+const equiposSpecs = {
+  'aspiradora-industrial': {
+    titulo: 'Aspiradora Industrial Truper ASP-12',
+    datos: {
+      'Referencia': '101509',
+      'Potencia Maxima': '6.5 HP (Peak)',
+      'Potencia Nominal': '1.6 HP (1,200 W)',
+      'Capacidad Tanque': '45 Litros (12 Galones)',
+      'Tension': '127 V / 60 Hz',
+      'Presion Succión': '1.7 PSI (11.7 kPa)',
+      'Presion Soplador': '1.9 PSI (13.1 kPa)'
+    },
+    caracteristicas: 'Aspira polvo (sólidos) y agua (líquidos)\nFunción de soplador integrada\nTanque de polietileno de alta resistencia\nDrenaje inferior con tapón\nSoportes para accesorios y cable',
+    accesorios: 'Manguera de 2.1 m (7 ft) - 2 1/2"\n2 Tubos de extensión\nBoquilla para piso y alfombra\nBoquilla para ranuras\nFiltro de cartucho para sólidos\nFiltro de espuma para líquidos'
+  }
+};
 
 async function loadEquipo(name, container) {
   try {
@@ -122,9 +140,10 @@ async function loadNetflixItem(name, container) {
     `;
     
     // Agregar click para abrir galería
+    const specsData = equiposSpecs[name] || null;
     netflixItem.querySelector('.netflix-item-image').onclick = function() {
       if (typeof Gallery !== 'undefined') {
-        Gallery.open(images, title, waLink);
+        Gallery.open(images, title, waLink, specsData);
       }
     };
     
