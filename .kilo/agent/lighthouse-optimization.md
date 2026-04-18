@@ -163,16 +163,18 @@ GitHub Pages tiene limitaciones:
 | Error Lighthouse | Estado Actual | Acción Recomendada |
 |-----------------|---------------|-------------------|
 | LCP | ✅ Optimizado | CSS crítico inline, preload |
-| CLS | ⚠️ En revisión | Reserved space en containers |
-| TBT | ✅ Optimizado | Scripts con defer |
-| Render blocking | ⚠️ CSS async | Verificar loading |
-| Images | ⚠️ Verificar | Agregar dimensiones |
+| CLS | ✅ Corregido | Reserved space en containers |
+| TBT | ✅ Corregido | Scripts con defer |
+| Render blocking | ✅ Optimizado | CSS async loading |
+| Images | ✅ Verificado | Dimensiones 400x300 |
 
 ---
 
 ## Historial de Correcciones
 
 - **18 abril 2026**: Agente creado para optimización Lighthouse
+- **18 abril 2026**: CLS - Reserved space para containers lazy load agregados
+- **18 abril 2026**: TBT - Scripts con defer agregados (category-buttons, category-filter, equipos/loader, sb-init)
 
 ---
 
@@ -182,4 +184,4 @@ GitHub Pages tiene limitaciones:
 - **CDN**: Cloudflare automático
 - **Assets**: locales en /assets/
 - **Librerías externas**: Bootstrap, Leaflet, Google Fonts, Font Awesome
-- **Última actualización**: 18 abril 2026
+- **Última actualización**: 18 abril 2026 (CLS y TBT corregidos)

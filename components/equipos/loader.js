@@ -96,6 +96,11 @@ async function loadNetflixItem(name, container) {
     const firstImg = article.querySelector('img');
     const imgSrc = firstImg ? firstImg.src : '';
     
+    // Extraer todas las imágenes del article
+    const allImages = article.querySelectorAll('img');
+    const images = Array.from(allImages).map(function(img) { return img.src; });
+    if (images.length === 0) images.push(imgSrc);
+    
     // Generar WhatsApp link
     const waText = name.toLowerCase().replace(/-/g, '%20');
     const waLink = `https://wa.me/573165345675?text=Hola,%20necesito%20cotizar%20${waText}`;
@@ -107,7 +112,7 @@ async function loadNetflixItem(name, container) {
     netflixItem.dataset.name = name;
     
     netflixItem.innerHTML = `
-      <div class="netflix-item-image">
+      <div class="netflix-item-image" style="cursor:pointer">
         <img src="${imgSrc}" alt="${title}" loading="lazy">
       </div>
       <div class="netflix-item-title">${title}</div>
@@ -115,6 +120,13 @@ async function loadNetflixItem(name, container) {
         <i class="bi bi-whatsapp"></i>
       </a>
     `;
+    
+    // Agregar click para abrir galería
+    netflixItem.querySelector('.netflix-item-image').onclick = function() {
+      if (typeof Gallery !== 'undefined') {
+        Gallery.open(images, title, waLink);
+      }
+    };
     
     container.appendChild(netflixItem);
   } catch (e) {

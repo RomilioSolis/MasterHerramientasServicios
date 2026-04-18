@@ -18,6 +18,7 @@ MasterHerramientasServicios/
 │   ├── header/                   # Header dinámico
 │   ├── lateral-menu/               # Menú lateral
 │   ├── horario/                 # Horario con reloj en tiempo real
+│   ├── gallery/                  # Galería interactiva (lightbox)
 │   ├── navigation/               # Navegación
 │   ├── equipos-grid/              # Grid de equipos (cards Bootstrap)
 │   ├── equipos/                  # Netflix rows (carga dinámica)
@@ -91,6 +92,16 @@ MasterHerramientasServicios/
 - **Horario**: Lun-Vie 8AM-6PM, Sáb 8AM-4PM, Dom cerrado
 - **Zona horaria**: America/Bogota
 
+### Gallery (`components/gallery/`)
+- **Componente autocontenido**: HTML + CSS + JS
+- **HTML**: `gallery.html`
+- **CSS**: `gallery.css`
+- **JS**: `gallery.js` (lightbox interactivo)
+- **Carga**: Inmediata (script en head)
+- **Funciones**: `Gallery.open(images, title, waLink)`, `Gallery.prev()`, `Gallery.next()`, `Gallery.close()`
+- **Uso**: Click en imagen de Netflix rows abre galería con todas las imágenes del equipo
+- **Navegación**: Teclas flechas, Escape, click fuera
+
 ### Lateral Menu (`components/lateral-menu/`)
 - **Expide funciones**: `openLateralMenu()`, `closeLateralMenu()`
 - **Carga**: Importado por header.js
@@ -143,6 +154,7 @@ import SocialButtons from '/components/social-buttons/social-buttons.js';
 | faq | ✅ ACTIVO |
 | chat-widget | ✅ ACTIVO |
 | horario | ✅ ACTIVO |
+| gallery | ✅ ACTIVO |
 
 ---
 
@@ -183,7 +195,7 @@ import SocialButtons from '/components/social-buttons/social-buttons.js';
   - WhatsApp: `https://wa.me/573165345675`
 
 - **Equipos**: 37 equipos en 8 categorías
-- **Última actualización**: 18 abril 2026 (horario agregado)
+- **Última actualización**: 18 abril 2026 (galería interactiva agregada)
 
 ---
 
