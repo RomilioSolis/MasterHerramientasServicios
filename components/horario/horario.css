@@ -1,0 +1,6 @@
+.reloj-container{display:flex;flex-direction:column;align-items:center}
+.reloj-display{font-size:2.5rem;font-weight:700;color:#ffc107;font-family:monospace;text-shadow:0 0 10px rgba(255,193,7,0.5)}
+.reloj-fecha{font-size:0.85rem;color:#adb5bd;margin-top:0.25rem}
+.status-badge .badge{padding:0.5rem 1rem;border-radius:20px}
+.horario-detalles{font-size:0.85rem;background:rgba(0,0,0,0.2);padding:0.75rem;border-radius:8px}
+.horario-item{font-size:0.8rem}

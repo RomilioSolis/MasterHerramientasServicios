@@ -17,6 +17,7 @@ MasterHerramientasServicios/
 │   ├── chat-widget/              # Chat flotante WhatsApp (left)
 │   ├── header/                   # Header dinámico
 │   ├── lateral-menu/               # Menú lateral
+│   ├── horario/                 # Horario con reloj en tiempo real
 │   ├── navigation/               # Navegación
 │   ├── equipos-grid/              # Grid de equipos (cards Bootstrap)
 │   ├── equipos/                  # Netflix rows (carga dinámica)
@@ -81,8 +82,17 @@ MasterHerramientasServicios/
 - **JS**: `nosotros.js` (video + mapa Leaflet)
 - **Carga**: Lazy load desde index.html
 
+### Horario (`components/horario/`)
+- **Componente autocontenido**: HTML + CSS + JS
+- **HTML**: `horario.html`
+- **CSS**: `horario.css`
+- **JS**: `horario.js` (reloj en tiempo real, abierto/cerrado dinámico)
+- **Carga**: Lazy load desde index.html
+- **Horario**: Lun-Vie 8AM-6PM, Sáb 8AM-4PM, Dom cerrado
+- **Zona horaria**: America/Bogota
+
 ### Lateral Menu (`components/lateral-menu/`)
-- **Expone funciones**: `openLateralMenu()`, `closeLateralMenu()`
+- **Expide funciones**: `openLateralMenu()`, `closeLateralMenu()`
 - **Carga**: Importado por header.js
 
 ---
@@ -132,6 +142,7 @@ import SocialButtons from '/components/social-buttons/social-buttons.js';
 | contacto | ✅ ACTIVO |
 | faq | ✅ ACTIVO |
 | chat-widget | ✅ ACTIVO |
+| horario | ✅ ACTIVO |
 
 ---
 
@@ -172,7 +183,7 @@ import SocialButtons from '/components/social-buttons/social-buttons.js';
   - WhatsApp: `https://wa.me/573165345675`
 
 - **Equipos**: 37 equipos en 8 categorías
-- **Última actualización**: 18 abril 2026
+- **Última actualización**: 18 abril 2026 (horario agregado)
 
 ---
 

@@ -184,6 +184,17 @@
     #header-app:not(:empty){min-height:70px}
     /* Reducir trabajo del hilo principal - skip rendering off-screen */
     #equipos,#video,#preguntas-frecuentes,#contacto,.py-5{content-visibility:auto;contain-intrinsic-size:1px 500px}
+    
+    .horario-detalles{font-size:0.85rem;background:rgba(0,0,0,0.2);padding:0.75rem;border-radius:8px}
+    .horario-item{font-size:0.8rem}
+    /* 2x2 grid distribution in nosotros */
+    @media(min-width:768px){
+      #texto-card .netflix-card,
+      #video-card-container .netflix-card,
+      #mapa-card-container .netflix-card,
+      #horario-card-container .netflix-card{height:100%;min-height:320px}
+    }
+    #video-card video{height:100%;object-fit:cover}
   </style>
 
   <!-- CSS externo async (no bloquea render) -->
@@ -279,10 +290,11 @@
         <div class="container">
           <!-- SEO: H1 visible para Google -->
           <h1 id="nosotros-titulo" class="visually-hidden">Alquiler de Herramientas Profesionales en Cali | Master Herramientas y Servicios</h1>
-          <div class="row g-3 justify-content-center align-items-center">
+          <div class="row g-3 justify-content-center align-items-start">
+            <!-- Fila 1 -->
             <!-- Tarjeta de texto (flotante estilo Netflix) -->
-            <div class="col-lg-4" id="texto-card">
-              <div class="netflix-card floating-card" style="padding: 2rem;">
+            <div class="col-md-6 col-lg-6" id="texto-card">
+              <div class="netflix-card floating-card" style="padding: 1.5rem;">
                 <div class="card-content">
                   <h2 class="mb-3 text-white fw-bold" style="font-size: 1.8rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Alquiler de Herramientas Profesionales en Cali</h2>
                   <h2 class="mb-3 text-light fs-6 fw-normal" style="opacity: 0.9;">Expertos en Alquiler de Equipos para Construcción desde 2014</h2>
@@ -304,10 +316,10 @@
                 </div>
               </div>
             </div>
-            <!-- Tarjeta de video (flotante estilo Netflix) -->
-            <div class="col-lg-4" id="video-card-container">
+            <!-- Fila 1 continue - Tarjeta de video (flotante estilo Netflix) -->
+            <div class="col-md-6 col-lg-6" id="video-card-container">
               <div class="netflix-card floating-card video-card" id="video-card">
-                <div class="ratio ratio-16x9 rounded-3 overflow-hidden" style="--bs-aspect-ratio: 56.25%;">
+                <div class="ratio ratio-16x9 rounded-3 overflow-hidden" style="--bs-aspect-ratio: 56.25%;min-height:320px">
                   <video id="nosotros-video" controls class="object-fit-cover" 
                     poster="/assets/imagenes/miniatura-video.jpg"
                     preload="metadata" 
@@ -319,10 +331,11 @@
                 </div>
               </div>
             </div>
+            <!-- Fila 2 -->
             <!-- Mapa -->
-            <div class="col-lg-4" id="mapa-card-container">
+            <div class="col-md-6 col-lg-6" id="mapa-card-container">
               <div class="netflix-card floating-card" style="padding: 0.5rem;">
-                <div id="nosotros-mapa" style="min-height:280px;height:280px;width:100%;border-radius:12px;" role="application" aria-label="Mapa de ubicación"></div>
+                <div id="nosotros-mapa" style="min-height:300px;height:300px;width:100%;border-radius:12px;" role="application" aria-label="Mapa de ubicación"></div>
                 <div class="text-center mt-2">
                   <a href="https://wa.me/573165345675?text=Hola,%20me%20interesa%20alquilar%20herramientas" class="btn btn-success btn-sm" target="_blank" rel="noopener">
                     <i class="bi bi-whatsapp"></i> Cotizar
@@ -333,6 +346,8 @@
                 </div>
               </div>
             </div>
+            <!-- Horario (lazy load) -->
+            <div class="col-md-6 col-lg-6" id="horario-card-container"></div>
           </div>
         </div>
         <script>
@@ -469,7 +484,8 @@
             { id: 'footer-container', url: '/components/footer/footer.html', css: '/components/footer/footer.css' },
             { id: 'contacto-container', url: '/components/contacto/contacto.html', css: '/components/contacto/contacto.css', js: '/components/contacto/contacto.js' },
             { id: 'faq-container', url: '/components/faq/faq.html', css: '/components/faq/faq.css' },
-            { id: 'chat-widget-container', url: '/components/chat-widget/chat-widget.html', css: null }
+            { id: 'chat-widget-container', url: '/components/chat-widget/chat-widget.html', css: null },
+            { id: 'horario-card-container', url: '/components/horario/horario.html', css: '/components/horario/horario.css', js: '/components/horario/horario.js' }
           ];
           components.forEach(function(c) {
             var el = document.getElementById(c.id);
