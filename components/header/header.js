@@ -4,7 +4,7 @@ import LateralMenu from '../lateral-menu/lateral-menu.js';
 
 const headerData = {
     logo: {
-        src: '/assets/imagenes/logo.jpg',
+        src: '/assets/imagenes/logo.png',
         alt: 'Logo',
         text: 'Master en Herramientas y Servicios'
     },
