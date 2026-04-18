@@ -184,6 +184,13 @@
     #header-app:not(:empty){min-height:70px}
     /* Reducir trabajo del hilo principal - skip rendering off-screen */
     #equipos,#video,#preguntas-frecuentes,#contacto,.py-5{content-visibility:auto;contain-intrinsic-size:1px 500px}
+    /* Reserved space para containers lazy load - evitar CLS */
+    #footer-container:not(:empty){min-height:300px}
+    #faq-container:not(:empty){min-height:400px}
+    #contacto-container:not(:empty){min-height:500px}
+    #chat-widget-container:not(:empty){min-height:80px}
+    #horario-card-container:not(:empty){min-height:320px}
+    #social-buttons-container:not(:empty){min-height:200px}
     
     .horario-detalles{font-size:0.85rem;background:rgba(0,0,0,0.2);padding:0.75rem;border-radius:8px}
     .horario-item{font-size:0.8rem}
@@ -443,9 +450,9 @@
           </p>
           
       <!-- Incluir componente de botones de categorías -->
-      <script src="/components/category-buttons/category-buttons.js"></script>
-      <script src="/components/category-filter/category-filter.js"></script>
-      <script type="module" src="/components/equipos/loader.js"></script>
+      <script src="/components/category-buttons/category-buttons.js" defer></script>
+      <script src="/components/category-filter/category-filter.js" defer></script>
+      <script type="module" src="/components/equipos/loader.js" defer></script>
       
           <!-- Filtro de categorías -->
           <div id="categoryButtonsContainer"></div>
@@ -474,7 +481,7 @@
     <div id="chat-widget-container"></div>
 
     <!-- Social Buttons - componente separado -->
-    <script src="/components/social-buttons/sb-init.js"></script>
+    <script src="/components/social-buttons/sb-init.js" defer></script>
 
     <!-- Cargar otros componentes lazily -->
     <script>
