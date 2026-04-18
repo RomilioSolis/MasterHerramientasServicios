@@ -203,8 +203,7 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/backtotop.js"></script>
-  <script src="../components/dark-mode/dark-mode.js"></script>
+  <script type="module" src="../assets/js/main.js"></script>
   <script src="../components/BotonWhatsapp/whatsapp-button.js"></script>
 
   <!-- Carga dinámica mejorada -->
@@ -236,7 +235,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       // Cargar componentes
       loadComponent('../components/headernosotros.html', 'header-container');
-      loadComponent('../components/dark-mode/dark-mode-btn.html', 'dark-mode-container');
+      loadComponent('../components/footer.html', 'footer-container');
       loadComponent('../components/social-buttons.html', 'social-buttons-container');
       loadComponent('../components/footer.html', 'footer-container');
 

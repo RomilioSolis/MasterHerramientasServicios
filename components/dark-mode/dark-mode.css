@@ -35,7 +35,23 @@
 }
 
 [data-theme="dark"] .navbar {
-  background-color: #212121 !important;
+  background-color: #800020 !important;
+}
+
+[data-theme="dark"] .modern-header {
+  background-color: #800020 !important;
+}
+
+[data-theme="light"] .modern-header {
+  background-color: #ffffff !important;
+}
+
+[data-theme="dark"] .modern-header .logo-text {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .modern-header .nav-link {
+  color: #ffffff !important;
 }
 
 [data-theme="dark"] p,
@@ -55,11 +71,8 @@
   color: #6c757d;
 }
 
-/* Posicionamiento del botón */
+/* Posicionamiento del botón - ahora en header, no fixed */
 .theme-switcher {
-  position: fixed;
-  top: 1rem !important;
-  right: 1.5rem !important;
   z-index: 99999;
 }
 

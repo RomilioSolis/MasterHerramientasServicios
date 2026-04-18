@@ -1,0 +1,33 @@
+/* Header Component Styles */
+/* Carga estilos base desde header-modern.css global */
+
+.header-component {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-logo {
+    height: 42px;
+    width: auto;
+    border-radius: 4px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        display: none;
+    }
+}

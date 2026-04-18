@@ -1,0 +1,1 @@
+Get-Content 'C:\Users\Usuario1\Desktop\CONTABILIDAD MASTER\OneDrive\MasterHerramientasServicios\index.html' -Encoding UTF8 | ForEach-Object -Begin { $i = 0 } -Process { $i++; if ($_ -match '[\x00-\x08\x0B\x0C\x0E-\x1F]') { Write-Host "Line $i has special chars: $_" } }

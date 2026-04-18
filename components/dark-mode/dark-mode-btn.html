@@ -1,6 +1,5 @@
 <div class="theme-switcher">
-  <button class="btn btn-dark rounded-pill shadow-sm px-3 py-2" 
-          onclick="darkMode.toggle()"
+  <button class="theme-toggle-btn rounded-pill px-3 py-1" 
           aria-label="Alternar modo oscuro">
     <span class="theme-icon">🌓</span>
     <span class="d-none d-sm-inline ms-2">Modo</span>
@@ -11,14 +10,34 @@
 .theme-switcher {
   z-index: 99999;
 }
-
-.theme-icon {
-  font-size: 1.2rem;
-  vertical-align: middle;
-  display: inline-block;
+.theme-toggle-btn {
+  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.6);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.2s ease;
 }
-
-/* Eliminar transformaciones conflictivas */
+.theme-toggle-btn:hover {
+  background: rgba(255,255,255,0.35);
+  border-color: #fff;
+}
+body[data-theme="light"] .theme-toggle-btn {
+  background: #f8f9fa;
+  border-color: #800020;
+  color: #800020;
+}
+body[data-theme="light"] .theme-toggle-btn:hover {
+  background: #e9ecef;
+  border-color: #a31628;
+}
+.theme-icon {
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
 .theme-switcher:hover {
   transform: none !important;
 }

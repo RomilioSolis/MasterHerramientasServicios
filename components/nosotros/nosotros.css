@@ -1,0 +1,59 @@
+.nosotros-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: auto;
+  padding: 3rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.nosotros-mapa {
+  min-height: 280px;
+  height: 280px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.netflix-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.floating-card {
+  padding: 1.5rem;
+}
+
+.floating-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.video-card {
+  padding: 0.5rem;
+}
+
+.video-card .ratio {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+@media (max-width: 992px) {
+  .nosotros-section {
+    padding: 2rem 0;
+  }
+  
+  #video-card-container,
+  #mapa-card-container {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nosotros-mapa {
+    min-height: 220px;
+    height: 220px;
+  }
+}

@@ -1,4 +1,4 @@
-class DarkMode {
+export default class DarkMode {
   constructor() {
     this.theme = localStorage.getItem('theme') || 'light';
     this.init();
@@ -7,7 +7,6 @@ class DarkMode {
   init() {
     document.body.dataset.theme = this.theme;
     this.applyGlobalStyles();
-    this.addOverrideStyles();
   }
 
   toggle() {
@@ -23,9 +22,24 @@ class DarkMode {
 
   applyGlobalStyles() {
     const style = document.createElement('style');
+    style.id = 'dark-mode-styles';
     style.innerHTML = `
       body {
         transition: background-color 0.3s ease, color 0.3s ease !important;
+      }
+      [data-theme="light"] {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8f9fa;
+        --text-primary: #212529;
+        --text-secondary: #6c757d;
+      }
+      [data-theme="dark"] {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --text-primary: #f8f9fa;
+        --text-secondary: #adb5bd;
+        background-color: #1a1a1a !important;
+        color: #f8f9fa !important;
       }
       [data-theme="dark"] a:not(.btn) {
         color: #4dabf7 !important;
@@ -33,16 +47,22 @@ class DarkMode {
       [data-theme="dark"] .text-muted {
         color: #adb5bd !important;
       }
+      [data-theme="dark"] .card {
+        background-color: #2d2d2d !important;
+        border-color: #404040 !important;
+      }
+      [data-theme="dark"] header, [data-theme="dark"] .navbar {
+        background-color: #800020 !important;
+      }
+      [data-theme="dark"] .nav-link {
+        color: #f8f9fa !important;
+      }
+      [data-theme="dark"] .logo-text {
+        color: #ffffff !important;
+      }
     `;
-    document.head.appendChild(style);
-  }
-
-  addOverrideStyles() {
-    const elements = document.querySelectorAll('[data-theme="dark"]');
-    elements.forEach(el => {
-      el.style.color = 'inherit';
-    });
+    if (!document.getElementById('dark-mode-styles')) {
+      document.head.appendChild(style);
+    }
   }
 }
-
-const darkMode = new DarkMode();

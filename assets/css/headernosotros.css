@@ -1,0 +1,97 @@
+/* components/css/headernosotros.css */
+:root {
+    --primary-color: #2ecc71;
+    --secondary-color: #34495e;
+    --light-text-color: #ffffff;
+    --hover-transition: all 0.3s ease;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-header {
+    background: linear-gradient(145deg, var(--secondary-color), #34495e);
+    box-shadow: var(--card-shadow);
+    border-bottom: 3px solid var(--primary-color);
+    padding: 2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .brand-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: var(--light-text-color);
+    line-height: 1.3;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .brand-letter {
+    font-weight: 700;
+    display: inline-block;
+    transition: var(--hover-transition);
+  }
+  
+  .m-letter { color: #2ecc71; }
+  .h-letter { color: #3498db; }
+  .s-letter { color: #f1c40f; }
+  
+  .nav-button {
+    color: var(--light-text-color);
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--hover-transition);
+    backdrop-filter: blur(5px);
+  }
+  
+  .nav-button:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+  }
+  
+  .search-input {
+    border-radius: 50px 0 0 50px;
+    padding: 1rem 1.8rem;
+    border: 2px solid var(--primary-color);
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+  }
+  
+  .btn-search {
+    border-radius: 0 50px 50px 0;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 0 1.8rem;
+    transition: var(--hover-transition);
+  }
+  
+  .btn-search:hover {
+    filter: brightness(110%);
+  }
+  
+  @media (max-width: 768px) {
+    .custom-header { padding: 1.5rem 0; }
+    .brand-name { font-size: 1.8rem; }
+    .nav-button { padding: 0.6rem 1.2rem; }
+    .search-input { padding: 0.8rem 1.2rem; }
+  }
+  
+  @media (min-width: 992px) {
+    .brand-name { font-size: 2.5rem; }
+    .header-content { gap: 2rem; }
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }

@@ -1,18 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const backToTop = document.getElementById('backToTop');
-  
-  window.addEventListener('scroll', function() {
-      if (window.pageYOffset > 100) {
-          backToTop.style.display = 'flex';
-      } else {
-          backToTop.style.display = 'none';
-      }
-  });
-
-  backToTop.addEventListener('click', function() {
-      window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-      });
-  });
-});
+const btn = document.getElementById('app-back-to-top');
+if (btn) {
+  btn.onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
+  onscroll = () => { btn.style.display = scrollY > 300 ? 'flex' : 'none' };
+}
+export default {};

@@ -1,0 +1,30 @@
+#backToTop, #app-back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #800020;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(196,30,58,0.4);
+    z-index: 9999;
+}
+
+#backToTop svg, #app-back-to-top svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+    fill: currentColor;
+}
+
+#backToTop:hover, #app-back-to-top:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(196,30,58,0.6);
+}

@@ -1,354 +1,584 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="language" content="es-CO">
+  <meta name="geo.region" content="CO-VAC">
+  <meta name="geo.placename" content="Cali">
+  <meta name="geo.position" content="3.438050;-76.538800">
+  <meta name="ICBM" content="3.438050, -76.538800">
 
-  <!-- Meta SEO basados en datos de Google Search Console -->
-  <meta name="description"
-    content="✅ Alquiler de herramientas profesionales en Cali: gatos, taladros, escaleras y más. Servicio rápido y precios competitivos. ¡Contáctanos vía WhatsApp!">
-  <meta name="keywords"
-    content="alquiler herramientas Cali, alquiler maquinaria construcción, gatos hidráulicos, taladros profesionales, Master Herramientas y Servicios">
+  <!-- Canonical, hreflang y sitemap (URLs absolutas favorecen rastreo y redes sociales) -->
+  <link rel="canonical" href="https://masterenherramientasyservicios.com.co/">
+  <link rel="alternate" hreflang="es-CO" href="https://masterenherramientasyservicios.com.co/">
+  <link rel="alternate" hreflang="x-default" href="https://masterenherramientasyservicios.com.co/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://masterenherramientasyservicios.com.co/sitemap.xml">
+
+  <!-- Meta description: sin símbolos decorativos; ~155 caracteres útiles en SERP -->
+  <meta name="description" content="Alquiler de herramientas y maquinaria para construcción en Cali desde 2014. Gatos hidráulicos, taladros, escaleras, andamios. Cra. 23 #36-48 Barrio El Rodeo. WhatsApp 316 5345675.">
   <meta name="author" content="Master Herramientas y Servicios">
-  <!-- Meta adicionales -->
-  <meta name="max-snippet" content="150">
-  <meta name="max-image-preview" content="large">
-  <meta name="max-video-preview" content="60">
 
-  <title>Alquiler de Herramientas en Cali | Master Herramientas y Servicios</title>
-  <link rel="canonical" href="https://masterenherramientasyservicios.com.co/" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://masterenherramientasyservicios.com.co/assets/imagenes/masterfavi.ico"
-    type="image/x-icon">
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Alquiler de Herramientas Profesionales en Cali | Master Herramientas y Servicios">
-  <meta property="og:description"
-    content="Alquila herramientas de alta calidad en Cali. Entrega inmediata y soporte técnico especializado.">
-  <meta property="og:image" content="https://masterenherramientasyservicios.com.co/assets/imagenes/logo.svg">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Alquiler Profesional de Herramientas en Cali | Master Herramientas y Servicios">
+  <meta property="og:description" content="Alquiler de herramientas profesionales y maquinaria para construcción en Cali desde 2014. Entrega inmediata, mantenimiento garantizado. Extracción de núcleo, demolición y corte de pavimentos.">
+  <meta property="og:image" content="https://masterenherramientasyservicios.com.co/assets/imagenes/miniatura-video.jpg">
+  <meta property="og:image:alt" content="Master Herramientas y Servicios — alquiler de equipos en Cali">
   <meta property="og:url" content="https://masterenherramientasyservicios.com.co/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
   <meta property="og:site_name" content="Master Herramientas y Servicios">
 
-  <!-- Twitter Meta Tags -->
+  <!-- Twitter Cards optimizado -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Alquiler de Herramientas en Cali | Master Herramientas y Servicios">
-  <meta name="twitter:description" content="Herramientas profesionales para construcción en Cali. ¡Alquila hoy mismo!">
-  <meta name="twitter:image" content="https://masterenherramientasyservicios.com.co/assets/imagenes/logo.svg">
+  <meta name="twitter:title" content="Alquiler de Herramientas Profesionales en Cali | Master Herramientas">
+  <meta name="twitter:description" content="Equipos de construcción en alquiler con mantenimiento garantizado desde 2014. Gatos hidráulicos, taladros, escaleras y más. ¡Cotiza por WhatsApp!">
+  <meta name="twitter:image" content="https://masterenherramientasyservicios.com.co/assets/imagenes/miniatura-video.jpg">
+  <meta name="twitter:image:alt" content="Master Herramientas y Servicios - Alquiler de equipos en Cali">
   <meta name="twitter:site" content="@MasterHerramientas">
   <meta name="twitter:creator" content="@MasterHerramientas">
 
-  <!-- Hreflang -->
-  <link rel="alternate" hreflang="es" href="https://masterenherramientasyservicios.com.co/">
-
-  <!-- Schema Markup (Datos Estructurados para SEO) -->
-  <script type="application/ld+json">
+  <!-- Schema.org consolidado - un solo script con defer para reducir TBT -->
+  <script type="application/ld+json" defer>
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Master Herramientas y Servicios",
-    "image": "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.svg",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "CRA 23 #36-48",
-      "addressLocality": "Cali",
-      "addressRegion": "Valle del Cauca",
-      "postalCode": "760001",
-      "addressCountry": "CO"
-    },
-    "telephone": "+57 316 534 5675",
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    }],
-    "url": "https://masterenherramientasyservicios.com.co/",
-    "sameAs": [
-      "https://www.facebook.com/MasterHerramientas",
-      "https://www.instagram.com/MasterHerramientas",
-      "https://wa.me/573165345675"
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://masterenherramientasyservicios.com.co/#localbusiness",
+        "name": "Master Herramientas y Servicios",
+        "description": "Empresa especializada en alquiler de herramientas profesionales y maquinaria para construcción en Cali, Valle del Cauca. Servicios de extracción de núcleo, demolición y corte de pavimentos desde 2014.",
+        "image": ["https://masterenherramientasyservicios.com.co/assets/imagenes/miniatura-video.jpg"],
+        "logo": "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.jpg",
+        "priceRange": "$$",
+        "foundingDate": "2014-08",
+        "address": {"@type": "PostalAddress", "streetAddress": "Cra. 23 #36-48, Barrio El Rodeo", "addressLocality": "Cali", "addressRegion": "Valle del Cauca", "postalCode": "760001", "addressCountry": "CO"},
+        "geo": {"@type": "GeoCoordinates", "latitude": "3.438050", "longitude": "-76.538800"},
+        "telephone": ["+573165345675", "+573163550319"],
+        "email": "info@masterenherramientasyservicios.com.co",
+        "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "08:00", "closes": "18:00"}],
+        "url": "https://masterenherramientasyservicios.com.co/",
+        "sameAs": ["https://www.facebook.com/MasterHerramientas", "https://www.instagram.com/MasterHerramientas", "https://wa.me/573165345675"],
+        "areaServed": {"@type": "City", "name": "Cali", "@id": "https://www.wikidata.org/wiki/Q26617"},
+        "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Catálogo de Herramientas y Equipos", "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Alquiler de Gatos Hidráulicos", "description": "Alquiler de gatos hidráulicos de alta capacidad"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Alquiler de Taladros Industriales", "description": "Taladros profesionales para perforación"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Alquiler de Escaleras", "description": "Escaleras profesionales de diferentes alturas"}}
+        ]}
+      },
+      {"@type": "Organization", "@id": "https://masterenherramientasyservicios.com.co/#organization", "name": "Master Herramientas y Servicios", "url": "https://masterenherramientasyservicios.com.co/", "image": ["https://masterenherramientasyservicios.com.co/assets/imagenes/miniatura-video.jpg", "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.jpg"], "logo": {"@type": "ImageObject", "url": "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.jpg"}, "contactPoint": {"@type": "ContactPoint", "telephone": "+573165345675", "contactType": "customer service", "areaServed": "CO", "availableLanguage": ["es", "es-CO"]}, "sameAs": ["https://www.facebook.com/MasterHerramientas", "https://www.instagram.com/MasterHerramientas", "https://wa.me/573165345675"]},
+      {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://masterenherramientasyservicios.com.co/"},
+        {"@type": "ListItem", "position": 2, "name": "Equipos Disponibles", "item": "https://masterenherramientasyservicios.com.co/#equipos"},
+        {"@type": "ListItem", "position": 3, "name": "Preguntas frecuentes", "item": "https://masterenherramientasyservicios.com.co/#preguntas-frecuentes"},
+        {"@type": "ListItem", "position": 4, "name": "Contacto", "item": "https://masterenherramientasyservicios.com.co/#contacto"}
+      ]},
+      {"@type": "WebSite", "@id": "https://masterenherramientasyservicios.com.co/#website", "url": "https://masterenherramientasyservicios.com.co/", "name": "Master Herramientas y Servicios", "description": "Alquiler de herramientas y maquinaria para construcción en Cali.", "inLanguage": "es-CO", "publisher": {"@id": "https://masterenherramientasyservicios.com.co/#organization"}},
+      {"@type": "WebPage", "@id": "https://masterenherramientasyservicios.com.co/#webpage", "url": "https://masterenherramientasyservicios.com.co/", "name": "Alquiler de Herramientas Profesionales en Cali | Master Herramientas y Servicios", "description": "Alquiler de herramientas y maquinaria para construcción en Cali desde 2014.", "isPartOf": {"@id": "https://masterenherramientasyservicios.com.co/#website"}, "about": {"@id": "https://masterenherramientasyservicios.com.co/#localbusiness"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://masterenherramientasyservicios.com.co/assets/imagenes/miniatura-video.jpg"}, "inLanguage": "es-CO", "dateModified": "2026-04-04"},
+      {"@type": "VideoObject", "name": "Alquiler de herramientas profesionales en Cali", "description": "Video demostrativo de nuestro catálogo de herramientas profesionales.", "thumbnailUrl": "https://masterenherramientasyservicios.com.co/assets/imagenes/miniatura-video.jpg", "uploadDate": "2026-04-04T10:00:00-05:00", "duration": "PT1M33S", "contentUrl": "https://masterenherramientasyservicios.com.co/assets/Videos/Video1.mp4"},
+      {"@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": "¿Dónde está ubicado Master Herramientas y Servicios?", "acceptedAnswer": {"@type": "Answer", "text": "Estamos ubicados en Cra 23 #36-48, Barrio El Rodeo, Cali, Valle del Cauca, Colombia."}},
+        {"@type": "Question", "name": "¿Qué horario de atención tienen?", "acceptedAnswer": {"@type": "Answer", "text": "Nuestro horario de atención es de lunes a sábado de 8:00 AM a 6:00 PM."}},
+        {"@type": "Question", "name": "¿Qué servicios ofrecen además del alquiler?", "acceptedAnswer": {"@type": "Answer", "text": "Ofrecemos servicios de extracción de núcleo, demolición y corte de pavimentos."}},
+        {"@type": "Question", "name": "¿Cómo puedo contactarlos?", "acceptedAnswer": {"@type": "Answer", "text": "Por WhatsApp al 316 5345675 o 316 3550319."}},
+        {"@type": "Question", "name": "¿Atienden solo en el local?", "acceptedAnswer": {"@type": "Answer", "text": "Tenemos Cra. 23 #36-48, Barrio El Rodeo. Consulta por WhatsApp entregas en otras zonas."}},
+        {"@type": "Question", "name": "¿Cómo pido una cotización?", "acceptedAnswer": {"@type": "Answer", "text": "Escríbenos por WhatsApp con el equipo, fechas y duración."}}
+      ]}
     ]
   }
   </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "Alquiler de herramientas profesionales en Cali - Master Herramientas y Servicios",
-    "description": "Descubre nuestro servicio de alquiler de herramientas profesionales en Cali. Equipos verificados, entrega inmediata y soporte técnico especializado.",
-    "thumbnailUrl": "https://tudominio.com/ruta/miniatura-video.jpg",
-    "uploadDate": "2023-11-15T08:00:00+08:00",
-    "duration": "PT1M33S",
-    "contentUrl": "https://masterenherramientasyservicios.com.co/assets/Videos/Video1.mp4",
-    "embedUrl": "https://masterenherramientasyservicios.com.co/",
-    "potentialAction": {
-      "@type": "SeekToAction",
-      "target": "https://masterenherramientasyservicios.com.co/#t={seek_to_second_number}"
+  <title>Alquiler De Herramientas, Mantenimiento, Demolición | Master Herramientas Y Servicios</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/imagenes/masterfavi.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/assets/imagenes/logo.jpg">
+
+  <!-- DNS Prefetch para recursos externos -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  <!-- Preconnect para acelerar conexiones -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Preload recursos críticos above-the-fold -->
+  <link rel="preload" href="/assets/imagenes/miniatura-video.jpg" as="image">
+  <link rel="preload" href="/assets/imagenes/logo.jpg" as="image">
+  
+  <!-- Meta tags adicionales para SEO móvil -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Master Herramientas">
+  <meta name="theme-color" content="#800020">
+  <meta name="format-detection" content="telephone=yes">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- CSS CRÍTICO INLINE - debe ser lo primero para evitar render blocking -->
+  <style>
+    /* Font-display swap + size-adjust para evitar FOIT y minimizar CLS */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      size-adjust: 100%;
+      src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://masterenherramientasyservicios.com.co/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://masterenherramientasyservicios.com.co/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      size-adjust: 100%;
+      src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
-  }
-  </script>
-
-  <!-- Redirección para evitar "www" -->
-  <script>
-    if (window.location.hostname === 'www.masterenherramientasyservicios.com.co') {
-      window.location.href = 'https://masterenherramientasyservicios.com.co' + window.location.pathname;
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      size-adjust: 100%;
+      src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
-  </script>
+    /* Reset y estilos base críticos */
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,sans-serif;line-height:1.5;background:#f8f9fa}
+    img{max-width:100%;height:auto}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 15px}
+    /* Header crítico */
+    header{background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1);position:relative;z-index:1000}
+    header .navbar{padding:.5rem 0}
+    /* Hero section above-the-fold */
+    #nosotros{min-height:300px;display:flex;align-items:center;background:#fff}
+    /* Grid de herramientas */
+    .row{display:flex;flex-wrap:wrap;margin:-15px}
+    .col-md-4{width:33.333333%;padding:15px}
+    @media(max-width:768px){.col-md-4{width:100%}}
+    /* Cards */
+    .card{height:100%;border:1px solid #e0e0e0;border-radius:.5rem;overflow-hidden}
+    .card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+    .card-body{padding:1rem}
+    /* Video skeleton placeholder para LCP */
+    .video-skeleton{background:#e9ecef;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+    /* Header skeleton */
+    #header-app:empty{background:linear-gradient(90deg,#f8f9fa 25%,#e9ecef 50%,#f8f9fa 75%);background-size:200% 100%;animation:skeleton-loading 1.5s infinite}
+    @keyframes skeleton-loading{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    /* Cards skeleton */
+    #herramientas-container:empty{height:400px;background:#f8f9fa}
+    /* Reserve space for herramientas grid - avoid CLS from dynamic content */
+    #herramientas-container:not(:empty){min-height:400px}
+    /* Header container - reserve space to avoid CLS */
+    #header-app:not(:empty){min-height:70px}
+    /* Reducir trabajo del hilo principal - skip rendering off-screen */
+    #equipos,#video,#preguntas-frecuentes,#contacto,.py-5{content-visibility:auto;contain-intrinsic-size:1px 500px}
+  </style>
 
-  <!-- Tus estilos personalizados -->
-  <link rel="stylesheet" href="https://masterenherramientasyservicios.com.co/assets/css/styles.css">
-  <link rel="stylesheet" href="components/css/footer.css">
-  <link rel="stylesheet" href="components/social-buttons.css">
-  <link rel="stylesheet" href="components/dark-mode/dark-mode.css">
+  <!-- CSS externo async (no bloquea render) -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"></noscript>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2NF3N12L3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-W2NF3N12L3');
-  </script>
+  <!-- Leaflet CSS - sin media="print" para evitar problemas de carga -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+
+  <!-- Leaflet JS - carga inmediata para el mapa -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
+
+  <!-- Estilos locales (cargados al final) -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/footer.css" media="print" onload="this.media='all'">
+  <!-- contacto.css ahora en /components/contacto/contacto.css (cargado lazy) -->
+  <link rel="stylesheet" href="/components/dark-mode/dark-mode.css">
+  <!-- CSS de componentes -->
+  <link rel="stylesheet" href="/assets/css/header-modern.css">
+  <link rel="stylesheet" href="/assets/css/cookie-menu.css">
+  <link rel="stylesheet" href="/assets/css/floating-cards.css">
+  <link rel="stylesheet" href="/assets/css/netflix-rows.css">
+
+  
+
+  <!-- Cache Control -->
+  <meta http-equiv="Cache-Control" content="max-age=86400, must-revalidate">
+
 </head>
 
-<body>
-  <!-- Alerta superior para notificar mejoras -->
-  <div class="alert alert-warning alert-dismissible fade show text-center mb-0 fixed-top" role="alert"
-    style="z-index: 9999; border-radius: 0; transition: all 0.3s ease;">
-    <div class="container">
-      <i class="fas fa-tools me-2"></i>
-      🚧 Estamos mejorando nuestro sitio web - Los cambios se implementarán gradualmente 🚧
-      <small class="d-block mt-1">Agradecemos tu paciencia durante esta transición</small>
+<body data-theme="dark">
+  <!-- Banner de Cookies -->
+  <div id="cookie-banner" class="cookie-banner" style="display: none;">
+    <div class="cookie-content">
+      <p>Utilizamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestro uso de cookies.</p>
+      <div class="cookie-buttons">
+        <button type="button" class="cookie-btn cookie-accept" onclick="acceptCookies()">Aceptar</button>
+        <button type="button" class="cookie-btn cookie-reject" onclick="rejectCookies()">Rechazar</button>
+      </div>
     </div>
   </div>
-
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const alerta = document.querySelector('.alert');
-      document.body.style.paddingTop = alerta.offsetHeight + 'px';
-      setTimeout(() => {
-        alerta.style.transform = 'translateY(-100%)';
-        document.body.style.paddingTop = '0';
-        setTimeout(() => { alerta.remove(); }, 300);
-      }, 5000);
-      alerta.addEventListener('click', function () {
-        this.style.transform = 'translateY(-100%)';
-        document.body.style.paddingTop = '0';
-        setTimeout(() => { this.remove(); }, 300);
-      });
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Strict; Secure";
+    }
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      var cookieConsent = getCookie('cookieConsent');
+      if (cookieConsent === null) {
+        document.getElementById('cookie-banner').style.display = 'block';
+      }
     });
+    function acceptCookies() {
+      setCookie('cookieConsent', 'accepted', 365);
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    function rejectCookies() {
+      setCookie('cookieConsent', 'rejected', 365);
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
   </script>
 
-  <!-- Header (cargado dinámicamente) -->
-  <div id="header-container"></div>
-  <script>
-    fetch('components/header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-container').innerHTML = data;
-      });
-  </script>
+  <!-- Script para forzar modo oscuro inmediatamente -->
+  <script>document.body.setAttribute('data-theme', 'dark');</script>
+  <!-- Vue sólo aquí: montar en #app borraba todo el sitio (main, mapa, etc.) -->
+  <!-- Componente Header dinámico -->
+  <div id="header-app"></div>
+  <div id="lateral-menu-container"></div>
+  <script type="module" src="/components/header/header.js"></script>
 
-  <!-- Contenido Principal -->
-  <main>
-    <!-- Sección Nosotros -->
-    <section id="nosotros" class="bg-light py-5">
-      <div class="container">
-        <h1 class="text-center mb-4 text-primary">Alquiler de Herramientas en Cali</h1>
-        <h2 class="text-center mb-4 text-secondary">Sobre Nosotros</h2>
-        <p class="text-center lead">
-          En Master en Herramientas y Servicios nos apasiona brindar soluciones prácticas para la construcción. Desde
-          agosto de 2014, nuestra pequeña empresa –con un equipo de 3 a 4 colaboradores– se dedica al alquiler de
-          equipos y a servicios especializados, como extracción de núcleo, demolición y corte de pavimentos. Ubicados en
-          Cra 23 #36-48, Barrio El Rodeo, Cali (al lado de la autopista sur oriental en dirección sur-norte), estamos
-          siempre listos para ayudarte a llevar a cabo tus proyectos. Contáctanos al 316 5345675 o 316 3550319.
-        </p>
-      </div>
-    </section>
-
-    <!-- Sección Video -->
-    <section class="py-4">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 text-center">
-            <div class="ratio ratio-16x9 d-inline-block" style="max-width: 550px; width: 90%;">
-              <video controls class="shadow-lg rounded-3" poster="assets/imagenes/miniatura-video.jpg"
-                preload="metadata" aria-label="Video demostrativo de herramientas disponibles para alquiler">
-                <source src="assets/Videos/Video1.mp4" type="video/mp4">
-                <track kind="captions" src="assets/videos/captions.vtt" srclang="es" label="Español">
-                Tu navegador no soporta la reproducción de videos.
-              </video>
+  <main style="min-height: 400px;">
+      <!-- Sección Nosotros + Video -->
+      <section id="nosotros" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: auto; padding: 3rem 0; display: flex; align-items: center;" aria-labelledby="nosotros-titulo">
+        <div class="container">
+          <!-- SEO: H1 visible para Google -->
+          <h1 id="nosotros-titulo" class="visually-hidden">Alquiler de Herramientas Profesionales en Cali | Master Herramientas y Servicios</h1>
+          <div class="row g-3 justify-content-center align-items-center">
+            <!-- Tarjeta de texto (flotante estilo Netflix) -->
+            <div class="col-lg-4" id="texto-card">
+              <div class="netflix-card floating-card" style="padding: 2rem;">
+                <div class="card-content">
+                  <h2 class="mb-3 text-white fw-bold" style="font-size: 1.8rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Alquiler de Herramientas Profesionales en Cali</h2>
+                  <h2 class="mb-3 text-light fs-6 fw-normal" style="opacity: 0.9;">Expertos en Alquiler de Equipos para Construcción desde 2014</h2>
+                  <div class="lead text-light" style="font-size: 0.9rem; line-height: 1.6;" itemscope itemtype="https://schema.org/Organization">
+                    <p class="mb-2" style="opacity: 0.95;">
+                      En <strong itemprop="name">Master Herramientas y Servicios</strong> nos apasiona brindar soluciones prácticas para la construcción. Desde
+                      <time datetime="2014-08" itemprop="foundingDate">agosto de 2014</time>, nuestra pequeña empresa se dedica al <strong>alquiler de
+                      equipos</strong> y a <strong>servicios especializados</strong>, como <em>extracción de núcleo, demolición y corte de pavimentos</em>. 
+                    </p>
+                    <p class="mb-2" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" style="opacity: 0.95;">
+                      Estamos ubicados en <span itemprop="streetAddress">Cra. 23 #36-48, Barrio El Rodeo</span>, 
+                      <span itemprop="addressLocality">Cali</span>, 
+                      <span itemprop="addressRegion">Valle del Cauca</span>.
+                    </p>
+                    <p class="mb-0">
+                      <strong>Contáctanos:</strong> <a href="tel:+573165345675" itemprop="telephone" class="text-warning">316 5345675</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Tarjeta de video (flotante estilo Netflix) -->
+            <div class="col-lg-4" id="video-card-container">
+              <div class="netflix-card floating-card video-card" id="video-card">
+                <div class="ratio ratio-16x9 rounded-3 overflow-hidden" style="--bs-aspect-ratio: 56.25%;">
+                  <video id="nosotros-video" controls class="object-fit-cover" 
+                    poster="/assets/imagenes/miniatura-video.jpg"
+                    preload="metadata" 
+                    aria-label="Video demostrativo de herramientas disponibles para alquiler">
+                    <source src="/assets/Videos/Video1.mp4" type="video/mp4">
+                    <track kind="captions" src="/assets/videos/captions.vtt" srclang="es" label="Español">
+                    Tu navegador no soporta la reproducción de videos.
+                  </video>
+                </div>
+              </div>
+            </div>
+            <!-- Mapa -->
+            <div class="col-lg-4" id="mapa-card-container">
+              <div class="netflix-card floating-card" style="padding: 0.5rem;">
+                <div id="nosotros-mapa" style="min-height:280px;height:280px;width:100%;border-radius:12px;" role="application" aria-label="Mapa de ubicación"></div>
+                <div class="text-center mt-2">
+                  <a href="https://wa.me/573165345675?text=Hola,%20me%20interesa%20alquilar%20herramientas" class="btn btn-success btn-sm" target="_blank" rel="noopener">
+                    <i class="bi bi-whatsapp"></i> Cotizar
+                  </a>
+                  <a href="https://www.google.com/maps/dir//3.438368,-76.505911" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener">
+                    <i class="bi bi-sign-turn-right"></i> Cómo llegar
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Sección Equipos -->
-    <section id="equipos" class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-4">Equipos Disponibles para Alquiler</h2>
-        <div class="row" id="herramientas-container">
-          <!-- Las tarjetas se cargarán aquí dinámicamente -->
-        </div>
-      </div>
-    </section>
-
-    <script>
-      const herramientas = [
-        'gatosM', 'escaleras', 'taladros', 'estibador',
-        'compresor', 'diferencial', 'trompo-mezclador',
-        'hidrolavadora', 'vibrocompactadora', 'andamios',
-        'parasol', 'ganchos-colgantes', 'soldador',
-        'extractor', 'estanteria', 'planta-energia',
-        'winche', 'pluma-grua', 'carretillas',
-        'sonda-electrica', 'esmeriladora', 'motosierra',
-        'buggy-pico-pala', 'aspiradora-trupel',
-        'equipo-oxicorte', 'cortadora-porcelanato',
-        'motobomba-lapicero', 'extractor-nucleo'
-      ];
-      document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('herramientas-container');
-        herramientas.forEach(herramienta => {
-          fetch(`components/herramientas/${herramienta}-card.html`)
-            .then(response => response.text())
-            .then(html => {
-              container.innerHTML += html;
-            })
-            .catch(error => console.error(`Error cargando ${herramienta}:`, error));
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const video = document.getElementById('nosotros-video');
+          const textoCard = document.getElementById('texto-card');
+          const videoCardContainer = document.getElementById('video-card-container');
+          const videoCard = document.getElementById('video-card');
+          const row = videoCardContainer.parentElement;
+          
+          video.addEventListener('play', function() {
+            textoCard.style.opacity = '0';
+            setTimeout(function() {
+              textoCard.style.display = 'none';
+              videoCardContainer.style.width = '100%';
+              videoCardContainer.style.maxWidth = '900px';
+              videoCardContainer.style.margin = '0 auto';
+              videoCardContainer.style.flex = '0 0 100%';
+            }, 300);
+          });
+          
+          video.addEventListener('ended', function() {
+            videoCardContainer.style.flex = '';
+            videoCardContainer.style.width = '';
+            videoCardContainer.style.maxWidth = '';
+            videoCardContainer.style.margin = '';
+            textoCard.style.display = '';
+            setTimeout(function() {
+              textoCard.style.opacity = '1';
+            }, 10);
+          });
         });
+        
+        // Inicializar mapa en sección nosotros
+        document.addEventListener('DOMContentLoaded', function() {
+          var nosotrosMapa = document.getElementById('nosotros-mapa');
+          if (nosotrosMapa && typeof L !== 'undefined') {
+            var LAT = 3.438368;
+            var LNG = -76.505911;
+            var mapa = L.map('nosotros-mapa', {
+              center: [LAT, LNG],
+              zoom: 16,
+              scrollWheelZoom: false,
+              zoomControl: true
+            });
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              maxZoom: 19,
+              attribution: '&copy; OpenStreetMap'
+            }).addTo(mapa);
+            
+            // Icono empresa
+            var iconoEmpresa = L.divIcon({
+              className: '',
+              html: '<div style="background:#d32f2f;width:36px;height:36px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 2px 12px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;"><span style="transform:rotate(45deg);font-size:17px;">🔧</span></div>',
+              iconSize: [36, 36],
+              iconAnchor: [18, 36]
+            });
+            
+            // Popup empresa
+            var popupEmpresa = '<div style="font-family:Segoe UI,sans-serif;min-width:180px;">' +
+              '<strong style="font-size:14px;">🔧 Master Herramientas y Servicios</strong><br>' +
+              '<span style="color:#555;font-size:12px;">Cra. 23 #36-48, Barrio El Rodeo</span><br>' +
+              '<span style="color:#1565c0;font-size:11px;">📍 Parada MIO P21C justo enfrente</span><br>' +
+              '<a href="https://www.google.com/maps/place/3.438368,-76.505911" target="_blank" style="font-size:12px;color:#1a73e8;">Ver en Google Maps</a>' +
+              '</div>';
+            
+            L.marker([LAT, LNG], {icon: iconoEmpresa}).addTo(mapa).bindPopup(popupEmpresa).openPopup();
+            
+            // Icono MIO
+            var iconoMIO = L.divIcon({
+              className: '',
+              html: '<div style="background:#1565c0;width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;"><span style="font-size:14px;">🚌</span></div>',
+              iconSize: [30, 30],
+              iconAnchor: [15, 15]
+            });
+            
+            // Marcador MIO frente a la empresa
+            L.marker([LAT, LNG - 0.0002], {icon: iconoMIO}).addTo(mapa)
+              .bindPopup('<div style="font-family:Segoe UI,sans-serif;"><span>🚌 Parada MIO — Ruta P21C</span></div>');
+            
+            setTimeout(function() { mapa.invalidateSize(); }, 100);
+          }
+        });
+        </script>
+      </section>
+
+      <!-- Sección Herramientas -->
+      <section id="equipos" class="py-1" aria-labelledby="equipos-titulo">
+        <div class="container">
+          <h2 id="equipos-titulo" class="text-center mb-3">Equipos Disponibles para Alquiler</h2>
+          <p class="text-center mb-3">
+            Explora nuestro catálogo completo de <strong>herramientas para alquiler</strong>. Contamos con equipos de alta calidad, mantenimiento garantizado y asesoría profesional.
+          </p>
+          
+      <!-- Incluir componente de botones de categorías -->
+      <script src="/components/category-buttons/category-buttons.js"></script>
+      <script src="/components/category-filter/category-filter.js"></script>
+      <script type="module" src="/components/equipos/loader.js"></script>
+      
+          <!-- Filtro de categorías -->
+          <div id="categoryButtonsContainer"></div>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              document.getElementById('categoryButtonsContainer').innerHTML = getCategoryTabsHTML('all');
+            });
+          </script>
+          
+          <!-- Netflix Rows (cargado dinámicamente desde componentes/equipos/loader.js) -->
+          <div class="netflix-rows-container" id="netflixRows"></div>
+
+        </div>
+      </section>
+
+    <!-- Componente FAQ (cargado dinámicamente) -->
+    <div id="faq-container"></div>
+
+    <!-- Componente Contacto + Mapa (cargado dinámicamente) -->
+    <div id="contacto-container"></div>
+  </main>
+
+<!-- Footer Container -->
+    <div id="footer-container" style="min-height:auto;display:block"></div>
+    <div id="social-buttons-container" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:10001;display:flex;flex-direction:column;gap:10px;"></div>
+    <div id="chat-widget-container"></div>
+
+    <!-- Social Buttons - componente separado -->
+    <script src="/components/social-buttons/sb-init.js"></script>
+
+    <!-- Cargar otros componentes lazily -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          var components = [
+            { id: 'footer-container', url: '/components/footer/footer.html', css: '/components/footer/footer.css' },
+            { id: 'contacto-container', url: '/components/contacto/contacto.html', css: '/components/contacto/contacto.css', js: '/components/contacto/contacto.js' },
+            { id: 'faq-container', url: '/components/faq/faq.html', css: '/components/faq/faq.css' },
+            { id: 'chat-widget-container', url: '/components/chat-widget/chat-widget.html', css: null }
+          ];
+          components.forEach(function(c) {
+            var el = document.getElementById(c.id);
+            if (!el || el.dataset.loaded) return;
+            el.dataset.loaded = 1;
+            if (c.css && !document.querySelector('link[href="' + c.css + '"]')) {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = c.css;
+              document.head.appendChild(link);
+            }
+            fetch(c.url).then(function(r) { return r.text(); }).then(function(html) {
+              el.innerHTML = html;
+              if (c.js) {
+                setTimeout(function() {
+                  var script = document.createElement('script');
+                  script.src = c.js;
+                  document.body.appendChild(script);
+                }, 100);
+              }
+            }).catch(function() {});
+          });
+        }, 500);
       });
     </script>
 
-    <!-- Sección Contacto -->
-    <section id="contacto" class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-4">Contacto</h2>
-        <p class="text-center">
-          ¿Necesitas más información? Contáctanos directamente a través de WhatsApp o visita nuestras redes sociales.
-        </p>
-        <div class="text-center">
-          <a href="https://wa.me/573165345675" class="btn btn-success" target="_blank"
-            aria-label="Contactar por WhatsApp" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+    <!-- Chat Widget Loader (after HTML is loaded via lazy load) -->
+    <script type="module">
+      import ChatWidgetLoader from '/components/chat-widget/chat-widget.js';
+      setTimeout(() => ChatWidgetLoader.init(), 800);
+    </script>
 
-  <!-- Footer y elementos complementarios -->
-  <div id="footer-container"></div>
-  <button id="backToTop" class="btn btn-primary" style="display: none;" aria-label="Volver al inicio"
-    title="Volver arriba">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-  <div id="social-buttons-container"></div>
+<!-- Dark Mode Script -->
+    <script type="module" src="/assets/js/main.js"></script>
 
-  <!-- Conservamos la implementación original de Dark Mode -->
-  <div id="dark-mode-container"></div>
-  <script src="components/dark-mode/dark-mode.js"></script>
-  <script>
-    fetch('components/dark-mode/dark-mode-btn.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('dark-mode-container').innerHTML = html;
-      })
-      .catch(error => console.error('Error al cargar el botón de dark mode:', error));
-  </script>
+    <!-- Cargar botón de dark mode en el header -->
+    <script>
+      // Esperar a que darkMode esté disponible
+      function waitForDarkMode(callback) {
+        if (window.darkMode) {
+          callback();
+        } else {
+          setTimeout(() => waitForDarkMode(callback), 100);
+        }
+      }
+      
+      const loadOnIdle = (el, url) => {
+        if (!el || el.dataset.loaded) return;
+        el.dataset.loaded = 1;
+        fetch(url)
+          .then(r => r.ok ? r.text() : Promise.reject())
+          .then(html => { 
+            el.innerHTML = html; 
+            // Adjuntar evento después de cargar
+            waitForDarkMode(() => {
+              el.querySelector('button')?.addEventListener('click', () => {
+                window.darkMode.toggle();
+              });
+            });
+          })
+          .catch(() => {});
+      };
+      
+      // Cargar después de que la página esté lista
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          loadOnIdle(document.getElementById('dark-mode-header'), '/components/dark-mode/dark-mode-btn.html');
+        }, 500);
+      });
+    </script>
 
-  <!-- Scripts externos -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/backtotop.js"></script>
-  <script src="assets/js/buscador.js"></script>
-  
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
-  <script>
-    // Cargar botones sociales
-    fetch('components/social-buttons.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('social-buttons-container').innerHTML = html;
-      })
-      .catch(error => console.error('Error al cargar social buttons:', error));
-
-    // Cargar footer
-    fetch('components/footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-container').innerHTML = data;
-      })
-      .catch(error => console.error('Error al cargar footer:', error));
-  </script>
-
-  <!-- Script de carga del header mejorado -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      fetch('components/header.html')
-        .then(response => {
-          if (!response.ok) throw new Error('Error cargando el header');
-          return response.text();
-        })
-        .then(html => {
-          const container = document.getElementById('header-container');
-          container.innerHTML = html;
-
-          // Ejecutar scripts del header
-          console.debug('Debug: Iniciando ejecución de scripts del header');
-          const scripts = container.querySelectorAll('script');
-          scripts.forEach(oldScript => {
-            if (oldScript.src) {
-              console.debug('Debug: Procesando script con src:', oldScript.src);
-            } else {
-              console.debug('Debug: Procesando script inline');
+    <!-- Lazy initialization de carruseles para reducir TBT -->
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (!('IntersectionObserver' in window)) return;
+        var lazyCarousels = document.querySelectorAll('.carousel[data-bs-lazy="true"]');
+        var carouselObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var carouselEl = entry.target;
+              if (!carouselEl.dataset.bsInitialized) {
+                carouselEl.dataset.bsInitialized = 'true';
+                new bootstrap.Carousel(carouselEl);
+              }
+              carouselObserver.unobserve(carouselEl);
             }
-            const newScript = document.createElement('script');
-            if (oldScript.src) {
-              newScript.src = oldScript.src;
-            } else {
-              newScript.textContent = oldScript.textContent;
-            }
-            document.body.appendChild(newScript);
-            console.debug('Debug: Script añadido', newScript);
           });
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          document.getElementById('header-container').innerHTML = `
-          <div class="alert alert-danger m-3">
-            Error de navegación. <a href="index.html">Recargar página</a>
-          </div>
-        `;
-        });
-    });
-  </script>
+        }, { rootMargin: '100px' });
+        lazyCarousels.forEach(function(carousel) { carouselObserver.observe(carousel); });
+      });
+    </script>
 
-</body>
+    <!-- Lazy load del video para mejorar LCP -->
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function() {
+        var video = document.querySelector('video[data-video-poster]');
+        if (!video) return;
+        var videoObserver = new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting) {
+            video.preload = 'metadata';
+            videoObserver.unobserve(video);
+          }
+        }, { rootMargin: '200px' });
+        videoObserver.observe(video);
+      });
+</script>
 
+  </body>
 </html>

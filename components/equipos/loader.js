@@ -1,0 +1,210 @@
+// Equipos loader - carga componentes dinámicamente
+const equiposData = {
+  elevacion: [
+    { id: 'gatos-hidraulicos', name: 'Gatos Hidraulicos' },
+    { id: 'gato-estibador', name: 'Gato Estibador' },
+    { id: 'ganchos-colgantes', name: 'Ganchos Colgantes' },
+    { id: 'winches', name: 'Winches' },
+    { id: 'pluma-grua', name: 'Pluma Grúa' }
+  ],
+  perforacion: [
+    { id: 'taladros', name: 'Taladros' },
+    { id: 'extractores', name: 'Extractores' },
+    { id: 'sonda-electrica', name: 'Sonda Eléctrica' },
+    { id: 'esmeriladora', name: 'Esmeriladora' },
+    { id: 'equipo-oxicorte', name: 'Equipo Oxicorte' },
+    { id: 'cortadora-porcelanato', name: 'Cortadora Porcelanato' },
+    { id: 'extraccion-nucleos', name: 'Extracción Núcleos' }
+  ],
+  mezclado: [
+    { id: 'trompo-mezclador', name: 'Trompo Mezclador' },
+    { id: 'vibrocompactadora', name: 'Vibrocompactadora' }
+  ],
+  limpieza: [
+    { id: 'hidrolavadora', name: 'Hidrolavadora' },
+    { id: 'aspiradora-industrial', name: 'Aspiradora Industrial' },
+    { id: 'motobomba-sumergible', name: 'Motobomba Sumergible' }
+  ],
+  soldadura: [
+    { id: 'compresor', name: 'Compresor' },
+    { id: 'equipos-soldadura', name: 'Equipos de Soldadura' },
+    { id: 'planta-electrica', name: 'Planta Eléctrica' }
+  ],
+  construccion: [
+    { id: 'andamios', name: 'Andamios' },
+    { id: 'estanterias', name: 'Estanterías' },
+    { id: 'parasoles', name: 'Parasoles' }
+  ],
+  movimiento: [
+    { id: 'diferenciales', name: 'Diferenciales' },
+    { id: 'carretillas', name: 'Carretillas' },
+    { id: 'buggy', name: 'Buggy con Pico y Pala' }
+  ],
+  jardin: [
+    { id: 'escaleras', name: 'Escaleras' },
+    { id: 'motosierra', name: 'Motosierra' }
+  ]
+};
+
+const categoryNames = {
+  elevacion: 'Elevación y Levante',
+  perforacion: 'Perforación y Corte',
+  mezclado: 'Mezclado y Compactación',
+  limpieza: 'Limpieza e Hidráulica',
+  soldadura: 'Soldadura y Energía',
+  construccion: 'Construcción y Estructura',
+  movimiento: 'Accesorios de Movimiento',
+  jardin: 'Jardín y Forestal'
+};
+
+const BASE_PATH = '/components/equipos/';
+
+async function loadEquipo(name, container) {
+  try {
+    const res = await fetch(`${BASE_PATH}${name}.html`);
+    if (!res.ok) {
+      console.warn(`loadEquipo: HTTP ${res.status} para ${name}.html`);
+      return;
+    }
+    const html = await res.text();
+    container.insertAdjacentHTML('beforeend', html);
+  } catch (e) {
+    console.error(`Error loading ${name}:`, e.message);
+  }
+}
+
+async function loadNetflixItem(name, container) {
+  try {
+    const res = await fetch(`${BASE_PATH}${name}.html`);
+    if (!res.ok) {
+      console.warn(`loadNetflixItem: HTTP ${res.status} para ${name}.html`);
+      return;
+    }
+    const html = await res.text();
+    
+    // Crear un elemento temporal para parsear el HTML
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    
+    // Extraer información del article
+    const article = temp.querySelector('article');
+    if (!article) return;
+    
+    const category = article.dataset.category || '';
+    const titleEl = article.querySelector('.card-title');
+    const title = titleEl ? titleEl.textContent.replace('Alquiler de ', '').trim() : name;
+    const firstImg = article.querySelector('img');
+    const imgSrc = firstImg ? firstImg.src : '';
+    
+    // Generar WhatsApp link
+    const waText = name.toLowerCase().replace(/-/g, '%20');
+    const waLink = `https://wa.me/573165345675?text=Hola,%20necesito%20cotizar%20${waText}`;
+    
+    // Crear Netflix item
+    const netflixItem = document.createElement('div');
+    netflixItem.className = 'netflix-item';
+    netflixItem.dataset.category = category;
+    netflixItem.dataset.name = name;
+    
+    netflixItem.innerHTML = `
+      <div class="netflix-item-image">
+        <img src="${imgSrc}" alt="${title}" loading="lazy">
+      </div>
+      <div class="netflix-item-title">${title}</div>
+      <a href="${waLink}" class="netflix-item-whatsapp" target="_blank" rel="noopener" aria-label="Cotizar ${title} por WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+    `;
+    
+    container.appendChild(netflixItem);
+  } catch (e) {
+    console.error(`Error loading Netflix item ${name}:`, e.message);
+  }
+}
+
+async function loadNetflixRows() {
+  const container = document.getElementById('netflixRows');
+  if (!container) return;
+
+  for (const [category, equipos] of Object.entries(equiposData)) {
+    const row = document.createElement('div');
+    row.className = 'netflix-row';
+    row.dataset.category = category;
+    row.innerHTML = `
+      <div class="netflix-row-header">
+        <h3 class="netflix-category-title">${categoryNames[category]}</h3>
+        <button class="netflix-scroll-btn netflix-scroll-left" onclick="scrollRow('row-${category}', -1)" aria-label="Desplazar izquierda">&#8249;</button>
+        <button class="netflix-scroll-btn netflix-scroll-right" onclick="scrollRow('row-${category}', 1)" aria-label="Desplazar derecha">&#8250;</button>
+      </div>
+      <div class="netflix-row-content" id="row-${category}"></div>
+    `;
+    container.appendChild(row);
+
+    const rowContent = row.querySelector(`#row-${category}`);
+    for (const eq of equipos) {
+      await loadNetflixItem(eq.id, rowContent);
+    }
+  }
+
+  initNetflixCarousel();
+}
+
+async function loadCards() {
+  const container = document.getElementById('herramientas-container');
+  if (!container) return;
+
+  for (const equipos of Object.values(equiposData)) {
+    for (const eq of equipos) {
+      await loadEquipo(eq.id, container);
+    }
+  }
+}
+
+function initNetflixCarousel() {
+  const netflixItems = document.querySelectorAll('.netflix-item');
+  netflixItems.forEach(item => {
+    const imageContainer = item.querySelector('.netflix-item-image');
+    if (!imageContainer) return;
+    
+    const images = imageContainer.querySelectorAll('img');
+    if (images.length <= 1) return;
+    
+    const carouselContainer = document.createElement('div');
+    carouselContainer.className = 'carousel-images';
+    
+    images.forEach((img, index) => {
+      img.classList.add(index === 0 ? 'active' : '');
+      carouselContainer.appendChild(img);
+    });
+    
+    imageContainer.innerHTML = '';
+    imageContainer.appendChild(carouselContainer);
+    
+    let currentIndex = 0;
+    const totalImages = images.length;
+    
+    setInterval(() => {
+      const imgs = carouselContainer.querySelectorAll('img');
+      imgs.forEach(img => img.classList.remove('active'));
+      currentIndex = (currentIndex + 1) % totalImages;
+      imgs[currentIndex].classList.add('active');
+    }, 5000);
+  });
+}
+
+async function loadAllEquipos() {
+  // Solo cargar Netflix rows (las cards ya están estáticas en index.html)
+  await loadNetflixRows();
+
+  // Dispatch evento para que otros módulos puedan reaccionar
+  document.dispatchEvent(new CustomEvent('equiposLoaded'));
+  console.log('Equipos cargados exitosamente');
+}
+
+// Exportar loadAllEquipos
+export { loadAllEquipos };
+
+// Auto-inicializar cuando se carga el módulo
+document.addEventListener('DOMContentLoaded', loadAllEquipos);
+
+export default { equiposData, categoryNames, loadAllEquipos, loadNetflixRows, loadCards };
