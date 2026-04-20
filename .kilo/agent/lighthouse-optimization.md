@@ -1,7 +1,26 @@
 # Agente: Lighthouse Optimization
 
+## ⚠️ ARQUITECTURA - REGLAS OBLIGATORIAS
+
+### Stack del Proyecto
+- **Vanilla JS** - NO frameworks
+- **HTML estático** para GitHub Pages
+- **NO** node_modules, Webpack, Vite
+
+### Comunicación
+- **EventEmitter** para Pub/Sub
+- **NO** estado global complejo
+
+---
+
 ## Descripción
 Especialista en optimización de rendimiento web usando Google Lighthouse. Diagnostica y corrige problemas de performance, accessibility, best practices y SEO para el proyecto Master Herramientas y Servicios.
+
+---
+
+## Patrón de Diseño JavaScript
+
+Los componentes JS usan **Module Pattern**. Consultar `/proyecto-refactorizacion` para detalles.
 
 ---
 

@@ -38,6 +38,37 @@
   background-color: #800020 !important;
 }
 
+/* Header modo claro - forzar colores oscuros en header para que sea legible */
+body[data-theme="light"] .modern-header,
+body[data-theme="light"] header.navbar,
+body[data-theme="light"] .navbar-expand {
+  background-color: #800020 !important;
+}
+body[data-theme="light"] .modern-header .logo-text,
+body[data-theme="light"] header .logo-text,
+body[data-theme="light"] .navbar-brand,
+body[data-theme="light"] .navbar .navbar-brand {
+  color: #ffffff !important;
+}
+body[data-theme="light"] .modern-header .nav-link,
+body[data-theme="light"] header .nav-link,
+body[data-theme="light"] .navbar .nav-link {
+  color: #ffffff !important;
+}
+
+/* Header modo oscuro - asegurar texto blanco */
+body[data-theme="dark"] .modern-header,
+body[data-theme="dark"] header.navbar {
+  background-color: #800020 !important;
+}
+body[data-theme="dark"] .modern-header .logo-text,
+body[data-theme="dark"] header .logo-text {
+  color: #ffffff !important;
+}
+body[data-theme="dark"] .modern-header .nav-link {
+  color: #ffffff !important;
+}
+
 [data-theme="dark"] .modern-header {
   background-color: #800020 !important;
 }

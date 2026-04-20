@@ -1,16 +1,15 @@
-// Header Component - Coordina todos los subcomponentes del header
-import { initBuscador, searchTools as searchToolsExport, getBuscador } from '../../assets/js/buscador-unificado.js';
-import LateralMenu from '../lateral-menu/lateral-menu.js';
+// Header Component - Orchestrator (script clásico para GitHub Pages)
+// Carga dinámicamente: equipos-dropdown.js, buscador-unificado.js
 
 const headerData = {
     logo: {
-        src: '/assets/imagenes/logo.png',
+        src: 'assets/imagenes/logo.png',
         alt: 'Logo',
         text: 'Master en Herramientas y Servicios'
     },
     nav: [
         { href: '#nosotros', text: 'Nosotros' },
-        { href: '#equipos', text: 'Equipo' },
+        { href: '#equipos', text: 'Equipo', isDropdown: true },
         { href: '#contacto', text: 'Contacto' }
     ]
 };
@@ -24,7 +23,7 @@ function loadStyles() {
         const link = document.createElement('link');
         link.id = 'header-styles';
         link.rel = 'stylesheet';
-        link.href = '/components/header/header.css';
+        link.href = 'components/header/header.css';
         link.onload = resolve;
         document.head.appendChild(link);
     });
@@ -35,10 +34,7 @@ function getHeaderHTML() {
     <header class="modern-header" data-theme-style="dark">
         <div class="container">
             <div class="header-inner">
-                <button type="button" class="lateral-menu-toggle" onclick="openLateralMenu()" aria-label="Categorías">
-                    <i class="bi bi-list"></i>
-                </button>
-                <a href="/" class="logo">
+                <a href="./" class="logo">
                     <img src="${headerData.logo.src}" alt="${headerData.logo.alt}" class="header-logo">
                     <span class="logo-text">${headerData.logo.text}</span>
                 </a>
@@ -46,7 +42,14 @@ function getHeaderHTML() {
                     <i class="bi bi-list"></i>
                 </button>
                 <nav class="navigation-nav" aria-label="Navegación principal">
-                    ${headerData.nav.map(item => `<a href="${item.href}" class="navigation-link">${item.text}</a>`).join('')}
+                    ${headerData.nav.map(item => {
+                        if (item.isDropdown) {
+                            return `<button type="button" id="equipos-dropdown-trigger" class="navigation-link" aria-label="Abrir catálogo de equipos" aria-expanded="false" aria-controls="equiposDropdownMenu" onclick="(window.toggleEquiposDropdownInternal || window.toggleEquiposDropdown || function() {})()">
+                                ${item.text} <i class="bi bi-chevron-down dropdown-arrow"></i>
+                            </button>`;
+                        }
+                        return `<a href="${item.href}" class="navigation-link">${item.text}</a>`;
+                    }).join('')}
                 </nav>
                 <div class="header-right">
                     <div class="search-box">
@@ -67,27 +70,50 @@ function getHeaderHTML() {
     `;
 }
 
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.body.appendChild(script);
+    });
+}
+
 async function loadHeaderComponent() {
     await loadStyles();
-    
+
     const headerContainer = document.getElementById('header-app');
     if (!headerContainer) return;
 
-    // Cargar template del header
     headerContainer.innerHTML = getHeaderHTML();
-    
-    // Inicializar menú lateral
-    const lateralContainer = document.getElementById('lateral-menu-container');
-    if (!lateralContainer) {
-        const lateralDiv = document.createElement('div');
-        lateralDiv.id = 'lateral-menu-container';
-        document.body.appendChild(lateralDiv);
+
+    // Cargar equipos-dropdown.js (ruta relativa)
+    try {
+        console.log('Header: Cargando equipos-dropdown.js...');
+        await loadScript('components/equipos-dropdown/equipos-dropdown.js');
+        console.log('Header: Script cargado, initEquiposDropdown existe:', typeof window.initEquiposDropdown);
+        
+        // Esperar a que initialice completamente (es async por carga de estilos)
+        if (window.initEquiposDropdown) {
+            const result = await window.initEquiposDropdown();
+            console.log('Header: EquiposDropdown inicializado:', result);
+        } else {
+            console.error('EquiposDropdown: initEquiposDropdown no disponible');
+        }
+    } catch (e) {
+        console.error('Error cargando equipos-dropdown.js:', e);
     }
-    document.getElementById('lateral-menu-container').innerHTML = LateralMenu.getHTML();
-    await LateralMenu.init();
-    
-    // Inicializar buscador
-    initBuscador();
+
+    // Cargar buscador-unificado.js
+    try {
+        await loadScript('assets/js/buscador-unificado.js');
+        if (window.Buscador) {
+            window.Buscador.init();
+        }
+    } catch (e) {
+        console.error('Error cargando buscador-unificado.js:', e);
+    }
 
     // Observar carga de contenido para re-aplicar búsqueda
     const netflixRows = document.getElementById('netflixRows');
@@ -115,8 +141,15 @@ async function loadHeaderComponent() {
 
 document.addEventListener('DOMContentLoaded', loadHeaderComponent);
 
-// Hacer funciones disponibles globalmente
-window.searchTools = searchToolsExport;
-window.getBuscador = getBuscador;
+// Exponer búsqueda global (buscador-unificado ya expone searchTools, pero mantenemos por compatibilidad)
+window.searchTools = function(query) {
+    if (window.Buscador) {
+        if (query) {
+            window.Buscador.search(query);
+        } else {
+            window.Buscador.search(window.Buscador.getQuery());
+        }
+    }
+};
 
-export default { headerData, getHeaderHTML, loadHeaderComponent, searchTools: searchToolsExport };
+// No ES6 export; usamos window

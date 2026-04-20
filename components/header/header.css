@@ -9,6 +9,8 @@
   padding: 0.75rem 1rem;
   cursor: pointer;
   transition: background 0.2s;
+  position: relative;
+  z-index: 1000;
 }
 body[data-theme="light"] .modern-header {
   background: #fff;

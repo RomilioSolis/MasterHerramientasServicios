@@ -1,211 +1,93 @@
-/**
- * Buscador Unificado - Componente de búsqueda dinámica
- * Maneja la búsqueda en ambos contenedores: #herramientas-container y #netflixRows
- */
+// ============================================
+// MÓDULO: Buscador
+// Componente de búsqueda dinámica con Module Pattern
+// ============================================
 
-class Buscador {
-  constructor() {
-    this.searchInput = null;
-    this.feedbackElement = null;
-    this.debounceTimer = null;
-    this.DEBOUNCE_DELAY = 200;
-    
-    this.init();
-  }
-
-  /**
-   * Inicializa el buscador
-   */
-  init() {
-    // Escuchar el evento de equipos cargados
-    this.listenForEquiposLoaded();
-    
-    // Esperar a que el header esté cargado
-    this.waitForHeader().then(() => {
-      this.searchInput = document.getElementById('toolSearch');
-      this.feedbackElement = document.getElementById('searchFeedback');
-      
-      if (!this.searchInput) {
-        console.warn('Buscador: Input #toolSearch no encontrado');
-        return;
-      }
-
-      this.setupEventListeners();
-      console.log('Buscador: Inicializado correctamente');
-    });
-  }
-
-  /**
-   * Espera a que el header esté cargado en el DOM
-   */
-  waitForHeader() {
-    return new Promise((resolve) => {
-      if (document.getElementById('toolSearch')) {
-        resolve();
-        return;
-      }
-
-      const observer = new MutationObserver((mutations, obs) => {
-        if (document.getElementById('toolSearch')) {
-          obs.disconnect();
-          resolve();
-        }
-      });
-
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true
-      });
-
-      // Timeout de seguridad
-      setTimeout(() => {
-        observer.disconnect();
-        resolve();
-      }, 3000);
-    });
-  }
-
-  /**
-   * Configura los event listeners
-   */
-  setupEventListeners() {
-    // Inicializar todas las cards como activas (por el CSS netflix-rows.css)
-    this.initializeCards();
-
-    // Búsqueda en tiempo real con debounce
-    this.searchInput.addEventListener('input', (e) => {
-      this.debounceSearch(e.target.value);
-    });
-
-    // Enter para buscar (comportamiento legacy)
-    this.searchInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        this.performSearch(this.searchInput.value);
-      }
-    });
-
-    // Escuchar cambios dinámicos en el contenido
-    this.setupMutationObserver();
-  }
-
-  /**
-   * Inicializa los Netflix items para que todos sean visibles por defecto
-   */
-  initializeCards() {
-    const container = document.getElementById('netflixRows');
-    if (!container) {
-      console.warn('Buscador: #netflixRows no encontrado');
-      return;
-    }
-
-    const items = container.querySelectorAll('.netflix-item');
-    if (items.length === 0) {
-      console.warn('Buscador: No hay Netflix items, reintentando...');
-      setTimeout(() => this.initializeCards(), 500);
-      return;
-    }
-
-    items.forEach(item => {
-      item.style.display = '';
-    });
-
-    // Mostrar todos los rows también
-    const rows = container.querySelectorAll('.netflix-row');
-    rows.forEach(row => {
-      row.style.display = '';
-    });
-    
-    console.log(`Buscador: ${items.length} Netflix items inicializados`);
-  }
-
-  /**
-   * Escuchar evento de equipos cargados
-   */
-  listenForEquiposLoaded() {
-    document.addEventListener('equiposLoaded', () => {
-      console.log('Buscador: Equipos cargados, inicializando...');
-      setTimeout(() => this.initializeCards(), 300);
-    });
-  }
-
-  /**
-   * Búsqueda con debounce para evitar múltiples ejecuciones
-   */
-  debounceSearch(query) {
-    clearTimeout(this.debounceTimer);
-    
-    this.debounceTimer = setTimeout(() => {
-      this.performSearch(query);
-    }, this.DEBOUNCE_DELAY);
-  }
-
-  /**
-   * Ejecuta la búsqueda en los Netflix rows
-   */
-  performSearch(query) {
-    const searchTerm = this.normalizeText(query);
-    
-    // Si el input fue removido del DOM, salir
-    if (!this.searchInput) return;
-
-    // Actualizar UI según la búsqueda
-    this.updateUI(searchTerm !== '');
-    
-    // Añadir/quitar clase has-results al search-box para efecto visual
-    const searchBox = document.querySelector('.search-box');
-    if (searchBox) {
-      searchBox.classList.toggle('has-results', searchTerm !== '');
-    }
-
-    // Buscar en los Netflix items del #netflixRows
-    const netflixCount = this.searchInNetflixRows(searchTerm);
-    
-    // Actualizar feedback
-    this.updateFeedback(netflixCount, query);
-
-    console.log(`Buscador: "${query}" - ${netflixCount} resultados en Netflix rows`);
-  }
-
-  /**
-   * Normaliza el texto para búsqueda (sin acentos, lowercase)
-   */
-  normalizeText(text) {
+const Buscador = (() => {
+  
+  // --- CONSTANTES PRIVADAS ---
+  const DEBOUNCE_DELAY = 200;
+  const SELECTORS = {
+    INPUT: '#toolSearch',
+    FEEDBACK: '#searchFeedback',
+    NETFLIX_ROWS: '#netflixRows',
+    SEARCH_BOX: '.search-box',
+    NOSOTROS: '#nosotros',
+    EQUIPOS: '#equipos'
+  };
+  
+  // --- ESTADO PRIVADO ---
+  let _state = {
+    searchInput: null,
+    feedbackElement: null,
+    debounceTimer: null,
+    initialized: false
+  };
+  
+  // --- FUNCIONES PRIVADAS ---
+  function _normalizeText(text) {
     if (!text) return '';
     return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
   }
-
-  /**
-   * Busca en los Netflix items del #netflixRows
-   */
-  searchInNetflixRows(searchTerm) {
-    const container = document.getElementById('netflixRows');
+  
+  function _updateUI(isSearching) {
+    const searchBox = document.querySelector(SELECTORS.SEARCH_BOX);
+    const nosotrosSection = document.getElementById('nosotros');
+    const equiposSection = document.getElementById('equipos');
+    
+    if (searchBox) {
+      searchBox.classList.toggle('has-results', isSearching);
+    }
+    
+    // Durante búsqueda, asegurar que la sección equipos sea visible
+    if (equiposSection) {
+      equiposSection.style.display = '';
+    }
+    if (nosotrosSection) {
+      nosotrosSection.style.display = isSearching ? 'none' : '';
+    }
+  }
+  
+  function _updateFeedback(count, query) {
+    if (!_state.feedbackElement) return;
+    
+    if (!query || query.trim() === '') {
+      _state.feedbackElement.textContent = '';
+      _state.feedbackElement.classList.remove('has-results');
+      return;
+    }
+    
+    const resultText = count === 1 ? 'resultado encontrado' : 'resultados encontrados';
+    _state.feedbackElement.innerHTML = `<span class="results-count">${count}</span><span class="results-text">${resultText}</span>`;
+    _state.feedbackElement.classList.toggle('has-results', count > 0);
+  }
+  
+  function _searchInNetflixRows(searchTerm) {
+    const container = document.querySelector(SELECTORS.NETFLIX_ROWS);
     if (!container) return 0;
-
+    
     const rows = container.querySelectorAll('.netflix-row');
     let totalMatches = 0;
-
+    
     rows.forEach(row => {
       const items = row.querySelectorAll('.netflix-item');
       let rowHasMatch = false;
-
+      
       items.forEach(item => {
         const titleEl = item.querySelector('.netflix-item-title');
         if (!titleEl) return;
-
-        const title = this.normalizeText(titleEl.textContent);
         
-        // Si no hay término de búsqueda, mostrar todo
+        const title = _normalizeText(titleEl.textContent);
+        
         if (!searchTerm) {
           item.style.display = '';
           rowHasMatch = true;
           totalMatches++;
           return;
         }
-
-        // Buscar coincidencias en el título
+        
         const matches = title.includes(searchTerm);
-
+        
         if (matches) {
           item.style.display = '';
           rowHasMatch = true;
@@ -214,128 +96,199 @@ class Buscador {
           item.style.display = 'none';
         }
       });
-
+      
       row.style.display = rowHasMatch ? '' : 'none';
     });
-
+    
     return totalMatches;
   }
-
-  /**
-   * Actualiza la UI según si hay búsqueda activa
-   */
-  updateUI(isSearching) {
-    const nosotrosSection = document.getElementById('nosotros');
-    const videoSection = document.querySelector('section.py-4');
-    const equiposSection = document.getElementById('equipos');
-    const searchBox = document.querySelector('.search-box');
-
-    if (isSearching) {
-      // Ocultar secciones no relevantes durante búsqueda
-      if (nosotrosSection) nosotrosSection.style.display = 'none';
-      if (videoSection) videoSection.style.display = 'none';
-      
-      // No hacer scroll automático aquí, dejar que el usuario vea los resultados
+  
+  function _initializeCards() {
+    const container = document.querySelector(SELECTORS.NETFLIX_ROWS);
+    if (!container) return;
+    
+    const items = container.querySelectorAll('.netflix-item');
+    const rows = container.querySelectorAll('.netflix-row');
+    
+    items.forEach(item => {
+      item.style.display = '';
+    });
+    
+    rows.forEach(row => {
+      row.style.display = '';
+    });
+  }
+  
+  function _emit(eventName, detail = {}) {
+    // Usar EventEmitter si está disponible (Patrón Observer)
+    if (typeof EventEmitter !== 'undefined') {
+      EventEmitter.emit(eventName, detail);
+    }
+    
+    // También dispatchear CustomEvent para compatibilidad
+    document.dispatchEvent(new CustomEvent(eventName, { detail }));
+  }
+  
+  // --- BIND EVENTS ---
+  function _bindEvents() {
+    if (!_state.searchInput) return;
+    
+    // Input con debounce
+    _state.searchInput.addEventListener('input', (e) => {
+      _debounceSearch(e.target.value);
+    });
+    
+    // Enter para buscar
+    _state.searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        _performSearch(_state.searchInput.value);
+      }
+    });
+    
+    // Limpiar búsqueda cuando se selecciona categoría
+    // Usar EventEmitter si está disponible, si no fallback a addEventListener
+    if (typeof EventEmitter !== 'undefined') {
+      EventEmitter.on('category:select', () => {
+        _clear();
+      });
+      EventEmitter.on('equiposLoaded', () => {
+        setTimeout(_initializeCards, 300);
+      });
     } else {
-      // Restaurar secciones cuando se limpia la búsqueda
-      if (nosotrosSection) nosotrosSection.style.display = '';
-      if (videoSection) videoSection.style.display = '';
-      
-      // Quitar clase has-results al limpiar búsqueda
-      if (searchBox) searchBox.classList.remove('has-results');
+      document.addEventListener('category:select', () => {
+        _clear();
+      });
+      document.addEventListener('equiposLoaded', () => {
+        setTimeout(_initializeCards, 300);
+      });
     }
-  }
-
-  /**
-   * Actualiza el feedback de resultados
-   */
-  updateFeedback(count, query) {
-    if (!this.feedbackElement) return;
-
-    if (!query || query.trim() === '') {
-      this.feedbackElement.textContent = '';
-      this.feedbackElement.classList.remove('has-results');
-      return;
-    }
-
-    const resultText = count === 1 ? 'resultado encontrado' : 'resultados encontrados';
-    this.feedbackElement.innerHTML = `<span class="results-count">${count}</span><span class="results-text">${resultText}</span>`;
-    this.feedbackElement.classList.toggle('has-results', count > 0);
-  }
-
-  /**
-   * Configura MutationObserver para detectar cambios dinámicos
-   */
-  setupMutationObserver() {
-    // Observar cambios en netflixRows
-    const netflixContainer = document.getElementById('netflixRows');
+    
+    // MutationObserver para cambios dinámicos
+    const netflixContainer = document.querySelector(SELECTORS.NETFLIX_ROWS);
     if (netflixContainer) {
       const observer = new MutationObserver(() => {
-        if (this.searchInput && this.searchInput.value.trim()) {
-          this.performSearch(this.searchInput.value);
+        if (_state.searchInput && _state.searchInput.value.trim()) {
+          _performSearch(_state.searchInput.value);
         }
       });
-
-      observer.observe(netflixContainer, {
-        childList: true,
-        subtree: true
+      observer.observe(netflixContainer, { childList: true, subtree: true });
+    }
+  }
+  
+  // --- SEARCH FUNCTIONS ---
+  function _debounceSearch(query) {
+    clearTimeout(_state.debounceTimer);
+    _state.debounceTimer = setTimeout(() => {
+      _performSearch(query);
+    }, DEBOUNCE_DELAY);
+  }
+  
+  function _performSearch(query) {
+    const searchTerm = _normalizeText(query);
+    
+    if (!_state.searchInput) return;
+    
+    _updateUI(searchTerm !== '');
+    
+    const netflixCount = _searchInNetflixRows(searchTerm);
+    _updateFeedback(netflixCount, query);
+  }
+  
+  function _clear() {
+    if (_state.searchInput) {
+      _state.searchInput.value = '';
+      _performSearch('');
+    }
+  }
+  
+  // --- WAIT FOR HEADER ---
+  function _waitForHeader() {
+    return new Promise((resolve) => {
+      if (document.querySelector(SELECTORS.INPUT)) {
+        resolve();
+        return;
+      }
+      
+      const observer = new MutationObserver(() => {
+        if (document.querySelector(SELECTORS.INPUT)) {
+          observer.disconnect();
+          resolve();
+        }
       });
+      
+      observer.observe(document.body, { childList: true, subtree: true });
+      setTimeout(() => { observer.disconnect(); resolve(); }, 3000);
+    });
+  }
+  
+  // --- API PÚBLICA ---
+  return {
+    init() {
+      if (_state.initialized) return;
+      
+      _state.searchInput = document.querySelector(SELECTORS.INPUT);
+      _state.feedbackElement = document.querySelector(SELECTORS.FEEDBACK);
+      
+      if (!_state.searchInput) {
+        _waitForHeader().then(() => {
+          _state.searchInput = document.querySelector(SELECTORS.INPUT);
+          _state.feedbackElement = document.querySelector(SELECTORS.FEEDBACK);
+          
+          if (_state.searchInput) {
+            _bindEvents();
+            _initializeCards();
+            _state.initialized = true;
+            _emit('buscador:init');
+          }
+        });
+        return;
+      }
+      
+      _bindEvents();
+      _initializeCards();
+      _state.initialized = true;
+      _emit('buscador:init');
+    },
+    
+    search(query) {
+      if (_state.searchInput) {
+        _state.searchInput.value = query;
+        _performSearch(query);
+      }
+    },
+    
+    clear() {
+      _clear();
+    },
+    
+    getQuery() {
+      return _state.searchInput?.value || '';
+    },
+    
+    isInitialized() {
+      return _state.initialized;
     }
-  }
+  };
+  
+})();
 
-  /**
-   * Método público para ejecutar búsqueda programática
-   */
-  search(query) {
-    if (this.searchInput) {
-      this.searchInput.value = query;
-      this.performSearch(query);
+// ============================================
+// LEGACY: Compatibilidad hacia atrás
+// ============================================
+if (typeof window !== 'undefined') {
+  window.Buscador = Buscador;
+  window.initBuscador = () => Buscador.init();
+  window.searchTools = (query) => {
+    if (query !== undefined) {
+      Buscador.search(query);
+    } else {
+      Buscador.search(Buscador.getQuery());
     }
-  }
-
-  /**
-   * Método público para limpiar búsqueda
-   */
-  clear() {
-    if (this.searchInput) {
-      this.searchInput.value = '';
-      this.performSearch('');
-    }
-  }
+  };
 }
 
-// Singleton para evitar múltiples instancias
-let buscadorInstance = null;
-
-/**
- * Inicializa el buscador (llamada principal)
- */
-export function initBuscador() {
-  if (!buscadorInstance) {
-    buscadorInstance = new Buscador();
-  }
-  return buscadorInstance;
+// Exportar si ESM
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = Buscador;
 }
-
-/**
- * Obtiene la instancia del buscador
- */
-export function getBuscador() {
-  return buscadorInstance;
-}
-
-/**
- * Búsqueda programática desde otros módulos
- * @param {string} [query] - Opcional: si no se proporciona, usa el valor del input
- */
-export function searchTools(query) {
-  if (buscadorInstance) {
-    // Si no se proporciona query, usar el valor actual del input
-    const searchTerm = query !== undefined ? query : (buscadorInstance.searchInput?.value || '');
-    buscadorInstance.performSearch(searchTerm);
-  } else {
-    console.warn('Buscador: Instancia no inicializada aún');
-  }
-}
-
-export default Buscador;

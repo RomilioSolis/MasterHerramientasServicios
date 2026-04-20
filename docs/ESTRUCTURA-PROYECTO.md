@@ -1,5 +1,29 @@
 # Estructura del Proyecto - Master Herramientas y Servicios
 
+## ⚠️ ARQUITECTURA - REGLAS OBLIGATORIAS
+
+### Stack Tecnológico
+- **Vanilla JS** - NO frameworks (React, Vue, Angular)
+- **HTML estático** - NO SSR
+- **GitHub Pages** - Hosting estático
+- **PROHIBIDO**: node_modules, Webpack, Vite
+
+### Comunicación
+- **EventEmitter** para Pub/Sub
+- **CustomEvent** como fallback
+- **NO** estado global complejo
+
+### Module Pattern
+```javascript
+const MiComponente = (() => {
+  let _state = { initialized: false };
+  function _init() { }
+  return { init: _init };
+})();
+```
+
+---
+
 ## 📁 Estructura de Componentes
 
 ```

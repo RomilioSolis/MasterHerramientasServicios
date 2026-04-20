@@ -1,7 +1,11 @@
-import DarkMode from '../../components/dark-mode/dark-mode.js';
-import { initBuscador, getBuscador } from './buscador-unificado.js';
+// DarkMode ya está disponible globalmente desde dark-mode.js
+// Usar el módulo ya cargado
+if (window.DarkMode) {
+  window.darkMode = window.DarkMode;
+  window.DarkMode.init();
+}
 
-window.darkMode = new DarkMode();
+import { initBuscador, getBuscador } from './buscador-unificado.js';
 
 import ChatWidget from './chat-widget.js';
 ChatWidget.init();

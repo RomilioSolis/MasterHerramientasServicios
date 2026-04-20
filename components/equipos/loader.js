@@ -1,4 +1,5 @@
-// Equipos loader - carga componentes dinámicamente
+// Equipos loader - carga componentes dinámicamente (script clásico para GitHub Pages)
+// No usa ES6 modules; se autoinicializa en DOMContentLoaded
 const equiposData = {
   elevacion: [
     { id: 'gatos-hidraulicos', name: 'Gatos Hidraulicos' },
@@ -58,7 +59,7 @@ const categoryNames = {
   jardin: 'Jardín y Forestal'
 };
 
-const BASE_PATH = '/components/equipos/';
+const BASE_PATH = 'components/equipos/';
 
 const equiposSpecs = {
   'aspiradora-industrial': {
@@ -227,15 +228,19 @@ async function loadAllEquipos() {
   // Solo cargar Netflix rows (las cards ya están estáticas en index.html)
   await loadNetflixRows();
 
-  // Dispatch evento para que otros módulos puedan reaccionar
-  document.dispatchEvent(new CustomEvent('equiposLoaded'));
+  // Dispatch evento usando EventEmitter (Patrón Observer)
+  const detail = { timestamp: Date.now() };
+  
+  if (typeof EventEmitter !== 'undefined') {
+    EventEmitter.emit('equipos:ready', detail);
+  }
+  
+  // También dispatchear CustomEvent para compatibilidad
+  document.dispatchEvent(new CustomEvent('equipos:ready', { detail }));
   console.log('Equipos cargados exitosamente');
 }
 
-// Exportar loadAllEquipos
-export { loadAllEquipos };
-
-// Auto-inicializar cuando se carga el módulo
+// Auto-inicializar cuando se carga el script
 document.addEventListener('DOMContentLoaded', loadAllEquipos);
 
-export default { equiposData, categoryNames, loadAllEquipos, loadNetflixRows, loadCards };
+// No ES6 exports; todo se ejecuta globalmente

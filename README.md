@@ -2,6 +2,38 @@
 
 Proyecto web para alquiler de herramientas y servicios de construcción en Cali, Colombia.
 
+## ⚠️ Arquitectura del Proyecto - REGLAS OBLIGATORIAS
+
+### Stack Tecnológico
+- **Vanilla JS** - NO frameworks (React, Vue, Angular)
+- **HTML estático** - NO Server-Side Rendering
+- **GitHub Pages** - Hosting estático
+- **PROHIBIDO**: node_modules, Webpack, Vite, Parcel
+
+### Comunicación entre Componentes
+- **EventEmitter** (`assets/js/event-emitter.js`) - Pub/Sub
+- **CustomEvent** - fallback para compatibilidad
+- **PROHIBIDO**: Estado global complejo, Redux, contextos
+
+### Module Pattern (Estructura de Componentes)
+```javascript
+const MiComponente = (() => {
+  let _state = { initialized: false };
+  function _init() { /* ... */ }
+  return { init: _init };
+})();
+```
+
+### Patrón Observer
+```javascript
+// Emitir evento
+EventEmitter.emit('evento', { data: 1 });
+// Escuchar evento
+EventEmitter.on('evento', (data) => { /* ... */ });
+```
+
+---
+
 ## Estructura del Proyecto
 
 ```

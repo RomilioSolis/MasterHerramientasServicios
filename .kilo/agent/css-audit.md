@@ -1,7 +1,26 @@
 # Agente: CSS Audit & Optimization
 
+## ⚠️ ARQUITECTURA - REGLAS OBLIGATORIAS
+
+### Stack del Proyecto
+- **Vanilla JS** - NO frameworks
+- **HTML estático** para GitHub Pages
+- **NO** node_modules, Webpack, Vite
+
+### Comunicación
+- **EventEmitter** para Pub/Sub
+- **NO** estado global complejo
+
+---
+
 ## Descripción
 Especialista en análisis, auditoría y optimización de hojas de estilo (CSS) para el proyecto Master Herramientas y Servicios. Detecta código duplicado, reglas redundantes, problemas de mantenibilidad y propone mejoras siguiendo las normas de desarrollo establecidas en `proyecto-contabilidad.md`.
+
+---
+
+## Patrón de Diseño JavaScript
+
+Los componentes JS usan **Module Pattern**. Consultar `/proyecto-refactorizacion` para detalles.
 
 ---
 

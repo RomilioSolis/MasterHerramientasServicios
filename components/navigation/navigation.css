@@ -12,10 +12,39 @@
     padding: 8px 16px;
     border-radius: 20px;
     transition: all 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
 }
 
 .navigation-link:hover {
     background: rgba(255, 255, 255, 0.1);
+}
+
+.navigation-link.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navigation-link .dropdown-arrow {
+    transition: transform 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+.navigation-link.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+#equipos-dropdown-trigger.active {
+    position: relative;
+    z-index: 1001;
+}
+
+#equipos-dropdown-trigger.active {
+    position: relative;
+    z-index: 1001;
 }
 
 @media (max-width: 768px) {

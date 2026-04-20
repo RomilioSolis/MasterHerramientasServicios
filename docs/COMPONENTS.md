@@ -1,5 +1,18 @@
 # Estructura del Proyecto
 
+## ⚠️ ARQUITECTURA - REGLAS OBLIGATORIAS
+
+### Stack Tecnológico
+- **Vanilla JS** - NO frameworks
+- **HTML estático** para GitHub Pages
+- **NO** node_modules, Webpack, Vite
+
+### Comunicación
+- **EventEmitter** para Pub/Sub
+- **NO** estado global complejo
+
+---
+
 ## Estructura Final
 
 ```

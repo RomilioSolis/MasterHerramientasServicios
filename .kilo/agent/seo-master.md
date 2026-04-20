@@ -1,7 +1,26 @@
 # Agente: SEO Master Herramientas
 
+## ⚠️ ARQUITECTURA - REGLAS OBLIGATORIAS
+
+### Stack del Proyecto
+- **Vanilla JS** - NO frameworks
+- **HTML estático** para GitHub Pages
+- **NO** node_modules, Webpack, Vite
+
+### Comunicación
+- **EventEmitter** para Pub/Sub
+- **NO** estado global complejo
+
+---
+
 ## Descripción
 Este agente es especialista en SEO (Search Engine Optimization) y Schema.org para el proyecto Master Herramientas y Servicios. Maneja meta tags, datos estructurados, rendimiento y optimización para motores de búsqueda.
+
+---
+
+## Patrón de Diseño JavaScript
+
+Los componentes JS usan **Module Pattern**. Consultar `/proyecto-refactorizacion` para detalles.
 
 ---
 
