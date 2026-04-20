@@ -102,6 +102,17 @@ MasterHerramientasServicios/
 - **Uso**: Click en imagen de Netflix rows abre galería con todas las imágenes del equipo
 - **Navegación**: Teclas flechas, Escape, click fuera
 
+### FAQ (`components/faq/`)
+- **Componente autocontenido**: HTML + CSS + JS
+- **HTML**: `faq.html` (estructura con 4 categorías, sidebar navegación)
+- **CSS**: `faq.css` (transiciones CSS optimizadas)
+- **JS**: `faq.js` (accordion vanilla, scroll suave)
+- **Carga**: Lazy load desde index.html
+- **Categorías**: Empresa y Ubicación - Servicios - Alquiler - Contacto
+- **Navegación sidebar**: Botones con `data-target` (no href)
+- **Transiciones**: 0.1s ease-out (respuesta), 0.08s (toggle)
+- **Última actualización**: 20 abril 2026
+
 ### Lateral Menu (`components/lateral-menu/`)
 - **Expide funciones**: `openLateralMenu()`, `closeLateralMenu()`
 - **Carga**: Importado por header.js
