@@ -1,7 +1,8 @@
 (function() {
-  var relojDisplay = document.getElementById('reloj-actual');
-  var fechaDisplay = document.getElementById('fecha-actual');
-  var statusBadge = document.getElementById('status-abierto');
+  var relojDisplay;
+  var fechaDisplay;
+  var statusBadge;
+  var intervaloActivo = false;
   
   function actualizarReloj() {
     var ahora = new Date();
@@ -30,8 +31,57 @@
     }
   }
   
-  if (relojDisplay && fechaDisplay) {
-    actualizarReloj();
-    setInterval(actualizarReloj, 1000);
+  function inicializarReloj() {
+    relojDisplay = document.getElementById('reloj-actual');
+    fechaDisplay = document.getElementById('fecha-actual');
+    statusBadge = document.getElementById('status-abierto');
+    
+    if (relojDisplay && fechaDisplay) {
+      if (!intervaloActivo) {
+        actualizarReloj();
+        setInterval(actualizarReloj, 1000);
+        intervaloActivo = true;
+      }
+    }
+  }
+  
+  // Inicializar inmediatamente (para cuando ya está en DOM)
+  inicializarReloj();
+  
+  // También escuchar cuando el componente se carga dinámicamente
+  document.addEventListener('component:loaded', function(e) {
+    if (e.detail && e.detail.id === 'horario') {
+      setTimeout(inicializarReloj, 100);
+    }
+  });
+  
+  // Fallback adicional por si el evento no llega
+  setTimeout(function() {
+    if (!intervaloActivo) {
+      inicializarReloj();
+    }
+  }, 500);
+  
+  // MutationObserver como respaldo final
+  if (typeof MutationObserver !== 'undefined') {
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length > 0) {
+          var hasReloj = false;
+          mutation.addedNodes.forEach(function(node) {
+            if (node.nodeType === 1 && node.querySelector) {
+              if (node.id === 'reloj-actual' || node.querySelector('#reloj-actual')) {
+                hasReloj = true;
+              }
+            }
+          });
+          if (hasReloj && !intervaloActivo) {
+            inicializarReloj();
+            observer.disconnect(); // Desconectar una vez inicializado
+          }
+        }
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
   }
 })();

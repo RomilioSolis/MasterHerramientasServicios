@@ -178,6 +178,58 @@ setTimeout(() => {
 
 ---
 
+## Reloj no aparece / No carga (Abril 2025)
+
+**Problema:** El reloj no aparece o muestra "--:--" al entrar a la página.
+
+**Causa Raíz:**
+- `horario.js` se carga lazy (300ms delay)
+- El script busca elementos del DOM (`#reloj-actual`, `#fecha-actual`) inmediatamente al ejecutarse
+- Cuando el script se carga, los elementos aún no existen en el DOM
+
+**Solución:** Obtener referencias al DOM dentro de función `inicializar()` en lugar de al inicio:
+```javascript
+// horario.js - CORREGIDO
+var relojDisplay; // No buscar al inicio
+
+function inicializarReloj() {
+  relojDisplay = document.getElementById('reloj-actual'); // Buscar dentro de función
+  fechaDisplay = document.getElementById('fecha-actual');
+  
+  if (relojDisplay && fechaDisplay) {
+    if (!intervaloActivo) {
+      actualizarReloj();
+      setInterval(actualizarReloj, 1000);
+      intervaloActivo = true;
+    }
+  }
+}
+
+// Intentar inmediatamente (para cuando ya está en DOM)
+inicializarReloj();
+
+// Escuchar evento de ComponentFactory
+document.addEventListener('component:loaded', function(e) {
+  if (e.detail && e.detail.id === 'horario') {
+    setTimeout(inicializarReloj, 100);
+  }
+});
+
+// Fallback adicional
+setTimeout(function() {
+  if (!intervaloActivo) {
+    inicializarReloj();
+  }
+}, 500);
+```
+
+**Verificar:**
+1. Recargar página
+2. El reloj debe mostrar hora actual (no "--:--")
+3. Verificar en consola: sin errores de "null is not an object"
+
+---
+
 ## Dark Mode no funciona (Abril 2025)
 
 **Problema:** El botón de alternar modo oscuro no cambia el tema.
