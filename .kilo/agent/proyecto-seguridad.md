@@ -377,14 +377,21 @@ const SecurityHeaders = (() => {
    - Helpers: sanitizeObject, setInnerHTML, renderTemplate
    - Carga automática en index.html
 
-3. **CSP para Icon Fonts** (corrección 14:40):
+3. **CSP para Icon Fonts**:
    - `font-src` incluye `https://cdnjs.cloudflare.com` para Font Awesome
    - `font-src` incluye `https://cdn.jsdelivr.net` para Bootstrap Icons
 
-4. **Documentación actualizada** en este archivo
+4. **Constantes Centralizadas** (assets/js/constants.js):
+   - Archivo de configuración `APP_CONFIG` con Object.freeze() (inmutable)
+   - Teléfonos, URLs, datos de empresa, rutas, tiempos, categorías
+   - Helper `WHATSAPP.createLink()` para generar enlaces válidos
+   - Eliminación de valores hardcodeados duplicados en todo el proyecto
+
+5. **Documentación actualizada** en este archivo y agente `proyecto-constantes.md`
 
 ### Pendiente
 - Refactorizar innerHTML dinámicos para usar SecurityUtils
+- Actualizar componentes de equipos para usar constantes centralizadas
 
 ---
 

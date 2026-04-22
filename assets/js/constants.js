@@ -19,21 +19,36 @@ const APP_CONFIG = Object.freeze({
   URLS: {
     BASE: 'https://masterenherramientasyservicios.com.co',
     WHATSAPP_BASE: 'https://wa.me',
-    FACEBOOK: 'https://www.facebook.com/masters.herramientas/',
-    INSTAGRAM: 'https://www.instagram.com/masterenherramientasyservisios/',
-    GOOGLE_MAPS: 'https://www.google.com/maps'
+    FACEBOOK: 'https://www.facebook.com/MasterHerramientas',
+    INSTAGRAM: 'https://www.instagram.com/MasterHerramientas',
+    GOOGLE_MAPS: 'https://www.google.com/maps',
+    GOOGLE_MAPS_LOCATION: 'https://www.google.com/maps/dir/?api=1&destination=3.438050,-76.538800'
+  },
+
+  // ============================================
+  // Datos de Empresa
+  // ============================================
+  BUSINESS: {
+    NAME: 'Master Herramientas y Servicios',
+    ADDRESS: 'Cra. 23 #36-48, Barrio El Rodeo, Cali',
+    SCHEDULE: 'Lun-Vie: 8:00 - 18:00 | Sáb: 8:00 - 16:00',
+    FOUNDATION_YEAR: 2014,
+    CITY: 'Cali',
+    REGION: 'Valle del Cauca',
+    EMAIL: 'info@masterenherramientasyservicios.com.co'
   },
 
   // ============================================
   // Rutas
   // ============================================
   PATHS: {
-    COMPONENTS: '/components',
-    ASSETS: '/assets',
-    IMAGES: '/assets/imagenes',
-    VIDEOS: '/assets/Videos',
-    CSS: '/assets/css',
-    JS: '/assets/js'
+    COMPONENTS: 'components',
+    ASSETS: 'assets',
+    IMAGES: 'assets/imagenes',
+    VIDEOS: 'assets/Videos',
+    CSS: 'assets/css',
+    JS: 'assets/js',
+    UTILS: 'assets/js/utils'
   },
 
   // ============================================
