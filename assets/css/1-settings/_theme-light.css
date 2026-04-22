@@ -1,0 +1,79 @@
+/**
+ * 1-SETTINGS: Tema Claro (Light Theme)
+ * Variables específicas para el modo claro
+ */
+
+[data-theme="light"] {
+  /* ============================================
+     COLORES DE FONDO - MODO CLARO
+     ============================================ */
+  --bg-page: #f4f4f4;
+  --bg-card: #ffffff;
+  --bg-section: #ffffff;
+  --bg-navbar: #800020;
+  
+  /* Secciones específicas */
+  --bg-equipos: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  
+  /* ============================================
+     COLORES DE TEXTO - MODO CLARO
+     ============================================ */
+  --text-primary: #333333;
+  --text-secondary: #6c757d;
+  --text-muted: #adb5bd;
+  --text-inverse: #ffffff;
+  --text-link: #2a5cff;
+  
+  /* ============================================
+     COLORES DE BORDES - MODO CLARO
+     ============================================ */
+  --border-color: #dee2e6;
+  --border-color-light: #e9ecef;
+  --border-color-dark: #adb5bd;
+  
+  /* ============================================
+     COMPONENTES ESPECÍFICOS - MODO CLARO
+     ============================================ */
+  
+  /* Category tabs */
+  --category-tab-bg: rgba(30, 30, 50, 0.4);
+  --category-tab-bg-hover: rgba(128, 0, 32, 0.7);
+  --category-tab-active-bg: #800020;
+  --category-tab-color: #ffffff;
+  --category-tab-border: rgba(255, 255, 255, 0.2);
+  
+  /* Netflix items */
+  --netflix-item-bg: rgba(30, 30, 50, 0.7);
+  --netflix-item-bg-hover: rgba(30, 30, 50, 0.7);
+  --netflix-item-title-bg: rgba(20, 20, 40, 0.95);
+  --netflix-item-title-color: #ffffff;
+  --netflix-item-title-hover-bg: rgba(128, 0, 32, 0.9);
+  --netflix-item-title-hover-color: #ffffff;
+  
+  /* Netlix scrollbar */
+  --scrollbar-track: #e9ecef;
+  --scrollbar-thumb: #800020;
+  
+  /* Lateral category */
+  --lateral-category-bg: rgba(30, 30, 50, 0.4);
+  --lateral-category-border: rgba(255, 255, 255, 0.15);
+  --lateral-category-hover-bg: rgba(30, 30, 50, 0.6);
+  --lateral-category-hover-border: #ffc107;
+  --lateral-category-color: #ffffff;
+  --lateral-category-hover-color: #ffc107;
+  
+  /* ============================================
+     SOMBRAS - MODO CLARO
+     ============================================ */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 5px 15px rgba(0, 0, 0, 0.15);
+  --shadow-navbar: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
+  /* ============================================
+     TEXTOS DE SECCIÓN EQUIPOS - MODO CLARO
+     ============================================ */
+  --equipos-title-color: #ffffff;
+  --equipos-text-color: #ffffff;
+  --equipos-text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  --equipos-text-shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.4);
+}

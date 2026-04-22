@@ -1,0 +1,266 @@
+/**
+ * 5-COMPONENTS: Tarjetas (Cards)
+ * Estilos para tarjetas y contenedores de contenido
+ */
+
+/* ============================================
+   TARJETA BASE
+   ============================================ */
+.card {
+  background-color: var(--bg-card);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ============================================
+   CABECERA DE TARJETA
+   ============================================ */
+.card-header {
+  padding: var(--space-md) var(--space-lg);
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.card-header:first-child {
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+/* ============================================
+   CUERPO DE TARJETA
+   ============================================ */
+.card-body {
+  padding: var(--space-lg);
+}
+
+.card-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   TÍTULO DE TARJETA
+   ============================================ */
+.card-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+/* ============================================
+   TEXTO DE TARJETA
+   ============================================ */
+.card-text {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* ============================================
+   PIE DE TARJETA
+   ============================================ */
+.card-footer {
+  padding: var(--space-md) var(--space-lg);
+  background-color: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid var(--border-color-light);
+}
+
+.card-footer:last-child {
+  border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+}
+
+/* ============================================
+   TARJETAS HORIZONTALES
+   ============================================ */
+.card-horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-horizontal .card-image {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+
+.card-horizontal .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .card-horizontal {
+    flex-direction: column;
+  }
+  
+  .card-horizontal .card-image {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* ============================================
+   IMAGEN DE TARJETA
+   ============================================ */
+.card-image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   TARJETAS SPECÍFICAS DEL PROYECTO
+   ============================================ */
+
+/* Netflix Item (tarjeta de equipo) */
+.netflix-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: 350px;
+  background: var(--netflix-item-bg);
+  border-radius: var(--border-radius-lg);
+  overflow: visible;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  z-index: 1;
+}
+
+.netflix-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(196, 30, 58, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.netflix-item-image {
+  width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.netflix-item-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(196, 30, 58, 0.1) 100%);
+  pointer-events: none;
+}
+
+.netflix-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.netflix-item:hover .netflix-item-image img {
+  transform: scale(1.05);
+}
+
+.netflix-item-title {
+  color: var(--netflix-item-title-color);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  padding: var(--space-sm);
+  background: var(--netflix-item-title-bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  order: 2;
+  z-index: 5;
+  position: relative;
+  transition: background var(--transition-normal);
+}
+
+.netflix-item:hover .netflix-item-title {
+  background: var(--netflix-item-title-hover-bg);
+  color: var(--netflix-item-title-hover-color);
+  z-index: 10;
+  position: relative;
+}
+
+/* ============================================
+   RESPONSIVIDAD
+   ============================================ */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: var(--space-md);
+  }
+  
+  .card-body {
+    padding: var(--space-md);
+  }
+  
+  .netflix-item {
+    width: 240px;
+  }
+  
+  .netflix-item-image {
+    height: 280px;
+  }
+  
+  .netflix-item-title {
+    font-size: var(--font-size-sm);
+    padding: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .netflix-item {
+    width: 180px;
+  }
+  
+  .netflix-item-image {
+    height: 220px;
+  }
+  
+  .netflix-item-title {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .netflix-item {
+    width: 300px;
+  }
+  
+  .netflix-item-image {
+    height: 360px;
+  }
+}

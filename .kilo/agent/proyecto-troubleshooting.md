@@ -287,3 +287,131 @@ body[data-theme="dark"] .nav-link {
   color: #ffffff !important;
 }
 ```
+
+---
+
+## Nueva Estructura CSS - ITCSS (Abril 2026)
+
+El proyecto ahora usa la arquitectura **ITCSS** (Inverted Triangle CSS). Los archivos se encuentran en:
+
+```
+assets/css/
+├── 1-settings/              # Variables CSS
+│   ├── _variables.css       # Colores, espaciado, breakpoints
+│   ├── _theme-light.css     # Variables tema claro
+│   └── _theme-dark.css    # Variables tema oscuro
+├── 3-generic/            # Reset
+│   └── _reset.css
+├── 4-elements/           # Tipografía
+│   └── _typography.css
+├── 5-components/         # Componentes UI
+│   ├── _buttons.css
+│   ├── _cards.css
+│   └── _nav-tabs.css
+├── 6-layouts/            # Secciones
+│   └── _sections.css
+├── 7-themes/            # Variaciones de tema
+│   └── _dark-mode.css
+├── 8-utilities/         # Helpers
+│   └── _helpers.css
+└── main.css             # Punto de entrada
+```
+
+### Orden de carga en index.html
+
+```html
+<!-- 1. Componentes específicos (mayor especificidad) -->
+<link rel="stylesheet" href="components/equipos/equipos.css">
+<link rel="stylesheet" href="components/dark-mode/dark-mode.css">
+...
+
+<!-- 2. Arquitectura ITCSS -->
+<link rel="stylesheet" href="assets/css/main.css">
+```
+
+---
+
+## Problemas de CSS - Soluciones
+
+### Títulos de categorías no visibles
+
+**Problema:** Los subtítulos de filas Netflix (ej: "Elevación y Levante") no se ven.
+
+**Solución:**
+```css
+.netflix-category-title {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+[data-theme="light"] .netflix-category-title {
+  color: #ffffff !important;
+}
+```
+
+### Sección equipos sin fondo azul en modo claro
+
+**Problema:** El fondo azul oscuro se pierde en modo claro.
+
+**Solución:**
+```css
+#equipos {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+}
+[data-theme="light"] #equipos {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+}
+```
+
+### Botones de categorías no caben
+
+**Problema:** Los botones son muy pequeños o no caben en el renglón.
+
+**Solución:**
+```css
+#equipos .category-tabs {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  gap: 0.5rem !important;
+}
+
+#equipos .category-tabs .nav-link {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.85rem !important;
+  flex-shrink: 0 !important;
+}
+```
+
+### Netflix items sin fondo oscuro
+
+**Problema:** Items pierden el fondo azul en modo claro.
+
+**Solución:**
+```css
+.netflix-item {
+  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
+.netflix-item-title {
+  color: #ffffff !important;
+  background: rgba(20, 20, 40, 0.95) !important;
+}
+
+[data-theme="light"] .netflix-item {
+  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
+[data-theme="light"] .netflix-item-title {
+  color: #ffffff !important;
+  background: rgba(20, 20, 40, 0.95) !important;
+}
+```
+
+---
+
+## Verificar estilos
+
+1. **Abrir consola** (F12) → Network → verificar archivos CSS cargados
+2. **Inspeccionar elemento** → Verificar computed styles
+3. **Probar modo claro/oscuro** → Alternar con theme-switcher

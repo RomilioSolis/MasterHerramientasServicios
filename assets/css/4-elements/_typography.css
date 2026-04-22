@@ -1,0 +1,177 @@
+/**
+ * 4-ELEMENTS: Elementos HTML Base
+ * Estilos para elementos HTML sin clases
+ */
+
+/* ============================================
+   TIPOGRAFÍA BASE
+   ============================================ */
+html {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-page);
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  background-color: var(--bg-page);
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* ============================================
+   HEADINGS
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--font-size-3xl); }
+h2 { font-size: var(--font-size-2xl); }
+h3 { font-size: var(--font-size-xl); }
+h4 { font-size: var(--font-size-lg); }
+h5 { font-size: var(--font-size-base); }
+h6 { font-size: var(--font-size-sm); }
+
+/* Títulos centrados */
+h1.text-center,
+h2.text-center,
+h3.text-center {
+  text-align: center;
+}
+
+/* ============================================
+   PÁRRAFOS
+   ============================================ */
+p {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Párrafos pequeños */
+small,
+.text-small {
+  font-size: var(--font-size-sm);
+}
+
+/* ============================================
+   ENLACES
+   ============================================ */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* ============================================
+   LISTAS
+   ============================================ */
+ul, ol {
+  padding-left: var(--space-lg);
+}
+
+li {
+  margin-bottom: var(--space-sm);
+}
+
+/* ============================================
+   IMÁGENES
+   ============================================ */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   BLOQUES DE CÓDIGO
+   ============================================ */
+code, pre {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: var(--font-size-sm);
+}
+
+code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--border-radius-sm);
+}
+
+pre {
+  background-color: #1a1a1a;
+  color: #f8f8f2;
+  padding: var(--space-md);
+  border-radius: var(--border-radius);
+  overflow-x: auto;
+}
+
+/* ============================================
+   CITAS
+   ============================================ */
+blockquote {
+  margin: var(--space-lg) 0;
+  padding: var(--space-md) var(--space-lg);
+  border-left: 4px solid var(--color-primary);
+  background-color: rgba(128, 0, 32, 0.05);
+  font-style: italic;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   ELEMENTOS DE FORMULARIO
+   ============================================ */
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ============================================
+   RESPONSIVIDAD
+   ============================================ */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.125rem; }
+}

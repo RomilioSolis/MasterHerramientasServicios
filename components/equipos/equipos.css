@@ -1,10 +1,17 @@
+/* Sección Equipos - fondo azul en todos los modos */
+#equipos {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 3rem 0;
+}
+
 .netflix-rows-container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto 0 auto;
-  background: rgba(26, 26, 46, 0.5);
-  padding: 1rem 1.5rem;
-  border-radius: 15px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  /* background removido - now inherits from #equipos section */
+  border-radius: 0;
+  /* sin sombra propia */
 }
 .netflix-row {
   margin-bottom: 0.75rem;
@@ -40,11 +47,7 @@
   justify-content: center;
   transition: background 0.2s, transform 0.2s;
   flex-shrink: 0;
-  opacity: 0;
-  transition: opacity 0.3s, background 0.2s;
-}
-.netflix-row:hover .netflix-scroll-btn {
-  opacity: 1;
+  opacity: 1 !important;
 }
 .netflix-scroll-btn:hover {
   background: rgba(196, 30, 58, 1);

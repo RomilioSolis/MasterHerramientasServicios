@@ -241,6 +241,18 @@ async function loadAllEquipos() {
   console.log('Equipos cargados exitosamente');
 }
 
+// Función para desplazar las filas de Netflix
+function scrollRow(rowId, direction) {
+  const row = document.getElementById(rowId);
+  if (!row) return;
+  
+  const scrollAmount = 350; // Ancho aproximado de un item
+  row.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
+
 // Auto-inicializar cuando se carga el script
 document.addEventListener('DOMContentLoaded', loadAllEquipos);
 

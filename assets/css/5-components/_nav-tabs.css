@@ -1,0 +1,206 @@
+/**
+ * 5-COMPONENTS: Nav Tabs (Pestañas de Navegación)
+ * Estilos para las pestañas de categorías y navegación
+ */
+
+/* ============================================
+   CONTENEDOR DE TABS
+   ============================================ */
+.category-tabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow-x: visible;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  max-width: 100%;
+}
+
+.category-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================
+   BOTÓN DE TAB
+   ============================================ */
+.category-tabs .nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--category-tab-color);
+  background: var(--category-tab-bg);
+  border: 1px solid var(--category-tab-border);
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   ESTADO ACTIVO
+   ============================================ */
+.category-tabs .nav-link.active {
+  color: var(--text-light);
+  background: var(--category-tab-active-bg);
+  border-color: var(--category-tab-active-bg);
+}
+
+/* ============================================
+   ESTADO HOVER
+   ============================================ */
+.category-tabs .nav-link:hover:not(.active) {
+  background: var(--category-tab-bg-hover);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
+  text-decoration: none;
+}
+
+/* ============================================
+   ESTADO FOCUS
+   ============================================ */
+.category-tabs .nav-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.25);
+}
+
+/* ============================================
+   ICONOS EN TABS
+   ============================================ */
+.category-tabs .nav-link i {
+  margin-right: var(--space-xs);
+}
+
+/* ============================================
+   NAV PILLS (Alternativa)
+   ============================================ */
+.nav-pills {
+  display: flex;
+  gap: var(--space-sm);
+  padding: 0;
+  list-style: none;
+}
+
+.nav-pills .nav-item {
+  display: inline-block;
+}
+
+.nav-pills .nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-pill);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  transition: var(--transition-normal);
+}
+
+.nav-pills .nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(128, 0, 32, 0.1);
+}
+
+.nav-pills .nav-link.active {
+  color: var(--text-light);
+  background: var(--color-primary);
+}
+
+/* ============================================
+   TABS LATERALES (Sidebar)
+   ============================================ */
+.lateral-categories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+}
+
+.lateral-category-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--lateral-category-color);
+  background: var(--lateral-category-bg);
+  border: 1px solid var(--lateral-category-border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  text-decoration: none;
+  width: 100%;
+}
+
+.lateral-category-btn:hover {
+  background: var(--lateral-category-hover-bg);
+  border-color: var(--lateral-category-hover-border);
+  color: var(--lateral-category-hover-color);
+}
+
+.lateral-arrow {
+  color: var(--lateral-category-hover-color);
+  transition: transform var(--transition-fast);
+}
+
+.lateral-category-btn:hover .lateral-arrow {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   RESPONSIVIDAD
+   ============================================ */
+@media (max-width: 1200px) {
+  .category-tabs .nav-link {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .category-tabs {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .category-tabs .nav-link {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+  }
+  
+  .category-tabs .nav-link {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-tabs {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .category-tabs .nav-link {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.7rem;
+  }
+}

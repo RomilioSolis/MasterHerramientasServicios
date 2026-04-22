@@ -140,3 +140,46 @@ body[data-theme="dark"] .modern-header .nav-link {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   color: #e9ecef !important;
 }
+
+/* Corrección para títulos de equipos en modo claro - asegurar visibilidad */
+[data-theme="light"] #equipos h2.text-center.mb-4,
+[data-theme="light"] #equipos h2 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Corrección para párrafos en equipos */
+[data-theme="light"] #equipos p.text-center.mb-4,
+[data-theme="light"] #equipos .container > p {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Corrección para botones de categorías - evitar estilos de enlace */
+[data-theme="light"] .category-tabs .nav-link,
+[data-theme="light"] #categoryTabs .nav-link {
+  text-decoration: none !important;
+  color: #ffffff !important;
+  background: rgba(30, 30, 50, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.2s ease-out !important;
+}
+[data-theme="light"] .category-tabs .nav-link:hover,
+[data-theme="light"] #categoryTabs .nav-link:hover {
+  background: rgba(128, 0, 32, 0.8) !important;
+  border-color: #800020 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(128, 0, 32, 0.4) !important;
+}
+[data-theme="light"] .category-tabs .nav-link.active:hover {
+  background: #800020 !important;
+  transform: translateY(0);
+}
+[data-theme="dark"] .category-tabs .nav-link,
+[data-theme="dark"] #categoryTabs .nav-link {
+  text-decoration: none !important;
+}

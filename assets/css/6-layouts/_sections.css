@@ -1,0 +1,257 @@
+/**
+ * 6-LAYOUTS: Secciones
+ * Estilos para secciones de la página
+ */
+
+/* ============================================
+   SECCIÓN BASE
+   ============================================ */
+section {
+  padding: var(--space-2xl) 0;
+  position: relative;
+}
+
+section.py-2 {
+  padding: var(--space-lg) 0;
+}
+
+/* ============================================
+   CONTENEDOR
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.container-fluid {
+  width: 100%;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+/* ============================================
+   SECCIÓN EQUIPOS (Netflix)
+   ============================================ */
+#equipos {
+  background: var(--bg-equipos);
+  padding: var(--space-2xl) 0;
+}
+
+#equipos .container {
+  max-width: 1200px;
+}
+
+#equipos h2,
+#equipos p,
+#equipos strong {
+  color: var(--equipos-title-color);
+  font-weight: 600;
+}
+
+#equipos h2 {
+  color: var(--equipos-title-color);
+  text-shadow: var(--equipos-text-shadow);
+  font-weight: 700;
+  display: block;
+}
+
+#equipos .text-center {
+  color: var(--equipos-text-color);
+  text-shadow: var(--equipos-text-shadow-subtle);
+}
+
+#equipos p.text-center {
+  color: var(--equipos-text-color);
+}
+
+/* ============================================
+   SECCIÓN NOSOTROS
+   ============================================ */
+#nosotros {
+  padding: var(--space-2xl) 0;
+  background-color: var(--bg-section);
+}
+
+#nosotros .container {
+  max-width: 1200px;
+}
+
+/* ============================================
+   SECCIÓN FAQ
+   ============================================ */
+#faq {
+  padding: var(--space-2xl) 0;
+  background-color: var(--bg-page);
+}
+
+#faq .container {
+  max-width: 900px;
+}
+
+/* ============================================
+   SECCIÓN CONTACTO
+   ============================================ */
+#contacto {
+  padding: var(--space-2xl) 0;
+  background-color: var(--bg-section);
+}
+
+#contacto .container {
+  max-width: 1200px;
+}
+
+/* ============================================
+   TÍTULOS DE SECCIÓN
+   ============================================ */
+.section-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+/* ============================================
+   NETFLIX ROWS (Carrusel de Equipos)
+   ============================================ */
+.netflix-rows-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+
+.netflix-row {
+  margin-bottom: var(--space-sm);
+}
+
+.netflix-row-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.netflix-category-title {
+  color: var(--text-light);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  margin: 0;
+  padding-left: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex: 1;
+}
+
+.netflix-category-title i {
+  color: #ffc107;
+}
+
+/* Scroll buttons */
+.netflix-scroll-btn {
+  background: rgba(196, 30, 58, 0.8);
+  color: var(--text-light);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-normal);
+  flex-shrink: 0;
+  opacity: 0;
+}
+
+.netflix-row:hover .netflix-scroll-btn {
+  opacity: 1;
+}
+
+.netflix-scroll-btn:hover {
+  background: var(--color-primary);
+  transform: scale(1.1);
+}
+
+/* Contenido del row */
+.netflix-row-content {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  padding: var(--space-sm) 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+.netflix-row-content::-webkit-scrollbar {
+  height: 6px;
+}
+
+.netflix-row-content::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+.netflix-row-content::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+/* ============================================
+   RESPONSIVIDAD
+   ============================================ */
+@media (max-width: 768px) {
+  section {
+    padding: var(--space-lg) 0;
+  }
+  
+  section.py-2 {
+    padding: var(--space-sm) 0;
+  }
+  
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+  
+  .section-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .section-subtitle {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-lg);
+  }
+  
+  #equipos h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-sm);
+  }
+  
+  #equipos > .container > p {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .netflix-rows-container {
+    padding: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+  }
+}

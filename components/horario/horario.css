@@ -1,6 +1,24 @@
 .reloj-container{display:flex;flex-direction:column;align-items:center}
 .reloj-display{font-size:2.5rem;font-weight:700;color:#ffc107;font-family:monospace;text-shadow:0 0 10px rgba(255,193,7,0.5)}
 .reloj-fecha{font-size:0.85rem;color:#adb5bd;margin-top:0.25rem}
+/* Modo claro: fecha más clara para contraste */
+[data-theme="light"] .reloj-fecha {
+  color: #f8f9fa !important;
+  opacity: 0.9;
+}
 .status-badge .badge{padding:0.5rem 1rem;border-radius:20px}
-.horario-detalles{font-size:0.85rem;background:rgba(0,0,0,0.2);padding:0.75rem;border-radius:8px}
+.horario-detalles{font-size:0.85rem;background:rgba(30,30,50,0.3);padding:0.75rem;border-radius:8px;border:1px solid rgba(255,255,255,0.1)}
 .horario-item{font-size:0.8rem}
+/* Modo claro: textos claros */
+[data-theme="light"] .horario-item {
+  color: #ffffff !important;
+}
+[data-theme="light"] .horario-detalles strong {
+  color: #ffc107 !important;
+}
+[data-theme="light"] .horario-item .text-light {
+  color: #f8f9fa !important;
+}
+[data-theme="light"] .text-muted {
+  color: rgba(255,255,255,0.7) !important;
+}

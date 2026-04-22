@@ -1,0 +1,165 @@
+/**
+ * 1-SETTINGS: Tema Oscuro (Dark Theme)
+ * Variables específicas para el modo oscuro
+ */
+
+[data-theme="dark"] {
+  /* ============================================
+     COLORES DE FONDO - MODO OSCURO
+     ============================================ */
+  --bg-page: #1a1a1a;
+  --bg-card: #2d2d2d;
+  --bg-section: #1a1a1a;
+  --bg-navbar: #800020;
+  
+  /* Secciones específicas */
+  --bg-equipos: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  
+  /* ============================================
+     COLORES DE TEXTO - MODO OSCURO
+     ============================================ */
+  --text-primary: #f8f9fa;
+  --text-secondary: #adb5bd;
+  --text-muted: #6c757d;
+  --text-inverse: #333333;
+  --text-link: #4dabf7;
+  
+  /* ============================================
+     COLORES DE BORDES - MODO OSCURO
+     ============================================ */
+  --border-color: #495057;
+  --border-color-light: #2d2d2d;
+  --border-color-dark: #6c757d;
+  
+  /* ============================================
+     COMPONENTES ESPECÍFICOS - MODO OSCURO
+     ============================================ */
+  
+  /* Category tabs */
+  --category-tab-bg: #2d2d2d;
+  --category-tab-bg-hover: #404040;
+  --category-tab-active-bg: #800020;
+  --category-tab-color: #adb5bd;
+  --category-tab-border: #495057;
+  
+  /* Netflix items */
+  --netflix-item-bg: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+  --netflix-item-bg-hover: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+  --netflix-item-title-bg: linear-gradient(180deg, rgba(30,30,50,0.9) 0%, rgba(20,20,40,0.95) 100%);
+  --netflix-item-title-color: #ffffff;
+  --netflix-item-title-hover-bg: linear-gradient(180deg, rgba(30,30,50,0.95) 0%, rgba(20,20,40,0.98) 100%);
+  --netflix-item-title-hover-color: #ffffff;
+  
+  /* Netlix scrollbar */
+  --scrollbar-track: #1a1a2e;
+  --scrollbar-thumb: #800020;
+  
+  /* Lateral category */
+  --lateral-category-bg: #2d2d2d;
+  --lateral-category-border: rgba(255, 255, 255, 0.06);
+  --lateral-category-hover-bg: #404040;
+  --lateral-category-hover-border: #ffc107;
+  --lateral-category-color: #f8f9fa;
+  --lateral-category-hover-color: #ffc107;
+  
+  /* ============================================
+     SOMBRAS - MODO OSCURO
+     ============================================ */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 5px 15px rgba(0, 0, 0, 0.4);
+  --shadow-navbar: 0 2px 10px rgba(0, 0, 0, 0.3);
+  
+  /* ============================================
+     TEXTOS DE SECCIÓN EQUIPOS - MODO OSCURO
+     ============================================ */
+  --equipos-title-color: #e9ecef;
+  --equipos-text-color: #f8f9fa;
+  --equipos-text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --equipos-text-shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   ESTILOS BASE DEL MODO OSCURO
+   ============================================ */
+[data-theme="dark"] {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-dark) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Corrección específica para secciones clave */
+[data-theme="dark"] #nosotros,
+[data-theme="dark"] #nosotros .container,
+[data-theme="dark"] #nosotros h1,
+[data-theme="dark"] #nosotros h2,
+[data-theme="dark"] #nosotros p {
+  background-color: transparent !important;
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .bg-light {
+  background-color: var(--bg-dark-secondary) !important;
+}
+
+/* Elementos específicos */
+[data-theme="dark"] .card {
+  background-color: var(--bg-dark-secondary);
+  border-color: var(--bg-dark-tertiary);
+}
+
+[data-theme="dark"] .navbar {
+  background-color: var(--bg-dark) !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .card-text {
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .btn-outline-primary {
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
+}
+
+/* Títulos principales */
+[data-theme="dark"] h1.text-center.mb-4,
+[data-theme="dark"] h2.text-center.mb-4 {
+  text-shadow: var(--equipos-text-shadow);
+  color: var(--equipos-title-color) !important;
+}
+
+/* Transición de fondo para secciones principales */
+#nosotros, #equipos {
+  transition: background 0.3s ease;
+}
+
+/* Popups del mapa */
+[data-theme="dark"] .leaflet-popup-content-wrapper,
+[data-theme="dark"] .leaflet-popup-tip {
+  background: rgba(26, 26, 46, 0.95) !important;
+}
+
+[data-theme="dark"] .leaflet-popup-content {
+  color: var(--text-dark) !important;
+  font-family: var(--font-family) !important;
+}
+
+[data-theme="dark"] .leaflet-popup-content strong {
+  color: #ffc107 !important;
+}
+
+[data-theme="dark"] .leaflet-popup-content span,
+[data-theme="dark"] .leaflet-popup-content p {
+  color: var(--text-dark) !important;
+}
+
+[data-theme="dark"] .leaflet-popup-content a {
+  color: var(--text-link) !important;
+}

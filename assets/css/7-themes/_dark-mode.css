@@ -1,0 +1,222 @@
+/**
+ * 7-THEMES: Dark Mode
+ * SOLO selectores de tema [data-theme]
+ * No duplicar estilos de componentes
+ */
+
+/* ============================================
+   POPUPS DEL MAPA - MODO CLARO
+   ============================================ */
+[data-theme="light"] .leaflet-popup-content-wrapper,
+[data-theme="light"] .leaflet-popup-tip {
+  background: rgba(26, 26, 46, 0.95) !important;
+}
+
+[data-theme="light"] .leaflet-popup-content {
+  color: #f8f9fa !important;
+  font-family: var(--font-family) !important;
+}
+
+[data-theme="light"] .leaflet-popup-content strong {
+  color: #ffc107 !important;
+}
+
+[data-theme="light"] .leaflet-popup-content span,
+[data-theme="light"] .leaflet-popup-content p {
+  color: #f8f9fa !important;
+}
+
+[data-theme="light"] .leaflet-popup-content a {
+  color: #4dabf7 !important;
+}
+
+/* ============================================
+   TEXTOS DE SECCIÓN EQUIPOS - MODO CLARO
+   ============================================ */
+[data-theme="light"] #equipos h2,
+[data-theme="light"] #equipos p,
+[data-theme="light"] #equipos strong {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] #equipos h2 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  font-weight: 700 !important;
+  display: block;
+}
+
+[data-theme="light"] #equipos .text-center {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] #equipos p.text-center {
+  color: #ffffff !important;
+}
+
+[data-theme="light"] #equipos > .container > p {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] #equipos .container > * {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   NETFLIX ITEMS - MODO CLARO
+   ============================================ */
+[data-theme="light"] .netflix-item {
+  background: rgba(30, 30, 50, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="light"] .netflix-item:hover {
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(196, 30, 58, 0.3) !important;
+}
+
+[data-theme="light"] .netflix-item-image {
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%) !important;
+}
+
+[data-theme="light"] .netflix-item-title {
+  background: rgba(20, 20, 40, 0.95) !important;
+  color: #ffffff !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="light"] .netflix-item:hover .netflix-item-title {
+  background: rgba(128, 0, 32, 0.9) !important;
+}
+
+/* ============================================
+   NETFLIX CATEGORY TITLE - MODO CLARO
+   ============================================ */
+[data-theme="light"] .netflix-category-title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* ============================================
+   NETFLIX ROWS - MODO CLARO (scrollbar)
+   ============================================ */
+[data-theme="light"] .netflix-row-content {
+  scrollbar-color: #800020 #e9ecef !important;
+}
+
+[data-theme="light"] .netflix-row-content::-webkit-scrollbar-track {
+  background: #e9ecef !important;
+}
+
+[data-theme="light"] .netflix-row-content::-webkit-scrollbar-thumb {
+  background: #800020 !important;
+}
+
+/* ============================================
+   NETFLIX ROWS - MODO OSCURO (scrollbar)
+   ============================================ */
+[data-theme="dark"] .netflix-rows-container {
+  background: rgba(26, 26, 46, 0.5) !important;
+}
+
+[data-theme="dark"] .netflix-row-content {
+  scrollbar-color: #800020 #1a1a2e !important;
+}
+
+[data-theme="dark"] .netflix-row-content::-webkit-scrollbar-track {
+  background: #1a1a2e !important;
+}
+
+[data-theme="dark"] .netflix-row-content::-webkit-scrollbar-thumb {
+  background: #800020 !important;
+}
+
+/* ============================================
+   NETFLIX ITEMS - MODO OSCURO
+   ============================================ */
+[data-theme="light"] .netflix-category-title {
+  color: #1a1a2e !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .netflix-item {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.02) !important;
+}
+
+[data-theme="light"] .netflix-item:hover {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(128, 0, 32, 0.15) !important;
+}
+
+[data-theme="light"] .netflix-item-image {
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%) !important;
+}
+
+[data-theme="light"] .netflix-item-title {
+  background: linear-gradient(180deg, rgba(248, 249, 250, 0.98) 0%, rgba(241, 243, 245, 0.98) 100%) !important;
+  color: #1a1a2e !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .netflix-item:hover .netflix-item-title {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 250, 250, 0.98) 100%) !important;
+  color: #800020 !important;
+}
+
+/* ============================================
+   CONTRASTE EN MODO OSCURO
+   ============================================ */
+[data-theme="dark"] .text-primary-emphasis {
+  color: #4dabf7 !important;
+}
+
+[data-theme="dark"] .fs-5 {
+  font-size: 1.1rem !important;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* ============================================
+   THEME SWITCHER
+   ============================================ */
+.theme-switcher {
+  position: fixed;
+  top: 1rem !important;
+  right: 1.5rem !important;
+  z-index: var(--z-social-buttons);
+}
+
+.theme-switcher button {
+  transition: opacity var(--transition-normal) !important;
+  transform: none !important;
+}
+
+.theme-switcher button:hover {
+  opacity: 0.9 !important;
+}
+
+.theme-switcher button:active {
+  opacity: 0.7 !important;
+  transform: none !important;
+}
+
+@media (max-width: 768px) {
+  .theme-switcher {
+    top: 4.5rem !important;
+    right: 1rem !important;
+  }
+  
+  .theme-switcher button {
+    padding: var(--space-sm) !important;
+  }
+}

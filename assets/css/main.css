@@ -1,0 +1,312 @@
+/**
+ * MAIN.CSS - Punto de entrada principal
+ * Arquitectura ITCSS (Inverted Triangle CSS)
+ * 
+ * Orden de importación:
+ * 1. Settings     - Variables y configuración
+ * 2. Tools        - Mixins y funciones
+ * 3. Generic      - Reset y normalize
+ * 4. Elements     - Elementos HTML base
+ * 5. Components   - Componentes UI
+ * 6. Layouts      - Estructuras de página
+ * 7. Themes       - Variaciones de tema
+ * 8. Utilities    - Clases utilitarias
+ */
+
+/* ============================================
+   1-SETTINGS: Variables y Configuración
+   ============================================ */
+@import '1-settings/_variables.css';
+@import '1-settings/_theme-light.css';
+@import '1-settings/_theme-dark.css';
+
+/* ============================================
+   2-TOOLS: Mixins y Funciones (si existen)
+   ============================================ */
+/* @import '2-tools/_mixins.css'; */
+
+/* ============================================
+   3-GENERIC: Reset y Normalize
+   ============================================ */
+@import '3-generic/_reset.css';
+
+/* ============================================
+   4-ELEMENTS: Elementos HTML Base
+   ============================================ */
+@import '4-elements/_typography.css';
+
+/* ============================================
+   5-COMPONENTS: Componentes UI
+   ============================================ */
+@import '5-components/_buttons.css';
+@import '5-components/_cards.css';
+@import '5-components/_nav-tabs.css';
+
+/* ============================================
+   6-LAYOUTS: Estructuras de Página
+   ============================================ */
+@import '6-layouts/_sections.css';
+
+/* ============================================
+   7-THEMES: Variaciones de Tema
+   ============================================ */
+@import '7-themes/_dark-mode.css';
+
+/* ============================================
+   8-UTILITIES: Clases Utilitarias
+   ============================================ */
+@import '8-utilities/_helpers.css';
+
+
+
+/**
+ * ESTILOS LEGACY (EN MIGRACIÓN)
+ * Los siguientes archivos contienen estilos que 
+ * aún no han sido migrados a la estructura ITCSS.
+ * Gradually migrate to the new structure.
+ */
+
+/* Contenedor principal - mantiene compatibilidad */
+#main-content {
+  min-height: 100vh;
+}
+
+/* Estilos de carousel */
+.carousel-indicators [data-bs-target] {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 4px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-size: 80%;
+}
+
+/* Video responsive */
+.ratio-16x9 {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+
+/* Back to Netflix button */
+#back-to-netflix {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: var(--z-fixed);
+  padding: 12px 24px;
+  background: var(--color-primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius-pill);
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: var(--shadow-primary);
+  transition: var(--transition-normal);
+}
+
+#back-to-netflix:hover {
+  background: var(--color-primary-hover);
+}
+
+/* Cards: mostrar por defecto, ocultar solo cuando hay filtro activo */
+#herramientas-container article,
+#herramientas-container-2 article {
+  display: block;
+}
+
+#herramientas-container article.hidden-by-search,
+#herramientas-container-2 article.hidden-by-search {
+  display: none;
+}
+
+#herramientas-container article.active,
+#herramientas-container-2 article.active {
+  display: block;
+}
+
+/* Carrusel automático en miniaturas Netflix */
+.netflix-item {
+  position: relative;
+}
+
+.netflix-item .carousel-images {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.netflix-item .carousel-images img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.netflix-item .carousel-images img.active {
+  opacity: 1;
+}
+
+/* ============================================
+   OVERRIDES DE SEGURIDAD
+   Asegurar que los estilos de componentes funcionen
+   ============================================ */
+
+/* Category tabs - contenedor con wrap para que quepan todos los botones */
+#equipos .category-tabs {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  gap: 0.5rem !important;
+  padding: 0.75rem 0 !important;
+  max-width: 100% !important;
+}
+
+/* Category tabs - forzar estilos sobre fondo azul de equipos */
+#equipos .category-tabs .nav-link {
+  color: #ffffff !important;
+  background: rgba(30, 30, 50, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  text-decoration: none !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  border-radius: 0.375rem !important;
+}
+
+#equipos .category-tabs .nav-link:hover:not(.active) {
+  background: rgba(128, 0, 32, 0.8) !important;
+  border-color: #800020 !important;
+  transform: translateY(-2px);
+}
+
+#equipos .category-tabs .nav-link.active {
+  background: #800020 !important;
+  color: #ffffff !important;
+  border-color: #800020 !important;
+}
+
+/* Ajustar tamaño de botones en pantallas medianas */
+@media (max-width: 1200px) {
+  #equipos .category-tabs .nav-link {
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 992px) {
+  #equipos .category-tabs .nav-link {
+    padding: 0.4rem 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #equipos .category-tabs {
+    justify-content: center !important;
+  }
+  #equipos .category-tabs .nav-link {
+    padding: 0.4rem 0.7rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+/* Netflix category title - forzar color blanco */
+.netflix-category-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  margin: 0 !important;
+  padding-left: 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  flex: 1 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+[data-theme="light"] .netflix-category-title {
+  color: #ffffff !important;
+}
+
+.netflix-row-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Forzar fondo azul en modo claro también */
+[data-theme="light"] #equipos {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+}
+
+/* Sección equipos - forzar fondo azul oscuro */
+#equipos {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+  padding: 3rem 0 !important;
+}
+
+/* Títulos de equipos - visibles en ambos modos */
+#equipos h2,
+#equipos .text-center,
+#equipos p {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+#equipos h2 {
+  font-weight: 700 !important;
+}
+
+/* Forzar fondo azul oscuro en modo claro también */
+[data-theme="light"] #equipos {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+}
+
+[data-theme="light"] #equipos h2,
+[data-theme="light"] #equipos .text-center,
+[data-theme="light"] #equipos p {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Netflix item - asegurar fondo oscuro */
+.netflix-item {
+  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
+[data-theme="light"] .netflix-item {
+  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
+.netflix-item-title {
+  color: #ffffff !important;
+  background: rgba(20, 20, 40, 0.95) !important;
+}
+
+[data-theme="light"] .netflix-item-title {
+  color: #ffffff !important;
+  background: rgba(20, 20, 40, 0.95) !important;
+}
+
+.netflix-item-image {
+  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%) !important;
+}
+
+[data-theme="light"] .netflix-item-image {
+  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%) !important;
+}

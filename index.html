@@ -224,16 +224,16 @@
     <!-- Gallery JS (defer - no bloquea render) -->
     <script src="components/gallery/gallery.js" defer></script>
 
-   <!-- Estilos locales (cargados al final) -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="components/dark-mode/dark-mode.css">
-    <!-- Gallery CSS -->
-    <link rel="stylesheet" href="components/gallery/gallery.css">
-    <!-- CSS de componentes globales restantes -->
-     <link rel="stylesheet" href="assets/css/cookie-menu.css">
-    <link rel="stylesheet" href="components/nosotros/nosotros.css">
+<!-- Estilos de componentes específicos (deben cargarse antes para mayor especificidad) -->
     <link rel="stylesheet" href="components/equipos/equipos.css">
+    <link rel="stylesheet" href="components/dark-mode/dark-mode.css">
+    <link rel="stylesheet" href="components/gallery/gallery.css">
+    <link rel="stylesheet" href="components/nosotros/nosotros.css">
     <link rel="stylesheet" href="components/navigation/navigation.css">
+    <link rel="stylesheet" href="assets/css/cookie-menu.css">
+
+    <!-- Estilos locales - Arquitectura ITCSS (se cargan después para sobrescribir si es necesario) -->
+    <link rel="stylesheet" href="assets/css/main.css">
 
   
 
@@ -297,9 +297,9 @@
    <div id="equipos-dropdown-container"></div>
    <script src="components/header/header.js" defer></script>
 
-  <main style="min-height: 100px;">
-      <!-- Sección Nosotros + Video -->
-      <section id="nosotros" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: auto; padding: 3rem 0; display: flex; align-items: center;" aria-labelledby="nosotros-titulo">
+   <main style="min-height: 100px;">
+       <!-- Sección Nosotros + Video -->
+       <section id="nosotros" class="nosotros-section" aria-labelledby="nosotros-titulo">
         <div class="container">
           <!-- SEO: H1 visible para Google -->
           <h1 id="nosotros-titulo" class="visually-hidden">Alquiler de Herramientas en Cali | Master Herramientas y Servicios</h1>
@@ -409,10 +409,10 @@
               attribution: '&copy; OpenStreetMap'
             }).addTo(mapa);
             
-            // Icono empresa
+            // Icono empresa - color de acento #800020 (borgoña)
             var iconoEmpresa = L.divIcon({
               className: '',
-              html: '<div style="background:#d32f2f;width:36px;height:36px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 2px 12px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;"><span style="transform:rotate(45deg);font-size:17px;">🔧</span></div>',
+              html: '<div style="background:#800020;width:36px;height:36px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 2px 12px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;"><span style="transform:rotate(45deg);font-size:17px;">🔧</span></div>',
               iconSize: [36, 36],
               iconAnchor: [18, 36]
             });
@@ -427,10 +427,10 @@
             
             L.marker([LAT, LNG], {icon: iconoEmpresa}).addTo(mapa).bindPopup(popupEmpresa).openPopup();
             
-            // Icono MIO
+            // Icono MIO - color amarillo de acento
             var iconoMIO = L.divIcon({
               className: '',
-              html: '<div style="background:#1565c0;width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;"><span style="font-size:14px;">🚌</span></div>',
+              html: '<div style="background:#ffc107;width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;"><span style="font-size:14px;">🚌</span></div>',
               iconSize: [30, 30],
               iconAnchor: [15, 15]
             });
