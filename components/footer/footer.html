@@ -30,9 +30,9 @@
               <li>
                 <i class="fa-solid fa-phone"></i>
                 <div class="contact-phones">
-                  <a href="tel:3165345675">316 5345675</a>
+                  <a href="tel:+573165345675">316 5345675</a>
                   <span class="separator">|</span>
-                  <a href="tel:3155500169">315 5500169</a>
+                  <a href="tel:+573155500169">315 5500169</a>
                 </div>
               </li>
               <li>
@@ -76,7 +76,7 @@
       <!-- Copyright -->
       <div class="footer-bottom">
         <div class="copyright">
-          <p>&copy; 2025 <strong>Master Herramientas y Servicios</strong>. Todos los derechos reservados.</p>
+          <p>&copy; <span id="year"></span> <strong>Master Herramientas y Servicios</strong>. Todos los derechos reservados.</p>
         </div>
         <div class="footer-badges">
           <span class="badge-item"><i class="fa-solid fa-award"></i> Calidad Garantizada</span>
@@ -86,6 +86,7 @@
     </div>
   </div>
 </footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <style>
 .modern-footer {
   position: relative;
