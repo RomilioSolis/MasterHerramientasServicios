@@ -21,7 +21,8 @@ const EquiposGrid = (() => {
       { id: 'gato-estibador', name: 'Gato Estibador', img: '/assets/imagenes/Estibador/estibador.png', text: 'Gato estibador para movimiento de cargas.' },
       { id: 'ganchos-colgantes', name: 'Ganchos Colgantes', img: '/assets/imagenes/GanchosColgantes/GanchosColgantes.png', text: 'Ganchos colgantes certificados.' },
       { id: 'winches', name: 'Winches', img: '/assets/imagenes/Winches/Winches.png', text: 'Winches eléctricos y manuales.' },
-      { id: 'pluma-grua', name: 'Pluma Grúa', img: '/assets/imagenes/PlumaGrua/PlumaGrua.png', text: 'Pluma grúa para elevación de cargas.' }
+      { id: 'pluma-grua', name: 'Pluma Grúa', img: '/assets/imagenes/PlumaGrua/PlumaGrua.png', text: 'Pluma grúa para elevación de cargas.' },
+      { id: 'andamios-certificados', name: 'Andamios Certificados', img: '/assets/imagenes/Andamios Certificados/Andamio Certificado 1.jpeg', text: 'Torres de andamios certificados con garantía de seguridad.' }
     ],
     perforacion: [
       { id: 'taladros', name: 'Taladros', img: '/assets/imagenes/Taladros/Taladro.webp', text: 'Taladros industriales de percusión.' },

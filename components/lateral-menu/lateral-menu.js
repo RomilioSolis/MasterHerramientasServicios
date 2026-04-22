@@ -4,7 +4,8 @@ const categoriesData = {
         { name: 'Gato Estibador', img: '/assets/imagenes/Estibador/estibador.png', wa: 'gato%20estibador' },
         { name: 'Ganchos Colgantes', img: '/assets/imagenes/GanchosColgantes/GanchosColgantes.png', wa: 'ganchos%20colgantes' },
         { name: 'Winches', img: '/assets/imagenes/Winches/Winches.png', wa: 'winche' },
-        { name: 'Pluma Grúa', img: '/assets/imagenes/PlumaGrua/PlumaGrua.png', wa: 'pluma%20grua' }
+        { name: 'Pluma Grúa', img: '/assets/imagenes/PlumaGrua/PlumaGrua.png', wa: 'pluma%20grua' },
+        { name: 'Andamios Certificados', img: '/assets/imagenes/Andamios Certificados/Andamio Certificado 1.jpeg', wa: 'andamios%20certificados' }
     ],
     perforacion: [
         { name: 'Taladros', img: '/assets/imagenes/Taladros/Taladro.webp', wa: 'taladro' },

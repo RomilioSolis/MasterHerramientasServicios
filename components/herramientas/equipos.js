@@ -5,7 +5,7 @@
 
 const EquipmentData = {
   mapping: {
-    'elevacion': ['Gatos Hidráulicos', 'Gato Estibador', 'Ganchos Colgantes', 'Winches', 'Pluma Grúa'],
+    'elevacion': ['Gatos Hidráulicos', 'Gato Estibador', 'Ganchos Colgantes', 'Winches', 'Pluma Grúa', 'Andamios Certificados'],
     'perforacion': ['Taladros', 'Extractores', 'Sonda Eléctrica', 'Esmeriladora', 'Equipo Oxicorte', 'Cortadora Porcelanato', 'Extracción Núcleos'],
     'mezclado': ['Trompo Mezclador', 'Vibrocompactadora'],
     'limpieza': ['Hidrolavadora', 'Aspiradora Industrial', 'Motobomba Sumergible'],

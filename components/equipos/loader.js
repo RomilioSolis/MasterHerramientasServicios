@@ -6,7 +6,8 @@ const equiposData = {
     { id: 'gato-estibador', name: 'Gato Estibador' },
     { id: 'ganchos-colgantes', name: 'Ganchos Colgantes' },
     { id: 'winches', name: 'Winches' },
-    { id: 'pluma-grua', name: 'Pluma Grúa' }
+    { id: 'pluma-grua', name: 'Pluma Grúa' },
+    { id: 'andamios-certificados', name: 'Andamios Certificados' }
   ],
   perforacion: [
     { id: 'taladros', name: 'Taladros' },
