@@ -7,6 +7,8 @@ const APP_CONFIG = Object.freeze({
   // Teléfonos
   // ============================================
   PHONE: {
+    PRIMARY: '3165345675',
+    SECONDARY: '3163550319',
     WHATSAPP: '573165345675',
     CALL: '+573165345675'
   },

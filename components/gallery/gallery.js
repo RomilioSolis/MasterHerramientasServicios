@@ -34,6 +34,7 @@ const Gallery = (() => {
     return `<div id="${LIGHTBOX_ID}" class="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Galería de imágenes">
       <button class="gallery-close" data-gallery-action="close" aria-label="Cerrar">&times;</button>
       <button class="gallery-nav gallery-prev" data-gallery-action="prev" aria-label="Anterior">&#10094;</button>
+      <button class="gallery-nav gallery-next" data-gallery-action="next" aria-label="Siguiente">&#8250;</button>
       <div class="gallery-content-wrapper">
         <img id="${MAIN_IMAGE_ID}" class="gallery-main-image" src="" alt="">
         <div class="gallery-thumbnails" id="${THUMBS_ID}"></div>

@@ -268,29 +268,49 @@
   margin-bottom: 1rem;
 }
 
+/* ============ FORZAR COLOR BLANCO EN BOTÓN WHATSAPP (MODO OSCURO) ============ */
+.faq-cta a[class*="whatsapp"],
+.faq-cta a[class*="whatsapp"]:link,
+.faq-cta a[class*="whatsapp"]:visited,
+.faq-cta a[class*="whatsapp"]:hover,
+.faq-cta a[class*="whatsapp"]:active {
+  color: #fff !important;
+  text-decoration: none;
+}
+
 .btn-faq-whatsapp {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem 1.5rem;
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  color: #fff;
+  color: #fff !important;
   border-radius: 30px;
   font-size: 1rem;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  border: none;
+  cursor: pointer;
 }
 
 .btn-faq-whatsapp:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-  color: #fff;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #fff !important;
 }
 
 .btn-faq-whatsapp i {
   font-size: 1.2rem;
+  color: #fff !important;
+}
+
+/* Forzar color blanco en el texto del botón (span) */
+.btn-faq-whatsapp span {
+  color: #fff !important;
+  font-weight: 600;
 }
 
 @media (max-width: 900px) {
@@ -377,8 +397,26 @@
     flex-direction: column;
   }
 
-  .btn-faq-whatsapp {
-    width: 100%;
-    justify-content: center;
-  }
+   .btn-faq-whatsapp {
+     width: 100%;
+     justify-content: center;
+   }
+ }
+
+/* ============ SOLUCIÓN MODO OSCURO: BOTÓN WHATSAPP FAQ ============ */
+/* Selector con ID para máxima especificidad y forzar blanco */
+#preguntas-frecuentes .faq-cta .btn-faq-whatsapp,
+#preguntas-frecuentes .faq-cta .btn-faq-whatsapp span,
+#preguntas-frecuentes .faq-cta .btn-faq-whatsapp i,
+#preguntas-frecuentes .faq-cta .btn-faq-whatsapp:link,
+#preguntas-frecuentes .faq-cta .btn-faq-whatsapp:visited,
+#preguntas-frecuentes .faq-cta .btn-faq-whatsapp:hover,
+#preguntas-frecuentes .faq-cta .btn-faq-whatsapp:active {
+  color: #fff !important;
+  text-decoration: none !important;
+  text-shadow: 0 0 0 transparent !important;
+}
+
+#preguntas-frecuentes .faq-cta .btn-faq-whatsapp:hover {
+  color: #fff !important;
 }
