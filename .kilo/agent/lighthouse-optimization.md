@@ -191,6 +191,13 @@ GitHub Pages tiene limitaciones:
 
 ## Historial de Correcciones
 
+- **22 abril 2026**: TBT crítico optimizado (530ms → objetivo ≤200ms).
+  - Eliminados scripts de testing en producción (component-tester, ui-tester, category-tester, click-tester, debug-filter) - 12.36 KB
+  - Aplicado `defer` a Leaflet JS, gallery.js, component-factory.js
+  - Retrasado init de chat widget de 1s → 2s
+  - Eliminado Bootstrap JS (no usado en homepage, ~50 KB)
+  - Protegido inicialización de carouseles contra ausencia de bootstrap
+  - Removido inline script duplicado de initComponents
 - **18 abril 2026**: Agente creado para optimización Lighthouse
 - **18 abril 2026**: CLS - Reserved space para containers lazy load agregados
 - **18 abril 2026**: TBT - Scripts con defer agregados (category-buttons, category-filter, equipos/loader, sb-init)
@@ -202,5 +209,5 @@ GitHub Pages tiene limitaciones:
 - **Hosting**: GitHub Pages + Cloudflare
 - **CDN**: Cloudflare automático
 - **Assets**: locales en /assets/
-- **Librerías externas**: Bootstrap, Leaflet, Google Fonts, Font Awesome
-- **Última actualización**: 18 abril 2026 (CLS y TBT corregidos)
+- **Librerías externas**: Leaflet, Google Fonts, Font Awesome (Bootstrap CSS only)
+- **Última actualización**: 22 abril 2026 (TBT crítico corregido: -12.36 KB + defer estratégico)
