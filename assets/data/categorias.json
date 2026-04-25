@@ -1,0 +1,10 @@
+[
+  { "id": "elevacion", "label": "Elevación y Levante" },
+  { "id": "perforacion", "label": "Perforación y Corte" },
+  { "id": "mezclado", "label": "Mezclado y Compactación" },
+  { "id": "limpieza", "label": "Limpieza e Hidráulica" },
+  { "id": "soldadura", "label": "Soldadura y Energía" },
+  { "id": "construccion", "label": "Construcción y Estructura" },
+  { "id": "movimiento", "label": "Accesorios de Movimiento" },
+  { "id": "jardin", "label": "Jardín y Forestal" }
+]

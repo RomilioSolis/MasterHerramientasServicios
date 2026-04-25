@@ -1,259 +1,388 @@
-// Equipos loader - carga componentes dinámicamente (script clásico para GitHub Pages)
-// No usa ES6 modules; se autoinicializa en DOMContentLoaded
-const equiposData = {
-  elevacion: [
-    { id: 'gatos-hidraulicos', name: 'Gatos Hidraulicos' },
-    { id: 'gato-estibador', name: 'Gato Estibador' },
-    { id: 'ganchos-colgantes', name: 'Ganchos Colgantes' },
-    { id: 'winches', name: 'Winches' },
-    { id: 'pluma-grua', name: 'Pluma Grúa' },
-    { id: 'andamios-certificados', name: 'Andamios Certificados' }
-  ],
-  perforacion: [
-    { id: 'taladros', name: 'Taladros' },
-    { id: 'taladro-magnetico', name: 'Taladro Magnético' },
-    { id: 'extractores', name: 'Extractores' },
-    { id: 'sonda-electrica', name: 'Sonda Eléctrica' },
-    { id: 'esmeriladora', name: 'Esmeriladora' },
-    { id: 'equipo-oxicorte', name: 'Equipo Oxicorte' },
-    { id: 'cortadora-porcelanato', name: 'Cortadora Porcelanato' },
-    { id: 'extraccion-nucleos', name: 'Extracción Núcleos' }
-  ],
-  mezclado: [
-    { id: 'trompo-mezclador', name: 'Trompo Mezclador' },
-    { id: 'vibrocompactadora', name: 'Vibrocompactadora' }
-  ],
-  limpieza: [
-    { id: 'hidrolavadora', name: 'Hidrolavadora' },
-    { id: 'aspiradora-industrial', name: 'Aspiradora Industrial' },
-    { id: 'motobomba-sumergible', name: 'Motobomba Sumergible' }
-  ],
-  soldadura: [
-    { id: 'compresor', name: 'Compresor' },
-    { id: 'equipos-soldadura', name: 'Equipos de Soldadura' },
-    { id: 'planta-electrica', name: 'Planta Eléctrica' }
-  ],
-  construccion: [
-    { id: 'andamios', name: 'Andamios' },
-    { id: 'estanterias', name: 'Estanterías' },
-    { id: 'parasoles', name: 'Parasoles' }
-  ],
-  movimiento: [
-    { id: 'diferenciales', name: 'Diferenciales' },
-    { id: 'carretillas', name: 'Carretillas' },
-    { id: 'buggy', name: 'Buggy con Pico y Pala' }
-  ],
-  jardin: [
-    { id: 'escaleras', name: 'Escaleras' },
-    { id: 'motosierra', name: 'Motosierra' }
-  ]
-};
+// Equipos loader - CARGA DESDE JSON EXTERNO (assets/data/equipos.json)
+// Module Pattern (IIFE) - Vanilla JS
+const EquiposLoader = (() => {
 
-const categoryNames = {
-  elevacion: 'Elevación y Levante',
-  perforacion: 'Perforación y Corte',
-  mezclado: 'Mezclado y Compactación',
-  limpieza: 'Limpieza e Hidráulica',
-  soldadura: 'Soldadura y Energía',
-  construccion: 'Construcción y Estructura',
-  movimiento: 'Accesorios de Movimiento',
-  jardin: 'Jardín y Forestal'
-};
+  // --- CONSTANTES PRIVADAS ---
+  const BASE_DATA_PATH = 'assets/data/';
+  const BASE_PATH = 'components/equipos/';
+  const NETFLIX_CONTAINER_ID = 'netflixRows';
 
-const BASE_PATH = 'components/equipos/';
+  // --- ESTADO PRIVADO ---
+  let _state = {
+    initialized: false,
+    equipos: [],
+    categorias: [],
+    empresa: {}
+  };
 
-const equiposSpecs = {
-  'aspiradora-industrial': {
-    titulo: 'Aspiradora Industrial Truper ASP-12',
-    datos: {
-      'Referencia': '101509',
-      'Potencia Maxima': '6.5 HP (Peak)',
-      'Potencia Nominal': '1.6 HP (1,200 W)',
-      'Capacidad Tanque': '45 Litros (12 Galones)',
-      'Tension': '127 V / 60 Hz',
-      'Presion Succión': '1.7 PSI (11.7 kPa)',
-      'Presion Soplador': '1.9 PSI (13.1 kPa)'
-    },
-    caracteristicas: 'Aspira polvo (sólidos) y agua (líquidos)\nFunción de soplador integrada\nTanque de polietileno de alta resistencia\nDrenaje inferior con tapón\nSoportes para accesorios y cable',
-    accesorios: 'Manguera de 2.1 m (7 ft) - 2 1/2"\n2 Tubos de extensión\nBoquilla para piso y alfombra\nBoquilla para ranuras\nFiltro de cartucho para sólidos\nFiltro de espuma para líquidos'
-  }
-};
+  // --- FUNCIONES PRIVADAS ---
 
-async function loadEquipo(name, container) {
-  try {
-    const res = await fetch(`${BASE_PATH}${name}.html`);
-    if (!res.ok) {
-      console.warn(`loadEquipo: HTTP ${res.status} para ${name}.html`);
-      return;
-    }
-    const html = await res.text();
-    container.insertAdjacentHTML('beforeend', html);
-  } catch (e) {
-    console.error(`Error loading ${name}:`, e.message);
-  }
-}
-
-async function loadNetflixItem(name, container) {
-  try {
-    const res = await fetch(`${BASE_PATH}${name}.html`);
-    if (!res.ok) {
-      console.warn(`loadNetflixItem: HTTP ${res.status} para ${name}.html`);
-      return;
-    }
-    const html = await res.text();
-    
-    // Crear un elemento temporal para parsear el HTML
-    const temp = document.createElement('div');
-    temp.innerHTML = html;
-    
-    // Extraer información del article
-    const article = temp.querySelector('article');
-    if (!article) return;
-    
-    const category = article.dataset.category || '';
-    const titleEl = article.querySelector('.card-title');
-    const title = titleEl ? titleEl.textContent.replace('Alquiler de ', '').trim() : name;
-    const firstImg = article.querySelector('img');
-    const imgSrc = firstImg ? firstImg.src : '';
-    
-    // Extraer todas las imágenes del article
-    const allImages = article.querySelectorAll('img');
-    const images = Array.from(allImages).map(function(img) { return img.src; });
-    if (images.length === 0) images.push(imgSrc);
-    
-    // Generar WhatsApp link
-    const waText = name.toLowerCase().replace(/-/g, '%20');
-    const waLink = `https://wa.me/573165345675?text=Hola,%20necesito%20cotizar%20${waText}`;
-    
-    // Crear Netflix item
-    const netflixItem = document.createElement('div');
-    netflixItem.className = 'netflix-item';
-    netflixItem.dataset.category = category;
-    netflixItem.dataset.name = name;
-    
-    netflixItem.innerHTML = `
-      <div class="netflix-item-image" style="cursor:pointer">
-        <img src="${imgSrc}" alt="${title}" loading="lazy">
-      </div>
-      <div class="netflix-item-title">${title}</div>
-      <a href="${waLink}" class="netflix-item-whatsapp" target="_blank" rel="noopener" aria-label="Cotizar ${title} por WhatsApp">
-        <i class="bi bi-whatsapp"></i>
-      </a>
-    `;
-    
-    // Agregar click para abrir galería
-    const specsData = equiposSpecs[name] || null;
-    netflixItem.querySelector('.netflix-item-image').onclick = function() {
-      if (typeof Gallery !== 'undefined') {
-        Gallery.open(images, title, waLink, specsData);
+  // Cargar archivo JSON externo
+  async function _loadJsonFile(filename) {
+    try {
+      const res = await fetch(`${BASE_DATA_PATH}${filename}`);
+      if (!res.ok) {
+        console.warn(`EquiposLoader: HTTP ${res.status} al cargar ${filename}`);
+        return [];
       }
-    };
-    
-    container.appendChild(netflixItem);
-  } catch (e) {
-    console.error(`Error loading Netflix item ${name}:`, e.message);
-  }
-}
-
-async function loadNetflixRows() {
-  const container = document.getElementById('netflixRows');
-  if (!container) return;
-
-  for (const [category, equipos] of Object.entries(equiposData)) {
-    const row = document.createElement('div');
-    row.className = 'netflix-row';
-    row.dataset.category = category;
-    row.innerHTML = `
-      <div class="netflix-row-header">
-        <h3 class="netflix-category-title">${categoryNames[category]}</h3>
-        <button class="netflix-scroll-btn netflix-scroll-left" onclick="scrollRow('row-${category}', -1)" aria-label="Desplazar izquierda">&#8249;</button>
-        <button class="netflix-scroll-btn netflix-scroll-right" onclick="scrollRow('row-${category}', 1)" aria-label="Desplazar derecha">&#8250;</button>
-      </div>
-      <div class="netflix-row-content" id="row-${category}"></div>
-    `;
-    container.appendChild(row);
-
-    const rowContent = row.querySelector(`#row-${category}`);
-    for (const eq of equipos) {
-      await loadNetflixItem(eq.id, rowContent);
+      return await res.json();
+    } catch (e) {
+      console.error(`EquiposLoader: Error cargando ${filename}:`, e.message);
+      return [];
     }
   }
 
-  initNetflixCarousel();
-}
+  // Cargar todos los datos (equipos, categorías, empresa)
+  async function _loadAllData() {
+    const [equipos, categorias, empresa] = await Promise.all([
+      _loadJsonFile('equipos.json'),
+      _loadJsonFile('categorias.json'),
+      _loadJsonFile('empresa.json')
+    ]);
 
-async function loadCards() {
-  const container = document.getElementById('herramientas-container');
-  if (!container) return;
+    _state.equipos = equipos;
+    _state.categorias = categorias;
+    _state.empresa = empresa;
 
-  for (const equipos of Object.values(equiposData)) {
-    for (const eq of equipos) {
-      await loadEquipo(eq.id, container);
+    return { equipos, categorias, empresa };
+  }
+
+  // Agrupar equipos por categoría
+  function _agruparPorCategoria(equipos) {
+    return equipos.reduce((acc, equipo) => {
+      if (!acc[equipo.categoria]) acc[equipo.categoria] = [];
+      acc[equipo.categoria].push(equipo);
+      return acc;
+    }, {});
+  }
+
+  // Obtener nombre de categoría por ID
+  function _getCategoriaNombre(id) {
+    const cat = _state.categorias.find(c => c.id === id);
+    return cat ? cat.label : id;
+  }
+
+  // Emitir evento (con fallback a CustomEvent)
+  function _emit(eventName, detail = {}) {
+    if (typeof EventEmitter !== 'undefined') {
+      EventEmitter.emit(eventName, detail);
+    }
+    document.dispatchEvent(new CustomEvent(eventName, { detail }));
+  }
+
+  // Fetch HTML del equipo y extraer imágenes
+  async function _fetchEquipmentImages(equipoId) {
+    try {
+      const res = await fetch(`${BASE_PATH}${equipoId}.html`);
+      if (!res.ok) {
+        console.warn(`EquiposLoader: HTTP ${res.status} al cargar ${equipoId}.html`);
+        return [];
+      }
+      const html = await res.text();
+      
+      // Parsear HTML y extraer todas las imágenes
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const images = Array.from(doc.querySelectorAll('img')).map(img => img.src);
+      
+      return images;
+    } catch (e) {
+      console.error(`EquiposLoader: Error fetching ${equipoId}.html:`, e.message);
+      return [];
     }
   }
-}
 
-function initNetflixCarousel() {
-  const netflixItems = document.querySelectorAll('.netflix-item');
-  netflixItems.forEach(item => {
-    const imageContainer = item.querySelector('.netflix-item-image');
-    if (!imageContainer) return;
-    
-    const images = imageContainer.querySelectorAll('img');
-    if (images.length <= 1) return;
-    
-    const carouselContainer = document.createElement('div');
-    carouselContainer.className = 'carousel-images';
-    
-    images.forEach((img, index) => {
-      img.classList.add(index === 0 ? 'active' : '');
-      carouselContainer.appendChild(img);
+  // Renderizar un Netflix item
+  async function _renderNetflixItem(equipo, rowContent) {
+    try {
+      // Generar WhatsApp link usando helper centralizado
+      const waLink = typeof WHATSAPP !== "undefined" 
+        ? WHATSAPP.createLink("Necesito cotizar " + equipo.nombre)
+        : "https://wa.me/" + (_state.empresa.telefonos?.whatsapp || "573165345675") + "?text=Hola,%20necesito%20cotizar%20" + encodeURIComponent(equipo.nombre);
+
+      // Obtener imágenes del archivo HTML del equipo
+      const allImages = await _fetchEquipmentImages(equipo.id);
+      const firstImg = allImages[0] || "assets/imagenes/logo.png";
+
+      // Crear elemento Netflix item
+      const netflixItem = document.createElement("div");
+      netflixItem.className = "netflix-item";
+      netflixItem.dataset.category = equipo.categoria;
+      netflixItem.dataset.id = equipo.id;
+      
+      const imageDiv = document.createElement("div");
+      imageDiv.className = "netflix-item-image";
+      imageDiv.style.cursor = "pointer";
+
+      const img = document.createElement("img");
+      img.src = firstImg;
+      img.alt = equipo.nombre;
+      img.loading = "lazy";
+      img.onerror = function() { this.src = "assets/imagenes/logo.png"; };
+
+      imageDiv.appendChild(img);
+
+       // Click para abrir galería con todas las imágenes
+       imageDiv.addEventListener("click", function() {
+         if (typeof Gallery !== "undefined" && allImages.length > 0) {
+           // Transformar el objeto equipo al formato que espera Gallery
+           const specsData = {
+             titulo: equipo.nombre,
+             datos: {
+               "Categoría": equipo.categoria,
+               "Disponible": equipo.disponible ? "Sí" : "No"
+             },
+             // Asegurar que caracteristicas sea siempre string
+             caracteristicas: (function() {
+               const val = equipo.caracteristicas;
+               if (Array.isArray(val)) {
+                 return val.join('\n');
+               }
+               return (typeof val === 'string') ? val : (val || '');
+             })(),
+             descripcion: equipo.descripcion || '',
+             normas: `1. Identificarse a nombre de quien va a hacer el alquiler persona natural o juridica
+2. Solicitar con anticipación el alquiler de los equipos, el personal puede tener trabajos o clientes programados.
+3. Si es cliente nuevo o reciente se solicita un depósito como garantía por el equipo, se hace la devolución con el reintegro en buen estado del equipo.
+4. El tiempo de alquiler se maneja por días, igualmente para el cobro. Se maneja fecha calendario, informarnos entonces para nosotros evaluar si festivos son tenidos en cuenta, cada obra es distinta.
+5. Los equipos se entregan en horario de oficina, existen excepciones donde se han pedido a altas horas de la noche, se cobrara un valor mayor.
+6. Equipo dañado se cobrara.
+7. Hacemos la logistica y contratación del transporte, se cobrara por aparte dependiendo del lugar donde vaya el equipo. No somos una empresa de transporte.`
+           };
+
+           Gallery.open(allImages, equipo.nombre, waLink, specsData);
+         }
+       });
+
+      const titleDiv = document.createElement("div");
+      titleDiv.className = "netflix-item-title";
+      titleDiv.textContent = equipo.nombre;
+
+      const whatsappLink = document.createElement("a");
+      whatsappLink.href = waLink;
+      whatsappLink.className = "netflix-item-whatsapp";
+      whatsappLink.target = "_blank";
+      whatsappLink.rel = "noopener";
+      whatsappLink.setAttribute("aria-label", "Cotizar " + equipo.nombre + " por WhatsApp");
+      whatsappLink.innerHTML = "<i class=\"bi bi-whatsapp\"></i>";
+
+      netflixItem.appendChild(imageDiv);
+      netflixItem.appendChild(titleDiv);
+      netflixItem.appendChild(whatsappLink);
+
+      rowContent.appendChild(netflixItem);
+
+    } catch (e) {
+      console.error("EquiposLoader: Error renderizando " + equipo.id + ":", e.message);
+    }
+  }
+
+      // Renderizar filas Netflix por categoría
+      async function _renderNetflixRows(equiposAgrupados) {
+        const container = document.getElementById(NETFLIX_CONTAINER_ID);
+        if (!container) return;
+        container.innerHTML = '';
+
+        for (const categoria of _state.categorias) {
+          const equipos = equiposAgrupados[categoria.id];
+          if (!equipos || equipos.length === 0) continue;
+
+          const row = document.createElement('div');
+          row.className = 'netflix-row';
+          row.dataset.category = categoria.id;
+          
+          // Crear contenido de la fila
+          const headerDiv = document.createElement('div');
+          headerDiv.className = 'netflix-row-header';
+          
+          const titleH3 = document.createElement('h3');
+          titleH3.className = 'netflix-category-title';
+          titleH3.textContent = categoria.label;
+          
+          const leftButton = document.createElement('button');
+          leftButton.className = 'netflix-scroll-btn netflix-scroll-left';
+          leftButton.setAttribute('aria-label', 'Desplazar izquierda');
+          leftButton.innerHTML = '&#8249;';
+          leftButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Scroll left clicked');
+            scrollRow('row-' + categoria.id, -1);
+          });
+          
+          const rightButton = document.createElement('button');
+          rightButton.className = 'netflix-scroll-btn netflix-scroll-right';
+          rightButton.setAttribute('aria-label', 'Desplazar derecha');
+          rightButton.innerHTML = '&#8250;';
+          rightButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Scroll right clicked');
+            scrollRow('row-' + categoria.id, 1);
+          });
+          
+          headerDiv.appendChild(leftButton);
+          headerDiv.appendChild(titleH3);
+          headerDiv.appendChild(rightButton);
+
+          const contentDiv = document.createElement('div');
+          contentDiv.className = 'netflix-row-content';
+          contentDiv.id = 'row-' + categoria.id;
+
+          row.appendChild(headerDiv);
+          row.appendChild(contentDiv);
+          container.appendChild(row);
+
+          // Renderizar cada equipo en esta categoría
+          for (const equipo of equipos) {
+            await _renderNetflixItem(equipo, contentDiv);
+          }
+        }
+      }
+
+  // Inicializar carrusel Netflix (carrusel horizontal)
+  function _initNetflixCarousel() {
+    const netflixItems = document.querySelectorAll('.netflix-item');
+    netflixItems.forEach(item => {
+      const imageContainer = item.querySelector('.netflix-item-image');
+      if (!imageContainer) return;
+      
+      const images = imageContainer.querySelectorAll('img');
+      if (images.length <= 1) return;
+      
+      const carouselContainer = document.createElement('div');
+      carouselContainer.className = 'carousel-images';
+      
+      images.forEach((img, index) => {
+        img.classList.add(index === 0 ? 'active' : '');
+        carouselContainer.appendChild(img);
+      });
+      
+      imageContainer.innerHTML = '';
+      imageContainer.appendChild(carouselContainer);
+      
+      let currentIndex = 0;
+      const totalImages = images.length;
+      
+      setInterval(() => {
+        const imgs = carouselContainer.querySelectorAll('img');
+        imgs.forEach(img => img.classList.remove('active'));
+        currentIndex = (currentIndex + 1) % totalImages;
+        imgs[currentIndex].classList.add('active');
+      }, 5000); // Cambiar cada 5 segundos
     });
-    
-    imageContainer.innerHTML = '';
-    imageContainer.appendChild(carouselContainer);
-    
-    let currentIndex = 0;
-    const totalImages = images.length;
-    
-    setInterval(() => {
-      const imgs = carouselContainer.querySelectorAll('img');
-      imgs.forEach(img => img.classList.remove('active'));
-      currentIndex = (currentIndex + 1) % totalImages;
-      imgs[currentIndex].classList.add('active');
-    }, 5000);
-  });
-}
-
-async function loadAllEquipos() {
-  // Solo cargar Netflix rows (las cards ya están estáticas en index.html)
-  await loadNetflixRows();
-
-  // Dispatch evento usando EventEmitter (Patrón Observer)
-  const detail = { timestamp: Date.now() };
-  
-  if (typeof EventEmitter !== 'undefined') {
-    EventEmitter.emit('equipos:ready', detail);
   }
-  
-  // También dispatchear CustomEvent para compatibilidad
-  document.dispatchEvent(new CustomEvent('equipos:ready', { detail }));
-  console.log('Equipos cargados exitosamente');
+
+  // --- FUNCIÓN PÚBLICA DE INICIALIZACIÓN ---
+  async function init() {
+    if (_state.initialized) {
+      console.log('EquiposLoader: Ya inicializado');
+      return;
+    }
+
+    console.log('EquiposLoader: Cargando datos desde JSON externo...');
+    
+    try {
+      // Cargar todos los datos
+      await _loadAllData();
+      
+      // Renderizar filas Netflix
+      const agrupados = _agruparPorCategoria(_state.equipos);
+      await _renderNetflixRows(agrupados);
+      
+      // Inicializar carrusel
+      _initNetflixCarousel();
+      
+      // Emitir evento de finalización (compatibilidad con ambos nombres)
+      _emit('equiposLoaded', { 
+        total: _state.equipos.length, 
+        timestamp: Date.now() 
+      });
+      _emit('equipos:ready', { 
+        total: _state.equipos.length, 
+        timestamp: Date.now() 
+      });
+      
+      _state.initialized = true;
+      console.log(`EquiposLoader: ${_state.equipos.length} equipos cargados exitosamente`);
+      
+    } catch (error) {
+      console.error('EquiposLoader: Error en inicialización:', error);
+    }
+  }
+
+  // --- API PÚBLICA ---
+  return {
+    init,
+    getEquipos: () => [..._state.equipos],
+    getCategorias: () => [..._state.categorias],
+    getEmpresa: () => ({..._state.empresa}),
+    filtrarPorCategoria: (categoriaId) => _state.equipos.filter(eq => eq.categoria === categoriaId),
+    buscar: (termino) => {
+      const busqueda = termino.toLowerCase();
+      return _state.equipos.filter(eq => 
+        eq.nombre.toLowerCase().includes(busqueda) || 
+        eq.descripcion.toLowerCase().includes(busqueda)
+      );
+    }
+  };
+
+})();
+
+// Función global para desplazar filas (usada por botones de scroll)
+if (typeof window !== 'undefined') {
+  window.scrollRow = function(rowId, direction) {
+    const row = document.getElementById(rowId);
+    if (!row) {
+      console.warn('scrollRow: Contenedor no encontrado:', rowId);
+      return;
+    }
+
+    // El elemento con rowId YA ES el .netflix-row-content que se debe desplazar
+    const content = row;
+    const scrollAmount = 350;
+    const maxScroll = content.scrollWidth - content.clientWidth;
+
+    console.log('scrollRow called:', {
+      rowId,
+      direction,
+      scrollWidth: content.scrollWidth,
+      clientWidth: content.clientWidth,
+      maxScroll,
+      currentScroll: content.scrollLeft
+    });
+
+    if (direction === 1) {
+      const newScrollLeft = Math.min(content.scrollLeft + scrollAmount, maxScroll);
+      content.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+    } else {
+      const newScrollLeft = Math.max(content.scrollLeft - scrollAmount, 0);
+      content.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+    }
+  };
 }
 
-// Función para desplazar las filas de Netflix
-function scrollRow(rowId, direction) {
-  const row = document.getElementById(rowId);
-  if (!row) return;
-  
-  const scrollAmount = 350; // Ancho aproximado de un item
-  row.scrollBy({
-    left: direction * scrollAmount,
-    behavior: 'smooth'
-  });
-}
+ // Auto-inicializar cuando el DOM esté listo
+ if (typeof document !== 'undefined') {
+   if (document.readyState === 'loading') {
+     document.addEventListener('DOMContentLoaded', EquiposLoader.init);
+   } else {
+     EquiposLoader.init();
+   }
+ }
 
-// Auto-inicializar cuando se carga el script
-document.addEventListener('DOMContentLoaded', loadAllEquipos);
+ // Escuchar evento de ComponentFactory para reinicializar si el componente se carga dinámicamente
+ if (typeof document !== 'undefined') {
+   document.addEventListener('component:loaded', function(e) {
+     if (e.detail && e.detail.id === 'equipos') {
+       console.log('EquiposLoader: componente cargado dinámicamente, reinicializando...');
+       setTimeout(() => EquiposLoader.init(), 100);
+     }
+   });
+ }
 
-// No ES6 exports; todo se ejecuta globalmente
+ // Fallback: reintentar inicialización después de 1 segundo por si el componente carga lentamente
+ setTimeout(function() {
+   if (!_state.initialized) {
+     console.log('EquiposLoader: fallback init después de 1s');
+     EquiposLoader.init();
+   }
+ }, 1000);

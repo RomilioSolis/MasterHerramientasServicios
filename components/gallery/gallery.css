@@ -1,4 +1,4 @@
-/* Galería interactiva - Lightbox */
+/* Galería interactiva - Lightbox con Fichas Técnicas */
 .gallery-lightbox {
   display: none;
   position: fixed;
@@ -13,45 +13,57 @@
   flex-direction: column;
 }
 
-.gallery-lightbox.active {
-  display: flex;
-}
+.gallery-lightbox.active { display: flex; }
 
 .gallery-main-image {
-  max-width: 90%;
-  max-height: 70vh;
+  max-width: 100%;
+  max-height: 65vh;
   object-fit: contain;
   border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-thumbnails {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 15px;
   overflow-x: auto;
-  padding: 10px;
-  max-width: 90%;
+  padding: 12px 10px;
+  max-width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 80px;
+  align-items: center;
 }
 
 .gallery-thumb {
-  width: 80px;
-  height: 60px;
+  width: 90px;
+  height: 65px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   opacity: 0.6;
-  transition: opacity 0.2s;
-  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  border: 3px solid transparent;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.gallery-thumb:hover,
+.gallery-thumb:hover {
+  opacity: 0.9;
+  border-color: rgba(255, 193, 7, 0.6);
+  transform: scale(1.05);
+}
+
 .gallery-thumb.active {
   opacity: 1;
   border-color: #ffc107;
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+  transform: scale(1.08);
 }
 
-.gallery-close {
-  position: absolute;
+#gallery-close-fixed {
+  position: fixed;
   top: 20px;
   right: 30px;
   font-size: 40px;
@@ -59,14 +71,23 @@
   cursor: pointer;
   background: none;
   border: none;
+  z-index: 20001;
+  line-height: 1;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.gallery-close:hover {
-  color: #ffc107;
-}
+#gallery-close-fixed:hover { color: #ffc107; }
+#gallery-close-fixed { display: none; }
+.gallery-lightbox.active + #gallery-close-fixed { display: flex; }
+.gallery-close { display: none !important; }
 
 .gallery-nav {
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
   font-size: 40px;
@@ -76,136 +97,271 @@
   border: none;
   padding: 15px;
   border-radius: 50%;
+  z-index: 20001;
 }
 
-.gallery-nav:hover {
-  background: rgba(196, 30, 58, 0.8);
-}
-
+.gallery-nav:hover { background: rgba(196, 30, 58, 0.8); }
 .gallery-prev { left: 20px; }
 .gallery-next { right: 20px; }
 
 .gallery-info {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   color: #fff;
   text-align: center;
-  margin-top: 15px;
+  z-index: 20001;
 }
 
 .gallery-info h3 {
-  margin: 0;
-  font-size: 1.2rem;
+  margin: 0 0 12px 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .gallery-cotizar {
-  margin-top: 15px;
-  padding: 10px 25px;
+  padding: 12px 30px;
   background: #25D366;
   color: #fff;
   text-decoration: none;
   border-radius: 25px;
   font-weight: 600;
   display: inline-block;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
 .gallery-cotizar:hover {
   background: #128C7E;
+  box-shadow: 0 4px 15px rgba(18, 140, 126, 0.4);
 }
 
-/* Panel de Fichas Técnicas */
-.gallery-content-wrapper {
+/* Contenedor principal con tres columnas */
+.gallery-container {
+  display: table;
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+}
+
+/* ========== PANEL IZQUIERDO: FICHA EQUIPO (SIMPLIFICADO) ========== */
+.gallery-specs-left {
+  display: table-cell;
+  width: 400px;
+  vertical-align: top;
+  padding-right: 30px;
+}
+
+#specs-especificaciones {
+  max-height: calc(100vh - 200px);
+  background: rgba(30, 30, 50, 0.98);
+  border-radius: 12px;
+  padding: 25px;
+  color: #fff;
+  overflow-y: auto;
+  font-size: 1rem;
+  line-height: 1.6;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 45%;
-  margin-right: 30px;
+  justify-content: center;
+  text-align: center;
+  min-height: 200px;
 }
 
-.gallery-specs-panel {
-  position: fixed;
-  right: 30px;
-  top: 70px;
-  width: 380px;
-  max-height: calc(100vh - 150px);
-  background: rgba(30, 30, 50, 0.95);
+/* Título del equipo - GRANDE Y DESTACADO */
+.gallery-specs-title {
+  color: #ffc107 !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 10px !important;
+  padding-bottom: 15px !important;
+  border-bottom: 2px solid rgba(255, 193, 7, 0.4) !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+/* OCULTAR información adicional de la ficha */
+.gallery-spec-row, .gallery-spec-label, .gallery-spec-value {
+  display: none !important;
+}
+
+.gallery-specs-datos, .gallery-specs-caracteristicas, 
+.gallery-specs-accesorios, .gallery-specs-description {
+  display: none !important;
+}
+
+/* ========== PANEL DERECHO: NORMAS DE ALQUILER (VISIBLE) ========== */
+.gallery-specs-right {
+  display: table-cell;
+  width: 400px;
+  vertical-align: top;
+  padding-left: 30px;
+}
+
+#specs-normas {
+  max-height: calc(100vh - 200px);
+  background: rgba(30, 30, 50, 0.98);
   border-radius: 12px;
-  padding: 20px;
+  padding: 25px;
   color: #fff;
   overflow-y: auto;
-  display: none;
-}
-
-.gallery-specs-panel.has-specs {
-  display: block;
-}
-
-.gallery-specs-title {
-  color: #ffc107;
   font-size: 1rem;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 193, 7, 0.3);
+  line-height: 1.6;
 }
 
-.gallery-specs-content {
-  margin-bottom: 15px;
+/* Título de normas */
+#specs-normas .gallery-specs-title {
+  color: #ffc107 !important;
+  font-size: 1.4rem !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid rgba(255, 193, 7, 0.3) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4) !important;
 }
 
-.gallery-spec-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.85rem;
-}
-
-.gallery-spec-label {
-  color: #aaa;
-  font-weight: 500;
-}
-
-.gallery-spec-value {
-  color: #fff;
-  font-weight: 600;
-  text-align: right;
-}
-
-.gallery-specs-caracteristicas,
-.gallery-specs-accesorios {
-  margin-top: 15px;
-}
-
-.gallery-specs-caracteristicas h5,
-.gallery-specs-accesorios h5 {
-  color: #ffc107;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-}
-
-.gallery-specs-caracteristicas ul,
-.gallery-specs-accesorios ul {
+/* Lista de normas */
+.gallery-specs-normas ul {
   margin: 0;
-  padding-left: 20px;
-  font-size: 0.8rem;
-  color: #ddd;
+  padding-left: 22px;
+  font-size: 1.1rem;
+  color: #eee;
+  line-height: 1.7;
 }
 
-.gallery-specs-caracteristicas li,
-.gallery-specs-accesorios li {
-  margin-bottom: 5px;
+.gallery-specs-normas li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.gallery-specs-normas ul li strong {
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Contenido central: Imagen y miniaturas */
+.gallery-content-wrapper {
+  display: table-cell;
+  width: auto;
+  min-width: 400px;
+  max-width: 60vw;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.gallery-main-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 40vh;
+  max-height: 65vh;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.gallery-main-image {
+  max-width: 100%;
+  max-height: 60vh;
+  min-width: 200px;
+  min-height: 150px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.gallery-main-image:hover { transform: scale(1.02); }
+
+.gallery-main-image[src] {
+  min-width: 150px;
+  min-height: 100px;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .gallery-specs-left, .gallery-specs-right { width: 300px; }
+  #specs-especificaciones, #specs-normas {
+    max-height: calc(100vh - 220px);
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+  .gallery-content-wrapper { min-width: 350px; max-width: 50vw; }
+  .gallery-main-image { max-height: 55vh; min-width: 250px; min-height: 180px; }
+}
+
+@media (max-width: 1200px) {
+  .gallery-specs-left, .gallery-specs-right { width: 280px; }
+  .gallery-content-wrapper { min-width: 300px; max-width: 45vw; }
+  #specs-especificaciones, #specs-normas { padding: 18px; max-height: calc(100vh - 220px); }
 }
 
 @media (max-width: 992px) {
-  .gallery-content-wrapper {
-    max-width: 80%;
-  }
-  .gallery-specs-panel {
-    position: fixed;
-    right: 0;
-    left: 0;
-    top: auto;
-    bottom: 0;
+  .gallery-container { display: block; }
+  .gallery-specs-left, .gallery-specs-right {
+    display: block;
     width: 100%;
-    max-height: 40vh;
-    border-radius: 12px 12px 0 0;
+    padding: 0;
+    margin-bottom: 15px;
   }
+  #specs-especificaciones, #specs-normas {
+    max-height: 220px;
+    margin: 0 5px 15px 5px;
+    padding: 18px;
+    font-size: 0.95rem;
+  }
+  .gallery-content-wrapper {
+    display: block;
+    width: 100%;
+    padding: 15px 5px;
+    text-align: center;
+    order: -1;
+  }
+  .gallery-main-image-container {
+    min-height: 30vh;
+    max-height: 50vh;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  .gallery-main-image { max-height: 45vh; }
+}
+
+@media (max-width: 768px) {
+  #specs-especificaciones, #specs-normas {
+    max-height: 200px;
+    padding: 15px;
+    margin: 0 5px 12px 5px;
+    font-size: 0.9rem;
+  }
+  .gallery-lightbox { padding: 60px 8px 12px 8px; }
+  .gallery-content-wrapper { padding: 10px 0; }
+  .gallery-main-image-container {
+    min-height: 25vh;
+    max-height: 40vh;
+    padding: 8px;
+  }
+  .gallery-main-image { max-height: 35vh; min-width: 180px; min-height: 130px; }
+  .gallery-thumb { width: 75px; height: 55px; }
+  .gallery-info h3 { font-size: 1.1rem; margin-bottom: 8px; }
+  .gallery-cotizar { padding: 10px 20px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  .gallery-specs-left, .gallery-specs-right { width: 100%; }
+  .gallery-main-image { max-height: 30vh; }
+  .gallery-thumbs { gap: 6px; }
+  .gallery-thumb { width: 60px; height: 45px; }
 }

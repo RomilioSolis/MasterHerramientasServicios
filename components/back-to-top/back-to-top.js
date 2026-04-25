@@ -1,49 +1,81 @@
-const BACK_TO_TOP_HTML = `
-<button id="app-back-to-top" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9999;width:50px;height:50px;border-radius:50%;background:#800020;color:white;border:none;cursor:pointer;box-shadow:0 4px 15px rgba(196,30,58,0.4);" aria-label="Volver al inicio" title="Volver arriba">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
-</button>`;
-
-function loadStyles() {
-    if (document.getElementById('back-to-top-styles')) return;
+// ============================================
+// MÓDULO: BackToTop
+// Refactorizado con Module Pattern (IIFE + Revealing Module)
+// Botón de regreso al inicio
+// ============================================
+const BackToTop = (() => {
+  
+  // --- CONSTANTES PRIVADAS ---
+  const _HTML = `
+    <button id="app-back-to-top" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9999;width:50px;height:50px;border-radius:50%;background:#800020;color:white;border:none;cursor:pointer;box-shadow:0 4px 15px rgba(196,30,58,0.4);" aria-label="Volver al inicio" title="Volver arriba">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </button>`;
+  
+  const _STYLE_ID = 'back-to-top-styles';
+  const _BTN_ID = 'app-back-to-top';
+  
+  // --- ESTADO PRIVADO ---
+  let _state = {
+    initialized: false
+  };
+  
+  // --- FUNCIONES PRIVADAS ---
+  
+  /**
+   * Carga los estilos CSS
+   */
+  function _loadStyles() {
+    if (document.getElementById(_STYLE_ID)) return;
     const link = document.createElement('link');
-    link.id = 'back-to-top-styles';
+    link.id = _STYLE_ID;
     link.rel = 'stylesheet';
     link.href = '/components/back-to-top/back-to-top.css';
     document.head.appendChild(link);
-}
-
-function loadHTML() {
-    if (document.getElementById('app-back-to-top')) return;
-    document.body.insertAdjacentHTML('beforeend', BACK_TO_TOP_HTML);
-}
-
-function init() {
-    const btn = document.getElementById('app-back-to-top');
+  }
+  
+  /**
+   * Inyecta el HTML en el body
+   */
+  function _loadHTML() {
+    if (document.getElementById(_BTN_ID)) return;
+    document.body.insertAdjacentHTML('beforeend', _HTML);
+  }
+  
+  /**
+   * Configura el comportamiento del botón
+   */
+  function _initBtn() {
+    const btn = document.getElementById(_BTN_ID);
     if (!btn) return;
     
-    btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    window.addEventListener('scroll', () => {
-        btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
-    }, { passive: true });
-}
-
-// Export completo que carga todo
-export function init() {
-    loadStyles();
-    loadHTML();
-    initBtn();
-}
-
-function initBtn() {
-    var btn = document.getElementById('app-back-to-top');
-    if (!btn) return;
-    
-    btn.onclick = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+    btn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     
     window.addEventListener('scroll', function() {
-        btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+      btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
     }, { passive: true });
-}
+  }
+  
+  /**
+   * Inicializa el módulo
+   */
+  function _init() {
+    _loadStyles();
+    _loadHTML();
+    _initBtn();
+    _state.initialized = true;
+  }
+  
+  // --- API PÚBLICA (REVEALING MODULE) ---
+  return {
+    init: _init
+  };
+})();
 
-export default { init };
+// Inicialización
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => BackToTop.init());
+} else {
+  BackToTop.init();
+}

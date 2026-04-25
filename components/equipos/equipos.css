@@ -79,6 +79,9 @@
 .netflix-item .carousel-images img.active {
   opacity: 1;
 }
+.netflix-row {
+  margin-bottom: 0.75rem;
+}
 .netflix-row-content {
   display: flex;
   gap: 1rem;
@@ -86,6 +89,23 @@
   padding: 0.5rem 0;
   scrollbar-width: thin;
   scrollbar-color: #800020 #1a1a2e;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.netflix-row-content::-webkit-scrollbar {
+  height: 6px;
+}
+.netflix-row-content::-webkit-scrollbar-track {
+  background: #1a1a2e;
+  border-radius: 3px;
+}
+.netflix-row-content::-webkit-scrollbar-thumb {
+  background: #800020;
+  border-radius: 3px;
+}
+.netflix-item {
+  flex: 0 0 auto;
+  min-width: 300px;
 }
 .netflix-row-content::-webkit-scrollbar {
   height: 6px;
@@ -212,15 +232,19 @@
 .netflix-item:hover .netflix-item-image img {
   transform: scale(1.05);
 }
+/* Título del equipo - legibilidad mejorada */
 .netflix-item-title {
-  color: #fff;
-  font-size: 0.95rem;
-  font-weight: 600;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
   text-align: center;
   display: block;
-  padding: 0.7rem;
-  background: linear-gradient(180deg, rgba(30,30,50,0.9) 0%, rgba(20,20,40,0.95) 100%);
-  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 0.8rem 0.6rem 0.6rem;
+  background: linear-gradient(180deg, rgba(30,30,50,0.95) 0%, rgba(20,20,40,0.98) 100%);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  line-height: 1.3;
   order: 2;
   z-index: 5;
   position: relative;

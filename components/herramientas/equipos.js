@@ -1,10 +1,12 @@
-/**
- * Componente Equipos - Maneja la lógica de mostrar equipos por categoría
- * Módulo para reducir código en index.html
- */
-
-const EquipmentData = {
-  mapping: {
+// ============================================
+// MÓDULO: EquipmentData
+// Refactorizado con Module Pattern (IIFE + Revealing Module)
+// Maneja la lógica de mostrar equipos por categoría
+// ============================================
+const EquipmentData = (() => {
+  
+  // --- CONSTANTES PRIVADAS ---
+  const _MAPPING = {
     'elevacion': ['Gatos Hidráulicos', 'Gato Estibador', 'Ganchos Colgantes', 'Winches', 'Pluma Grúa', 'Andamios Certificados'],
     'perforacion': ['Taladros', 'Extractores', 'Sonda Eléctrica', 'Esmeriladora', 'Equipo Oxicorte', 'Cortadora Porcelanato', 'Extracción Núcleos'],
     'mezclado': ['Trompo Mezclador', 'Vibrocompactadora'],
@@ -13,25 +15,32 @@ const EquipmentData = {
     'construccion': ['Andamios', 'Estanterías', 'Parasoles'],
     'movimiento': ['Diferenciales', 'Carretillas', 'Buggy con Pico y Pala'],
     'jardin': ['Escaleras', 'Motosierras']
-  },
-
-  categoryNames: {
+  };
+  
+  const _CATEGORY_NAMES = {
     'elevacion': 'Elevación y Levante',
     'perforacion': 'Perforación y Corte',
     'mezclado': 'Mezclado y Compactación',
     'limpieza': 'Limpieza e Hidráulica',
     'soldadura': 'Soldadura y Energía',
     'construccion': 'Construcción y Estructura',
-    'movimiento': 'Accesorios de Movimiento',
+    'movimiento': 'Accisores de Movimiento',
     'jardin': 'Jardín y Forestal'
-  },
-
-  getContainers() {
+  };
+  
+  // --- ESTADO PRIVADO ---
+  let _state = {
+    initialized: false
+  };
+  
+  // --- FUNCIONES PRIVADAS ---
+  
+  function _getContainers() {
     return document.querySelectorAll('#herramientas-container article, #herramientas-container-2 article');
-  },
-
-  getArticlesByCategory(category) {
-    const articles = this.getContainers();
+  }
+  
+  function _getArticlesByCategory(category) {
+    const articles = _getContainers();
     const filtered = [];
     let index = 0;
     
@@ -43,27 +52,25 @@ const EquipmentData = {
     });
     
     return filtered;
-  },
-
-  showEquipment(category, equipmentIndex) {
-    const articles = this.getContainers();
-    const equipmentName = this.mapping[category]?.[equipmentIndex];
-
+  }
+  
+  function _showEquipment(category, equipmentIndex) {
+    const articles = _getContainers();
+    const equipmentName = _MAPPING[category]?.[equipmentIndex];
+    
     if (!equipmentName) {
       console.error('Equipo no encontrado:', category, equipmentIndex);
       return false;
     }
-
-    // Ocultar todos
+    
     articles.forEach(article => {
       article.classList.add('hidden-by-search');
       article.style.display = 'none';
     });
-
-    // Encontrar el equipo objetivo
+    
     let foundIndex = 0;
     let targetArticle = null;
-
+    
     articles.forEach(article => {
       const articleCategory = article.getAttribute('data-category');
       if (articleCategory === category) {
@@ -73,75 +80,80 @@ const EquipmentData = {
         foundIndex++;
       }
     });
-
+    
     if (targetArticle) {
       targetArticle.classList.remove('hidden-by-search');
       targetArticle.style.display = 'block';
       console.log('Display puesto a block para:', targetArticle.querySelector('.card-title')?.textContent);
-
-      // Scroll AL ELEMENTO directamente
+      
       setTimeout(() => {
         targetArticle.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
-
-      // Mostrar botón back
+      
       const backBtn = document.getElementById('back-to-netflix');
       if (backBtn) backBtn.style.display = 'block';
-
-      // Ocultar Netflix rows
+      
       const netflixRows = document.getElementById('netflixRows');
       if (netflixRows) netflixRows.style.display = 'none';
-
+      
       return true;
     }
-
+    
     console.error('Target article no encontrado:', category, equipmentIndex, 'encontrados:', foundIndex);
     return false;
-  },
-
-  hideAll() {
-    const articles = this.getContainers();
+  }
+  
+  function _hideAll() {
+    const articles = _getContainers();
     articles.forEach(article => {
       article.style.display = '';
       article.classList.remove('hidden-by-search');
     });
-
+    
     const netflixRows = document.getElementById('netflixRows');
     if (netflixRows) netflixRows.style.display = 'block';
-
+    
     const backBtn = document.getElementById('back-to-netflix');
     if (backBtn) backBtn.style.display = 'none';
-  },
-
-  filterByCategory(category) {
-    const articles = this.getContainers();
-
-    // Reset all articles visibility from search
+  }
+  
+  function _filterByCategory(category) {
+    const articles = _getContainers();
+    
     articles.forEach(article => {
       article.classList.remove('hidden-by-search');
       article.style.display = '';
     });
-
+    
     const netflixRows = document.getElementById('netflixRows');
     if (netflixRows) netflixRows.style.display = 'block';
-
+    
     const backBtn = document.getElementById('back-to-netflix');
     if (backBtn) backBtn.style.display = 'block';
-
+    
     const equiposSection = document.getElementById('equipos');
     if (equiposSection) equiposSection.scrollIntoView({ behavior: 'smooth' });
-  },
-
-  init() {
-    // No ocultar al inicio - dejar que el buscador maneje la visibilidad
-    // Solo registrar para debugging
-    const articles = this.getContainers();
-    console.log('Equipos init - artículos:', articles.length);
   }
-};
+  
+  function _init() {
+    const articles = _getContainers();
+    console.log('Equipos init - artículos:', articles.length);
+    _state.initialized = true;
+  }
+  
+  // --- API PÚBLICA (REVEALING MODULE) ---
+  return {
+    mapping: _MAPPING,
+    categoryNames: _CATEGORY_NAMES,
+    getContainers: _getContainers,
+    getArticlesByCategory: _getArticlesByCategory,
+    showEquipment: _showEquipment,
+    hideAll: _hideAll,
+    filterByCategory: _filterByCategory,
+    init: _init
+  };
+})();
 
-// Funciones globales para onclick
-// Asegurar que estén disponibles globalmente
 function setupGlobalFunctions() {
   window.showEquipmentDetail = function(event, category, equipmentIndex) {
     console.log('showEquipmentDetail called:', category, equipmentIndex);
@@ -151,21 +163,18 @@ function setupGlobalFunctions() {
     }
     return EquipmentData.showEquipment(category, equipmentIndex);
   };
-
+  
   window.backToNetflix = function() {
     return EquipmentData.hideAll();
   };
-
+  
   window.filterCategory = function(category) {
     return EquipmentData.filterByCategory(category);
   };
 }
 
-// Ejecutar cuando el DOM esté listo
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', setupGlobalFunctions);
 } else {
   setupGlobalFunctions();
 }
-
-export default EquipmentData;

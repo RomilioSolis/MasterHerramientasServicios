@@ -62,6 +62,128 @@ Consultar `/proyecto-refactorizacion` para detalles.
 
 ---
 
+## Botones de navegación en filas Netflix no funcionan (Abril 2026)
+
+**Problema:** Los botones de flecha (‹ ›) para desplazar las filas Netflix no responden al hacer clic.
+
+**Causa Raíz:**
+- La función `scrollRow` en `loader.js` buscaba incorrectamente un elemento `.netflix-row-content` dentro del contenedor con ID
+- El contenedor con ID `row-${categoria.id}` YA ERA el elemento `.netflix-row-content` que necesitaba hacer scroll
+- La función buscaba recursivamente dentro de sí misma, causando que no encontrara el elemento correcto
+
+**Código problema (loader.js líneas 307-328):**
+```javascript
+// ANTES (incorrecto)
+window.scrollRow = function(rowId, direction) {
+  const row = document.getElementById(rowId);
+  if (!row) {
+    console.warn('scrollRow: Contenedor no encontrado:', rowId);
+    return;
+  }
+
+  const content = row.querySelector('.netflix-row-content'); // ← BÚSQUEDA REDUNDANTE
+  if (!content) return;
+
+  // ... scroll content
+};
+```
+
+**Solución:** Eliminar la búsqueda redundante y hacer scroll directamente sobre el elemento encontrado:
+```javascript
+// CORREGIDO
+window.scrollRow = function(rowId, direction) {
+  const row = document.getElementById(rowId);
+  if (!row) {
+    console.warn('scrollRow: Contenedor no encontrado:', rowId);
+    return;
+  }
+
+  // El elemento con rowId YA ES el .netflix-row-content que se debe desplazar
+  const content = row;
+
+  const scrollAmount = 350;
+  const maxScroll = content.scrollWidth - content.clientWidth;
+
+  if (direction === 1) {
+    const newScrollLeft = Math.min(content.scrollLeft + scrollAmount, maxScroll);
+    content.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+  } else {
+    const newScrollLeft = Math.max(content.scrollLeft - scrollAmount, 0);
+    content.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+  }
+};
+```
+
+**Archivos modificados:**
+- `components/equipos/loader.js` - Corregida función `scrollRow`
+- Eliminado `components/equipos/scrollFix.js` - Archivo obsoleto con versión incorrecta
+
+**Verificar:**
+1. Abrir página y desplazarse a sección "Equipos Disponibles"
+2. Hacer clic en botones de flecha (‹ ›) junto a títulos de categorías
+3. Las filas deben desplazarse horizontalmente mostrando más equipos
+4. Verificar en consola los logs de depuración con información de scroll
+
+---
+
+## Galería interactiva no se abre al hacer clic en imágenes de equipos (Abril 2026)
+
+**Problema:** Al hacer clic en las imágenes de los equipos en las filas Netflix, la galería no se abre y aparece el error:
+```
+Uncaught TypeError: specs.caracteristicas.split is not a function
+```
+
+**Causa Raíz:**
+- La galería espera que `specs.caracteristicas` sea un string con saltos de línea para hacer `.split('\n')`
+- Pero los datos de equipos tienen `caracteristicas` como un array de strings
+- Se estaba pasando el objeto `equipo` completo sin transformación al método `Gallery.open()`
+
+**Código problema (loader.js línea 128):**
+```javascript
+// ANTES (incorrecto)
+Gallery.open(allImages, equipo.nombre, waLink, equipo); // Pasa objeto equipo completo
+```
+
+**Solución:** Transformar el objeto `equipo` al formato que espera la galería:
+```javascript
+// CORREGIDO
+const specsData = {
+  titulo: equipo.nombre,
+  datos: {
+    "Categoría": equipo.categoria,
+    "Disponible": equipo.disponible ? "Sí" : "No"
+  },
+  caracteristicas: Array.isArray(equipo.caracteristicas)
+    ? equipo.caracteristicas.join('\n')
+    : (equipo.caracteristicas || ''),
+  descripcion: equipo.descripcion || ''
+};
+
+Gallery.open(allImages, equipo.nombre, waLink, specsData);
+```
+
+**Nota (Abril 2026):** Los precios se removieron de las fichas técnicas ya que dependen de factores variables del negocio. Solo se muestra categoría y disponibilidad.
+
+**Actualización (Abril 2026):** La galería interactiva usa **layout de tabla CSS** para **2 paneles laterales amplios**:
+- **Panel Izquierdo (400px - Especificaciones)**: Descripción, datos básicos, características y accesorios
+- **Imagen Central (500px)**: Foto principal con miniaturas, perfectamente centrada
+- **Panel Derecho (400px - Normas de Alquiler)**: Políticas y condiciones para alquilar equipos
+
+**Layout robusto**: Usa `display: table` para posicionamiento perfecto. **Responsive**: En móviles se apila verticalmente.
+
+**Archivos modificados:**
+- `components/equipos/loader.js` - Transformación de datos antes de pasar a Gallery
+- `components/gallery/gallery.js` - Mejoras en `_buildSpecsHTML` para manejo robusto de datos
+- `components/gallery/gallery.js` - Mejora de manejo de datos y validaciones
+
+**Verificar:**
+1. Hacer clic en cualquier imagen de equipo en las filas Netflix
+2. La galería debe abrirse mostrando las imágenes, título y ficha técnica
+3. El panel lateral debe mostrar descripción, precios, características y botón de WhatsApp
+4. No debe haber errores en la consola
+
+---
+
 ## Botones sociales no aparecen
 
 - **z-index**: 10001

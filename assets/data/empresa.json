@@ -1,0 +1,28 @@
+{
+  "nombre": "Master Herramientas y Servicios",
+  "fundacion": 2014,
+  "direccion": "Cra. 23 #36-48, Barrio El Rodeo, Cali",
+  "ciudad": "Cali",
+  "region": "Valle del Cauca",
+  "email": "info@masterenherramientasyservicios.com.co",
+  "coordenadas": {
+    "lat": 3.438050,
+    "lng": -76.538800
+  },
+  "horario": {
+    "lunes_viernes": "08:00 - 18:00",
+    "sabado": "08:00 - 16:00",
+    "domingo": "Cerrado"
+  },
+  "telefonos": {
+    "principal": "3165345675",
+    "secundario": "3163550319",
+    "whatsapp": "573165345675"
+  },
+  "redes_sociales": {
+    "facebook": "https://www.facebook.com/MasterHerramientas",
+    "instagram": "https://www.instagram.com/MasterHerramientas",
+    "whatsapp": "https://wa.me/573165345675"
+  },
+  "google_maps": "https://www.google.com/maps/dir/?api=1&destination=3.438050,-76.538800"
+}
