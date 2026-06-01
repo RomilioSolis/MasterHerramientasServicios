@@ -100,36 +100,5 @@
 }
 
 /* ============================================
-   THEME SWITCHER
-   ============================================ */
-.theme-switcher {
-  position: fixed;
-  top: 1rem !important;
-  right: 1.5rem !important;
-  z-index: var(--z-social-buttons);
-}
-
-.theme-switcher button {
-  transition: opacity var(--transition-normal) !important;
-  transform: none !important;
-}
-
-.theme-switcher button:hover {
-  opacity: 0.9 !important;
-}
-
-.theme-switcher button:active {
-  opacity: 0.7 !important;
-  transform: none !important;
-}
-
-@media (max-width: 768px) {
-  .theme-switcher {
-    top: 4.5rem !important;
-    right: 1rem !important;
-  }
-
-  .theme-switcher button {
-    padding: var(--space-sm) !important;
-  }
-}
+    THEME SWITCHER (styles in components/dark-mode/dark-mode.css)
+    ============================================ */

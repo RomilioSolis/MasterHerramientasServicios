@@ -38,7 +38,7 @@
   background-color: #800020 !important;
 }
 
-/* Header modo claro - forzar colores oscuros en header para que sea legible */
+/* Header modo claro - forzar colores oscuros en header */
 body[data-theme="light"] .modern-header,
 body[data-theme="light"] header.navbar,
 body[data-theme="light"] .navbar-expand {
@@ -102,14 +102,18 @@ body[data-theme="dark"] .modern-header .nav-link {
   color: #6c757d;
 }
 
-/* Posicionamiento del botón - ahora en header, no fixed */
+/* ============================================
+   THEME SWITCHER
+   ============================================ */
 .theme-switcher {
-  z-index: 99999;
+  position: fixed;
+  top: 1rem !important;
+  right: 1.5rem !important;
+  z-index: var(--z-social-buttons);
 }
 
-/* Eliminar transformaciones no deseadas */
 .theme-switcher button {
-  transition: opacity 0.2s ease !important;
+  transition: opacity var(--transition-normal) !important;
   transform: none !important;
 }
 
@@ -122,15 +126,14 @@ body[data-theme="dark"] .modern-header .nav-link {
   transform: none !important;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .theme-switcher {
     top: 4.5rem !important;
     right: 1rem !important;
   }
-  
+
   .theme-switcher button {
-    padding: 0.5rem !important;
+    padding: var(--space-sm) !important;
   }
 }
 

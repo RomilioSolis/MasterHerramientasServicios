@@ -138,15 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// También intentar cuando el botón se cargue dinámicamente
-document.addEventListener('component:loaded', (e) => {
-  if (e.detail && e.detail.id === 'dark-mode') {
-    if (!DarkMode.isInitialized()) {
-      DarkMode.init();
-    }
-  }
-});
-
 // Exportar si ESM
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = DarkMode;

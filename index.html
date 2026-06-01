@@ -528,31 +528,25 @@ console.log('Inicializando componentes via Factory...');
 
     <!-- Cargar botón de dark mode en el header -->
     <script>
-      // Esperar a que darkMode esté disponible
-      function waitForDarkMode(callback) {
-        if (window.darkMode) {
-          callback();
-        } else {
-          setTimeout(() => waitForDarkMode(callback), 100);
-        }
-      }
+       // Esperar a que darkMode esté disponible
+       function waitForDarkMode(callback) {
+         if (window.darkMode || window.DarkMode) {
+           callback();
+         } else {
+           setTimeout(() => waitForDarkMode(callback), 100);
+         }
+       }
       
-      const loadOnIdle = (el, url) => {
-        if (!el || el.dataset.loaded) return;
-        el.dataset.loaded = 1;
-        fetch(url)
-          .then(r => r.ok ? r.text() : Promise.reject())
-          .then(html => { 
-            el.innerHTML = html; 
-            // Adjuntar evento después de cargar
-            waitForDarkMode(() => {
-              el.querySelector('button')?.addEventListener('click', () => {
-                window.darkMode.toggle();
-              });
-            });
-          })
-          .catch(() => {});
-      };
+       const loadOnIdle = (el, url) => {
+         if (!el || el.dataset.loaded) return;
+         el.dataset.loaded = 1;
+         fetch(url)
+           .then(r => r.ok ? r.text() : Promise.reject())
+           .then(html => { 
+             el.innerHTML = html; 
+           })
+           .catch(() => {});
+       };
       
       // Cargar después de que la página esté lista
       window.addEventListener('load', () => {
