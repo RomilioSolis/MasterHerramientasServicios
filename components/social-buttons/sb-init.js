@@ -39,12 +39,12 @@
     console.log('SocialButtons: estilos aplicados');
     
     // Cargar BackToTop
-    var btHtml = '<button id="app-back-to-top" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9999;width:50px;height:50px;border-radius:50%;background:#800020;color:#fff;border:none;cursor:pointer;box-shadow:0 4px 15px rgba(196,30,58,0.4);display:flex;align-items:center;justify-content:center;" aria-label="Volver arriba" title="Volver arriba">' +
+    var btHtml = '<button id="app-back-to-top" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9999;width:50px;height:50px;border-radius:50%;background:#d88373;color:#fff;border:none;cursor:pointer;box-shadow:0 4px 15px rgba(216,131,115,0.4);display:flex;align-items:center;justify-content:center;" aria-label="Volver arriba" title="Volver arriba">' +
         '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>';
     document.body.insertAdjacentHTML('beforeend', btHtml);
     
     var btStyle = document.createElement('style');
-    btStyle.textContent = '#app-back-to-top{display:none;position:fixed;bottom:20px;right:20px;z-index:9999;width:50px;height:50px;border-radius:50%;background:#800020;color:#fff;border:none;cursor:pointer;box-shadow:0 4px 15px rgba(196,30,58,0.4);display:flex;align-items:center;justify-content:center}#app-back-to-top svg{width:28px;height:28px}#app-back-to-top:hover{transform:scale(1.1);background:#a00028}';
+    btStyle.textContent = '#app-back-to-top{display:none;position:fixed;bottom:20px;right:20px;z-index:9999;width:50px;height:50px;border-radius:50%;background:#d88373;color:#fff;border:none;cursor:pointer;box-shadow:0 4px 15px rgba(216,131,115,0.4);display:flex;align-items:center;justify-content:center}#app-back-to-top svg{width:28px;height:28px}#app-back-to-top:hover{transform:scale(1.1);background:#bd1e1e}';
     document.head.appendChild(btStyle);
     
     var btBtn = document.getElementById('app-back-to-top');

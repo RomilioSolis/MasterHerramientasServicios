@@ -5,28 +5,38 @@
 
 :root {
   /* ============================================
-     COLORES PRINCIPALES
+     COLORES PRINCIPALES - Nueva Paleta 2026
      ============================================ */
-  --color-primary: #800020;
-  --color-primary-hover: #a01830;
-  --color-secondary: #128C7E;
-  --color-secondary-hover: #0d6b5a;
+  --color-primary: #bd1e1e; /* mahogany-red - acento usado con moderación */
+  --color-primary-hover: #d88373; /* sweet-salmon - estado hover */
+  --color-secondary: #d88373; /* sweet-salmon - color secundario */
+  --color-secondary-hover: #bd1e1e; /* mahogany-red - estado hover secundario */
   
-  /* Colores de la marca */
-  --color-brand: #800020;
-  --color-brand-light: #a01830;
+  /* Colores de la marca - Nueva paleta */
+  --color-brand: #17255a; /* deep-navy */
+  --color-brand-light: #18206f; /* midnight-blue */
   
-  /* ============================================
-     COLORES DE FONDO
-     ============================================ */
-  --bg-page: #f4f4f4;
-  --bg-card: #ffffff;
-  --bg-section-equipos: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  /* Paleta completa */
+  --midnight-blue: #18206f;
+  --deep-navy: #17255a;
+  --champagne-mist: #f5e2c8;
+  --sweet-salmon: #d88373;
+  --mahogany-red: #bd1e1e;
+  
+  /* Color neutro oscuro para fondos */
+  --onyx: #151a33;
+  
+/* ============================================
+      COLORES DE FONDO - Nueva paleta
+      ============================================ */
+  --bg-page: #17255a; /* deep-navy como fondo principal */
+  --bg-card: #18206f; /* midnight-blue para cards */
+  --bg-section-equipos: linear-gradient(135deg, #18206f 0%, #17255a 50%, #0f1a3d 100%);
   
   /* Modo oscuro */
-  --bg-dark: #1a1a1a;
-  --bg-dark-secondary: #2d2d2d;
-  --bg-dark-tertiary: #404040;
+  --bg-dark: #17255a;
+  --bg-dark-secondary: #18206f;
+  --bg-dark-tertiary: #2a3a7a;
   
   /* ============================================
      COLORES DE TEXTO
@@ -68,7 +78,7 @@
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 4px 15px rgba(0, 0, 0, 0.15);
   --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.2);
-  --shadow-primary: 0 4px 12px rgba(128, 0, 32, 0.3);
+  --shadow-primary: 0 4px 12px rgba(189, 30, 30, 0.3);
   
   /* ============================================
      TRANSICIONES

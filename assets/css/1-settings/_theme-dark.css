@@ -5,24 +5,24 @@
 
 [data-theme="dark"] {
   /* ============================================
-     COLORES DE FONDO - MODO OSCURO
+     COLORES DE FONDO - MODO OSCURO - Nueva paleta
      ============================================ */
-  --bg-page: #1a1a1a;
-  --bg-card: #2d2d2d;
-  --bg-section: #1a1a1a;
-  --bg-navbar: #800020;
+  --bg-page: #17255a; /* deep-navy */
+  --bg-card: #18206f; /* midnight-blue */
+  --bg-section: #17255a;
+  --bg-navbar: #bd1e1e; /* mahogany-red para navbar */
   
-  /* Secciones específicas */
-  --bg-equipos: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  /* Secciones específicas - Nueva paleta */
+  --bg-equipos: linear-gradient(135deg, #18206f 0%, #17255a 50%, #0f1a3d 100%);
   
   /* ============================================
      COLORES DE TEXTO - MODO OSCURO
      ============================================ */
-  --text-primary: #f8f9fa;
-  --text-secondary: #adb5bd;
-  --text-muted: #6c757d;
-  --text-inverse: #333333;
-  --text-link: #4dabf7;
+  --text-primary: #f5e2c8; /* champagne-mist */
+  --text-secondary: #e8dcc8;
+  --text-muted: #d5cdc0;
+  --text-inverse: #17255a;
+  --text-link: #f5e2c8;
   
   /* ============================================
      COLORES DE BORDES - MODO OSCURO
@@ -35,32 +35,32 @@
      COMPONENTES ESPECÍFICOS - MODO OSCURO
      ============================================ */
   
-  /* Category tabs */
-  --category-tab-bg: #2d2d2d;
-  --category-tab-bg-hover: #404040;
-  --category-tab-active-bg: #800020;
-  --category-tab-color: #adb5bd;
-  --category-tab-border: #495057;
-  
-  /* Netflix items */
-  --netflix-item-bg: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
-  --netflix-item-bg-hover: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
-  --netflix-item-title-bg: linear-gradient(180deg, rgba(30,30,50,0.9) 0%, rgba(20,20,40,0.95) 100%);
-  --netflix-item-title-color: #ffffff;
-  --netflix-item-title-hover-bg: linear-gradient(180deg, rgba(30,30,50,0.95) 0%, rgba(20,20,40,0.98) 100%);
-  --netflix-item-title-hover-color: #ffffff;
-  
-  /* Netlix scrollbar */
-  --scrollbar-track: #1a1a2e;
-  --scrollbar-thumb: #800020;
-  
-  /* Lateral category */
-  --lateral-category-bg: #2d2d2d;
-  --lateral-category-border: rgba(255, 255, 255, 0.06);
-  --lateral-category-hover-bg: #404040;
-  --lateral-category-hover-border: #ffc107;
-  --lateral-category-color: #f8f9fa;
-  --lateral-category-hover-color: #ffc107;
+/* Category tabs - Nueva paleta */
+   --category-tab-bg: #18206f; /* midnight-blue */
+   --category-tab-bg-hover: #d88373; /* sweet-salmon */
+   --category-tab-active-bg: #bd1e1e; /* mahogany-red - acento principal */
+   --category-tab-color: #f5e2c8; /* champagne-mist */
+   --category-tab-border: #495057;
+   
+   /* Netflix items - Nueva paleta */
+   --netflix-item-bg: linear-gradient(145deg, #18206f 0%, #17255a 100%);
+   --netflix-item-bg-hover: linear-gradient(145deg, #18206f 0%, #17255a 100%);
+   --netflix-item-title-bg: linear-gradient(180deg, rgba(24,32,111,0.9) 0%, rgba(23,37,90,0.95) 100%);
+   --netflix-item-title-color: #f5e2c8; /* champagne-mist */
+   --netflix-item-title-hover-bg: linear-gradient(180deg, rgba(24,32,111,0.95) 0%, rgba(23,37,90,0.98) 100%);
+   --netflix-item-title-hover-color: #f5e2c8;
+   
+   /* Netlix scrollbar - Nueva paleta */
+   --scrollbar-track: #17255a;
+   --scrollbar-thumb: #bd1e1e; /* mahogany-red - acento sutil */
+   
+   /* Lateral category - Nueva paleta */
+   --lateral-category-bg: #18206f;
+   --lateral-category-border: rgba(245, 226, 200, 0.1);
+   --lateral-category-hover-bg: #d88373; /* sweet-salmon */
+   --lateral-category-hover-border: #f5e2c8; /* champagne-mist */
+   --lateral-category-color: #f5e2c8;
+   --lateral-category-hover-color: #17255a;
   
   /* ============================================
      SOMBRAS - MODO OSCURO
@@ -69,13 +69,13 @@
   --shadow-card-hover: 0 5px 15px rgba(0, 0, 0, 0.4);
   --shadow-navbar: 0 2px 10px rgba(0, 0, 0, 0.3);
   
-  /* ============================================
-     TEXTOS DE SECCIÓN EQUIPOS - MODO OSCURO
-     ============================================ */
-  --equipos-title-color: #e9ecef;
-  --equipos-text-color: #f8f9fa;
-  --equipos-text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  --equipos-text-shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.2);
+/* ============================================
+      TEXTOS DE SECCIÓN EQUIPOS - MODO OSCURO - Nueva paleta
+      ============================================ */
+   --equipos-title-color: #f5e2c8;
+   --equipos-text-color: #f5e2c8;
+   --equipos-text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+   --equipos-text-shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* ============================================

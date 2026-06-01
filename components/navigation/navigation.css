@@ -55,7 +55,7 @@
         left: 0;
         right: 0;
         flex-direction: column;
-        background: #1a1a2e;
+        background: var(--midnight-blue);
         padding: 20px;
     }
     

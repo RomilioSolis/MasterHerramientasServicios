@@ -158,9 +158,9 @@ section.py-2 {
   color: #ffc107;
 }
 
-/* Scroll buttons */
+/* Scroll buttons - Nueva paleta */
 .netflix-scroll-btn {
-  background: rgba(196, 30, 58, 0.8);
+  background: rgba(216, 131, 115, 0.8);
   color: var(--text-light);
   border: none;
   border-radius: 50%;

@@ -1,6 +1,6 @@
-/* Sección Nosotros - fondo azul en todos los modos */
+/* Sección Nosotros - Nueva paleta */
 #nosotros {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, var(--midnight-blue) 0%, var(--deep-navy) 50%, var(--deep-navy) 100%);
   min-height: auto;
   padding: 3rem 0;
   display: flex;
@@ -38,6 +38,7 @@
   backdrop-filter: blur(5px);
 }
 
+/* Floating Card - con integración de colores */
 .floating-card {
   border-radius: 20px;
   padding: 2rem;
@@ -50,7 +51,7 @@
   transition: all 0.3s ease;
 }
 
-/* Modo Oscuro: floating cards oscuras */
+/* Modo Oscuro: floating cards */
 [data-theme="dark"] .floating-card {
   background: linear-gradient(145deg, rgba(30,30,50,0.95) 0%, rgba(20,20,40,0.98) 100%) !important;
   box-shadow: 
@@ -59,18 +60,12 @@
     inset 0 1px 0 rgba(255,255,255,0.1) !important;
 }
 
-/* Modo Claro: floating cards oscuras semi-transparentes */
+/* Modo Claro: floating cards semi-transparentes */
 [data-theme="light"] .floating-card {
   background: rgba(30, 30, 50, 0.3) !important;
   box-shadow: 
     0 8px 24px rgba(0,0,0,0.2),
     0 0 0 1px rgba(255,255,255,0.15) !important;
-}
-[data-theme="light"] .floating-card:hover {
-  background: rgba(30, 30, 50, 0.4) !important;
-  box-shadow: 
-    0 12px 28px rgba(0,0,0,0.25),
-    0 0 0 1px rgba(128, 0, 32, 0.3) !important;
 }
 
 .floating-card:hover {
@@ -86,7 +81,7 @@
   transform: translateY(-5px);
   box-shadow: 
     0 12px 28px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(128, 0, 32, 0.15) !important;
+    0 0 0 1px rgba(216, 131, 115, 0.15) !important;
 }
 
 .video-card {
@@ -111,13 +106,13 @@
 
 /* Botones Nosotros - Modo Claro (sobre fondo oscuro) */
 [data-theme="light"] #mapa-card-container .btn-success {
-  background: #800020 !important;
-  color: #ffffff !important;
-  border-color: #800020 !important;
+  background: var(--sweet-salmon) !important;
+  color: var(--text-light) !important;
+  border-color: var(--sweet-salmon) !important;
 }
 [data-theme="light"] #mapa-card-container .btn-success:hover {
-  background: #a01830 !important;
-  border-color: #a01830 !important;
+  background: var(--mahogany-red) !important;
+  border-color: var(--mahogany-red) !important;
 }
 [data-theme="light"] #mapa-card-container .btn-outline-light {
   background: transparent !important;
@@ -186,30 +181,30 @@
   }
 }
 
-/* Popup del mapa - diseño integrado al fondo azul */
+/* Popup del mapa - integrado con deep-navy */
 .leaflet-popup-content-wrapper {
-  background: rgba(26, 26, 46, 0.95) !important;
-  color: #f8f9fa !important;
+  background: rgba(23, 37, 90, 0.95) !important;
+  color: var(--text-light) !important;
   border-radius: 12px !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
 }
 .leaflet-popup-tip {
-  background: rgba(26, 26, 46, 0.95) !important;
+  background: rgba(23, 37, 90, 0.95) !important;
 }
 .leaflet-popup-content {
-  color: #f8f9fa !important;
-  font-family: 'Poppins', sans-serif !important;
+  color: var(--text-light) !important;
+  font-family: var(--font-family) !important;
 }
 .leaflet-popup-content strong {
-  color: #ffc107 !important;
+  color: var(--sweet-salmon) !important;
 }
 .leaflet-popup-content span,
 .leaflet-popup-content p {
-  color: #f8f9fa !important;
+  color: var(--text-light) !important;
 }
 .leaflet-popup-content a {
-  color: #4dabf7 !important;
+  color: var(--sweet-salmon) !important;
 }
 .leaflet-popup-content a:hover {
-  color: #339af0 !important;
+  color: var(--mahogany-red) !important;
 }

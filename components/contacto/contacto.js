@@ -60,16 +60,16 @@ const Contacto = (() => {
     
     const iconoEmpresa = L.divIcon({
       className: '',
-      html: '<div style="background:linear-gradient(135deg,#800020,#a01830);width:40px;height:40px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 3px 15px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;"><span style="transform:rotate(45deg);font-size:18px;">🔧</span></div>',
+      html: '<div style="background:linear-gradient(135deg,#d88373,#bd1e1e);width:40px;height:40px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 3px 15px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;"><span style="transform:rotate(45deg);font-size:18px;">🔧</span></div>',
       iconSize: [40, 40],
       iconAnchor: [20, 40]
     });
     
     L.marker([LAT, LNG], {icon: iconoEmpresa}).addTo(mapa).bindPopup(
-      '<div style="font-family:Segoe UI,sans-serif;min-width:200px;padding:5px;">' +
-      '<strong style="color:#800020;font-size:15px;">🔧 Master Herramientas</strong><br>' +
-      '<span style="color:#555;font-size:13px;">Cra. 23 #36-48, El Rodeo</span><br>' +
-      '<a href="https://www.google.com/maps/place/3.438368,-76.505911" target="_blank" style="color:#1a73e8;font-size:12px;">Ver en Maps →</a></div>'
+      '<div style="font-family:var(--font-family);min-width:200px;padding:5px;">' +
+      '<strong style="color:#d88373;font-size:15px;">🔧 Master Herramientas</strong><br>' +
+      '<span style="color:#ccc;font-size:13px;">Cra. 23 #36-48, El Rodeo</span><br>' +
+      '<a href="https://www.google.com/maps/place/3.438368,-76.505911" target="_blank" style="color:#4dabf7;font-size:12px;">Ver en Maps →</a></div>'
     ).openPopup();
     
     _state.mapa = mapa;

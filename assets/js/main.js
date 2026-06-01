@@ -5,19 +5,26 @@ if (window.DarkMode) {
   window.DarkMode.init();
 }
 
-import { initBuscador, getBuscador } from './buscador-unificado.js';
+// Inicializar buscador unificado
+if (typeof initBuscador === 'function') {
+  initBuscador();
+}
 
-import ChatWidget from './chat-widget.js';
-ChatWidget.init();
+// Inicializar ChatWidget
+if (typeof ChatWidget !== 'undefined' && ChatWidget.init) {
+  ChatWidget.init();
+}
 
 // Componente Motosierra
-import Motosierra from '../../components/herramientas/motosierra.js';
-new Motosierra();
+if (typeof Motosierra !== 'undefined') {
+  new Motosierra();
+}
 
 // Componente Equipos - maneja lógica de mostrar equipos
-import Equipos from '../../components/herramientas/equipos.js';
-Equipos.init();
-console.log('Equipos loaded');
+if (typeof Equipos !== 'undefined' && Equipos.init) {
+  Equipos.init();
+  console.log('Equipos loaded');
+}
 
 // Sistema de búsqueda desde URL
 const handleUrlSearch = () => {
@@ -26,15 +33,17 @@ const handleUrlSearch = () => {
 
   if (searchTerm) {
     // Inicializar buscador unificado
-    initBuscador();
-    
-    // Esperar a que los equipos se carguen y luego buscar
-    setTimeout(() => {
-      const buscador = getBuscador();
-      if (buscador) {
-        buscador.search(searchTerm);
-      }
-    }, 1500);
+    if (typeof initBuscador === 'function') {
+      initBuscador();
+      
+      // Esperar a que los equipos se carguen y luego buscar
+      setTimeout(() => {
+        const buscador = typeof getBuscador === 'function' ? getBuscador() : null;
+        if (buscador) {
+          buscador.search(searchTerm);
+        }
+      }, 1500);
+    }
   }
 };
 

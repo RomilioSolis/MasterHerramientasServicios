@@ -153,9 +153,9 @@
 
 .netflix-item:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 
+  box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(196, 30, 58, 0.3),
+    0 0 0 1px rgba(216, 131, 115, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
@@ -166,7 +166,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
+  background: linear-gradient(180deg, #0b090a 0%, var(--deep-navy) 100%);
   flex-shrink: 0;
   position: relative;
 }
@@ -178,7 +178,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(196, 30, 58, 0.1) 100%);
+  background: linear-gradient(180deg, transparent 60%, rgba(216, 131, 115, 0.1) 100%);
   pointer-events: none;
 }
 

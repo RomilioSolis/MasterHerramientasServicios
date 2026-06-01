@@ -187,15 +187,15 @@
 }
 
 #equipos .category-tabs .nav-link:hover:not(.active) {
-  background: rgba(128, 0, 32, 0.8) !important;
-  border-color: #800020 !important;
+  background: rgba(189, 30, 30, 0.8) !important; /* mahogany-red */
+  border-color: #bd1e1e !important;
   transform: translateY(-2px);
 }
 
 #equipos .category-tabs .nav-link.active {
-  background: #800020 !important;
+  background: #bd1e1e !important; /* mahogany-red - acento principal */
   color: #ffffff !important;
-  border-color: #800020 !important;
+  border-color: #bd1e1e !important;
 }
 
 /* Ajustar tamaño de botones en pantallas medianas */
@@ -223,9 +223,9 @@
   }
 }
 
-/* Netflix category title - forzar color blanco */
+/* Netflix category title - forzar color - Nueva paleta */
 .netflix-category-title {
-  color: #ffffff !important;
+  color: #f5e2c8 !important; /* champagne-mist */
   font-weight: 600 !important;
   font-size: 1rem !important;
   margin: 0 !important;
@@ -239,7 +239,7 @@
 }
 
 [data-theme="light"] .netflix-category-title {
-  color: #ffffff !important;
+  color: #f5e2c8 !important; /* champagne-mist */
 }
 
 .netflix-row-header {
@@ -249,14 +249,14 @@
   margin-bottom: 0.5rem !important;
 }
 
-/* Forzar fondo azul en modo claro también */
+/* Forzar fondo azul en modo claro también - Nueva paleta */
 [data-theme="light"] #equipos {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+  background: linear-gradient(135deg, #18206f 0%, #17255a 50%, #0f1a3d 100%) !important;
 }
 
-/* Sección equipos - forzar fondo azul oscuro */
+/* Sección equipos - forzar fondo azul oscuro - Nueva paleta */
 #equipos {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+  background: linear-gradient(135deg, #18206f 0%, #17255a 50%, #0f1a3d 100%) !important;
   padding: 3rem 0 !important;
 }
 
@@ -272,41 +272,53 @@
   font-weight: 700 !important;
 }
 
-/* Forzar fondo azul oscuro en modo claro también */
+/* Títulos de equipos - visibles en ambos modos - Nueva paleta */
+#equipos h2,
+#equipos .text-center,
+#equipos p {
+  color: #f5e2c8 !important; /* champagne-mist */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+#equipos h2 {
+  font-weight: 700 !important;
+}
+
+/* Forzar fondo azul oscuro en modo claro también - Nueva paleta */
 [data-theme="light"] #equipos {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+  background: linear-gradient(135deg, #18206f 0%, #17255a 50%, #0f1a3d 100%) !important;
 }
 
 [data-theme="light"] #equipos h2,
 [data-theme="light"] #equipos .text-center,
 [data-theme="light"] #equipos p {
-  color: #ffffff !important;
+  color: #f5e2c8 !important;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Netflix item - asegurar fondo oscuro */
+/* Netflix item - asegurar fondo oscuro - Nueva paleta */
 .netflix-item {
-  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%) !important;
+  background: linear-gradient(145deg, #18206f 0%, #17255a 100%) !important;
 }
 
 [data-theme="light"] .netflix-item {
-  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%) !important;
+  background: linear-gradient(145deg, #18206f 0%, #17255a 100%) !important;
 }
 
 .netflix-item-title {
-  color: #ffffff !important;
-  background: rgba(20, 20, 40, 0.95) !important;
+  color: #f5e2c8 !important; /* champagne-mist */
+  background: rgba(24, 32, 111, 0.95) !important; /* midnight-blue */
 }
 
 [data-theme="light"] .netflix-item-title {
-  color: #ffffff !important;
-  background: rgba(20, 20, 40, 0.95) !important;
+  color: #f5e2c8 !important;
+  background: rgba(24, 32, 111, 0.95) !important;
 }
 
 .netflix-item-image {
-  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%) !important;
+  background: linear-gradient(180deg, #0f0f1a 0%, #17255a 100%) !important;
 }
 
 [data-theme="light"] .netflix-item-image {
-  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%) !important;
+  background: linear-gradient(180deg, #0f0f1a 0%, #17255a 100%) !important;
 }

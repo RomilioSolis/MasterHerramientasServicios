@@ -5,62 +5,62 @@
 
 [data-theme="light"] {
   /* ============================================
-     COLORES DE FONDO - MODO CLARO
+     COLORES DE FONDO - MODO CLARO - Nueva paleta
      ============================================ */
-  --bg-page: #f4f4f4;
+  --bg-page: #f5e2c8; /* champagne-mist como fondo principal */
   --bg-card: #ffffff;
-  --bg-section: #ffffff;
-  --bg-navbar: #800020;
+  --bg-section: #f5e2c8;
+  --bg-navbar: #bd1e1e; /* mahogany-red para navbar */
   
-  /* Secciones específicas */
-  --bg-equipos: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  /* Secciones específicas - Nueva paleta */
+  --bg-equipos: linear-gradient(135deg, #18206f 0%, #17255a 50%, #0f1a3d 100%);
   
   /* ============================================
      COLORES DE TEXTO - MODO CLARO
      ============================================ */
-  --text-primary: #333333;
-  --text-secondary: #6c757d;
-  --text-muted: #adb5bd;
+  --text-primary: #17255a; /* deep-navy */
+  --text-secondary: #18206f; /* midnight-blue */
+  --text-muted: #5a5a7a;
   --text-inverse: #ffffff;
-  --text-link: #2a5cff;
+  --text-link: #17255a;
   
   /* ============================================
      COLORES DE BORDES - MODO CLARO
      ============================================ */
-  --border-color: #dee2e6;
-  --border-color-light: #e9ecef;
-  --border-color-dark: #adb5bd;
+  --border-color: #d5c9b3; /* champagne-mist claro */
+  --border-color-light: #e8dcc8;
+  --border-color-dark: #c5b59d;
   
   /* ============================================
-     COMPONENTES ESPECÍFICOS - MODO CLARO
+     COMPONENTES ESPECÍFICOS - MODO CLARO - Nueva paleta
      ============================================ */
   
-  /* Category tabs */
-  --category-tab-bg: rgba(30, 30, 50, 0.4);
-  --category-tab-bg-hover: rgba(128, 0, 32, 0.7);
-  --category-tab-active-bg: #800020;
-  --category-tab-color: #ffffff;
-  --category-tab-border: rgba(255, 255, 255, 0.2);
+  /* Category tabs - Nueva paleta */
+  --category-tab-bg: rgba(23, 37, 90, 0.4); /* deep-navy semi-transparente */
+  --category-tab-bg-hover: rgba(216, 131, 115, 0.7); /* sweet-salmon hover */
+  --category-tab-active-bg: #bd1e1e; /* mahogany-red - acento principal */
+  --category-tab-color: #17255a; /* deep-navy */
+  --category-tab-border: rgba(245, 226, 200, 0.3);
   
-  /* Netflix items */
-  --netflix-item-bg: rgba(30, 30, 50, 0.7);
-  --netflix-item-bg-hover: rgba(30, 30, 50, 0.7);
-  --netflix-item-title-bg: rgba(20, 20, 40, 0.95);
-  --netflix-item-title-color: #ffffff;
-  --netflix-item-title-hover-bg: rgba(128, 0, 32, 0.9);
-  --netflix-item-title-hover-color: #ffffff;
+  /* Netflix items - Nueva paleta */
+  --netflix-item-bg: rgba(23, 37, 90, 0.7);
+  --netflix-item-bg-hover: rgba(23, 37, 90, 0.7);
+  --netflix-item-title-bg: rgba(24, 32, 111, 0.95); /* midnight-blue */
+  --netflix-item-title-color: #f5e2c8; /* champagne-mist */
+  --netflix-item-title-hover-bg: rgba(189, 30, 30, 0.9); /* mahogany-red */
+  --netflix-item-title-hover-color: #f5e2c8;
   
-  /* Netlix scrollbar */
-  --scrollbar-track: #e9ecef;
-  --scrollbar-thumb: #800020;
+  /* Netflix scrollbar - Nueva paleta */
+  --scrollbar-track: #e8dcc8;
+  --scrollbar-thumb: #bd1e1e; /* mahogany-red - acento sutil */
   
-  /* Lateral category */
-  --lateral-category-bg: rgba(30, 30, 50, 0.4);
-  --lateral-category-border: rgba(255, 255, 255, 0.15);
-  --lateral-category-hover-bg: rgba(30, 30, 50, 0.6);
-  --lateral-category-hover-border: #ffc107;
-  --lateral-category-color: #ffffff;
-  --lateral-category-hover-color: #ffc107;
+  /* Lateral category - Nueva paleta */
+  --lateral-category-bg: rgba(23, 37, 90, 0.4);
+  --lateral-category-border: rgba(245, 226, 200, 0.2);
+  --lateral-category-hover-bg: rgba(216, 131, 115, 0.7); /* sweet-salmon */
+  --lateral-category-hover-border: #f5e2c8;
+  --lateral-category-color: #17255a; /* deep-navy */
+  --lateral-category-hover-color: #bd1e1e;
   
   /* ============================================
      SOMBRAS - MODO CLARO

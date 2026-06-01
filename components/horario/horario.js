@@ -24,9 +24,17 @@
     }
     if (statusBadge) {
       if (open) {
-        statusBadge.innerHTML = '<span class="badge bg-success fs-6"><i class="bi bi-check-circle me-1"></i>Abierto</span>';
+        statusBadge.innerHTML = '<span class="badge bg-success fs-6" style="background:#d88373;"><i class="bi bi-check-circle me-1"></i>Abierto</span>';
+        if (relojDisplay) {
+          relojDisplay.classList.remove('cerrado');
+          relojDisplay.classList.add('abierto');
+        }
       } else {
-        statusBadge.innerHTML = '<span class="badge bg-danger fs-6"><i class="bi bi-x-circle me-1"></i>Cerrado</span>';
+        statusBadge.innerHTML = '<span class="badge bg-danger fs-6" style="background:#bd1e1e;"><i class="bi bi-x-circle me-1"></i>Cerrado</span>';
+        if (relojDisplay) {
+          relojDisplay.classList.remove('abierto');
+          relojDisplay.classList.add('cerrado');
+        }
       }
     }
   }

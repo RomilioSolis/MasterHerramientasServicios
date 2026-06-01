@@ -1,5 +1,5 @@
 .contacto-section {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, var(--midnight-blue) 0%, var(--deep-navy) 50%, var(--deep-navy) 100%);
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
@@ -13,13 +13,13 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(196, 30, 58, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(216, 131, 115, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 193, 7, 0.08) 0%, transparent 50%);
   pointer-events: none;
 }
 
 .contacto-title {
-  color: #fff;
+  color: var(--text-light);
   font-size: 2.2rem;
   font-weight: 700;
   position: relative;
@@ -35,7 +35,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #800020, #ffc107);
+  background: linear-gradient(90deg, var(--sweet-salmon), #ffc107);
   border-radius: 2px;
 }
 
@@ -58,13 +58,13 @@
 .card-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #800020 0%, #a01830 100%);
+  background: linear-gradient(135deg, var(--sweet-salmon) 0%, var(--mahogany-red) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+  box-shadow: 0 4px 15px rgba(216, 131, 115, 0.4);
 }
 
 .card-icon i {
@@ -152,21 +152,22 @@
   gap: 0.75rem;
   width: 100%;
   padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  color: #fff;
+  background: var(--color-secondary) !important;
+  color: #fff !important;
   border: none;
   border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 4px 15px rgba(216, 131, 115, 0.3);
 }
 
 .btn-whatsapp:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-  color: #fff;
+  box-shadow: 0 8px 25px rgba(189, 30, 30, 0.4);
+  color: #fff !important;
+  background: var(--color-primary) !important;
 }
 
 .btn-whatsapp i {
@@ -208,9 +209,9 @@
 }
 
 .social-link:hover {
-  background: #800020;
+  background: var(--sweet-salmon);
   transform: translateY(-3px);
-  color: #fff;
+  color: var(--text-light);
 }
 
 .contacto-mapa {
