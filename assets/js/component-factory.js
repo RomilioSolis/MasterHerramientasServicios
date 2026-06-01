@@ -33,14 +33,21 @@ const ComponentFactory = (function() {
        css: 'components/faq/faq.css',
        js: 'components/faq/faq.js'
      },
-     horario: {
-       id: 'horario-card-container',
-       container: 'horario-card-container',
-       html: 'components/horario/horario.html',
-       css: 'components/horario/horario.css',
-       js: 'components/horario/horario.js'
-     },
-     'social-buttons': {
+horario: {
+        id: 'horario-card-container',
+        container: 'horario-card-container',
+        html: 'components/horario/horario.html',
+        css: 'components/horario/horario.css',
+        js: 'components/horario/horario.js'
+      },
+      nosotros: {
+        id: 'nosotros-container',
+        container: 'nosotros-container',
+        html: 'components/nosotros/nosotros.html',
+        css: 'components/nosotros/nosotros.css',
+        js: 'components/nosotros/nosotros.js'
+      },
+      'social-buttons': {
        id: 'social-buttons-container',
        container: 'social-buttons-container',
        html: null,
@@ -164,54 +171,59 @@ const ComponentFactory = (function() {
      console.log('[ComponentFactory] Cargando ' + id + ' en #' + config.container);
      console.log('[ComponentFactory] Container encontrado:', !!container);
 
-     // Cargar CSS
-     if (config.css) {
-       console.log('[ComponentFactory] CSS: ' + config.css);
-       _loadCSS(config.css)['catch'](function(e) { console.error('[ComponentFactory] CSS error:', e.message); });
-     }
+      // Cargar CSS
+      if (config.css) {
+        console.log('[ComponentFactory] CSS: ' + config.css);
+        _loadCSS(config.css)['catch'](function(e) { console.error('[ComponentFactory] CSS error:', e.message); });
+      }
 
-     // Cargar HTML
-     if (config.html) {
-       if (!container) {
-         _state.loading[id] = false;
-         console.error('[ComponentFactory] Container no encontrado: #' + config.container);
-         return Promise.reject(new Error('Container no encontrado: #' + config.container));
-       }
-       console.log('[ComponentFactory] HTML: ' + config.html);
-       _loadHTML(config.html).then(function(html) {
-         container.innerHTML = html;
-         console.log('[ComponentFactory] HTML insertado en #' + config.container);
-       })['catch'](function(e) {
-         console.error('[ComponentFactory] HTML error:', e.message);
-       });
-     }
+      // Cargar HTML
+      if (config.html) {
+        if (!container) {
+          _state.loading[id] = false;
+          console.error('[ComponentFactory] Container no encontrado: #' + config.container);
+          return Promise.reject(new Error('Container no encontrado: #' + config.container));
+        }
+        console.log('[ComponentFactory] HTML: ' + config.html);
+        _loadHTML(config.html).then(function(html) {
+          container.innerHTML = html;
+          console.log('[ComponentFactory] HTML insertado en #' + config.container);
+          _state.loaded[id] = true;
+          _state.loading[id] = false;
+          console.log('[ComponentFactory] ✅ ' + id + ' cargado');
+          _emit('component:loaded', { id: id, config: config });
+        })['catch'](function(e) {
+          _state.loading[id] = false;
+          console.error('[ComponentFactory] HTML error:', e.message);
+        });
+      } else {
+        _state.loaded[id] = true;
+        _state.loading[id] = false;
+        console.log('[ComponentFactory] ✅ ' + id + ' cargado');
+        _emit('component:loaded', { id: id, config: config });
+      }
 
-     // Cargar JS (soporta string o array)
-     if (config.js) {
-       console.log('[ComponentFactory] JS: ' + (Array.isArray(config.js) ? config.js.join(', ') : config.js));
-       _loadJSArray(config.js).then(function() {
-         console.log('[ComponentFactory] JS cargado: ' + config.js);
-       })['catch'](function(e) {
-         console.error('[ComponentFactory] JS error:', e.message);
-       });
-     }
+      // Cargar JS (soporta string o array)
+      if (config.js) {
+        console.log('[ComponentFactory] JS: ' + (Array.isArray(config.js) ? config.js.join(', ') : config.js));
+        _loadJSArray(config.js).then(function() {
+          console.log('[ComponentFactory] JS cargado: ' + config.js);
+        })['catch'](function(e) {
+          console.error('[ComponentFactory] JS error:', e.message);
+        });
+      }
 
-     _state.loaded[id] = true;
-     _state.loading[id] = false;
-     console.log('[ComponentFactory] ✅ ' + id + ' cargado');
-     _emit('component:loaded', { id: id, config: config });
+      return Promise.resolve();
+    }
 
-     return Promise.resolve();
-   }
+    // --- INICIALIZACIÓN ---
+    function _init() {
+      if (_state.initCalled) { return; }
+      _state.initCalled = true;
+      _emit('component-factory:init');
+    }
 
-   // --- INICIALIZACIÓN ---
-   function _init() {
-     if (_state.initCalled) { return; }
-     _state.initCalled = true;
-     _emit('component-factory:init');
-   }
-
-   // --- API PÚBLICA ---
+    // --- API PÚBLICA ---
    return {
      init: _init,
 

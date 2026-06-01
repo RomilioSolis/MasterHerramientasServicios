@@ -126,12 +126,12 @@ const Nosotros = (() => {
     }
   }
   
-  // --- API PÚBLICA (REVEALING MODULE) ---
-  return {
-    init: _init,
-    initMapa: _initMapa,
-    refreshMapa: _refreshMapa
-  };
+// --- API PÚBLICA (REVEALING MODULE) ---
+return {
+  init: _init,
+  initMapa: _initMapa,
+  refreshMapa: _refreshMapa
+};
 })();
 
 // Inicialización

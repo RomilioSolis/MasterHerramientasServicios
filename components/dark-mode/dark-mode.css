@@ -14,16 +14,6 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Corrección específica para secciones clave */
-[data-theme="dark"] #nosotros,
-[data-theme="dark"] #nosotros .container,
-[data-theme="dark"] #nosotros h1,
-[data-theme="dark"] #nosotros h2,
-[data-theme="dark"] #nosotros p {
-  background-color: transparent !important;
-  color: var(--text-dark) !important;
-}
-
 [data-theme="dark"] .bg-light {
   background-color: #2d2d2d !important;
 }

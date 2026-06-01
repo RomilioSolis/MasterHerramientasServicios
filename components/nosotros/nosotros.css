@@ -181,30 +181,4 @@
   }
 }
 
-/* Popup del mapa - integrado con deep-navy */
-.leaflet-popup-content-wrapper {
-  background: rgba(23, 37, 90, 0.95) !important;
-  color: var(--text-light) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-}
-.leaflet-popup-tip {
-  background: rgba(23, 37, 90, 0.95) !important;
-}
-.leaflet-popup-content {
-  color: var(--text-light) !important;
-  font-family: var(--font-family) !important;
-}
-.leaflet-popup-content strong {
-  color: var(--sweet-salmon) !important;
-}
-.leaflet-popup-content span,
-.leaflet-popup-content p {
-  color: var(--text-light) !important;
-}
-.leaflet-popup-content a {
-  color: var(--sweet-salmon) !important;
-}
-.leaflet-popup-content a:hover {
-  color: var(--mahogany-red) !important;
-}
+/* Popup del mapa - estilos en 7-themes/_dark-mode.css */

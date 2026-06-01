@@ -24,13 +24,13 @@
     }
     if (statusBadge) {
       if (open) {
-        statusBadge.innerHTML = '<span class="badge bg-success fs-6" style="background:#d88373;"><i class="bi bi-check-circle me-1"></i>Abierto</span>';
+        statusBadge.innerHTML = '<span class="badge fs-6" style="background:#d88373;"><i class="bi bi-check-circle me-1"></i>Abierto</span>';
         if (relojDisplay) {
           relojDisplay.classList.remove('cerrado');
           relojDisplay.classList.add('abierto');
         }
       } else {
-        statusBadge.innerHTML = '<span class="badge bg-danger fs-6" style="background:#bd1e1e;"><i class="bi bi-x-circle me-1"></i>Cerrado</span>';
+        statusBadge.innerHTML = '<span class="badge fs-6" style="background:#bd1e1e;"><i class="bi bi-x-circle me-1"></i>Cerrado</span>';
         if (relojDisplay) {
           relojDisplay.classList.remove('abierto');
           relojDisplay.classList.add('cerrado');
@@ -53,43 +53,52 @@
     }
   }
   
-  // Inicializar inmediatamente (para cuando ya está en DOM)
-  inicializarReloj();
+  // Inicializar en DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inicializarReloj);
+  } else {
+    inicializarReloj();
+  }
   
-  // También escuchar cuando el componente se carga dinámicamente
+  // Escuchar evento personalizado
   document.addEventListener('component:loaded', function(e) {
     if (e.detail && e.detail.id === 'horario') {
       setTimeout(inicializarReloj, 100);
     }
   });
   
-  // Fallback adicional por si el evento no llega
-  setTimeout(function() {
-    if (!intervaloActivo) {
-      inicializarReloj();
-    }
-  }, 500);
-  
-  // MutationObserver como respaldo final
+  // MutationObserver para detectar inyección dinámica
   if (typeof MutationObserver !== 'undefined') {
     var observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
+      if (intervaloActivo) return;
+      
+      for (var i = 0; i < mutations.length; i++) {
+        var mutation = mutations[i];
         if (mutation.addedNodes.length > 0) {
-          var hasReloj = false;
-          mutation.addedNodes.forEach(function(node) {
-            if (node.nodeType === 1 && node.querySelector) {
-              if (node.id === 'reloj-actual' || node.querySelector('#reloj-actual')) {
-                hasReloj = true;
+          for (var j = 0; j < mutation.addedNodes.length; j++) {
+            var node = mutation.addedNodes[j];
+            if (node.nodeType === 1) {
+              var hasReloj = node.querySelector && node.querySelector('#reloj-actual');
+              if (hasReloj || (node.id === 'reloj-actual')) {
+                setTimeout(inicializarReloj, 50);
+                return;
               }
             }
-          });
-          if (hasReloj && !intervaloActivo) {
-            inicializarReloj();
-            observer.disconnect(); // Desconectar una vez inicializado
           }
         }
-      });
+      }
     });
     observer.observe(document.body, { childList: true, subtree: true });
   }
+  
+  // Fallback - intentar cada 500ms por 5 segundos
+  var intentos = 0;
+  var fallback = setInterval(function() {
+    if (intervaloActivo || intentos >= 10) {
+      clearInterval(fallback);
+      return;
+    }
+    intentos++;
+    inicializarReloj();
+  }, 500);
 })();
