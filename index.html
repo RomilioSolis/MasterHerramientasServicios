@@ -133,115 +133,51 @@
   <meta name="format-detection" content="telephone=yes">
 
   <!-- CSS CRÍTICO INLINE - debe ser lo primero para evitar render blocking -->
-  <style>
-    /* Font-display swap + size-adjust para evitar FOIT y minimizar CLS */
-    @font-face {
-      font-family: 'Poppins';
-      font-style: normal;
-      font-weight: 300;
-      font-display: swap;
-      size-adjust: 100%;
-      src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-    @font-face {
-      font-family: 'Poppins';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      size-adjust: 100%;
-      src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-    @font-face {
-      font-family: 'Poppins';
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap;
-      size-adjust: 100%;
-      src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-    /* Reset y estilos base críticos */
-    *,*::before,*::after{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,sans-serif;line-height:1.5;background:#f8f9fa}
-    img{max-width:100%;height:auto}
-    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 15px}
-    /* Header crítico */
-    header{background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1);position:relative;z-index:1000}
-    header .navbar{padding:.5rem 0}
-    /* Hero section above-the-fold */
-    #nosotros{min-height:300px;display:flex;align-items:center;background:#fff}
-    /* Grid de herramientas */
-    .row{display:flex;flex-wrap:wrap;margin:-15px}
-    .col-md-4{width:33.333333%;padding:15px}
-    @media(max-width:768px){.col-md-4{width:100%}}
-    /* Cards */
-    .card{height:100%;border:1px solid #e0e0e0;border-radius:.5rem;overflow-hidden}
-    .card img{width:100%;aspect-ratio:4/3;object-fit:cover}
-    .card-body{padding:1rem}
-    /* Video skeleton placeholder para LCP */
-    .video-skeleton{background:#e9ecef;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
-    /* Header skeleton */
-    #header-app:empty{background:linear-gradient(90deg,#f8f9fa 25%,#e9ecef 50%,#f8f9fa 75%);background-size:200% 100%;animation:skeleton-loading 1.5s infinite}
-    @keyframes skeleton-loading{0%{background-position:200% 0}100%{background-position:-200% 0}}
-/* Cards skeleton */
-    #herramientas-container:empty{height:400px;background:#f8f9fa}
-    /* Header container - reserve space to avoid CLS */
-    #header-app:not(:empty){min-height:70px}
-    /* Nosotros container - reserve space to avoid CLS */
-    #nosotros-container:empty{height:400px;background:#f8f9fa}
-    /* Reducir trabajo del hilo principal - skip rendering off-screen */
-    #equipos,#video,#preguntas-frecuentes,#contacto,.py-5{content-visibility:auto;contain-intrinsic-size:1px 500px}
-    /* Reserved space para containers lazy load - evitar CLS */
-    #nosotros-container:not(:empty){min-height:400px}
-    #netflixRows:not(:empty){min-height:400px}
-    #footer-container:not(:empty){min-height:150px}
-    #faq-container:not(:empty){min-height:400px}
-    #contacto-container:not(:empty){min-height:500px}
-    #chat-widget-container:not(:empty){min-height:80px}
-    #horario-card-container:not(:empty){min-height:320px}
-    #social-buttons-container:not(:empty){min-height:200px}
-    
-    .horario-detalles{font-size:0.85rem;background:rgba(0,0,0,0.2);padding:0.75rem;border-radius:8px}
-    .horario-item{font-size:0.8rem}
-    /* 2x2 grid distribution in nosotros */
-    @media(min-width:768px){
-      #texto-card .netflix-card,
-      #video-card-container .netflix-card,
-      #mapa-card-container .netflix-card,
-      #horario-card-container .netflix-card{height:100%;min-height:320px}
-    }
-    #video-card video{height:100%;object-fit:cover}
-  </style>
+<style>
+@font-face{font-family:Poppins;font-weight:100;font-style:normal;font-display:swap;src:local("Poppins Thin"),local("Poppins-Light");font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:Poppins;font-weight:300;font-style:normal;font-display:swap;src:local("Poppins Light"),local("Poppins-Light");font-weight:300}
+@font-face{font-family:Poppins;font-weight:400;font-style:normal;font-display:swap;src:local("Poppins Regular"),local("Poppins-Regular");font-weight:400}
+@font-face{font-family:Poppins;font-weight:700;font-style:normal;font-display:swap;src:local("Poppins Bold"),local("Poppins-Bold");font-weight:700}
+@font-face{font-family:Poppins;font-weight:900;font-style:normal;font-display:swap;src:local("Poppins Black"),local("Poppins-Black");font-weight:900}
+@font-face{font-family:Poppins;font-weight:400;font-style:italic;font-display:swap;src:local("Poppins Italic"),local("Poppins-Italic");font-weight:400;font-style:italic}
+    *,*::before,*::after{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,Poppins,sans-serif;line-height:1.5;background:#f8f9fa}img{max-width:100%;height:auto;display:block}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;line-height:1.2}header{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:1000}#header-app:empty{height:72px;min-height:72px;background:linear-gradient(90deg,#f8f9fa 25%,#e9ecef 50%,#f8f9fa 75%);background-size:200% 100%;animation:skeleton-loading 1.5s infinite}#hero-carousel{min-height:300px;background:#f8f9fa}.hero-slide{min-height:300px;background:#fff;display:flex;align-items:center}#netflix-container{min-height:400px;background:#f8f9fa}#contacto-map{min-height:320px;aspect-ratio:16/9;background:#f8f9fa}
+   </style>
 
   <!-- CSS externo async (no bloquea render) -->
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"></noscript>
 
-  <!-- Leaflet CSS - sin media="print" para evitar problemas de carga -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+<!-- Leaflet CSS - async -->
+   <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"></noscript>
 
-  <!-- Bootstrap Icons - carga estándar -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+   <!-- Bootstrap Icons - async -->
+   <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"></noscript>
+   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
-   <!-- Leaflet JS - defer (mapa no esabove-the-fold) -->
-   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous" defer></script>
+  <!-- Leaflet JS - defer (mapa no es above-the-fold) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous" defer></script>
 
-    <!-- Gallery JS (defer - no bloquea render) -->
-    <script src="components/gallery/gallery.js" defer></script>
+  <!-- Gallery JS (defer - no bloquea render) -->
+  <script src="components/gallery/gallery.js" defer></script>
 
-<!-- Estilos de componentes específicos (deben cargarse antes para mayor especificidad) -->
-    <link rel="stylesheet" href="components/equipos/equipos.css">
-    <link rel="stylesheet" href="components/dark-mode/dark-mode.css">
-    <link rel="stylesheet" href="components/gallery/gallery.css">
-    <link rel="stylesheet" href="components/nosotros/nosotros.css">
-    <link rel="stylesheet" href="components/navigation/navigation.css">
-    <link rel="stylesheet" href="assets/css/cookie-menu.css">
-
-    <!-- Estilos locales - Arquitectura ITCSS (se cargan después para sobrescribir si es necesario) -->
-    <link rel="stylesheet" href="assets/css/main.css">
+  <!-- Component Styles - async para no bloquear FCP -->
+  <link rel="preload" href="components/equipos/equipos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="components/equipos/equipos.css"></noscript>
+  <link rel="preload" href="components/dark-mode/dark-mode.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="components/dark-mode/dark-mode.css"></noscript>
+  <link rel="preload" href="components/gallery/gallery.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="components/gallery/gallery.css"></noscript>
+  <link rel="preload" href="components/nosotros/nosotros.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="components/nosotros/nosotros.css"></noscript>
+  <link rel="preload" href="components/navigation/navigation.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="components/navigation/navigation.css"></noscript>
+  <link rel="preload" href="assets/css/cookie-menu.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/cookie-menu.css"></noscript>
+  <link rel="preload" href="assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
 
   
 
@@ -256,8 +192,9 @@
      <div class="cookie-content">
        <p>Utilizamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestro uso de cookies.</p>
        <div class="cookie-buttons">
-         <button type="button" class="cookie-btn cookie-accept" onclick="acceptCookies()">Aceptar</button>
-         <button type="button" class="cookie-btn cookie-reject" onclick="rejectCookies()">Rechazar</button>
+          <button type="button" class="cookie-btn cookie-accept" data-action="accept">Aceptar</button>
+          <button type="button" class="cookie-btn cookie-reject" data-action="reject">Rechazar</button>
+
        </div>
      </div>
    </div>
@@ -313,135 +250,83 @@
   <div id="social-buttons-container" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:10001;display:flex;flex-direction:column;gap:10px;"></div>
   <div id="chat-widget-container"></div>
 
- <!-- Component Factory - Carga de Componentes (defer para no bloquear) -->
-      <script defer src="assets/js/component-factory.js"></script>
-<script>console.log('Scripts de factory cargados');</script>
-      <script>
-        // Esperar DOMContentLoaded y ejecutar
-      function initComponents() {
-        if (typeof ComponentFactory === 'undefined') {
-          if (!initComponents._intentos) initComponents._intentos = 0;
-          if (initComponents._intentos++ < 10) {
-            setTimeout(initComponents, 100);
-            console.warn('ComponentFactory pendiente, reintento ' + initComponents._intentos);
-          } else {
-            console.error('ComponentFactory no disponible tras reintentos');
+  <!-- Component Factory - Carga de Componentes (defer para no bloquear) -->
+  <script defer src="assets/js/component-factory.js"></script>
+  <script defer>console.log('Scripts de factory cargados');</script>
+  <script defer>
+    function initComponents() {
+      if (typeof ComponentFactory === 'undefined') {
+        if (!initComponents._intentos) initComponents._intentos = 0;
+        if (initComponents._intentos++ < 20) {
+          requestIdleCallback(() => setTimeout(initComponents, 50), { timeout: 2000 });
+          return;
+        }
+        console.error('ComponentFactory no disponible tras reintentos');
+        return;
+      }
+      initComponents._intentos = 0;
+      console.log('Inicializando componentes via Factory...');
+      ComponentFactory.loadLazy(['footer', 'contacto', 'faq', 'social-buttons', 'chat-widget']);
+      ComponentFactory.load('nosotros');
+      
+      function cargarHorario() {
+        var container = document.getElementById('horario-card-container');
+        if (container && container.innerHTML.trim() === '') {
+          ComponentFactory.load('horario');
+        } else if (!container) {
+          requestAnimationFrame(cargarHorario);
+        }
+      }
+      
+      if (!initComponents._listenerHorario) {
+        initComponents._listenerHorario = true;
+        document.addEventListener('component:loaded', function(e) {
+          if (e.detail && e.detail.id === 'nosotros-container') {
+            cargarHorario();
+          }
+        });
+      }
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initComponents);
+    } else {
+      initComponents();
+    }
+  </script>
+
+<!-- Dark mode button - defer -->
+<script defer src="components/dark-mode/dark-mode.js"></script>
+<script defer>
+  (function() {
+    var sleep = ms => new Promise(r => setTimeout(r, ms));
+    async function loadDarkModeBtn() {
+      for (let i = 0; i < 40; i++) {
+        if (window.darkMode || window.DarkMode) {
+          var el = document.getElementById('dark-mode-header');
+          if (el && !el.dataset.loaded) {
+            try {
+              var r = await fetch('/components/dark-mode/dark-mode-btn.html');
+              if (r.ok) el.innerHTML = await r.text();
+              el.dataset.loaded = '1';
+            } catch(e) {}
           }
           return;
         }
-        initComponents._intentos = 0;
-        console.log('Inicializando componentes via Factory...');
-        ComponentFactory.loadLazy(['footer', 'contacto', 'faq', 'social-buttons', 'chat-widget']);
-        ComponentFactory.load('nosotros');
-        
-        function cargarHorario() {
-          var container = document.getElementById('horario-card-container');
-          if (container && container.innerHTML.trim() === '') {
-            ComponentFactory.load('horario');
-          } else if (!container) {
-            requestAnimationFrame(cargarHorario);
-          }
-        }
-        
-        if (!initComponents._listenerHorario) {
-          initComponents._listenerHorario = true;
-document.addEventListener('component:loaded', function(e) {
-              if (e.detail && e.detail.id === 'nosotros-container') {
-                cargarHorario();
-              }
-            });
-        }
+        await sleep(100);
       }
-      
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initComponents);
-      } else {
-        initComponents();
-      }
-     </script>
+    }
+    if (document.readyState === 'complete') {
+      setTimeout(loadDarkModeBtn, 500);
+    } else {
+      window.addEventListener('load', () => setTimeout(loadDarkModeBtn, 500));
+    }
+  })();
+</script>
 
-    <!-- Chat Widget Loader (retrasado 2s para reducir TBT inicial) -->
-    <script type="module">
-      import ChatWidgetLoader from '/components/chat-widget/chat-widget.js';
-      setTimeout(() => ChatWidgetLoader.init(), 2000);
-    </script>
-
-<!-- Dark Mode Script -->
-    <script src="components/dark-mode/dark-mode.js" defer></script>
-    <script type="module" src="assets/js/main.js"></script>
-
-    <!-- Cargar botón de dark mode en el header -->
-    <script>
-       // Esperar a que darkMode esté disponible
-       function waitForDarkMode(callback) {
-         if (window.darkMode || window.DarkMode) {
-           callback();
-         } else {
-           setTimeout(() => waitForDarkMode(callback), 100);
-         }
-       }
-      
-       const loadOnIdle = (el, url) => {
-         if (!el || el.dataset.loaded) return;
-         el.dataset.loaded = 1;
-         fetch(url)
-           .then(r => r.ok ? r.text() : Promise.reject())
-           .then(html => { 
-             el.innerHTML = html; 
-           })
-           .catch(() => {});
-       };
-      
-      // Cargar después de que la página esté lista
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          loadOnIdle(document.getElementById('dark-mode-header'), '/components/dark-mode/dark-mode-btn.html');
-        }, 500);
-      });
-    </script>
-
-   <!-- Bootstrap JS eliminado (no se usa carousel en homepage) -->
-
-    <!-- Lazy initialization de carruseles para reducir TBT -->
-    <script defer>
-      document.addEventListener('DOMContentLoaded', function() {
-        if (!('IntersectionObserver' in window)) return;
-        var lazyCarousels = document.querySelectorAll('.carousel[data-bs-lazy="true"]');
-        var carouselObserver = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              var carouselEl = entry.target;
-               if (!carouselEl.dataset.bsInitialized) {
-                 carouselEl.dataset.bsInitialized = 'true';
-                 if (typeof bootstrap !== 'undefined' && bootstrap.Carousel) {
-                   new bootstrap.Carousel(carouselEl);
-                 }
-               }
-              carouselObserver.unobserve(carouselEl);
-            }
-          });
-        }, { rootMargin: '100px' });
-        lazyCarousels.forEach(function(carousel) { carouselObserver.observe(carousel); });
-      });
-    </script>
-
-    <!-- Lazy load del video para mejorar LCP -->
-    <script defer>
-      document.addEventListener('DOMContentLoaded', function() {
-        var video = document.querySelector('video[data-video-poster]');
-        if (!video) return;
-        var videoObserver = new IntersectionObserver(function(entries) {
-          if (entries[0].isIntersecting) {
-            video.preload = 'metadata';
-            videoObserver.unobserve(video);
-          }
-        }, { rootMargin: '200px' });
-videoObserver.observe(video);
-      });
-    </script>
-
-  <!-- Scripts inline movidos al final del body para no bloquear render -->
-  <script>
+<!-- Cookies - defer -->
+<script defer>
+  (function() {
     function setCookie(name, value, days) {
       var expires = "";
       if (days) {
@@ -464,18 +349,62 @@ videoObserver.observe(video);
     document.addEventListener('DOMContentLoaded', function() {
       var cookieConsent = getCookie('cookieConsent');
       if (cookieConsent === null) {
-        document.getElementById('cookie-banner').style.display = 'block';
+        var banner = document.getElementById('cookie-banner');
+        if (banner) banner.style.display = 'block';
       }
     });
-    function acceptCookies() {
-      setCookie('cookieConsent', 'accepted', 365);
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
-    function rejectCookies() {
-      setCookie('cookieConsent', 'rejected', 365);
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
-  </script>
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('.cookie-btn');
+      if (!btn) return;
+      if (btn.classList.contains('cookie-accept')) {
+        setCookie('cookieConsent', 'accepted', 365);
+      } else if (btn.classList.contains('cookie-reject')) {
+        setCookie('cookieConsent', 'rejected', 365);
+      }
+      var banner = document.getElementById('cookie-banner');
+      if (banner) banner.style.display = 'none';
+    });
+  })();
+</script>
 
-  </body>
+<!-- Lazy initialization de carruseles para reducir TBT -->
+<script defer>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (!('IntersectionObserver' in window)) return;
+    var lazyCarousels = document.querySelectorAll('.carousel[data-bs-lazy="true"]');
+    var carouselObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var carouselEl = entry.target;
+           if (!carouselEl.dataset.bsInitialized) {
+             carouselEl.dataset.bsInitialized = 'true';
+             if (typeof bootstrap !== 'undefined' && bootstrap.Carousel) {
+               new bootstrap.Carousel(carouselEl);
+             }
+           }
+          carouselObserver.unobserve(carouselEl);
+        }
+      });
+    }, { rootMargin: '100px' });
+    lazyCarousels.forEach(function(carousel) { carouselObserver.observe(carousel); });
+  });
+</script>
+
+<!-- Lazy load del video para mejorar LCP -->
+<script defer>
+  document.addEventListener('DOMContentLoaded', function() {
+    var video = document.querySelector('video[data-video-poster]');
+    if (!video) return;
+    var videoObserver = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        video.preload = 'metadata';
+        videoObserver.unobserve(video);
+      }
+    }, { rootMargin: '200px' });
+videoObserver.observe(video);
+  });
+</script>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
 </html>
