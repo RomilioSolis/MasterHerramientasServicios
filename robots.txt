@@ -1,16 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /components/       # Bloquea todo el directorio de componentes
-Disallow: /config/          # Protege posibles archivos de configuración
-Disallow: /tmp/             # Directorio temporal
-Disallow: /*.php$           # Bloquea archivos PHP (si no los usas)
-Disallow: /*?*              # Evita URLs con parámetros
-Crawl-delay: 5
 
-# Archivos específicos a bloquear (opcional)
-Disallow: /search           # Si tienes búsquedas internas
-Disallow: /wp-admin/        # Si usas WordPress (prevención)
+# Bloquear archivos que no existen o son sensibles
+Disallow: /*.php$           # Prevención: archivos PHP
+
+# Retraso de rastreo para no sobrecargar el servidor
+Crawl-delay: 10
 
 Sitemap: https://masterenherramientasyservicios.com.co/sitemap.xml
