@@ -49,8 +49,8 @@
   <meta name="twitter:site" content="@MasterHerramientas">
   <meta name="twitter:creator" content="@MasterHerramientas">
 
-  <!-- Schema.org consolidado - un solo script con defer para reducir TBT -->
-  <script type="application/ld+json" defer>
+<!-- Schema.org consolidado - un solo script (no requiere defer, es solo datos estructurados) -->
+   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -251,54 +251,16 @@
 </head>
 
 <body data-theme="dark">
-  <!-- Banner de Cookies -->
-  <div id="cookie-banner" class="cookie-banner" style="display: none;">
-    <div class="cookie-content">
-      <p>Utilizamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestro uso de cookies.</p>
-      <div class="cookie-buttons">
-        <button type="button" class="cookie-btn cookie-accept" onclick="acceptCookies()">Aceptar</button>
-        <button type="button" class="cookie-btn cookie-reject" onclick="rejectCookies()">Rechazar</button>
-      </div>
-    </div>
-  </div>
-  <script>
-    function setCookie(name, value, days) {
-      var expires = "";
-      if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-      }
-      document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Strict; Secure";
-    }
-    function getCookie(name) {
-      var nameEQ = name + "=";
-      var ca = document.cookie.split(';');
-      for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-      }
-      return null;
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-      var cookieConsent = getCookie('cookieConsent');
-      if (cookieConsent === null) {
-        document.getElementById('cookie-banner').style.display = 'block';
-      }
-    });
-    function acceptCookies() {
-      setCookie('cookieConsent', 'accepted', 365);
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
-    function rejectCookies() {
-      setCookie('cookieConsent', 'rejected', 365);
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
-  </script>
-
-  <!-- Script para forzar modo oscuro inmediatamente -->
-  <script>document.body.setAttribute('data-theme', 'dark');</script>
+<!-- Banner de Cookies -->
+   <div id="cookie-banner" class="cookie-banner" style="display: none;">
+     <div class="cookie-content">
+       <p>Utilizamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestro uso de cookies.</p>
+       <div class="cookie-buttons">
+         <button type="button" class="cookie-btn cookie-accept" onclick="acceptCookies()">Aceptar</button>
+         <button type="button" class="cookie-btn cookie-reject" onclick="rejectCookies()">Rechazar</button>
+       </div>
+     </div>
+   </div>
   <!-- Vue sólo aquí: montar en #app borraba todo el sitio (main, mapa, etc.) -->
    <!-- Componente Header dinámico -->
    <div id="header-app"></div>
@@ -474,9 +436,46 @@ document.addEventListener('component:loaded', function(e) {
             videoObserver.unobserve(video);
           }
         }, { rootMargin: '200px' });
-        videoObserver.observe(video);
+videoObserver.observe(video);
       });
-</script>
+    </script>
+
+  <!-- Scripts inline movidos al final del body para no bloquear render -->
+  <script>
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Strict; Secure";
+    }
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      var cookieConsent = getCookie('cookieConsent');
+      if (cookieConsent === null) {
+        document.getElementById('cookie-banner').style.display = 'block';
+      }
+    });
+    function acceptCookies() {
+      setCookie('cookieConsent', 'accepted', 365);
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    function rejectCookies() {
+      setCookie('cookieConsent', 'rejected', 365);
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+  </script>
 
   </body>
 </html>
