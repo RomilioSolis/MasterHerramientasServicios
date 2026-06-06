@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Página principal -->
   <url>
     <loc>https://masterenherramientasyservicios.com.co/</loc>
-    <lastmod>2023-11-16</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
   </url>
-
-  <!-- Sección Nosotros -->
   <url>
     <loc>https://masterenherramientasyservicios.com.co/nosotros.html</loc>
-    <lastmod>2025-03-29</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-06</lastmod>
     <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>
