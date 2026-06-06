@@ -37,6 +37,7 @@ const Gallery = (() => {
     }
     const closeBtn = document.getElementById('gallery-close-fixed');
     if (closeBtn) closeBtn.style.display = 'none';
+    document.body.style.overflow = '';
   }
   
   /**

@@ -92,17 +92,15 @@ const EquiposLoader = (() => {
     }
   }
 
-  // Renderizar un Netflix item
-  async function _renderNetflixItem(equipo, rowContent) {
-    try {
-      // Generar WhatsApp link usando helper centralizado
-      const waLink = typeof WHATSAPP !== "undefined" 
-        ? WHATSAPP.createLink("Necesito cotizar " + equipo.nombre)
-        : "https://wa.me/" + (_state.empresa.telefonos?.whatsapp || "573165345675") + "?text=Hola,%20necesito%20cotizar%20" + encodeURIComponent(equipo.nombre);
+// Renderizar un Netflix item (optimizado - sin fetch de HTML)
+   async function _renderNetflixItem(equipo, rowContent) {
+     try {
+       const waLink = typeof WHATSAPP !== "undefined" 
+         ? WHATSAPP.createLink("Necesito cotizar " + equipo.nombre)
+         : "https://wa.me/" + (_state.empresa.telefonos?.whatsapp || "573165345675") + "?text=Hola,%20necesito%20cotizar%20" + encodeURIComponent(equipo.nombre);
 
-      // Obtener imágenes del archivo HTML del equipo
-      const allImages = await _fetchEquipmentImages(equipo.id);
-      const firstImg = allImages[0] || "assets/imagenes/logo.png";
+       // Usar imagen del equipo o fallback (evita fetch extra)
+       const firstImg = equipo.imagen ? `assets/imagenes/${equipo.carpeta || equipo.id}/${equipo.imagen}` : "assets/imagenes/logo.png";
 
       // Crear elemento Netflix item
       const netflixItem = document.createElement("div");
@@ -118,41 +116,43 @@ const EquiposLoader = (() => {
       img.src = firstImg;
       img.alt = equipo.nombre;
       img.loading = "lazy";
+      img.width = 350;
+      img.height = 420;
       img.onerror = function() { this.src = "assets/imagenes/logo.png"; };
 
       imageDiv.appendChild(img);
 
-       // Click para abrir galería con todas las imágenes
-       imageDiv.addEventListener("click", function() {
-         if (typeof Gallery !== "undefined" && allImages.length > 0) {
-           // Transformar el objeto equipo al formato que espera Gallery
-           const specsData = {
-             titulo: equipo.nombre,
-             datos: {
-               "Categoría": equipo.categoria,
-               "Disponible": equipo.disponible ? "Sí" : "No"
-             },
-             // Asegurar que caracteristicas sea siempre string
-             caracteristicas: (function() {
-               const val = equipo.caracteristicas;
-               if (Array.isArray(val)) {
-                 return val.join('\n');
-               }
-               return (typeof val === 'string') ? val : (val || '');
-             })(),
-             descripcion: equipo.descripcion || '',
-             normas: `1. Identificarse a nombre de quien va a hacer el alquiler persona natural o juridica
+// Click para abrir galería - fetch bajo demanda
+        imageDiv.addEventListener("click", async function() {
+          if (typeof Gallery === "undefined") return;
+          
+          // Cargar imágenes solo cuando se hace click (lazy)
+          const images = await _fetchEquipmentImages(equipo.id).catch(() => []);
+          if (images.length === 0) return;
+          
+          const specsData = {
+            titulo: equipo.nombre,
+            datos: {
+              "Categoría": equipo.categoria,
+              "Disponible": equipo.disponible ? "Sí" : "No"
+            },
+            caracteristicas: (function() {
+              const val = equipo.caracteristicas;
+              if (Array.isArray(val)) return val.join('\n');
+              return (typeof val === 'string') ? val : (val || '');
+            })(),
+            descripcion: equipo.descripcion || '',
+            normas: `1. Identificarse a nombre de quien va a hacer el alquiler persona natural o juridica
 2. Solicitar con anticipación el alquiler de los equipos, el personal puede tener trabajos o clientes programados.
 3. Si es cliente nuevo o reciente se solicita un depósito como garantía por el equipo, se hace la devolución con el reintegro en buen estado del equipo.
 4. El tiempo de alquiler se maneja por días, igualmente para el cobro. Se maneja fecha calendario, informarnos entonces para nosotros evaluar si festivos son tenidos en cuenta, cada obra es distinta.
 5. Los equipos se entregan en horario de oficina, existen excepciones donde se han pedido a altas horas de la noche, se cobrara un valor mayor.
 6. Equipo dañado se cobrara.
 7. Hacemos la logistica y contratación del transporte, se cobrara por aparte dependiendo del lugar donde vaya el equipo. No somos una empresa de transporte.`
-           };
+          };
 
-           Gallery.open(allImages, equipo.nombre, waLink, specsData);
-         }
-       });
+          Gallery.open(images, equipo.nombre, waLink, specsData);
+        });
 
       const titleDiv = document.createElement("div");
       titleDiv.className = "netflix-item-title";
@@ -177,66 +177,61 @@ const EquiposLoader = (() => {
     }
   }
 
-      // Renderizar filas Netflix por categoría
-      async function _renderNetflixRows(equiposAgrupados) {
-        const container = document.getElementById(NETFLIX_CONTAINER_ID);
-        if (!container) return;
-        container.innerHTML = '';
+// Renderizar filas Netflix por categoría (paralelo)
+       async function _renderNetflixRows(equiposAgrupados) {
+         const container = document.getElementById(NETFLIX_CONTAINER_ID);
+         if (!container) return;
+         container.innerHTML = '';
 
-        for (const categoria of _state.categorias) {
-          const equipos = equiposAgrupados[categoria.id];
-          if (!equipos || equipos.length === 0) continue;
+         for (const categoria of _state.categorias) {
+           const equipos = equiposAgrupados[categoria.id];
+           if (!equipos || equipos.length === 0) continue;
 
-          const row = document.createElement('div');
-          row.className = 'netflix-row';
-          row.dataset.category = categoria.id;
-          
-          // Crear contenido de la fila
-          const headerDiv = document.createElement('div');
-          headerDiv.className = 'netflix-row-header';
-          
-          const titleH3 = document.createElement('h3');
-          titleH3.className = 'netflix-category-title';
-          titleH3.textContent = categoria.label;
-          
-          const leftButton = document.createElement('button');
-          leftButton.className = 'netflix-scroll-btn netflix-scroll-left';
-          leftButton.setAttribute('aria-label', 'Desplazar izquierda');
-          leftButton.innerHTML = '&#8249;';
-          leftButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Scroll left clicked');
-            scrollRow('row-' + categoria.id, -1);
-          });
-          
-          const rightButton = document.createElement('button');
-          rightButton.className = 'netflix-scroll-btn netflix-scroll-right';
-          rightButton.setAttribute('aria-label', 'Desplazar derecha');
-          rightButton.innerHTML = '&#8250;';
-          rightButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Scroll right clicked');
-            scrollRow('row-' + categoria.id, 1);
-          });
-          
-          headerDiv.appendChild(leftButton);
-          headerDiv.appendChild(titleH3);
-          headerDiv.appendChild(rightButton);
+           const row = document.createElement('div');
+           row.className = 'netflix-row';
+           row.dataset.category = categoria.id;
+           
+           const headerDiv = document.createElement('div');
+           headerDiv.className = 'netflix-row-header';
+           
+           const titleH3 = document.createElement('h3');
+           titleH3.className = 'netflix-category-title';
+           titleH3.textContent = categoria.label;
+           
+           const leftButton = document.createElement('button');
+           leftButton.className = 'netflix-scroll-btn netflix-scroll-left';
+           leftButton.setAttribute('aria-label', 'Desplazar izquierda');
+           leftButton.innerHTML = '&#8249;';
+           leftButton.addEventListener('click', function(e) {
+             e.preventDefault();
+             scrollRow('row-' + categoria.id, -1);
+           });
+           
+           const rightButton = document.createElement('button');
+           rightButton.className = 'netflix-scroll-btn netflix-scroll-right';
+           rightButton.setAttribute('aria-label', 'Desplazar derecha');
+           rightButton.innerHTML = '&#8250;';
+           rightButton.addEventListener('click', function(e) {
+             e.preventDefault();
+             scrollRow('row-' + categoria.id, 1);
+           });
+           
+           headerDiv.appendChild(leftButton);
+           headerDiv.appendChild(titleH3);
+           headerDiv.appendChild(rightButton);
 
-          const contentDiv = document.createElement('div');
-          contentDiv.className = 'netflix-row-content';
-          contentDiv.id = 'row-' + categoria.id;
+           const contentDiv = document.createElement('div');
+           contentDiv.className = 'netflix-row-content';
+           contentDiv.id = 'row-' + categoria.id;
 
-          row.appendChild(headerDiv);
-          row.appendChild(contentDiv);
-          container.appendChild(row);
+           row.appendChild(headerDiv);
+           row.appendChild(contentDiv);
+           container.appendChild(row);
 
-          // Renderizar cada equipo en esta categoría
-          for (const equipo of equipos) {
-            await _renderNetflixItem(equipo, contentDiv);
-          }
-        }
-      }
+           // Renderizar equipos en paralelo (no bloquea hilo)
+           await Promise.all(equipos.map(equipo => _renderNetflixItem(equipo, contentDiv).catch(() => {})));
+         }
+       }
 
   // Inicializar carrusel Netflix (carrusel horizontal)
   function _initNetflixCarousel() {

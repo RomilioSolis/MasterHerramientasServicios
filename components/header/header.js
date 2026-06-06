@@ -35,7 +35,7 @@ function getHeaderHTML() {
         <div class="container">
             <div class="header-inner">
                 <a href="./" class="logo">
-                    <img src="${headerData.logo.src}" alt="${headerData.logo.alt}" class="header-logo">
+                    <img src="${headerData.logo.src}" alt="${headerData.logo.alt}" class="header-logo" width="180" height="50">
                     <span class="logo-text">${headerData.logo.text}</span>
                 </a>
                 <button class="mobile-toggle" aria-label="Abrir menú" onclick="document.querySelector('.navigation-nav').classList.toggle('active')">

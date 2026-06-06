@@ -1,0 +1,512 @@
+[
+  {
+    "id": "taladro-magnetico",
+    "nombre": "Taladro Magnético",
+    "categoria": "perforacion",
+    "precioDia": 120000,
+    "precioSemana": 600000,
+    "disponible": true,
+    "carpeta": "TaladroMagnetico",
+    "descripcion": "Taladro magnético para perforación en metal. Base magnética de alta adherencia, ideal para trabajos en altura y superficies metálicas.",
+    "caracteristicas": [
+      "Diámetro máximo de perforación: 13mm",
+      "Potencia: 1100W",
+      "Base magnética de 1200kgf",
+      "Velocidad variable: 0-550 rpm"
+    ],
+    "imagen": "TaladroMagnetico1.jpeg"
+  },
+  {
+    "id": "andamios-certificados",
+    "nombre": "Andamios Certificados",
+    "categoria": "construccion",
+    "precioDia": 80000,
+    "precioSemana": 400000,
+    "disponible": true,
+    "carpeta": "Andamios Certificados",
+    "descripcion": "Andamios modulares certificados para trabajos en altura. Cumplen con todas las normas de seguridad industrial.",
+    "caracteristicas": [
+      "Altura máxima: 12m",
+      "Capacidad de carga: 250kg/m²",
+      "Certificación ICC",
+      "Montaje rápido sin herramientas"
+    ],
+    "imagen": "Andamio Certificado 1.jpeg"
+  },
+  {
+    "id": "gato-estibador",
+    "nombre": "Gato Estibador",
+    "categoria": "elevacion",
+    "precioDia": 95000,
+    "precioSemana": 475000,
+    "disponible": true,
+    "carpeta": "Estibador",
+    "descripcion": "Gato estibador hidráulico de 5 toneladas para levantar maquinaria, contenedores y estructuras pesadas.",
+    "caracteristicas": [
+      "Capacidad: 5000kg",
+      "Altura mínima: 200mm",
+      "Altura máxima: 1500mm",
+      "Manivela de accionamiento rápido"
+    ],
+    "imagen": "estibador.png"
+  },
+  {
+    "id": "gatos-hidraulicos",
+    "nombre": "Gato Metálico",
+    "categoria": "elevacion",
+    "precioDia": 110000,
+    "precioSemana": 550000,
+    "disponible": true,
+    "carpeta": "gatosM",
+    "descripcion": "Gato hidráulico de botella 10 toneladas para trabajos de elevación pesada.",
+    "caracteristicas": [
+      "Capacidad: 10000kg",
+      "Altura mínima: 225mm",
+      "Altura máxima: 455mm",
+      "Válvula de seguridad contra sobrecarga"
+    ],
+    "imagen": "gatos.png"
+  },
+  {
+    "id": "planta-electrica",
+    "nombre": "Planta Eléctrica",
+    "categoria": "soldadura",
+    "precioDia": 180000,
+    "precioSemana": 900000,
+    "disponible": true,
+    "imagen": "PlantaEnergia.png",
+    "descripcion": "Planta eléctrica diésel de 15kva trifásica, ideal para obras sin conexión eléctrica.",
+    "caracteristicas": [
+      "Potencia: 15kva / 12kW",
+      "Voltaje: 110/220/380V",
+      "Autonomía: 8 horas",
+      "Bajo consumo de combustible"
+    ],
+    "carpeta": "PlantaElectrica"
+  },
+  {
+    "id": "compresor",
+    "nombre": "Compresor",
+    "categoria": "soldadura",
+    "precioDia": 135000,
+    "precioSemana": 675000,
+    "disponible": true,
+    "imagen": "compresor.png",
+    "descripcion": "Compresor de aire portátil de 185 CFM para martillo neumático, pintura y herramientas neumáticas.",
+    "caracteristicas": [
+      "Caudal: 185 CFM",
+      "Presión: 100 PSI",
+      "Motor diésel",
+      "Ruedas para transporte"
+    ],
+    "carpeta": "Compresor"
+  },
+  {
+    "id": "escaleras",
+    "nombre": "Escaleras",
+    "categoria": "elevacion",
+    "precioDia": 45000,
+    "precioSemana": 225000,
+    "disponible": true,
+    "imagen": "escaleras.jpg",
+    "descripcion": "Escalera telescópica de aluminio extensible hasta 10 metros. Ligera y fácil de transportar.",
+    "caracteristicas": [
+      "Altura máxima: 10m",
+      "Material: Aluminio",
+      "Peso: 18kg",
+      "Certificación de seguridad"
+    ],
+    "carpeta": "Escaleras"
+  },
+  {
+    "id": "trompo-mezclador",
+    "nombre": "Trompo Mezclador",
+    "categoria": "mezclado",
+    "precioDia": 75000,
+    "precioSemana": 375000,
+    "disponible": true,
+    "imagen": "TrompoMezclador.png",
+    "descripcion": "Mezcladora de concreto de 300 litros con motor eléctrico. Ideal para obras medianas.",
+    "caracteristicas": [
+      "Capacidad: 300 litros",
+      "Motor: 2HP eléctrico",
+      "Ruedas para transporte",
+      "Construcción robusta"
+    ],
+    "carpeta": "TrompoMezclador"
+  },
+  {
+    "id": "vibrocompactadora",
+    "nombre": "Vibrocompactadora",
+    "categoria": "mezclado",
+    "precioDia": 65000,
+    "precioSemana": 325000,
+    "disponible": true,
+    "imagen": "VibroCompactadora.png",
+    "descripcion": "Compactadora de placa vibratoria para compactación de suelos, asfalto y base granular.",
+    "caracteristicas": [
+      "Peso: 85kg",
+      "Fuerza de compactación: 15kN",
+      "Ancho de placa: 500mm",
+      "Motor gasolina 5.5HP"
+    ],
+    "carpeta": "VibroCompactadora"
+  },
+  {
+    "id": "hidrolavadora",
+    "nombre": "Hidrolavadora",
+    "categoria": "limpieza",
+    "precioDia": 85000,
+    "precioSemana": 425000,
+    "disponible": true,
+    "imagen": "Hidrolavadora.png",
+    "descripcion": "Hidrolavadora de alta presión 3000 PSI para limpieza industrial de maquinaria, fachadas y vehículos.",
+    "caracteristicas": [
+      "Presión: 3000 PSI",
+      "Caudal: 15 l/min",
+      "Motor eléctrico 5HP",
+      "Boquillas intercambiables"
+    ],
+    "carpeta": "Hidrolavadora"
+  },
+  {
+    "id": "equipo-oxicorte",
+    "nombre": "Equipo Oxicorte",
+    "categoria": "soldadura",
+    "precioDia": 70000,
+    "precioSemana": 350000,
+    "disponible": true,
+    "imagen": "EquiOxicorte.png",
+    "descripcion": "Equipo completo de oxicorte con mangueras, antorcha y reguladores. Para corte de acero.",
+    "caracteristicas": [
+      "Corte hasta 150mm espesor",
+      "Incluye reguladores oxígeno / acetileno",
+      "Mangueras de 10m",
+      "Antorcha profesional"
+    ],
+    "carpeta": "Oxicorte"
+  },
+  {
+    "id": "winches",
+    "nombre": "Winches",
+    "categoria": "elevacion",
+    "precioDia": 150000,
+    "precioSemana": 750000,
+    "disponible": true,
+    "imagen": "Winches.png",
+    "descripcion": "Winch eléctrico de 5 toneladas con cable de acero. Para tracción y elevación de cargas.",
+    "caracteristicas": [
+      "Capacidad: 5000kg",
+      "Cable: 30m de acero",
+      "Control remoto inalámbrico",
+      "Freno automático"
+    ],
+    "carpeta": "Winches"
+  },
+  {
+    "id": "motobomba-sumergible",
+    "nombre": "Motobomba Sumergible",
+    "categoria": "limpieza",
+    "precioDia": 55000,
+    "precioSemana": 275000,
+    "disponible": true,
+    "imagen": "MotoBombaLapi.png",
+    "descripcion": "Bomba sumergible de 3 pulgadas para drenaje de agua limpia y sucia en obras y sótanos.",
+    "caracteristicas": [
+      "Diámetro: 3 pulgadas",
+      "Caudal: 600 l/min",
+      "Altura máxima: 15m",
+      "Flotador automático"
+    ],
+    "carpeta": "Motobomba"
+  },
+  {
+    "id": "motosierra",
+    "nombre": "Motosierra",
+    "categoria": "jardin",
+    "precioDia": 50000,
+    "precioSemana": 250000,
+    "disponible": true,
+    "imagen": "Motosierra.png",
+    "descripcion": "Motosierra de cadena profesional 18 pulgadas para tala de árboles y trabajos forestales.",
+    "caracteristicas": [
+      "Espada: 18 pulgadas",
+      "Motor: 58cc",
+      "Potencia: 3.5 HP",
+      "Sistema anti-vibración"
+    ],
+    "carpeta": "Motosierra"
+  },
+  {
+    "id": "pluma-grua",
+    "nombre": "Pluma Grúa",
+    "categoria": "elevacion",
+    "precioDia": 90000,
+    "precioSemana": 450000,
+    "disponible": true,
+    "imagen": "PlumaGrua.png",
+    "descripcion": "Pluma grúa para camioneta con capacidad 1 tonelada. Desmontable para transporte.",
+    "caracteristicas": [
+      "Capacidad: 1000kg",
+      "Alcance: 2.5m",
+      "Giro 360°",
+      "Incluye malacate manual"
+    ],
+    "carpeta": "PlumaGrua"
+  },
+  {
+    "id": "sonda-electrica",
+    "nombre": "Sonda Eléctrica",
+    "categoria": "perforacion",
+    "precioDia": 60000,
+    "precioSemana": 300000,
+    "disponible": true,
+    "imagen": "SondaElectrica.png",
+    "descripcion": "Sonda eléctrica de 50 metros para desatasco de tuberías y cañerías.",
+    "caracteristicas": [
+      "Longitud cable: 50m",
+      "Diámetro: 16mm",
+      "Motor 1/2 HP",
+      "Reversible"
+    ],
+    "carpeta": "SondaElectrica"
+  },
+  {
+    "id": "taladros",
+    "nombre": "Taladro",
+    "categoria": "perforacion",
+    "precioDia": 35000,
+    "precioSemana": 175000,
+    "disponible": true,
+    "imagen": "Taladro.webp",
+    "descripcion": "Taladro percutor profesional de 13mm para perforación en concreto, metal y madera.",
+    "caracteristicas": [
+      "Potencia: 850W",
+      "Velocidad variable",
+      "Percusión 0-48000 / min",
+      "Mandril autoajustable"
+    ],
+    "carpeta": "Taladros"
+  },
+  {
+    "id": "ganchos-colgantes",
+    "nombre": "Ganchos Colgantes",
+    "categoria": "movimiento",
+    "precioDia": 30000,
+    "precioSemana": 150000,
+    "disponible": true,
+    "imagen": "GanchosColgantes.png",
+    "descripcion": "Juego de ganchos de elevación certificados de 2 toneladas para carga y descarga.",
+    "caracteristicas": [
+      "Capacidad: 2000kg",
+      "Certificación",
+      "Giratorio 360°",
+      "Resorte de seguridad"
+    ],
+    "carpeta": "GanchosColgantes"
+  },
+  {
+    "id": "extractores",
+    "nombre": "Extractor de Aire",
+    "categoria": "limpieza",
+    "precioDia": 40000,
+    "precioSemana": 200000,
+    "disponible": true,
+    "imagen": "Extractor.png",
+    "descripcion": "Extractor de aire axial de 300mm para ventilación en espacios cerrados y trabajos de soldadura.",
+    "caracteristicas": [
+      "Diámetro: 300mm",
+      "Caudal: 3800 m³/h",
+      "Manguera flexible 5m",
+      "Protección contra sobrecalentamiento"
+    ],
+    "carpeta": "Extractores"
+  },
+  {
+    "id": "extraccion-nucleos",
+    "nombre": "Extracción de núcleo",
+    "categoria": "perforacion",
+    "precioDia": 170000,
+    "precioSemana": 850000,
+    "disponible": true,
+    "imagen": "ExtraNucleo.png",
+    "descripcion": "Máquina de extracción de núcleos para perforación de pozos en concreto y asfalto.",
+    "caracteristicas": [
+      "Diámetro máximo: 200mm",
+      "Profundidad máxima: 600mm",
+      "Alimentación hidráulica",
+      "Motor 3HP"
+    ],
+    "carpeta": "ExtraNucleo"
+  },
+  {
+    "id": "estanterias",
+    "nombre": "Estanterías",
+    "categoria": "movimiento",
+    "precioDia": 50000,
+    "precioSemana": 250000,
+    "disponible": true,
+    "imagen": "Estanteria.png",
+    "descripcion": "Sistema de estanterías modulares para almacenamiento temporal de materiales en obra.",
+    "caracteristicas": [
+      "Altura: 2.5m",
+      "Capacidad por nivel: 300kg",
+      "Montaje sin herramientas",
+      "Desmontable"
+    ],
+    "carpeta": "Estanteria"
+  },
+  {
+    "id": "esmeriladora",
+    "nombre": "Esmeriladora",
+    "categoria": "perforacion",
+    "precioDia": 45000,
+    "precioSemana": 225000,
+    "disponible": true,
+    "imagen": "Esmeril.png",
+    "descripcion": "Esmeriladora angular de 9 pulgadas para corte y desbaste de metal y concreto.",
+    "caracteristicas": [
+      "Disco: 9 pulgadas (230mm)",
+      "Potencia: 2200W",
+      "Velocidad: 6500 rpm",
+      "Protector de arranque"
+    ],
+    "carpeta": "Esmeril"
+  },
+  {
+    "id": "equipos-soldadura",
+    "nombre": "Soldador",
+    "categoria": "soldadura",
+    "precioDia": 65000,
+    "precioSemana": 325000,
+    "disponible": true,
+    "imagen": "Soldador.png",
+    "descripcion": "Soldadora inverter profesional MMA 250A para soldadura eléctrica de acero.",
+    "caracteristicas": [
+      "Corriente máxima: 250A",
+      "Ciclo de trabajo: 60%",
+      "Peso: 8kg",
+      "Protección contra sobrecalentamiento"
+    ],
+    "carpeta": "Soldador"
+  },
+  {
+    "id": "cortadora-porcelanato",
+    "nombre": "Cortadora Porcelanato",
+    "categoria": "construccion",
+    "precioDia": 40000,
+    "precioSemana": 200000,
+    "disponible": true,
+    "imagen": "CortadoraPorcelanato.png",
+    "descripcion": "Cortadora eléctrica de cerámica y porcelanato con guía láser y mesa inclinable.",
+    "caracteristicas": [
+      "Corte máximo: 1200mm",
+      "Disco diamantado 200mm",
+      "Guía láser",
+      "Corte diagonal 45°"
+    ],
+    "carpeta": "CortadoraPorcelanato"
+  },
+  {
+    "id": "diferenciales",
+    "nombre": "Diferenciales",
+    "categoria": "movimiento",
+    "precioDia": 35000,
+    "precioSemana": 175000,
+    "disponible": true,
+    "imagen": "Diferencial.png",
+    "descripcion": "Protección diferencial eléctrica portátil 63A para seguridad eléctrica en obras.",
+    "caracteristicas": [
+      "Corriente: 63A",
+      "Sensibilidad: 30mA",
+      "4 tomas de corriente",
+      "Protección contra sobrecarga"
+    ],
+    "carpeta": "Diferencial"
+  },
+  {
+    "id": "carretillas",
+    "nombre": "Carretillas",
+    "categoria": "movimiento",
+    "precioDia": 45000,
+    "precioSemana": 225000,
+    "disponible": true,
+    "imagen": "Carretilla.png",
+    "descripcion": "Carretilla hidráulica manual de 2.5 toneladas para transporte de palets.",
+    "caracteristicas": [
+      "Capacidad: 2500kg",
+      "Altura elevación: 200mm",
+      "Horquillas 1150mm",
+      "Ruedas de nylon"
+    ],
+    "carpeta": "Carretilla"
+  },
+  {
+    "id": "buggy",
+    "nombre": "Buggy",
+    "categoria": "mezclado",
+    "precioDia": 55000,
+    "precioSemana": 275000,
+    "disponible": true,
+    "imagen": "Buggy.png",
+    "descripcion": "Vagoneta eléctrica para transporte de concreto y materiales en obra.",
+    "caracteristicas": [
+      "Capacidad: 80 litros",
+      "Motor eléctrico 1HP",
+      "Batería 12V",
+      "Capacidad de carga: 250kg"
+    ],
+    "carpeta": "Buggy"
+  },
+  {
+    "id": "aspiradora-industrial",
+    "nombre": "Aspiradora Industrial",
+    "categoria": "limpieza",
+    "precioDia": 45000,
+    "precioSemana": 225000,
+    "disponible": true,
+    "imagen": "Aspiradora.png",
+    "descripcion": "Aspiradora industrial húmedo/seco de 50 litros para limpieza de polvo, agua y residuos.",
+    "caracteristicas": [
+      "Capacidad: 50 litros",
+      "Potencia: 1600W",
+      "Función soplador",
+      "Filtro HEPA"
+    ],
+    "carpeta": "Aspiradora"
+  },
+  {
+    "id": "andamios",
+    "nombre": "Andamios de Carga",
+    "categoria": "construccion",
+    "precioDia": 65000,
+    "precioSemana": 325000,
+    "disponible": true,
+    "imagen": "Andamios.png",
+    "descripcion": "Andamios tubulares convencionales para trabajos en altura de hasta 6 metros.",
+    "caracteristicas": [
+      "Altura máxima: 6m",
+      "Capacidad: 200kg/m²",
+      "Tubo 1½\"",
+      "Armazón galvanizado"
+    ],
+    "carpeta": "Andamios"
+  },
+  {
+    "id": "parasoles",
+    "nombre": "Parasoles",
+    "categoria": "construccion",
+    "precioDia": 25000,
+    "precioSemana": 125000,
+    "disponible": true,
+    "imagen": "Parasol.png",
+    "descripcion": "Parasol industrial de 3 metros diámetro para protección solar en obras.",
+    "caracteristicas": [
+      "Diámetro: 3m",
+      "Tela impermeable UV",
+      "Base de acero",
+      "Altura ajustable"
+    ],
+    "carpeta": "Parasol"
+  }
+]

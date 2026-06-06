@@ -17,16 +17,16 @@ const EquiposGrid = (() => {
   // --- DATOS PRIVADOS ---
   const _DATA = {
     elevacion: [
-      { id: 'gatos-hidraulicos', name: 'Gatos Hidraulicos', img: '/assets/imagenes/GatosH/Gatos.png', text: 'Gatos hidráulicos de alta capacidad para elevación.' },
+      { id: 'gatos-hidraulicos', name: 'Gatos Hidraulicos', img: '/assets/imagenes/gatosM/gatos.png', text: 'Gatos hidráulicos de alta capacidad para elevación.' },
       { id: 'gato-estibador', name: 'Gato Estibador', img: '/assets/imagenes/Estibador/estibador.png', text: 'Gato estibador para movimiento de cargas.' },
       { id: 'ganchos-colgantes', name: 'Ganchos Colgantes', img: '/assets/imagenes/GanchosColgantes/GanchosColgantes.png', text: 'Ganchos colgantes certificados.' },
       { id: 'winches', name: 'Winches', img: '/assets/imagenes/Winches/Winches.png', text: 'Winches eléctricos y manuales.' },
       { id: 'pluma-grua', name: 'Pluma Grúa', img: '/assets/imagenes/PlumaGrua/PlumaGrua.png', text: 'Pluma grúa para elevación de cargas.' },
-      { id: 'andamios-certificados', name: 'Andamios Certificados', img: '/assets/imagenes/Andamios Certificados/Andamio Certificado 1.jpeg', text: 'Torres de andamios certificados con garantía de seguridad.' }
+      { id: 'andamios-certificados', name: 'Andamios Certificados', img: '/assets/imagenes/Andamios Certificados/Andamio Certificado 1.webp', text: 'Torres de andamios certificados con garantía de seguridad.' }
     ],
     perforacion: [
       { id: 'taladros', name: 'Taladros', img: '/assets/imagenes/Taladros/Taladro.webp', text: 'Taladros industriales de percusión.' },
-      { id: 'taladro-magnetico', name: 'Taladro Magnético', img: '/assets/imagenes/TaladroMagnetico/TaladroMagnetico1.jpeg', text: 'Taladro magnético para perforación de metal.' },
+      { id: 'taladro-magnetico', name: 'Taladro Magnético', img: '/assets/imagenes/TaladroMagnetico/TaladroMagnetico1.webp', text: 'Taladro magnético para perforación de metal.' },
       { id: 'extractores', name: 'Extractores', img: '/assets/imagenes/Extractores/Extractor.png', text: 'Extractores de ejes y rodamientos.' },
       { id: 'sonda-electrica', name: 'Sonda Eléctrica', img: '/assets/imagenes/SondaElectrica/SondaElectrica.png', text: 'Sonda eléctrica para barrenado.' },
       { id: 'esmeriladora', name: 'Esmeriladora', img: '/assets/imagenes/Esmeril/Esmeril.png', text: 'Esmeriladora angular de alta potencia.' },
