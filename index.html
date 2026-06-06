@@ -185,15 +185,17 @@
     /* Header skeleton */
     #header-app:empty{background:linear-gradient(90deg,#f8f9fa 25%,#e9ecef 50%,#f8f9fa 75%);background-size:200% 100%;animation:skeleton-loading 1.5s infinite}
     @keyframes skeleton-loading{0%{background-position:200% 0}100%{background-position:-200% 0}}
-    /* Cards skeleton */
+/* Cards skeleton */
     #herramientas-container:empty{height:400px;background:#f8f9fa}
-    /* Reserve space for herramientas grid - avoid CLS from dynamic content */
-    #herramientas-container:not(:empty){min-height:400px}
     /* Header container - reserve space to avoid CLS */
     #header-app:not(:empty){min-height:70px}
+    /* Nosotros container - reserve space to avoid CLS */
+    #nosotros-container:empty{height:400px;background:#f8f9fa}
     /* Reducir trabajo del hilo principal - skip rendering off-screen */
     #equipos,#video,#preguntas-frecuentes,#contacto,.py-5{content-visibility:auto;contain-intrinsic-size:1px 500px}
     /* Reserved space para containers lazy load - evitar CLS */
+    #nosotros-container:not(:empty){min-height:400px}
+    #netflixRows:not(:empty){min-height:400px}
     #footer-container:not(:empty){min-height:150px}
     #faq-container:not(:empty){min-height:400px}
     #contacto-container:not(:empty){min-height:500px}
