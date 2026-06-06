@@ -26,7 +26,14 @@ const FAQ = (() => {
     
     btn.setAttribute('aria-expanded', !isOpen);
     btn.classList.toggle('collapsed', isOpen);
-    ans.style.maxHeight = isOpen ? '0' : ans.scrollHeight + 'px';
+    
+    // Read scrollHeight before any style changes if opening (to avoid forced reflow)
+    if (!isOpen) {
+      const targetHeight = ans.scrollHeight + 'px';
+      ans.style.maxHeight = targetHeight;
+    } else {
+      ans.style.maxHeight = '0';
+    }
     ans.classList.toggle('show', !isOpen);
   }
   
@@ -124,7 +131,9 @@ const FAQ = (() => {
         const ans = btn.nextElementSibling;
         btn.setAttribute('aria-expanded', 'true');
         btn.classList.remove('collapsed');
-        ans.style.maxHeight = ans.scrollHeight + 'px';
+        // Batch: read scrollHeight before applying styles
+        const targetHeight = ans.scrollHeight + 'px';
+        ans.style.maxHeight = targetHeight;
         ans.classList.add('show');
       });
     },

@@ -4,7 +4,7 @@
 // Maneja la sección de video y mapa de la página nosotros
 // ============================================
 const Nosotros = (() => {
-  
+   
   // --- ESTADO PRIVADO ---
   let _state = {
     initialized: false,
@@ -24,31 +24,25 @@ const Nosotros = (() => {
     if (!video || !textoCard || !videoCardContainer) return;
     
     video.addEventListener('play', () => {
-      textoCard.style.opacity = '0';
+      textoCard.classList.add('hidden-text');
       setTimeout(() => {
         textoCard.style.display = 'none';
-        videoCardContainer.style.width = '100%';
-        videoCardContainer.style.maxWidth = '900px';
-        videoCardContainer.style.margin = '0 auto';
-        videoCardContainer.style.flex = '0 0 100%';
+        videoCardContainer.classList.add('full-width');
       }, 300);
     });
     
     video.addEventListener('ended', () => {
-      videoCardContainer.style.flex = '';
-      videoCardContainer.style.width = '';
-      videoCardContainer.style.maxWidth = '';
-      videoCardContainer.style.margin = '';
+      videoCardContainer.classList.remove('full-width');
       textoCard.style.display = '';
       setTimeout(() => {
-        textoCard.style.opacity = '1';
+        textoCard.classList.remove('hidden-text');
       }, 10);
     });
   }
   
   /**
-   * Inicializa el mapa Leaflet
-   */
+    * Inicializa el mapa Leaflet
+    */
   function _initMapa() {
     const nosotrosMapa = document.getElementById('nosotros-mapa');
     if (!nosotrosMapa) return;
@@ -102,15 +96,11 @@ const Nosotros = (() => {
       .bindPopup('<div style="font-family:Segoe UI,sans-serif;"><span>🚌 Parada MIO — Ruta P21C</span></div>');
     
     _state.mapa = mapa;
-    
-    setTimeout(() => {
-      if (mapa) mapa.invalidateSize();
-    }, 200);
   }
   
   /**
-   * Inicializa el módulo
-   */
+    * Inicializa el módulo
+    */
   function _init() {
     _initVideo();
     _initMapa();
@@ -118,20 +108,20 @@ const Nosotros = (() => {
   }
   
   /**
-   * Re-inicializa el mapa (útil en resize)
-   */
+    * Re-inicializa el mapa (útil en resize)
+    */
   function _refreshMapa() {
     if (_state.mapa) {
       _state.mapa.invalidateSize();
     }
   }
   
-// --- API PÚBLICA (REVEALING MODULE) ---
-return {
-  init: _init,
-  initMapa: _initMapa,
-  refreshMapa: _refreshMapa
-};
+  // --- API PÚBLICA (REVEALING MODULE) ---
+  return {
+    init: _init,
+    initMapa: _initMapa,
+    refreshMapa: _refreshMapa
+  };
 })();
 
 // Inicialización
@@ -143,5 +133,11 @@ if (document.readyState === 'loading') {
   setTimeout(() => Nosotros.init(), 100);
 }
 
-// Manejar resize
-window.addEventListener('resize', () => Nosotros.refreshMapa());
+// Manejar resize (debounced to prevent forced reflow spam)
+window.addEventListener('resize', (() => {
+  let resizeTimer;
+  return () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => Nosotros.refreshMapa(), 250);
+  };
+})());

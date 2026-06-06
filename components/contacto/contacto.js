@@ -72,24 +72,20 @@ const Contacto = (() => {
       '<a href="https://www.google.com/maps/place/3.438368,-76.505911" target="_blank" style="color:#4dabf7;font-size:12px;">Ver en Maps →</a></div>'
     ).openPopup();
     
-    _state.mapa = mapa;
-    
-    setTimeout(() => {
-      if (mapa) mapa.invalidateSize();
-    }, 200);
+_state.mapa = mapa;
   }
   
   /**
-   * Inicializa el módulo
-   */
+    * Inicializa el módulo
+    */
   function _init() {
     _waitForLeaflet();
     _state.initialized = true;
   }
   
   /**
-   * Refresca el mapa (útil en resize)
-   */
+    * Refresca el mapa (útil en resize)
+    */
   function _refreshMapa() {
     if (_state.mapa) {
       _state.mapa.invalidateSize();
@@ -107,5 +103,11 @@ const Contacto = (() => {
 // Ejecución inicial
 setTimeout(() => Contacto.init(), 100);
 
-// Manejar resize
-window.addEventListener('resize', () => Contacto.refreshMapa());
+// Manejar resize (debounced to prevent forced reflow spam)
+window.addEventListener('resize', (() => {
+  let resizeTimer;
+  return () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => Contacto.refreshMapa(), 250);
+  };
+})());

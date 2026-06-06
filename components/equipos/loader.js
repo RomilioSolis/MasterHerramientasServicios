@@ -228,8 +228,9 @@ const EquiposLoader = (() => {
            row.appendChild(contentDiv);
            container.appendChild(row);
 
-           // Renderizar equipos en paralelo (no bloquea hilo)
-           await Promise.all(equipos.map(equipo => _renderNetflixItem(equipo, contentDiv).catch(() => {})));
+            // Renderizar equipos en paralelo (no bloquea hilo)
+            await Promise.all(equipos.map(equipo => _renderNetflixItem(equipo, contentDiv).catch(() => {})));
+            row.dataset.categoryLoaded = 'true';
          }
        }
 

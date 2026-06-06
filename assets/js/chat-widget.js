@@ -82,20 +82,23 @@ window.ChatWidget = (function() {
     * @param {string} text - Texto del mensaje
     * @param {string} direction - 'in' o 'out'
     */
-   function addBubble(text, direction) {
-     const msgs = document.getElementById(IDS.MESSAGES);
-     if (!msgs) return;
-     
-     const div = document.createElement('div');
-     const baseStyle = 'max-width:82%;padding:8px 11px;border-radius:10px;font-size:13.5px;line-height:1.45;position:relative;word-break:break-word;animation:cwBubbleIn 0.2s ease;';
-     const inStyle = baseStyle + 'background:#fff;border-bottom-left-radius:2px;align-self:flex-start;color:#111;box-shadow:0 1px 2px rgba(0,0,0,0.12);';
-     const outStyle = baseStyle + 'background:#dcf8c6;border-bottom-right-radius:2px;align-self:flex-end;color:#111;box-shadow:0 1px 2px rgba(0,0,0,0.12);';
-     
-     div.style.cssText = direction === 'in' ? inStyle : outStyle;
-     div.innerHTML = _escapeHtml(text) + '<div style="font-size:10px;color:rgba(0,0,0,0.45);text-align:right;margin-top:2px;">' + _timeNow() + '</div>';
-     msgs.appendChild(div);
-     msgs.scrollTop = msgs.scrollHeight;
-   }
+function addBubble(text, direction) {
+      const msgs = document.getElementById(IDS.MESSAGES);
+      if (!msgs) return;
+      
+      const div = document.createElement('div');
+      const baseStyle = 'max-width:82%;padding:8px 11px;border-radius:10px;font-size:13.5px;line-height:1.45;position:relative;word-break:break-word;animation:cwBubbleIn 0.2s ease;';
+      const inStyle = baseStyle + 'background:#fff;border-bottom-left-radius:2px;align-self:flex-start;color:#111;box-shadow:0 1px 2px rgba(0,0,0,0.12);';
+      const outStyle = baseStyle + 'background:#dcf8c6;border-bottom-right-radius:2px;align-self:flex-end;color:#111;box-shadow:0 1px 2px rgba(0,0,0,0.12);';
+      
+      div.style.cssText = direction === 'in' ? inStyle : outStyle;
+      div.innerHTML = _escapeHtml(text) + '<div style="font-size:10px;color:rgba(0,0,0,0.45);text-align:right;margin-top:2px;">' + _timeNow() + '</div>';
+      msgs.appendChild(div);
+      // Use requestAnimationFrame for smooth scrolling without forced reflow
+      requestAnimationFrame(() => {
+        msgs.scrollTop = msgs.scrollHeight;
+      });
+    }
    
    /**
     * Actualiza el contador de usos
@@ -337,13 +340,16 @@ window.ChatWidget = (function() {
        }
      }, false);
      
-     // Auto-resize textarea on input
-     document.addEventListener('input', function(e) {
-       if (e.target.id === IDS.INPUT) {
-         e.target.style.height = 'auto';
-         e.target.style.height = Math.min(e.target.scrollHeight, 90) + 'px';
-       }
-     }, false);
+// Auto-resize textarea on input
+      document.addEventListener('input', function(e) {
+        if (e.target.id === IDS.INPUT) {
+          // Use requestAnimationFrame to avoid forced reflow
+          requestAnimationFrame(() => {
+            e.target.style.height = 'auto';
+            e.target.style.height = Math.min(e.target.scrollHeight, 90) + 'px';
+          });
+        }
+      }, false);
      
      console.log('[ChatWidget] Event delegation configured');
    }

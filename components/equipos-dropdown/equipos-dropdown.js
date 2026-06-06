@@ -120,14 +120,16 @@ const EquiposDropdown = (() => {
     
     if (!trigger || !menu) return;
     
+    // Leer propiedades de layout ANTES de cualquier cambio de estilo
+    const rect = trigger.getBoundingClientRect();
+    const menuWidth = menu.offsetWidth || 280;
+    
     trigger.classList.add('active');
     trigger.setAttribute('aria-expanded', 'true');
     menu.classList.add('open');
     if (overlay) overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
     
-    const rect = trigger.getBoundingClientRect();
-    const menuWidth = menu.offsetWidth || 280;
     let leftPos = rect.left + rect.width / 2;
     const padding = 10;
     

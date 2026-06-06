@@ -85,6 +85,10 @@
 #gallery-close-fixed { display: none; }
 .gallery-lightbox.active + #gallery-close-fixed { display: flex; }
 .gallery-close { display: none !important; }
+body.gallery-open .theme-switcher {
+  top: auto !important;
+  bottom: 90px !important;
+}
 
 .gallery-nav {
   position: fixed;

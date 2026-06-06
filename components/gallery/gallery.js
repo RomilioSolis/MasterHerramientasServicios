@@ -38,6 +38,7 @@ const Gallery = (() => {
     const closeBtn = document.getElementById('gallery-close-fixed');
     if (closeBtn) closeBtn.style.display = 'none';
     document.body.style.overflow = '';
+    document.body.classList.remove('gallery-open');
   }
   
   /**
@@ -313,6 +314,7 @@ const Gallery = (() => {
       
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('gallery-open');
       _state.isOpen = true;
       const closeBtn = document.getElementById('gallery-close-fixed');
       if (closeBtn) closeBtn.style.display = 'flex';
