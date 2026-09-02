@@ -4,6 +4,10 @@ class DarkMode {
     this.init();
   }
 
+  isInitialized() {
+    return true;
+  }
+
   init() {
     document.body.dataset.theme = this.theme;
     this.applyGlobalStyles();
@@ -45,4 +49,12 @@ class DarkMode {
   }
 }
 
-export default DarkMode;
+// Exponer globalmente para compatibilidad con scripts clásicos
+if (typeof window !== 'undefined') {
+  window.DarkMode = DarkMode;
+}
+
+// Exportar si ESM
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = DarkMode;
+}

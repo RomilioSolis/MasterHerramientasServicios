@@ -56,6 +56,8 @@ const Nosotros = (() => {
     
     const LAT = 3.438368;
     const LNG = -76.505911;
+    const LAT_SANTA_MONICA = 3.436917;
+    const LNG_SANTA_MONICA = -76.510377;
     
     const mapa = L.map('nosotros-mapa', {
       center: [LAT, LNG],
@@ -95,15 +97,80 @@ const Nosotros = (() => {
     L.marker([LAT, LNG - 0.0002], {icon: iconoMIO}).addTo(mapa)
       .bindPopup('<div style="font-family:Segoe UI,sans-serif;"><span>🚌 Parada MIO — Ruta P21C</span></div>');
     
+    const iconoSucursal = L.divIcon({
+      className: '',
+      html: '<div style="background:#1565c0;width:36px;height:36px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 2px 12px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;"><span style="transform:rotate(45deg);font-size:17px;">📍</span></div>',
+      iconSize: [36, 36],
+      iconAnchor: [18, 36]
+    });
+    
+    const popupSucursal = '<div style="font-family:Segoe UI,sans-serif;min-width:180px;">' +
+      '<strong style="font-size:14px;color:#1565c0;">📍 Sucursal Santa Mónica</strong><br>' +
+      '<span style="color:#555;font-size:12px;">Cra 23 # 33 b 126, Barrio Santa Monica</span><br>' +
+      '<a href="https://www.google.com/maps/place/3.436917,-76.510377" target="_blank" style="font-size:12px;color:#1a73e8;">Ver en Google Maps</a>' +
+      '</div>';
+    
+    L.marker([LAT_SANTA_MONICA, LNG_SANTA_MONICA], {icon: iconoSucursal}).addTo(mapa).bindPopup(popupSucursal);
+    
+    const bounds = L.latLngBounds([
+      [LAT, LNG],
+      [LAT_SANTA_MONICA, LNG_SANTA_MONICA]
+    ]);
+    mapa.fitBounds(bounds, { padding: [40, 40], maxZoom: 16 });
+    
     _state.mapa = mapa;
   }
   
+  /**
+    * Carga dinámicamente el componente Horario dentro del contenedor
+    * e inicializa su lógica una vez el HTML está inyectado.
+    */
+  function _initHorario() {
+    const container = document.getElementById('horario-card-container');
+    if (!container) return;
+
+    const loadHorarioHTML = () => {
+      fetch('components/horario/horario.html')
+        .then(function(response) {
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          return response.text();
+        })
+        .then(function(html) {
+          container.innerHTML = html;
+          document.dispatchEvent(new CustomEvent('component:loaded', { detail: { id: 'horario' } }));
+        })
+        .catch(function(err) {
+          console.error('[Nosotros] Error cargando horario:', err);
+        });
+    };
+
+    if (window.__horarioScriptLoaded) {
+      loadHorarioHTML();
+    } else {
+      window.__horarioScriptLoaded = true;
+
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'components/horario/horario.css';
+      document.head.appendChild(link);
+
+      const script = document.createElement('script');
+      script.src = 'components/horario/horario.js';
+      script.onload = loadHorarioHTML;
+      script.onerror = function() {
+        console.error('[Nosotros] Error cargando horario.js');
+      };
+      document.body.appendChild(script);
+    }
+  }
+   
   /**
     * Inicializa el módulo
     */
   function _init() {
     _initVideo();
     _initMapa();
+    _initHorario();
     _state.initialized = true;
   }
   

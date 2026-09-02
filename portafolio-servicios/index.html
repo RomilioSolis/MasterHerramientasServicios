@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master en Herramientas y Servicios SAS — Portafolio de Servicios</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="js/main.js" defer></script>
+</head>
+<body>
+
+<button type="button" id="download-btn" onclick="generatePDF()" title="Descargar portafolio como PDF">
+  <i class="fa-solid fa-file-pdf"></i> Download PDF
+</button>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="profile-avatar">
+      <img src="images/logo.png" alt="Master en Herramientas y Servicios SAS" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <i class="fa-solid fa-user-gear" style="display:none;"></i>
+    </div>
+    <h1>Master en Herramientas y Servicios SAS</h1>
+    <p class="tagline">Alquiler de maquinaria y equipos para la construcción en Cali, Colombia. Soluciones flexibles y confiables para proyectos de cualquier escala.</p>
+  </div>
+</header>
+
+<section id="services">
+  <h2 class="section-title">Servicios</h2>
+  <div class="cards-grid">
+<div class="card">
+      <h3>Alquiler de Maquinaria Pesada</h3>
+      <p>Excavadoras, retroexcavadoras, cargadores frontales y motoniveladoras para movimiento de tierra y construcción.</p>
+    </div>
+    <div class="card">
+      <img class="card-img" src="images/Alquiler-Andamio-Certificado.jpeg" alt="Alquiler de andamios certificados">
+      <img class="card-img" src="images/Alquiler-Andamio-Colgante.jpeg" alt="Alquiler de andamios colgantes">
+      <h3>Alquiler de Andamios</h3>
+      <p>Andamios multidireccionales, torres de trabajo y plataformas colgantes modulares para construcción de alta y media altura.</p>
+    </div>
+    <div class="card">
+      <img class="card-img" src="images/Alquiler-Escalera-Tijera.jpg" alt="Alquiler de escalera de tijera">
+      <img class="card-img" src="images/Alquiler-Escalera-Extension.jpg" alt="Alquiler de escalera de extensión">
+      <h3>Alquiler de Escaleras</h3>
+      <p>Escaleras de tijera, de extensión y plataformas para trabajos en altura, limpieza y mantenimiento industrial.</p>
+    </div>
+    <div class="card">
+      <h3>Transporte y Logística de Equipos</h3>
+      <p>Servicio de entrega y recogida de maquinaria en obra para proyectos en Cali y el departamento del Valle del Cauca.</p>
+    </div>
+    <div class="card">
+      <img class="card-img" src="images/Alquiler-Aspiradora.jpg" alt="Alquiler de aspiradoras industriales">
+      <h3>Alquiler de Aspiradoras</h3>
+      <p>Aspiradoras industriales y de construcción para limpieza de obra, polvo, escombros y mantenimiento de instalaciones.</p>
+    </div>
+    <div class="card">
+      <h3>Alquiler de Herramientas Especializadas</h3>
+      <p>Herramientas eléctricas, de medición, corte, soldadura y equipos especializados para terminaciones y mantenimiento.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">Sobre la empresa</h2>
+  <div class="about-content">
+    <p>Master en Herramientas y Servicios SAS es una empresa de Cali, Colombia, dedicada al alquiler de maquinaria, equipos y herramientas para la construcción. Nuestra actividad económica está clasificada bajo el código CIIU 7730: Alquiler y arrendamiento de otros tipos de maquinaria, equipo y bienes tangibles n.c.p.</p>
+    <p>Contamos con un parque diversificado de maquinaria pesada, andamios, herramientas y equipos de construcción sin operadores, disponibles para proyectos residenciales, comerciales e industriales. Brindamos asesoría personalizada, mantenimiento técnico y servicio de transporte de equipos a obra, garantizando cumplimiento de plazos y excelentes condiciones de seguridad para cada proyecto.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contacto</h2>
+  <ul class="contact-list">
+    <li>
+      <i class="fa-solid fa-envelope"></i>
+      <a href="mailto:contacto@masterenherramientas.com">contacto@masterenherramientas.com</a>
+    </li>
+    <li>
+      <i class="fa-brands fa-linkedin"></i>
+      <a href="https://linkedin.com/in/masterenherramientas" target="_blank" rel="noopener">linkedin.com/in/masterenherramientas</a>
+    </li>
+    <li>
+      <i class="fa-brands fa-github"></i>
+      <a href="https://github.com/masterenherramientas" target="_blank" rel="noopener">github.com/masterenherramientas</a>
+    </li>
+    <li>
+      <i class="fa-brands fa-x-twitter"></i>
+      <a href="https://twitter.com/masterherram" target="_blank" rel="noopener">@masterherram</a>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  <p class="hide-on-pdf">&copy; 2026 Master en Herramientas y Servicios SAS — Cali, Colombia | CIIU 7730. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

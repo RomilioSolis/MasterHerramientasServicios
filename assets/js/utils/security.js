@@ -100,11 +100,11 @@ const SecurityUtils = (() => {
     // Escapa para JavaScript
     escapeJs: _escapeJs,
     
-    // Versión segura de innerHTML
-    setInnerHTML: (el, html) => {
-      if (!el || !_isSafeUrl('about:blank')) return;
-      el.textContent = _escapeHtml(html);
-    },
+// Versión segura de innerHTML
+     setInnerHTML: (el, html) => {
+       if (!el) return;
+       el.textContent = _escapeHtml(html);
+     },
     
     // Versión segura con template literals
     renderTemplate: (template, data) => {

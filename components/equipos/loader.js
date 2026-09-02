@@ -258,12 +258,15 @@ const EquiposLoader = (() => {
       let currentIndex = 0;
       const totalImages = images.length;
       
-      setInterval(() => {
+      function rotateImage() {
         const imgs = carouselContainer.querySelectorAll('img');
         imgs.forEach(img => img.classList.remove('active'));
         currentIndex = (currentIndex + 1) % totalImages;
         imgs[currentIndex].classList.add('active');
-      }, 5000); // Cambiar cada 5 segundos
+        setTimeout(rotateImage, 5000);
+      }
+      
+      setTimeout(rotateImage, 5000);
     });
   }
 
@@ -375,10 +378,19 @@ if (typeof window !== 'undefined') {
    });
  }
 
- // Fallback: reintentar inicialización después de 1 segundo por si el componente carga lentamente
- setTimeout(function() {
-   if (!_state.initialized) {
-     console.log('EquiposLoader: fallback init después de 1s');
-     EquiposLoader.init();
-   }
- }, 1000);
+  // Fallback: reintentar inicialización cuando el browser esté inactivo
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(function() {
+      if (!_state.initialized) {
+        console.log('EquiposLoader: fallback init durante idle');
+        EquiposLoader.init();
+      }
+    }, { timeout: 1500 });
+  } else {
+    setTimeout(function() {
+      if (!_state.initialized) {
+        console.log('EquiposLoader: fallback init después de 1s');
+        EquiposLoader.init();
+      }
+    }, 1000);
+  }

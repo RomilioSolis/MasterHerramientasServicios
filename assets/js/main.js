@@ -1,8 +1,11 @@
 // DarkMode ya está disponible globalmente desde dark-mode.js
-// Usar el módulo ya cargado
-if (window.DarkMode) {
-  window.darkMode = window.DarkMode;
+if (window.DarkMode && !window.DarkMode.isInitialized()) {
   window.DarkMode.init();
+}
+
+// Cargar componentes dinámicos via ComponentFactory
+if (typeof ComponentFactory !== 'undefined' && ComponentFactory.loadAll) {
+  ComponentFactory.loadAll(['footer', 'contacto', 'faq', 'nosotros', 'social-buttons', 'chat-widget']);
 }
 
 // Inicializar buscador unificado
@@ -15,15 +18,12 @@ if (typeof ChatWidget !== 'undefined' && ChatWidget.init) {
   ChatWidget.init();
 }
 
-// Componente Motosierra
-if (typeof Motosierra !== 'undefined') {
-  new Motosierra();
-}
+// Componentes Motosierra y Equipos están autocargados vía defer en sus scripts
 
 // Componente Equipos - maneja lógica de mostrar equipos
-if (typeof Equipos !== 'undefined' && Equipos.init) {
-  Equipos.init();
-  console.log('Equipos loaded');
+if (typeof EquiposLoader !== 'undefined' && EquiposLoader.init) {
+  EquiposLoader.init();
+  console.log('EquiposLoader loaded');
 }
 
 // Sistema de búsqueda desde URL

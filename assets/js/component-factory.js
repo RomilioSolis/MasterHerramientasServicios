@@ -10,35 +10,28 @@ const ComponentFactory = (function() {
      CHECK_INTERVAL: 50
    });
 
-   // --- REGISTRO DE COMPONENTES ---
-   var COMPONENT_REGISTRY = Object.freeze({
-     footer: {
-       id: 'footer-container',
-       container: 'footer-container',
-       html: 'components/footer/footer.html',
-       css: 'components/footer/footer.css',
-       js: null
-     },
-     contacto: {
-       id: 'contacto-container',
-       container: 'contacto-container',
-       html: 'components/contacto/contacto.html',
-       css: 'components/contacto/contacto.css',
-       js: 'components/contacto/contacto.js'
-     },
-     faq: {
-       id: 'faq-container',
-       container: 'faq-container',
-       html: 'components/faq/faq.html',
-       css: 'components/faq/faq.css',
-       js: 'components/faq/faq.js'
-     },
-horario: {
-        id: 'horario-card-container',
-        container: 'horario-card-container',
-        html: 'components/horario/horario.html',
-        css: 'components/horario/horario.css',
-        js: 'components/horario/horario.js'
+    // --- REGISTRO DE COMPONENTES ---
+    var COMPONENT_REGISTRY = Object.freeze({
+      footer: {
+        id: 'footer-container',
+        container: 'footer-container',
+        html: 'components/footer/footer.html',
+        css: 'components/footer/footer.css',
+        js: null
+      },
+      contacto: {
+        id: 'contacto-container',
+        container: 'contacto-container',
+        html: 'components/contacto/contacto.html',
+        css: 'components/contacto/contacto.css',
+        js: 'components/contacto/contacto.js'
+      },
+      faq: {
+        id: 'faq-container',
+        container: 'faq-container',
+        html: 'components/faq/faq.html',
+        css: 'components/faq/faq.css',
+        js: 'components/faq/faq.js'
       },
       nosotros: {
         id: 'nosotros-container',
@@ -48,20 +41,20 @@ horario: {
         js: 'components/nosotros/nosotros.js'
       },
       'social-buttons': {
-       id: 'social-buttons-container',
-       container: 'social-buttons-container',
-       html: null,
-       css: null,
-       js: 'components/social-buttons/sb-init.js'
-     },
-     'chat-widget': {
-       id: 'chat-widget-container',
-       container: 'chat-widget-container',
-       html: 'components/chat-widget/chat-widget.html',
-       css: null,
-       js: ['assets/js/chat-widget.js', 'components/chat-widget/chat-widget.js']
-     }
-   });
+        id: 'social-buttons-container',
+        container: 'social-buttons-container',
+        html: null,
+        css: null,
+        js: 'components/social-buttons/sb-init.js'
+      },
+      'chat-widget': {
+        id: 'chat-widget-container',
+        container: 'chat-widget-container',
+        html: 'components/chat-widget/chat-widget.html',
+        css: null,
+        js: ['assets/js/chat-widget.js', 'components/chat-widget/chat-widget.js']
+      }
+    });
 
    // --- ESTADO ---
    var _state = {
@@ -99,14 +92,12 @@ horario: {
    }
 
    function _loadHTML(url) {
-     console.log('[ComponentFactory] Fetching: ' + url);
      return fetch(url).then(function(response) {
        if (!response.ok) {
          throw new Error('HTTP ' + response.status + ' loading ' + url);
        }
        return response.text();
      }).then(function(text) {
-       console.log('[ComponentFactory] HTML recibido: ' + url + ' (' + text.length + ' bytes)');
        return text;
      });
    }
@@ -123,11 +114,9 @@ horario: {
    }
 
    function _loadJSArray(scripts) {
-     // Si es string, convertir a array
      if (typeof scripts === 'string') {
        scripts = [scripts];
      }
-     // Cargar secuencialmente
      var promise = Promise.resolve();
      scripts.forEach(function(src) {
        promise = promise.then(function() { return _loadJS(src); });
@@ -138,23 +127,18 @@ horario: {
    function _getContainer(config) {
      var containerId = config.container || config.id;
      var el = document.getElementById(containerId);
-     if (!el) {
-       console.warn('[ComponentFactory] Container not found: #' + containerId);
-     }
      return el;
    }
 
    // --- CARGA DE COMPONENTE ---
    function _loadComponent(config) {
      var id = config.id;
-     
+
      if (_isLoaded(id)) {
-       console.log('[ComponentFactory] ' + id + ' ya cargado');
        return Promise.resolve();
      }
 
      if (_isLoading(id)) {
-       console.log('[ComponentFactory] ' + id + ' ya está cargando, esperando...');
        return new Promise(function(resolve) {
          var check = setInterval(function() {
            if (!_isLoading(id)) {
@@ -167,54 +151,40 @@ horario: {
 
      _state.loading[id] = true;
      var container = _getContainer(config);
-     
-     console.log('[ComponentFactory] Cargando ' + id + ' en #' + config.container);
-     console.log('[ComponentFactory] Container encontrado:', !!container);
 
-      // Cargar CSS
-      if (config.css) {
-        console.log('[ComponentFactory] CSS: ' + config.css);
-        _loadCSS(config.css)['catch'](function(e) { console.error('[ComponentFactory] CSS error:', e.message); });
-      }
+     if (config.css) {
+       _loadCSS(config.css)['catch'](function(e) { console.error('[ComponentFactory] CSS error:', e.message); });
+     }
 
-      // Cargar HTML
-      if (config.html) {
-        if (!container) {
-          _state.loading[id] = false;
-          console.error('[ComponentFactory] Container no encontrado: #' + config.container);
-          return Promise.reject(new Error('Container no encontrado: #' + config.container));
-        }
-        console.log('[ComponentFactory] HTML: ' + config.html);
-        _loadHTML(config.html).then(function(html) {
-          container.innerHTML = html;
-          console.log('[ComponentFactory] HTML insertado en #' + config.container);
-          _state.loaded[id] = true;
-          _state.loading[id] = false;
-          console.log('[ComponentFactory] ✅ ' + id + ' cargado');
-          _emit('component:loaded', { id: id, config: config });
-        })['catch'](function(e) {
-          _state.loading[id] = false;
-          console.error('[ComponentFactory] HTML error:', e.message);
-        });
-      } else {
-        _state.loaded[id] = true;
-        _state.loading[id] = false;
-        console.log('[ComponentFactory] ✅ ' + id + ' cargado');
-        _emit('component:loaded', { id: id, config: config });
-      }
+     if (config.html) {
+       if (!container) {
+         _state.loading[id] = false;
+         console.error('[ComponentFactory] Container no encontrado: #' + config.container);
+         return Promise.reject(new Error('Container no encontrado: #' + config.container));
+       }
+       _loadHTML(config.html).then(function(html) {
+         container.innerHTML = html;
+         _state.loaded[id] = true;
+         _state.loading[id] = false;
+         _emit('component:loaded', { id: id, config: config });
+       })['catch'](function(e) {
+         _state.loading[id] = false;
+         console.error('[ComponentFactory] HTML error:', e.message);
+       });
+     } else {
+       _state.loaded[id] = true;
+       _state.loading[id] = false;
+       _emit('component:loaded', { id: id, config: config });
+     }
 
-      // Cargar JS (soporta string o array)
-      if (config.js) {
-        console.log('[ComponentFactory] JS: ' + (Array.isArray(config.js) ? config.js.join(', ') : config.js));
-        _loadJSArray(config.js).then(function() {
-          console.log('[ComponentFactory] JS cargado: ' + config.js);
-        })['catch'](function(e) {
-          console.error('[ComponentFactory] JS error:', e.message);
-        });
-      }
+     if (config.js) {
+       _loadJSArray(config.js)['catch'](function(e) {
+         console.error('[ComponentFactory] JS error:', e.message);
+       });
+     }
 
-      return Promise.resolve();
-    }
+     return Promise.resolve();
+   }
 
     // --- INICIALIZACIÓN ---
     function _init() {
@@ -223,7 +193,7 @@ horario: {
       _emit('component-factory:init');
     }
 
-    // --- API PÚBLICA ---
+   // --- API PÚBLICA ---
    return {
      init: _init,
 
@@ -255,11 +225,18 @@ horario: {
 
      loadLazy: function(ids, delay) {
        var delay = delay || TIMING.LAZY_DELAY;
-       console.log('[ComponentFactory] loadLazy con delay:', delay);
        var self = this;
-       setTimeout(function() {
-         self.loadAll(ids);
-       }, delay);
+       if ('requestIdleCallback' in window) {
+         window.requestIdleCallback(function() {
+           setTimeout(function() {
+             self.loadAll(ids);
+           }, delay);
+         }, { timeout: 2000 });
+       } else {
+         setTimeout(function() {
+           self.loadAll(ids);
+         }, delay);
+       }
        return this;
      },
 
@@ -285,7 +262,6 @@ horario: {
    }
  })();
 
-// Exportar si ESM
 if (typeof module !== 'undefined' && module.exports) {
    module.exports = ComponentFactory;
  }

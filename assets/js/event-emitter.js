@@ -99,8 +99,6 @@ const EventEmitter = (() => {
 // ============================================
 if (typeof window !== 'undefined') {
   window.EventEmitter = EventEmitter;
-  window.EE = EventEmitter; // Alias corto
-  console.log('EventEmitter: Sistema de eventos centralizado cargado');
 }
 
 // Export

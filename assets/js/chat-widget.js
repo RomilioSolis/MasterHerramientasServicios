@@ -239,31 +239,40 @@ function addBubble(text, direction) {
             !!document.getElementById(IDS.WINDOW);
    }
    
-   /**
-    * Espera a que los elementos del widget estén presentes en el DOM
-    * @param {function} callback
-    * @param {number} maxAttempts
-    * @param {number} interval
-    */
-   function _waitForElements(callback, maxAttempts, interval) {
-     let attempts = 0;
-     
-     function check() {
-       if (_areElementsPresent()) {
-         callback();
-         return;
-       }
-       
-       attempts++;
-       if (attempts < maxAttempts) {
-         setTimeout(check, interval);
-       } else {
-         console.warn('[ChatWidget] Elementos no aparecieron después de ' + maxAttempts + ' intentos');
-       }
-     }
-     
-     check();
-   }
+    /**
+     * Programa verificación de elementos del widget usando requestIdleCallback con backoff exponencial
+     * @param {function} callback
+     * @param {number} maxAttempts
+     * @param {number} baseInterval
+     */
+    function _waitForElements(callback, maxAttempts, baseInterval) {
+      let attempts = 0;
+      
+      function check() {
+        if (_areElementsPresent()) {
+          callback();
+          return;
+        }
+        
+        attempts++;
+        if (attempts < maxAttempts) {
+          const interval = baseInterval * Math.min(attempts, 4);
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(check, { timeout: interval });
+          } else {
+            setTimeout(check, interval);
+          }
+        } else {
+          console.warn('[ChatWidget] Elementos no aparecieron después de ' + maxAttempts + ' intentos');
+        }
+      }
+      
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(check, { timeout: baseInterval });
+      } else {
+        setTimeout(check, baseInterval);
+      }
+    }
    
    /**
     * Configura event delegation en el documento

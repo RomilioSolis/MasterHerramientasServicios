@@ -58,12 +58,15 @@
         "@type": "LocalBusiness",
         "@id": "https://masterenherramientasyservicios.com.co/#localbusiness",
         "name": "Master Herramientas y Servicios",
-        "description": "Nuestra actividad principal es el alquiler de herramientas desde 2014. Somos una empresa pequeña que ofrece servicios de demolición, extracción de núcleo, corte de pavimento y mantenimiento de equipos. Estamos ubicados en Cra. 23 #36-48, Barrio El Rodeo, al lado de la autopista sur oriental, Cali.",
+        "description": "Nuestra actividad principal es el alquiler de herramientas desde 2014. Somos una empresa pequeña que ofrece servicios de demolición, extracción de núcleo, corte de pavimento y mantenimiento de equipos. Estamos ubicados en Cra. 23 #36-48, Barrio El Rodeo, al lado de la autopista sur oriental, Cali, y contamos con sucursal en Barrio Santa Monica.",
         "image": ["https://masterenherramientasyservicios.com.co/assets/imagenes/miniatura-video.webp"],
         "logo": "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.png",
         "priceRange": "$$",
         "foundingDate": "2014-08",
         "address": {"@type": "PostalAddress", "streetAddress": "Cra. 23 #36-48, Barrio El Rodeo", "addressLocality": "Cali", "addressRegion": "Valle del Cauca", "postalCode": "760001", "addressCountry": "CO"},
+        "additionalLocation": [
+          {"@type": "PostalAddress", "streetAddress": "Cra 23 # 33 b 126, Barrio Santa Monica", "addressLocality": "Cali", "addressRegion": "Valle del Cauca", "postalCode": "760001", "addressCountry": "CO"}
+        ],
         "geo": {"@type": "GeoCoordinates", "latitude": "3.438050", "longitude": "-76.538800"},
         "telephone": ["+573165345675", "+573163550319"],
         "email": "info@masterenherramientasyservicios.com.co",
@@ -113,10 +116,16 @@
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
-  <!-- Preconnect para fuentes de Google (solo usadas en fonts.googleapis.com) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Preconnect para recursos externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
 
    <!-- Fallback font metrics: reservar espacio para Poppins para evitar CLS -->
    <style>
@@ -249,8 +258,7 @@
         <script src="assets/js/constants.js" defer></script>
 
         <!-- Incluir componente de botones de categorías -->
-        <script src="components/category-buttons/category-buttons.js" defer></script>
-        <script src="components/category-filter/category-filter.js" defer></script>
+<script src="components/category-buttons/category-buttons.js" defer></script>
         <script src="components/equipos/loader.js" defer></script>
 
         <!-- Filtro de categorías (auto- inicializado por category-buttons.js) -->
@@ -273,53 +281,9 @@
   <div id="social-buttons-container" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:10001;display:flex;flex-direction:column;gap:10px;"></div>
   <div id="chat-widget-container"></div>
 
-  <!-- Component Factory - Carga de Componentes (defer para no bloquear) -->
-  <script defer src="assets/js/component-factory.js"></script>
-<script>console.log('Scripts de factory cargados');</script>
-   <script>
-     function initComponents() {
-      if (typeof ComponentFactory === 'undefined') {
-        if (!initComponents._intentos) initComponents._intentos = 0;
-        if (initComponents._intentos++ < 20) {
-          requestIdleCallback(() => setTimeout(initComponents, 50), { timeout: 2000 });
-          return;
-        }
-        console.error('ComponentFactory no disponible tras reintentos');
-        return;
-      }
-      initComponents._intentos = 0;
-      console.log('Inicializando componentes via Factory...');
-      ComponentFactory.loadLazy(['footer', 'contacto', 'faq', 'social-buttons', 'chat-widget']);
-      ComponentFactory.load('nosotros');
-      
-      function cargarHorario() {
-        var container = document.getElementById('horario-card-container');
-        if (container && container.innerHTML.trim() === '') {
-          ComponentFactory.load('horario');
-        } else if (!container) {
-          requestAnimationFrame(cargarHorario);
-        }
-      }
-      
-      if (!initComponents._listenerHorario) {
-        initComponents._listenerHorario = true;
-        document.addEventListener('component:loaded', function(e) {
-          if (e.detail && e.detail.id === 'nosotros-container') {
-            cargarHorario();
-          }
-        });
-      }
-    }
-    
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initComponents);
-    } else {
-      initComponents();
-    }
-  </script>
-
-<!-- Dark mode button - removed fetch, styles inlined in head -->
-<script defer src="components/dark-mode/dark-mode.js"></script>
+<!-- Component Factory - Carga de Componentes -->
+    <script defer src="assets/js/component-factory.js"></script>
+    <script defer src="components/dark-mode/dark-mode.js"></script>
 
 <!-- Cookies -->
 <script>

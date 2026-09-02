@@ -27,6 +27,14 @@
                 <i class="fa-solid fa-location-dot"></i>
                 <span>CRA 23 #36-48, El Rodeo, Cali</span>
               </li>
+              <li class="footer-location-secondary">
+                <i class="fa-solid fa-location-dot"></i>
+                <address>
+                  <a href="https://maps.google.com/?q=Cra+23+%23+33+b+126+Santa+Monica" target="_blank" rel="noopener noreferrer">
+                    Cra 23 # 33 b 126, Barrio Santa Monica, Cali
+                  </a>
+                </address>
+              </li>
               <li>
                 <i class="fa-solid fa-phone"></i>
                 <div class="contact-phones">
@@ -201,6 +209,33 @@
 }
 
 .footer-links a:hover {
+  color: #ffc107;
+}
+
+.footer-location-secondary {
+  padding-top: 0.5rem;
+  margin-top: 0.25rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-location-secondary i {
+  color: var(--sweet-salmon);
+}
+
+.footer-location-secondary address {
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.footer-location-secondary a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+  word-break: break-word;
+}
+
+.footer-location-secondary a:hover {
   color: #ffc107;
 }
 

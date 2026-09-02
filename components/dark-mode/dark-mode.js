@@ -74,11 +74,9 @@ const DarkMode = (() => {
   return {
     init() {
       if (_state.initialized) return;
-      
       _applyStyles();
       _setTheme(_state.theme);
       _state.initialized = true;
-      
       _emit('darkmode:init', { theme: _state.theme });
     },
     

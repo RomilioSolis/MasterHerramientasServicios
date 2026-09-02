@@ -80,7 +80,17 @@ function loadScript(src) {
     });
 }
 
-async function loadHeaderComponent() {
+async function _loadScriptDuringIdle(src) {
+    if ('requestIdleCallback' in window) {
+      await new Promise((resolve, reject) => {
+        window.requestIdleCallback(() => loadScript(src).then(resolve).catch(reject), { timeout: 3000 });
+      });
+    } else {
+      await loadScript(src);
+    }
+  }
+
+  async function loadHeaderComponent() {
     await loadStyles();
 
     const headerContainer = document.getElementById('header-app');
@@ -88,58 +98,61 @@ async function loadHeaderComponent() {
 
     headerContainer.innerHTML = getHeaderHTML();
 
-    // Cargar equipos-dropdown.js (ruta relativa)
+    // Critical: equipos-dropdown.js (needed for dropdown interactions)
     try {
-        console.log('Header: Cargando equipos-dropdown.js...');
-        await loadScript('components/equipos-dropdown/equipos-dropdown.js');
-        console.log('Header: Script cargado, initEquiposDropdown existe:', typeof window.initEquiposDropdown);
-        
-        // Esperar a que initialice completamente (es async por carga de estilos)
-        if (window.initEquiposDropdown) {
-            const result = await window.initEquiposDropdown();
-            console.log('Header: EquiposDropdown inicializado:', result);
-        } else {
-            console.error('EquiposDropdown: initEquiposDropdown no disponible');
-        }
+      console.log('Header: Cargando equipos-dropdown.js...');
+      await loadScript('components/equipos-dropdown/equipos-dropdown.js');
+      console.log('Header: Script cargado, initEquiposDropdown existe:', typeof window.initEquiposDropdown);
+      
+      if (window.initEquiposDropdown) {
+        const result = await window.initEquiposDropdown();
+        console.log('Header: EquiposDropdown inicializado:', result);
+      } else {
+        console.error('EquiposDropdown: initEquiposDropdown no disponible');
+      }
     } catch (e) {
-        console.error('Error cargando equipos-dropdown.js:', e);
+      console.error('Error cargando equipos-dropdown.js:', e);
     }
 
-    // Cargar buscador-unificado.js
-    try {
-        await loadScript('assets/js/buscador-unificado.js');
-        if (window.Buscador) {
+    // Non-critical: buscador-unificado.js (loaded during idle time to reduce TBT)
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(async () => {
+        try {
+          await loadScript('assets/js/buscador-unificado.js');
+          if (window.Buscador) {
             window.Buscador.init();
+          }
+        } catch (e) {
+          console.error('Error cargando buscador-unificado.js:', e);
         }
-    } catch (e) {
-        console.error('Error cargando buscador-unificado.js:', e);
+      }, { timeout: 2000 });
+    } else {
+      loadScript('assets/js/buscador-unificado.js').then(() => {
+        if (window.Buscador) {
+          window.Buscador.init();
+        }
+      }).catch(e => console.error('Error cargando buscador-unificado.js:', e));
     }
 
-    // Observar carga de contenido para re-aplicar búsqueda
-    const netflixRows = document.getElementById('netflixRows');
-    if (netflixRows) {
-        const observer = new MutationObserver(() => {
-            const items = netflixRows.querySelectorAll('.netflix-item');
-            if (items.length > 0) {
-                observer.disconnect();
-            }
-        });
-        observer.observe(netflixRows, { childList: true, subtree: true });
-    }
+    // Detach MutationObservers after they've done their job
+    const setupObserver = (elementId, selector) => {
+      const el = document.getElementById(elementId);
+      if (!el) return null;
+      const observer = new MutationObserver((mutations) => {
+        const items = el.querySelectorAll(selector);
+        if (items.length > 0) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(el, { childList: true, subtree: true });
+      return observer;
+    };
 
-    const herramientasContainer = document.getElementById('herramientas-container');
-    if (herramientasContainer) {
-        const observer = new MutationObserver(() => {
-            const cards = herramientasContainer.querySelectorAll('.col-md-4');
-            if (cards.length > 0) {
-                observer.disconnect();
-            }
-        });
-        observer.observe(herramientasContainer, { childList: true, subtree: true });
-    }
-}
+    setupObserver('netflixRows', '.netflix-item');
+    setupObserver('herramientas-container', '.col-md-4');
+  }
 
-document.addEventListener('DOMContentLoaded', loadHeaderComponent);
+  document.addEventListener('DOMContentLoaded', loadHeaderComponent);
 
 // Exponer búsqueda global (buscador-unificado ya expone searchTools, pero mantenemos por compatibilidad)
 window.searchTools = function(query) {

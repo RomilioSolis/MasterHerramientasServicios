@@ -46,6 +46,8 @@ const Contacto = (() => {
     
     const LAT = 3.438368;
     const LNG = -76.505911;
+    const LAT_SANTA_MONICA = 3.436917;
+    const LNG_SANTA_MONICA = -76.510377;
     
     const mapa = L.map('contacto-mapa', {
       center: [LAT, LNG],
@@ -72,7 +74,27 @@ const Contacto = (() => {
       '<a href="https://www.google.com/maps/place/3.438368,-76.505911" target="_blank" style="color:#4dabf7;font-size:12px;">Ver en Maps →</a></div>'
     ).openPopup();
     
-_state.mapa = mapa;
+    const iconoSucursal = L.divIcon({
+      className: '',
+      html: '<div style="background:linear-gradient(135deg,#1565c0,#0d47a1);width:40px;height:40px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 3px 15px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;"><span style="transform:rotate(45deg);font-size:18px;">📍</span></div>',
+      iconSize: [40, 40],
+      iconAnchor: [20, 40]
+    });
+    
+    L.marker([LAT_SANTA_MONICA, LNG_SANTA_MONICA], {icon: iconoSucursal}).addTo(mapa).bindPopup(
+      '<div style="font-family:var(--font-family);min-width:200px;padding:5px;">' +
+      '<strong style="color:#1565c0;font-size:15px;">📍 Sucursal Santa Mónica</strong><br>' +
+      '<span style="color:#ccc;font-size:13px;">Cra 23 # 33 b 126, Barrio Santa Monica</span><br>' +
+      '<a href="https://www.google.com/maps/place/3.436917,-76.510377" target="_blank" style="color:#4dabf7;font-size:12px;">Ver en Maps →</a></div>'
+    );
+    
+    const bounds = L.latLngBounds([
+      [LAT, LNG],
+      [LAT_SANTA_MONICA, LNG_SANTA_MONICA]
+    ]);
+    mapa.fitBounds(bounds, { padding: [40, 40], maxZoom: 16 });
+    
+    _state.mapa = mapa;
   }
   
   /**
