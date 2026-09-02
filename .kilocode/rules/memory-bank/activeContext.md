@@ -1,7 +1,7 @@
 # Active Context - Memory Bank
 
 ## Última actualización
-2026-09-02
+2026-09-02 — Auditoría SEO integral (estándares vigentes al 31-ago-2026)
 
 ## Reglas arquitectónicas obligatorias
 - Vanilla JS, NO frameworks (React/Vue/Angular).
@@ -16,40 +16,47 @@
 
 ## Información del negocio
 - **Nombre**: Master Herramientas y Servicios
-- **Dirección principal**: CRA 23 #36-48, Barrio El Rodeo, Cali, Colombia
-- **Sucursal Santa Mónica**: Cra 23 # 33 b 126, Barrio Santa Monica, Cali, Colombia
+- **Dirección principal**: CRA 23 #36-48, Barrio El Rodeo, Cali, Colombia (3.438050, -76.538800)
+- **Sucursal Santa Mónica**: Cra 23 # 33 b 126, Barrio Santa Monica, Cali, Colombia (3.44565, -76.511 — aproximadas, marcadas TODO)
 - **Teléfonos**: 316 5345675 / 316 3550319
 - **Email**: masterenherramientasyservicios@gmail.com
 - **Horario**: Lun-Vie 8:00-18:00, Sáb 8:00-16:00
 - **Año fundación**: 2014
 
-**Coordenadas**:
-- **Principal (El Rodeo)**: 3.438368, -76.505911
-- **Sucursal Santa Mónica**: 3.436917, -76.510377
+## Estado actual del proyecto
 
-## Decisiones tomadas
+### Auditoría SEO 2026-09-02
+Se aplicaron los estándares SEO vigentes al 31-ago-2026:
 
-### Mapas interactivos (2026-09-02)
-Se actualizaron los mapas Leaflet en `components/nosotros/nosotros.js` y `components/contacto/contacto.js` para mostrar ambas ubicaciones:
-- Marcador rojo/🔧 para la sede principal El Rodeo.
-- Marcador azul/📍 para la sucursal Santa Mónica.
-- `mapa.fitBounds()` ajusta la vista para incluir ambas ubicaciones con padding de 40px y `maxZoom: 16`.
+- **Meta description** reescrita a 155 caracteres útiles, sin símbolos decorativos.
+- **Title** recortado a 58 caracteres (`... | Master Herramientas`).
+- **JSON-LD `@graph`** enriquecido: `LocalBusiness` ahora incluye `department[]` y `location[]` con sus propias `GeoCoordinates`, `PostalAddress`, `telephone` y `openingHoursSpecification` para la sucursal Santa Mónica. `WebPage` actualizada con `datePublished` (2014-08-01) y `dateModified` (2026-09-02). `FAQPage` ampliada con preguntas sobre entregas, contacto por correo y solicitud de cotización; primera respuesta incluye ambas direcciones.
+- **Open Graph y Twitter Cards** sincronizados con el nuevo título y descripción.
+- **`components/contacto/contacto.html`**: cada `<address>` ahora lleva `itemprop="name"`, `addressCountry`, y el `aria-label` en el botón "Cómo llegar". Se añadió botón "Cómo llegar (Santa Mónica)" con coordenadas aproximadas 3.44565, -76.511.
+- **`components/footer/footer.html`**: ambas direcciones marcadas como `<address itemscope itemtype="https://schema.org/PostalAddress">` con `itemprop="name"`, `streetAddress`, `addressLocality`, `addressCountry`. Enlace Maps de Santa Mónica apunta a la versión con ciudad (`+Cali`).
+- **Microdata dual**: la página ahora expone la información de las dos sucursales tanto en JSON-LD (Schema.org) como en microdata clásica (`itemscope`/`itemprop`), maximizando la compatibilidad con parsers de Google, Bing y modelos generativos.
 
-## Archivos modificados en esta sesión
-Se agregó la información de la nueva sucursal Santa Mónica como **segunda ubicación** en la landing page, sin reemplazar la ubicación existente en El Rodeo.
-
-**Layout elegido**: Tarjeta de info apilada con dirección principal + sucursal secundaria. Cada ubicación usa su propio `<address>` semántico con microformatos Schema.org. La sucursal Santa Mónica incluye un enlace clickable a Google Maps (`https://maps.google.com/?q=Cra+23+%23+33+b+126+Santa+Monica`) para UX estática sin dependencias externas.
-
-**Accesibilidad**: Se verificó contraste y tamaños de fuente para cumplir WCAG 2.1 AA. Textos en `rgba(255,255,255,0.9)` sobre fondo oscuro, fuentes >= 0.85rem en mobile, enlaces con estados hover diferenciados.
-
-**Responsive**: Mobile-first, con separadores sutiles (`border-top`) para distinguir las ubicaciones en pantallas pequeñas. breakpoints aplicados en 480px, 768px, 992px.
-
-**Schema.org actualizado**: Se agregó `additionalLocation` al `LocalBusiness` en `index.html` con la nueva dirección postal.
+### Decisiones tomadas (ver `decisions.md`)
+- D-SEO-01: Mantener JSON-LD con `@graph` como fuente única de verdad para Schema.org.
+- D-SEO-02: Usar coordenadas aproximadas 3.44565, -76.511 para Santa Mónica con TODO hasta confirmar GPS real.
+- D-SEO-03: Conservar `hreflang="es-CO"` y `x-default` apuntando al mismo dominio (sitio monolingüe).
+- D-SEO-04: No generar `llms.txt` (Google no lo requiere; contenido bien estructurado es suficiente).
+- D-SEO-05: `dateModified` se actualizará en cada cambio SEO significativo.
 
 ## Archivos modificados en esta sesión
-- `components/contacto/contacto.html`
-- `components/contacto/contacto.css`
-- `components/footer/footer.html`
-- `components/footer/footer.css`
-- `components/nosotros/nosotros.html`
-- `index.html` (Schema.org JSON-LD)
+- `index.html` (meta description, title, JSON-LD `@graph` enriquecido, OG/Twitter)
+- `components/contacto/contacto.html` (microdata ampliada + segundo botón de mapa)
+- `components/contacto/contacto.css` (estilos `.btn-directions-secondary`)
+- `components/footer/footer.html` (microdata ampliada para ambas direcciones)
+- `.kilocode/rules/memory-bank/activeContext.md` (este archivo)
+- `.kilocode/rules/memory-bank/projectbrief.md` (nuevo)
+- `.kilocode/rules/memory-bank/decisions.md` (nuevo)
+- `.kilocode/rules/memory-bank/productContext.md` (nuevo)
+- `.kilocode/skills/ai-context-harness/SKILL.md` (reglas SEO añadidas)
+- `docs/SEO.md` (nuevo)
+- `docs/ESTRUCTURA-PROYECTO.md` (mínimo cambio, sólo se ajustó el pie de "Última actualización")
+
+## TODO abierto
+- Confirmar coordenadas GPS exactas de la sucursal Santa Mónica y reemplazar los valores aproximados (3.44565, -76.511) en `index.html` JSON-LD, `components/contacto/contacto.html` y `components/contacto/contacto.js`.
+- Verificar en Google Search Console que el rich-result `LocalBusiness` con múltiples ubicaciones se indexa correctamente.
+- Considerar agregar `Service` específico para cada categoría de equipo (hoy `hasOfferCatalog` lista sólo 3 servicios representativos).

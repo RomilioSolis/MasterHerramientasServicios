@@ -331,5 +331,5 @@ document.getElementById('social-buttons-container').innerHTML
 
 ---
 
-**Última actualización**: 18 de abril, 2026 (galería interactiva + Taladro Magnético)
+**Última actualización**: 2 de septiembre, 2026 (auditoría SEO integral — ver `docs/SEO.md`)
 **Estado del proyecto**: ✅ Operativo - Optimizado

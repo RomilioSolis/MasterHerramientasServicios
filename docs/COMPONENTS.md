@@ -291,4 +291,12 @@ lazyLoad('footer-container', '/components/footer.html', '/assets/css/footer.css'
 
 ---
 
+## Documentación relacionada
+
+- `README.md` - Descripción general del proyecto
+- `docs/ESTRUCTURA-PROYECTO.md` - Arquitectura y layout de componentes
+- `docs/SEO.md` - Auditoría SEO y checklist vigente (2026-08-31)
+
+---
+
 ## Contacto (components/contacto.html)

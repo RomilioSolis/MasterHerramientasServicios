@@ -292,6 +292,11 @@
   font-size: 1.1rem;
 }
 
+.btn-directions + .btn-directions-secondary,
+.btn-directions-secondary {
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 992px) {
   .contacto-section {
     padding: 3rem 0;
