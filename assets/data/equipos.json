@@ -56,6 +56,7 @@
     "categoria": "elevacion",
     "precioDia": 110000,
     "precioSemana": 550000,
+    "venta": 95000,
     "disponible": true,
     "carpeta": "gatosM",
     "descripcion": "Gato hidráulico de botella 10 toneladas para trabajos de elevación pesada.",
@@ -345,7 +346,7 @@
     "categoria": "movimiento",
     "precioDia": 50000,
     "precioSemana": 250000,
-    "disponible": true,
+    "disponible": false,
     "imagen": "Estanteria.png",
     "descripcion": "Sistema de estanterías modulares para almacenamiento temporal de materiales en obra.",
     "caracteristicas": [
@@ -498,7 +499,7 @@
     "categoria": "construccion",
     "precioDia": 25000,
     "precioSemana": 125000,
-    "disponible": true,
+    "disponible": false,
     "imagen": "Parasol.png",
     "descripcion": "Parasol industrial de 3 metros diámetro para protección solar en obras.",
     "caracteristicas": [
@@ -508,5 +509,22 @@
       "Altura ajustable"
     ],
     "carpeta": "Parasol"
+  },
+  {
+    "id": "cerchas",
+    "nombre": "Cerchas",
+    "categoria": "construccion",
+    "precioDia": 0,
+    "precioSemana": 0,
+    "venta": 100000,
+    "disponible": true,
+    "carpeta": "Cerchas",
+    "imagen": "20250226_091008.jpg",
+    "descripcion": "Cerchas metálicas para estructuras de techado en obras de construcción.",
+    "caracteristicas": [
+      "Resistentes y duraderas",
+      "Fáciles de instalar",
+      "Ideales para techos residenciales e industriales"
+    ]
   }
 ]

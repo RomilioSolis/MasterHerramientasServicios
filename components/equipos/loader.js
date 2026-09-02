@@ -127,7 +127,7 @@ const EquiposLoader = (() => {
       btn.type = 'button';
       btn.className = 'stream-chip';
       btn.dataset.target = cat.id;
-      btn.innerHTML = `<i class="bi ${_getCategoriaIcon(cat.id)}"></i><span>${cat.label}</span>`;
+      btn.innerHTML = `<span>${cat.label}</span>`;
       btn.addEventListener('click', () => {
         _resetSearch();
         _applyCategoryFilter(cat.id);
@@ -226,6 +226,20 @@ const EquiposLoader = (() => {
       badge.textContent = 'Disponible';
       badge.setAttribute('aria-label', equipo.nombre + ' disponible para alquiler');
       poster.appendChild(badge);
+    } else {
+      const badge = document.createElement('span');
+      badge.className = 'stream-card-badge stream-card-badge--agotado';
+      badge.textContent = 'Agotado';
+      badge.setAttribute('aria-label', equipo.nombre + ' agotado');
+      poster.appendChild(badge);
+    }
+
+    if (equipo.venta) {
+      const venta = document.createElement('span');
+      venta.className = 'stream-card-badge stream-card-badge--venta';
+      venta.textContent = 'Venta $' + equipo.venta.toLocaleString('es-CO');
+      venta.setAttribute('aria-label', equipo.nombre + ' disponible para venta');
+      poster.appendChild(venta);
     }
 
     poster.addEventListener('click', async function() {

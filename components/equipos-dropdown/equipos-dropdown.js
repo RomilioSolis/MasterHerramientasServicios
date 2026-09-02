@@ -91,7 +91,6 @@ const EquiposDropdown = (() => {
   function _getCategoryHTML([key, cat]) {
     return `
       <a href="#equipos" class="equipos-category-item" data-category="${key}">
-        <i class="bi ${cat.icon}"></i>
         <span>${cat.name}</span>
       </a>
     `;
