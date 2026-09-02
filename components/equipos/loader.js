@@ -237,7 +237,7 @@ const EquiposLoader = (() => {
     if (equipo.venta) {
       const venta = document.createElement('span');
       venta.className = 'stream-card-badge stream-card-badge--venta';
-      venta.textContent = 'Venta $' + equipo.venta.toLocaleString('es-CO');
+      venta.textContent = equipo.ventaLabel || ('Venta $' + equipo.venta.toLocaleString('es-CO'));
       venta.setAttribute('aria-label', equipo.nombre + ' disponible para venta');
       poster.appendChild(venta);
     }
