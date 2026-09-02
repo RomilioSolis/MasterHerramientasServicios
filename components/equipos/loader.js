@@ -106,11 +106,6 @@ const EquiposLoader = (() => {
     titulo.className = 'stream-hero-title';
     titulo.textContent = 'Catálogo de Equipos';
 
-    const subtitulo = document.createElement('p');
-    subtitulo.className = 'stream-hero-subtitle';
-    const total = _state.equipos.length;
-    subtitulo.innerHTML = `Más de <strong>${total}</strong> herramientas y equipos disponibles para alquiler en Cali`;
-
     const chips = document.createElement('nav');
     chips.className = 'stream-chips';
     chips.setAttribute('aria-label', 'Categorías del catálogo');
@@ -147,7 +142,6 @@ const EquiposLoader = (() => {
     });
 
     inner.appendChild(titulo);
-    inner.appendChild(subtitulo);
     inner.appendChild(chips);
     hero.appendChild(inner);
     container.appendChild(hero);
