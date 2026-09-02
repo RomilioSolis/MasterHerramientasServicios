@@ -220,6 +220,9 @@
   <link rel="preload" href="assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
 
+  <!-- Equipos CSS: cargado de forma sincrónica al final para sobrescribir reglas legacy de main.css -->
+  <link rel="stylesheet" href="components/equipos/equipos.css">
+
    
   <!-- Cache Control -->
   <meta http-equiv="Cache-Control" content="max-age=86400, must-revalidate">
@@ -271,14 +274,10 @@
         <!-- Constantes centralizadas -->
         <script src="assets/js/constants.js" defer></script>
 
-        <!-- Incluir componente de botones de categorías -->
-<script src="components/category-buttons/category-buttons.js" defer></script>
+        <!-- Equipos Loader: renderiza el hero con chips de categoría + el grid de cards -->
         <script src="components/equipos/loader.js" defer></script>
 
-        <!-- Filtro de categorías (auto- inicializado por category-buttons.js) -->
-        <div id="categoryButtonsContainer"></div>
-
-        <!-- Netflix Rows (cargado dinámicamente desde componentes/equipos/loader.js) -->
+        <!-- Netflix Rows: hero con chips de categoría + grid de equipos (streaming view) -->
         <div class="netflix-rows-container" id="netflixRows"></div>
       </div>
     </section>

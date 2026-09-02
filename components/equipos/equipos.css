@@ -1,298 +1,357 @@
-/* Sección Equipos - fondo azul en todos los modos */
+/* =========================================================
+   Sección Equipos - fondo azul en todos los modos
+   ========================================================= */
 #equipos {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   padding: 3rem 0;
 }
 
+#equipos h2,
+#equipos p {
+  color: #fff;
+}
+
+/* Contenedor principal de la vista streaming */
 .netflix-rows-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 1.5rem;
-  /* background removido - now inherits from #equipos section */
-  border-radius: 0;
-  /* sin sombra propia */
-}
-.netflix-row {
-  margin-bottom: 0.75rem;
-}
-.netflix-row-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.netflix-category-title {
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0;
-  padding-left: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 1;
-}
-.netflix-scroll-btn {
-  background: rgba(196, 30, 58, 0.8);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, transform 0.2s;
-  flex-shrink: 0;
-  opacity: 1 !important;
-}
-.netflix-scroll-btn:hover {
-  background: rgba(196, 30, 58, 1);
-  transform: scale(1.1);
-}
-.netflix-category-title i {
-  color: #ffc107;
+  padding: 1rem 1.25rem 2.5rem;
+  overflow-x: hidden;
 }
 
-/* Carrusel automático en miniaturas Netflix */
-.netflix-item {
-  position: relative;
+.netflix-rows-container.streaming-view {
+  overflow-x: hidden;
 }
-.netflix-item .carousel-images {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.netflix-item .carousel-images img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-}
-.netflix-item .carousel-images img.active {
-  opacity: 1;
-}
-.netflix-row {
-  margin-bottom: 0.75rem;
-}
+
+.stream-row,
+.stream-row-track,
+.netflix-row,
 .netflix-row-content {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 0.5rem 0;
-  scrollbar-width: thin;
-  scrollbar-color: #800020 #1a1a2e;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  max-width: 100%;
 }
-.netflix-row-content::-webkit-scrollbar {
-  height: 6px;
-}
-.netflix-row-content::-webkit-scrollbar-track {
-  background: #1a1a2e;
-  border-radius: 3px;
-}
-.netflix-row-content::-webkit-scrollbar-thumb {
-  background: #800020;
-  border-radius: 3px;
-}
+
+.stream-card,
 .netflix-item {
-  flex: 0 0 auto;
-  min-width: 300px;
-}
-.netflix-row-content::-webkit-scrollbar {
-  height: 6px;
-}
-.netflix-row-content::-webkit-scrollbar-track {
-  background: #1a1a2e;
-}
-.netflix-row-content::-webkit-scrollbar-thumb {
-  background: #800020;
-  border-radius: 3px;
-}
-.netflix-item {
-  flex: 0 0 auto;
-  width: 350px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
-  border-radius: 12px;
-  overflow: visible;
-  box-shadow: 
-    0 4px 15px rgba(0,0,0,0.4),
-    0 0 0 1px rgba(255,255,255,0.05),
-    inset 0 1px 0 rgba(255,255,255,0.1);
-  z-index: 1;
-}
-.netflix-item:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 
-    0 20px 40px rgba(0,0,0,0.5),
-    0 0 0 1px rgba(196,30,58,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.15);
-  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%) !important;
-}
-.netflix-item:hover .netflix-item-title {
-  background: linear-gradient(180deg, rgba(30,30,50,0.95) 0%, rgba(20,20,40,0.98) 100%) !important;
-  color: #fff !important;
-  z-index: 10;
-  position: relative;
-}
-.netflix-item-image {
-  width: 100%;
-  height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
   overflow: hidden;
-  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
-  flex-shrink: 0;
-  position: relative;
 }
-.netflix-item-title {
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
+
+/* =========================================================
+   STREAMING HERO
+   ========================================================= */
+.stream-hero {
+  position: relative;
+  margin-bottom: 2rem;
+  padding: 2.5rem 1.5rem 2rem;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(196, 30, 58, 0.18) 0%, rgba(0, 0, 0, 0) 60%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%),
+    #141425;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   text-align: center;
-  display: block;
-  padding: 0.6rem;
-  background: linear-gradient(180deg, rgba(30,30,50,0.9) 0%, rgba(20,20,40,0.95) 100%);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  order: 2;
-  z-index: 5;
-  position: relative;
+  overflow: hidden;
 }
-.netflix-item-whatsapp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  background: linear-gradient(135deg, #128C7E 0%, #0d6b5a 100%) !important;
-  color: #ffffff !important;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-  order: 3;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  z-index: 5;
-  position: relative;
-}
-.netflix-item-image::before {
+.stream-hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(196,30,58,0.1) 100%);
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 193, 7, 0.08), transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(37, 211, 102, 0.08), transparent 50%);
   pointer-events: none;
 }
-.netflix-item-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+.stream-hero-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
 }
+.stream-hero-title {
+  color: #fff;
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+.stream-hero-subtitle {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.95rem;
+  margin: 0;
+  max-width: 640px;
+}
+.stream-hero-subtitle strong { color: #ffc107; }
 
-/* Carrusel automático en miniaturas Netflix */
-.netflix-item {
-  position: relative;
-}
-.netflix-item .carousel-images {
-  position: relative;
+.stream-chips {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.25rem 0.25rem 0.5rem;
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  justify-content: flex-start;
 }
-.netflix-item .carousel-images img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+.stream-chips::-webkit-scrollbar { display: none; }
+
+.stream-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 0 0 auto;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  font-family: inherit;
+  white-space: nowrap;
 }
-.netflix-item .carousel-images img.active {
-  opacity: 1;
+.stream-chip i { font-size: 0.95rem; color: #ffc107; }
+.stream-chip:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
 }
-.netflix-item:hover .netflix-item-image img {
-  transform: scale(1.05);
+.stream-chip.is-active {
+  background: #c41e3a;
+  border-color: #c41e3a;
+  color: #fff;
 }
-/* Título del equipo - legibilidad mejorada */
-.netflix-item-title {
-  color: #ffffff;
+.stream-chip.is-active i { color: #fff; }
+
+/* =========================================================
+   SECCIÓN POR CATEGORÍA
+   ========================================================= */
+.stream-row {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 90px;
+}
+.stream-row-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 0.25rem;
+}
+.stream-row-titles { display: flex; align-items: center; gap: 0.5rem; }
+.stream-row-title {
+  color: #fff;
   font-size: 1.2rem;
   font-weight: 700;
-  text-align: center;
-  display: block;
-  padding: 0.8rem 0.6rem 0.6rem;
-  background: linear-gradient(180deg, rgba(30,30,50,0.95) 0%, rgba(20,20,40,0.98) 100%);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-  line-height: 1.3;
-  order: 2;
-  z-index: 5;
-  position: relative;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-.netflix-item-whatsapp {
+.stream-row-title i { color: #ffc107; font-size: 1.15rem; }
+.stream-row-count {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Grid de cards - auto-fill responsive (1 col móvil, 2 tablet, 3 desktop, 4 XL) */
+.stream-row-track,
+.netflix-row-content.streaming-row-content,
+.streaming-view .netflix-row-content {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  gap: 1rem !important;
+  overflow: visible !important;
+  overflow-x: visible !important;
+  max-width: 100% !important;
+  flex: none !important;
+  flex-wrap: wrap !important;
+  padding: 0 !important;
+}
+
+/* Card nunca excede el grid cell */
+.stream-card,
+.netflix-item.stream-card {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: auto !important;
+  flex: none !important;
+}
+
+/* =========================================================
+   CARD STREAMING
+   ========================================================= */
+.stream-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, #141425 0%, #0d1424 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.stream-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.55),
+              0 0 0 1px rgba(255, 193, 7, 0.4);
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+.stream-card-poster {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(180deg, #0a0a14 0%, #141425 100%);
+  overflow: hidden;
+  cursor: pointer;
+}
+.stream-card-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.stream-card:hover .stream-card-poster img {
+  transform: scale(1.06);
+}
+
+.stream-card-badge {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  z-index: 2;
+  background: rgba(34, 197, 94, 0.92);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.stream-card-badge::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px #fff;
+}
+
+.stream-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1rem 1.1rem;
+  flex: 1;
+}
+
+.stream-card-title {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.stream-card-cta {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.6rem;
-  background: linear-gradient(135deg, #128C7E 0%, #0d6b5a 100%) !important;
-  color: #ffffff !important;
-  font-size: 0.8rem;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.7rem 0.85rem;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #fff !important;
+  font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-  order: 3;
-  border-top: 1px solid rgba(255,255,255,0.1);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  z-index: 5;
-  position: relative;
+  border-radius: 8px;
+  transition: filter 0.2s, transform 0.2s;
 }
-.netflix-item-whatsapp:hover {
-  background: linear-gradient(135deg, #0d6b5a 0%, #0a5547 100%) !important;
-  color: #ffffff !important;
-  transform: scale(1.02);
+.stream-card-cta:hover {
+  filter: brightness(1.05);
+  transform: scale(1.01);
+  color: #fff !important;
 }
-.netflix-item-whatsapp i {
-  margin-right: 0.5rem;
-  font-size: 1.1rem;
-  color: #ffffff !important;
+.stream-card-cta i { font-size: 1.1rem; }
+
+/* =========================================================
+   ALIAS para integradores (buscador, category-filter)
+   Los selectores .netflix-row, .netflix-item siguen existiendo
+   gracias al doble className en loader.js
+   ========================================================= */
+.netflix-row[data-category-loaded] { display: block; }
+.netflix-item { display: flex; }
+.netflix-item-image,
+.netflix-item-title,
+.netflix-item-available,
+.netflix-item-whatsapp {
+  /* Las visuales las dan las clases .stream-* */
 }
-/* Cards: mostrar por defecto, ocultar solo cuando hay filtro activo */
-#herramientas-container article,
-#herramientas-container-2 article {
-  display: block; /* Mostrar por defecto */
+
+/* =========================================================
+   BREAKPOINTS - mobile-first
+   ========================================================= */
+
+/* ≥480px: ajuste tipográfico del hero */
+@media (min-width: 480px) {
+  .stream-hero-title { font-size: 2.1rem; }
 }
-/* Cuando hay búsqueda o filtro activo, el JS maneja la visibilidad */
-#herramientas-container article.hidden-by-search,
-#herramientas-container-2 article.hidden-by-search {
-  display: none;
+
+/* ≥768px (tablet): ajuste tipográfico del hero */
+@media (min-width: 768px) {
+  .netflix-rows-container { padding: 1.25rem 1.5rem 3rem; }
+  .stream-hero { padding: 3rem 2rem 2.25rem; }
+  .stream-hero-title { font-size: 2.4rem; }
 }
-/* Clase .active para vista detallada desde Netflix rows */
-#herramientas-container article.active,
-#herramientas-container-2 article.active {
-  display: block;
+
+/* ≥1024px (desktop): tipografía de cards */
+@media (min-width: 1024px) {
+  .stream-card-title { font-size: 1.1rem; }
+  .stream-card-desc { font-size: 0.88rem; }
 }
+
+/* =========================================================
+   MÓVIL pequeño (≤480): ajustes tipográficos
+   ========================================================= */
+@media (max-width: 480px) {
+  .stream-hero { padding: 1.75rem 1rem 1.5rem; border-radius: 14px; }
+  .stream-hero-title { font-size: 1.5rem; }
+  .stream-hero-subtitle { font-size: 0.85rem; }
+  .stream-chip { padding: 0.45rem 0.8rem; font-size: 0.8rem; }
+  .stream-row { margin-bottom: 1.75rem; }
+  .stream-row-title { font-size: 1.05rem; }
+  .stream-card-title { font-size: 0.98rem; }
+  .stream-card-desc { font-size: 0.82rem; }
+  .stream-card-cta { font-size: 0.78rem; padding: 0.6rem 0.75rem; }
+}
+
+/* =========================================================
+   Botón legacy "volver" (compatibilidad)
+   ========================================================= */
 #back-to-netflix {
   display: none;
   position: fixed;
@@ -308,172 +367,12 @@
   font-weight: 600;
   box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
 }
-#back-to-netflix:hover {
-  background: #a01830;
-}
-@media (max-width: 768px) {
-  .netflix-rows-container {
-    width: 100%;
-    max-width: 100%;
-    padding: 0.75rem;
-    margin: 0 auto 0 auto;
-  }
-  .netflix-row {
-    margin-bottom: 0.5rem;
-  }
-  .netflix-category-title {
-    font-size: 0.9rem;
-    padding-left: 0.25rem;
-  }
-  .netflix-row-content {
-    gap: 0.75rem;
-    padding: 0.25rem 0;
-  }
-  .netflix-item {
-    width: 240px;
-  }
-  .netflix-item-image {
-    height: 280px;
-  }
-  .netflix-item-title {
-    font-size: 0.9rem;
-    padding: 0.6rem;
-  }
-  .netflix-item-whatsapp {
-    padding: 0.5rem;
-    font-size: 0.7rem;
-  }
-  .netflix-item:hover {
-    transform: translateY(-3px) scale(1.02);
-  }
-  .netflix-item:hover .netflix-item-title {
-    background: linear-gradient(180deg, rgba(30,30,50,0.95) 0%, rgba(20,20,40,0.98) 100%) !important;
-    color: #fff !important;
-    z-index: 10;
-    position: relative;
-  }
-  .category-tabs {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 0.5rem;
-  }
-  .category-tabs::-webkit-scrollbar {
-    display: none;
-  }
-  .category-tabs .nav-link {
-    white-space: nowrap;
-    font-size: 0.8rem;
-    padding: 0.4rem 0.6rem;
-  }
-  /* Search improvements */
-  .mobile-search-toggle {
-    display: flex !important;
-  }
-  #equipos {
-    padding: 0.5rem 0;
-  }
-  #equipos h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  #equipos > .container > p {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-}
-@media (max-width: 480px) {
-  .netflix-item {
-    width: 180px;
-  }
-  .netflix-item-image {
-    height: 220px;
-  }
-  .netflix-item-title {
-    font-size: 0.8rem;
-  }
-  .category-tabs {
-    display: flex !important;
-  }
-}
-@media (min-width: 769px) and (max-width: 1200px) {
-  .netflix-item {
-    width: 300px;
-  }
-  .netflix-item-image {
-    height: 360px;
-  }
-}
-@media (max-width: 768px) {
-  .netflix-rows-container {
-    width: 100%;
-    max-width: 100%;
-    padding: 0.75rem;
-    margin: 0 auto 0 auto;
-  }
-  .netflix-row {
-    margin-bottom: 0.5rem;
-  }
-  .netflix-category-title {
-    font-size: 0.9rem;
-    padding-left: 0.25rem;
-  }
-  .netflix-row-content {
-    gap: 0.75rem;
-    padding: 0.25rem 0;
-  }
-  .netflix-item {
-    width: 240px;
-  }
-  .netflix-item-image {
-    height: 280px;
-  }
-  .netflix-item-title {
-    font-size: 0.9rem;
-    padding: 0.6rem;
-  }
-  .netflix-item-whatsapp {
-    padding: 0.5rem;
-    font-size: 0.7rem;
-  }
-  .netflix-item:hover {
-    transform: translateY(-3px) scale(1.02);
-  }
-  .netflix-item:hover .netflix-item-title {
-    background: linear-gradient(180deg, rgba(30,30,50,0.95) 0%, rgba(20,20,40,0.98) 100%) !important;
-    color: #fff !important;
-    z-index: 10;
-    position: relative;
-  }
-  .category-tabs {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 0.5rem;
-  }
-  .category-tabs::-webkit-scrollbar {
-    display: none;
-  }
-  .category-tabs .nav-link {
-    white-space: nowrap;
-    font-size: 0.8rem;
-    padding: 0.4rem 0.6rem;
-  }
-  /* Search improvements */
-  .mobile-search-toggle {
-    display: flex !important;
-  }
-  #equipos {
-    padding: 0.5rem 0;
-  }
-  #equipos h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  #equipos > .container > p {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-}
+#back-to-netflix:hover { background: #a01830; }
+
+/* Cards legacy (compatibilidad con grilla anterior) */
+#herramientas-container article,
+#herramientas-container-2 article { display: block; }
+#herramientas-container article.hidden-by-search,
+#herramientas-container-2 article.hidden-by-search { display: none; }
+#herramientas-container article.active,
+#herramientas-container-2 article.active { display: block; }
