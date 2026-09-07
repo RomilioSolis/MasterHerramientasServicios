@@ -53,6 +53,20 @@ const ComponentFactory = (function() {
         html: 'components/chat-widget/chat-widget.html',
         css: null,
         js: ['assets/js/chat-widget.js', 'components/chat-widget/chat-widget.js']
+      },
+      horario: {
+        id: 'horario-container',
+        container: 'horario-container',
+        html: 'components/horario/horario.html',
+        css: 'components/horario/horario.css',
+        js: 'components/horario/horario.js'
+      },
+      backToTop: {
+        id: 'app-back-to-top',
+        container: null,
+        html: null,
+        css: 'components/back-to-top/back-to-top.css',
+        js: 'components/back-to-top/back-to-top.js'
       }
     });
 

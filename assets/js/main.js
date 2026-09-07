@@ -8,6 +8,11 @@ if (typeof ComponentFactory !== 'undefined' && ComponentFactory.loadAll) {
   ComponentFactory.loadAll(['footer', 'contacto', 'faq', 'nosotros', 'social-buttons', 'chat-widget']);
 }
 
+// Cargar BackToTop de forma lazy (baja prioridad, aparece tras scroll)
+if (typeof ComponentFactory !== 'undefined' && ComponentFactory.loadLazy) {
+  ComponentFactory.loadLazy(['backToTop']);
+}
+
 // Inicializar buscador unificado
 if (typeof initBuscador === 'function') {
   initBuscador();

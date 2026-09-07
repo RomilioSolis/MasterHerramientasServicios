@@ -52,13 +52,14 @@ function getHeaderHTML() {
                     }).join('')}
                 </nav>
                 <div class="header-right">
-                    <div class="search-box">
-                        <input type="text" id="toolSearch" class="search-input" placeholder="Buscar herramientas..." aria-label="Buscar herramientas">
-                        <button type="button" class="search-btn" onclick="searchTools()" aria-label="Buscar">
-                            <i class="bi bi-search"></i>
-                        </button>
-                        <div id="searchFeedback" class="search-feedback"></div>
-                    </div>
+                <div class="search-box">
+                    <input type="text" id="toolSearch" class="search-input" placeholder="Buscar herramientas..." aria-label="Buscar herramientas" autocomplete="off">
+                    <button type="button" class="search-btn" onclick="searchTools()" aria-label="Buscar">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <div id="searchFeedback" class="search-feedback"></div>
+                    <div id="searchHistory" class="search-history"></div>
+                </div>
                     <button type="button" class="search-btn mobile-search-toggle" onclick="document.querySelector('.search-box').classList.toggle('active')" aria-label="Buscar">
                         <i class="bi bi-search"></i>
                     </button>
