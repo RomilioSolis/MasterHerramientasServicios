@@ -74,7 +74,7 @@ const EquiposLoader = (() => {
     if (typeof WHATSAPP !== 'undefined') {
       return WHATSAPP.createLink('Necesito cotizar ' + equipo.nombre);
     }
-    const wa = _state.empresa.telefonos?.whatsapp || '573165345675';
+    const wa = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.PHONE.WHATSAPP) || _state.empresa.telefonos?.whatsapp || '573165345675';
     return 'https://wa.me/' + wa + '?text=Hola,%20necesito%20cotizar%20' + encodeURIComponent(equipo.nombre);
   }
 

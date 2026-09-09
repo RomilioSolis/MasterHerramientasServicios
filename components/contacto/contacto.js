@@ -70,7 +70,7 @@ const Contacto = (() => {
     L.marker([LAT, LNG], {icon: iconoEmpresa}).addTo(mapa).bindPopup(
       '<div style="font-family:var(--font-family);min-width:200px;padding:5px;">' +
       '<strong style="color:#d88373;font-size:15px;">🔧 Master Herramientas</strong><br>' +
-      '<span style="color:#ccc;font-size:13px;">Cra. 23 #36-48, El Rodeo</span><br>' +
+      '<span style="color:#ccc;font-size:13px;">' + ((typeof APP_CONFIG !== 'undefined' && APP_CONFIG.BUSINESS.ADDRESS) || 'Cra. 23 #36-48, El Rodeo') + '</span><br>' +
       '<a href="https://www.google.com/maps/place/3.438368,-76.505911" target="_blank" style="color:#4dabf7;font-size:12px;">Ver en Maps →</a></div>'
     ).openPopup();
     

@@ -11,7 +11,7 @@ const EquiposGrid = (() => {
     BASE: 'https://wa.me'
   };
   
-  const BASE_URL = 'https://masterenherramientasyservicios.com.co';
+  const BASE_URL = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.URLS.BASE) || 'https://masterenherramientasyservicios.com.co';
   const CONTAINER_ID = 'herramientas-container';
   const STYLE_ID = 'equipos-grid-styles';
   
