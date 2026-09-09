@@ -3,6 +3,7 @@
 // Refactorizado con Module Pattern (IIFE + Revealing Module)
 // Menú lateral para navegación de categorías
 // ============================================
+const _WHATSAPP_PHONE = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.PHONE.WHATSAPP) || '573165345675';
 const LateralMenu = (() => {
   
   // --- CONSTANTES PRIVADAS ---
@@ -95,7 +96,7 @@ const LateralMenu = (() => {
       const categoryName = _CATEGORY_NAMES[category];
       const itemsHTML = items.map(item => `
         <li class="lateral-equipment-item">
-          <button class="lateral-equipment-btn" onclick="window.open('https://wa.me/573165345675?text=Hola,%20necesito%20cotizar%20${item.wa}', '_blank')">
+          <button class="lateral-equipment-btn" onclick="window.open('https://wa.me/${_WHATSAPP_PHONE}?text=Hola,%20necesito%20cotizar%20${item.wa}', '_blank')">
             <img src="${item.img}" alt="${item.name}">
             <span>${item.name}</span>
             <span class="lateral-equipment-whatsapp"><i class="bi bi-whatsapp"></i></span>
@@ -147,7 +148,7 @@ const LateralMenu = (() => {
     equipment.forEach(item => {
       html += `
         <li class="lateral-equipment-item">
-          <button class="lateral-equipment-btn" onclick="window.open('https://wa.me/573165345675?text=Hola,%20necesito%20cotizar%20${item.wa}', '_blank')">
+          <button class="lateral-equipment-btn" onclick="window.open('https://wa.me/${_WHATSAPP_PHONE}?text=Hola,%20necesito%20cotizar%20${item.wa}', '_blank')">
             <img src="${item.img}" alt="${item.name}">
             <span>${item.name}</span>
             <span class="lateral-equipment-whatsapp"><i class="bi bi-whatsapp"></i></span>

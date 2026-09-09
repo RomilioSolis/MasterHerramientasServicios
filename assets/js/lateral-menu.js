@@ -1,3 +1,5 @@
+const WA_PHONE = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.PHONE.WHATSAPP) || '573165345675';
+
 const equipmentData = {
   elevacion: [
     { name: 'Gatos Hidráulicos', img: '/assets/imagenes/gatosM/gatos.png', wa: 'gato%20hidraulico' },
@@ -82,7 +84,7 @@ const showLateralSubmenu = (category) => {
   
   equipment.forEach(item => {
     html += `<li class="lateral-equipment-item">
-      <button class="lateral-equipment-btn" onclick="window.open('https://wa.me/573165345675?text=Hola,%20necesito%20cotizar%20${item.wa}', '_blank')">
+       <button class="lateral-equipment-btn" onclick="window.open('https://wa.me/${WA_PHONE}?text=Hola,%20necesito%20cotizar%20${item.wa}', '_blank')">
         <img src="${item.img}" alt="${item.name}">
         <span>${item.name}</span>
         <span class="lateral-equipment-whatsapp"><i class="bi bi-whatsapp"></i></span>

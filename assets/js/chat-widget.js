@@ -6,7 +6,7 @@
 window.ChatWidget = (function() {
     
    // --- CONSTANTES ---
-   const WA_NUMBER = '573165345675';
+   const WA_NUMBER = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.PHONE.WHATSAPP) || '573165345675';
    const MAX_USES = 5;
    const STORAGE_KEY = 'masterCwUses';
    

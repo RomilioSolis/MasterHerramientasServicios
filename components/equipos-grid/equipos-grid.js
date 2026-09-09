@@ -5,8 +5,9 @@
 const EquiposGrid = (() => {
   
   // --- CONSTANTES PRIVADAS ---
+  const WHATSAPP_PHONE = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.PHONE.WHATSAPP) || '573165345675';
   const WHATSAPP = {
-    PHONE: '573165345675',
+    PHONE: WHATSAPP_PHONE,
     BASE: 'https://wa.me'
   };
   
