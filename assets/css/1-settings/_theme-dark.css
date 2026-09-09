@@ -80,12 +80,10 @@
 
 /* ============================================
    ESTILOS BASE DEL MODO OSCURO
+   (estilos generales de body, .bg-light, .card, .navbar,
+    tipografía y btn-outline-primary se definen en
+    components/dark-mode/dark-mode.css para evitar duplicación)
    ============================================ */
-[data-theme="dark"] {
-  background-color: var(--bg-dark) !important;
-  color: var(--text-dark) !important;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
 
 /* Corrección específica para secciones clave */
 [data-theme="dark"] #nosotros,
@@ -95,44 +93,6 @@
 [data-theme="dark"] #nosotros p {
   background-color: transparent !important;
   color: var(--text-dark) !important;
-}
-
-[data-theme="dark"] .bg-light {
-  background-color: var(--bg-dark-secondary) !important;
-}
-
-/* Elementos específicos */
-[data-theme="dark"] .card {
-  background-color: var(--bg-dark-secondary);
-  border-color: var(--bg-dark-tertiary);
-}
-
-[data-theme="dark"] .navbar {
-  background-color: var(--bg-dark) !important;
-}
-
-[data-theme="dark"] p,
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-[data-theme="dark"] h5,
-[data-theme="dark"] h6,
-[data-theme="dark"] .card-title,
-[data-theme="dark"] .card-text {
-  color: var(--text-dark) !important;
-}
-
-[data-theme="dark"] .btn-outline-primary {
-  border-color: var(--text-secondary);
-  color: var(--text-secondary);
-}
-
-/* Títulos principales */
-[data-theme="dark"] h1.text-center.mb-4,
-[data-theme="dark"] h2.text-center.mb-4 {
-  text-shadow: var(--equipos-text-shadow);
-  color: var(--equipos-title-color) !important;
 }
 
 /* Transición de fondo para secciones principales */

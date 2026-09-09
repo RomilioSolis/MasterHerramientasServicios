@@ -284,26 +284,32 @@ const Buscador = (() => {
         _clear();
       });
       EventEmitter.on('equiposLoaded', () => {
-        setTimeout(_initializeCards, 300);
+        _initializeCards();
       });
     } else {
       document.addEventListener('category:select', () => {
         _clear();
       });
       document.addEventListener('equiposLoaded', () => {
-        setTimeout(_initializeCards, 300);
+        _initializeCards();
       });
     }
     
-    // MutationObserver para cambios dinámicos
-    const netflixContainer = document.querySelector(SELECTORS.NETFLIX_ROWS);
-    if (netflixContainer) {
-      const observer = new MutationObserver(() => {
-        if (_state.searchInput && _state.searchInput.value.trim()) {
-          _performSearch(_state.searchInput.value);
-        }
+    // Escuchar al evento equiposLoaded para inicializar cards
+    if (typeof EventEmitter !== 'undefined') {
+      EventEmitter.on('category:select', () => {
+        _clear();
       });
-      observer.observe(netflixContainer, { childList: true, subtree: true });
+      EventEmitter.on('equiposLoaded', () => {
+        _initializeCards();
+      });
+    } else {
+      document.addEventListener('category:select', () => {
+        _clear();
+      });
+      document.addEventListener('equiposLoaded', () => {
+        _initializeCards();
+      });
     }
   }
   

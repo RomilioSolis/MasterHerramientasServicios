@@ -82,57 +82,36 @@ const Gallery = (() => {
    /**
     * Inicializa el lightbox en el DOM
     */
-     function _init() {
-      console.log('Gallery._init() called, document.body exists?', !!document.body);
+      function _init() {
+       if (_state.initialized) return;
 
-      if (_state.initialized) {
-        console.log('Gallery ya inicializado, saltando');
-        return;
-      }
+       if (!document.body) {
+         setTimeout(_init, 100);
+         return;
+       }
 
-      // Si no hay body, esperar un poco y reintentar
-      if (!document.body) {
-        console.log('Gallery: document.body no disponible, reintentando en 100ms...');
-        setTimeout(_init, 100);
-        return;
-      }
+       document.body.insertAdjacentHTML('beforeend', _createLightboxHTML());
 
-      console.log('Insertando lightbox HTML en body...');
-      document.body.insertAdjacentHTML('beforeend', _createLightboxHTML());
+       const lightbox = document.getElementById(LIGHTBOX_ID);
 
-      const lightbox = document.getElementById(LIGHTBOX_ID);
-      console.log('Lightbox element creado:', lightbox);
+       if (!lightbox) return;
 
-      if (!lightbox) {
-        console.error('Gallery: No se pudo crear el lightbox element');
-        return;
-      }
+       const closeBtn = document.getElementById('gallery-close-fixed');
+       if (closeBtn) {
+         closeBtn.addEventListener('click', (e) => {
+           e.preventDefault();
+           e.stopPropagation();
+           close();
+         });
+       }
 
-      // Botón de cierre fijo (hermano del lightbox, no dentro)
-      const closeBtn = document.getElementById('gallery-close-fixed');
-      console.log('Botón close fijo encontrado:', closeBtn);
-      if (closeBtn) {
-        closeBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          console.log('Gallery: close button clickeado (fixed)');
-          close();
-        });
-      }
+       lightbox.addEventListener('click', (e) => {
+         if (e.target === lightbox) close();
+       });
 
-      // Cerrar al hacer clic fuera del contenido (overlay del lightbox)
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-          console.log('Gallery: close por click en overlay');
-          close();
-        }
-      });
+       document.addEventListener('keydown', _handleKeydown);
 
-      // Teclado
-      document.addEventListener('keydown', _handleKeydown);
-
-      _state.initialized = true;
-      console.log('Gallery inicializado correctamente');
+       _state.initialized = true;
     }
   
   /**

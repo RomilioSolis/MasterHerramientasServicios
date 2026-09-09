@@ -41,6 +41,7 @@
 @import '5-components/_buttons.css';
 @import '5-components/_cards.css';
 @import '5-components/_nav-tabs.css';
+@import '5-components/_cookie-menu.css';
 
 /* ============================================
    6-LAYOUTS: Estructuras de Página
@@ -260,33 +261,16 @@
   padding: 3rem 0 !important;
 }
 
-/* Títulos de equipos - visibles en ambos modos */
-#equipos h2,
-#equipos .text-center,
-#equipos p {
-  color: #ffffff !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
-}
-
-#equipos h2 {
-  font-weight: 700 !important;
-}
-
 /* Títulos de equipos - visibles en ambos modos - Nueva paleta */
 #equipos h2,
 #equipos .text-center,
 #equipos p {
-  color: #f5e2c8 !important; /* champagne-mist */
+  color: #f5e2c8 !important;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
 
 #equipos h2 {
   font-weight: 700 !important;
-}
-
-/* Forzar fondo azul oscuro en modo claro también - Nueva paleta */
-[data-theme="light"] #equipos {
-  background: linear-gradient(135deg, #18206f 0%, #17255a 50%, #0f1a3d 100%) !important;
 }
 
 [data-theme="light"] #equipos h2,
@@ -321,4 +305,30 @@
 
 [data-theme="light"] .netflix-item-image {
   background: linear-gradient(180deg, #0f0f1a 0%, #17255a 100%) !important;
+}
+
+/* ============================================
+   MIGRATED UTILITIES FROM styles.css
+   ============================================ */
+
+/* Container spacing */
+.container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Section spacing */
+section {
+  padding: 3rem 0;
+}
+
+/* Dark mode text overrides */
+[data-theme="dark"] .text-primary-emphasis {
+  color: #4dabf7 !important;
+}
+
+[data-theme="dark"] .fs-5 {
+  font-size: 1.1rem !important;
+  line-height: 1.8;
+  opacity: 0.9;
 }

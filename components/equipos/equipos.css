@@ -371,30 +371,4 @@
   .stream-card-cta { font-size: 0.78rem; padding: 0.6rem 0.75rem; }
 }
 
-/* =========================================================
-   Botón legacy "volver" (compatibilidad)
-   ========================================================= */
-#back-to-netflix {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  padding: 12px 24px;
-  background: #800020;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
-}
-#back-to-netflix:hover { background: #a01830; }
-
-/* Cards legacy (compatibilidad con grilla anterior) */
-#herramientas-container article,
-#herramientas-container-2 article { display: block; }
-#herramientas-container article.hidden-by-search,
-#herramientas-container-2 article.hidden-by-search { display: none; }
-#herramientas-container article.active,
-#herramientas-container-2 article.active { display: block; }
+/* Botón "volver" y tarjetas legacy: definidos en assets/css/main.css (ITCSS, con variables) */

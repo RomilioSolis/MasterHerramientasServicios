@@ -5,44 +5,44 @@
 // ============================================
 const Contacto = (() => {
   
-  // --- ESTADO PRIVADO ---
-  let _state = {
-    initialized: false,
-    mapa: null
-  };
+   // --- ESTADO PRIVADO ---
+   let _state = {
+     initialized: false,
+     mapa: null,
+     mapaInicializado: false
+   };
+   
+   let _mapaObserver = null;
+   
+   function _crearMapaObserver() {
+     if (_mapaObserver) return _mapaObserver;
+     
+     _mapaObserver = new IntersectionObserver((entries) => {
+       entries.forEach(entry => {
+         if (entry.isIntersecting && !_state.mapaInicializado) {
+           _state.mapaInicializado = true;
+           _initMapa();
+           _mapaObserver.unobserve(entry.target);
+         }
+       });
+     }, { rootMargin: '200px' });
+     
+     return _mapaObserver;
+   }
   
   // --- FUNCIONES PRIVADAS ---
   
   /**
-   * Espera a que Leaflet esté disponible
-   */
-  function _waitForLeaflet() {
-    let attempts = 0;
-    const maxAttempts = 20;
-    
-    function check() {
-      attempts++;
-      if (typeof L !== 'undefined') {
-        _initMapa();
-        return;
-      }
-      if (attempts < maxAttempts) {
-        setTimeout(check, 100);
-      } else {
-        console.error('Leaflet no disponible después de 2 segundos');
-      }
-    }
-    
-    check();
-  }
-  
-  /**
-   * Inicializa el mapa Leaflet
-   */
+    * Inicializa el mapa Leaflet
+    */
   function _initMapa() {
     const contactoMapa = document.getElementById('contacto-mapa');
     if (!contactoMapa) return;
     if (contactoMapa._leaflet_id !== undefined) return;
+    if (typeof L === 'undefined') {
+      console.warn('Leaflet pendiente de cargar');
+      return;
+    }
     
     const LAT = 3.438368;
     const LNG = -76.505911;
@@ -101,7 +101,16 @@ const Contacto = (() => {
     * Inicializa el módulo
     */
   function _init() {
-    _waitForLeaflet();
+    const mapaContainer = document.getElementById('contacto-mapa');
+    if (mapaContainer) {
+      const observer = _crearMapaObserver();
+      observer.observe(mapaContainer);
+      if (mapaContainer.getBoundingClientRect().top < window.innerHeight && mapaContainer.getBoundingClientRect().bottom > 0) {
+        _state.mapaInicializado = true;
+        _initMapa();
+        observer.unobserve(mapaContainer);
+      }
+    }
     _state.initialized = true;
   }
   
@@ -123,7 +132,17 @@ const Contacto = (() => {
 })();
 
 // Ejecución inicial
-setTimeout(() => Contacto.init(), 100);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof Contacto.init === 'function') {
+      Contacto.init();
+    }
+  });
+} else {
+  if (typeof Contacto.init === 'function') {
+    Contacto.init();
+  }
+}
 
 // Manejar resize (debounced to prevent forced reflow spam)
 window.addEventListener('resize', (() => {

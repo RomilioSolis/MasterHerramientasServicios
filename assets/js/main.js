@@ -1,53 +1,50 @@
-// DarkMode ya está disponible globalmente desde dark-mode.js
+// DarkMode ya está disponible globalmente desde dark-mode.js (defer)
 if (window.DarkMode && !window.DarkMode.isInitialized()) {
   window.DarkMode.init();
 }
 
-// Cargar componentes dinámicos via ComponentFactory
+// Cargar componentes críticos (above-the-fold y near-the-fold)
 if (typeof ComponentFactory !== 'undefined' && ComponentFactory.loadAll) {
-  ComponentFactory.loadAll(['footer', 'contacto', 'faq', 'nosotros', 'social-buttons', 'chat-widget']);
+  // Nosotros ya está inlined (solo necesita JS/CSS)
+  // Footer, contacto y FAQ son near-the-fold
+  ComponentFactory.loadAll(['nosotros', 'footer', 'contacto', 'faq']);
 }
 
-// Cargar BackToTop de forma lazy (baja prioridad, aparece tras scroll)
+// Cargar componentes no críticos de forma lazy (reduce TBT)
 if (typeof ComponentFactory !== 'undefined' && ComponentFactory.loadLazy) {
-  ComponentFactory.loadLazy(['backToTop']);
-}
-
-// Inicializar buscador unificado
-if (typeof initBuscador === 'function') {
-  initBuscador();
-}
-
-// Inicializar ChatWidget
-if (typeof ChatWidget !== 'undefined' && ChatWidget.init) {
-  ChatWidget.init();
-}
-
-// Componentes Motosierra y Equipos están autocargados vía defer en sus scripts
-
-// Componente Equipos - maneja lógica de mostrar equipos
-if (typeof EquiposLoader !== 'undefined' && EquiposLoader.init) {
-  EquiposLoader.init();
-  console.log('EquiposLoader loaded');
+  ComponentFactory.loadLazy(['social-buttons', 'chat-widget', 'backToTop']);
 }
 
 // Sistema de búsqueda desde URL
-const handleUrlSearch = () => {
+const handleUrlSearch = async () => {
   const params = new URLSearchParams(window.location.search);
   const searchTerm = params.get('search');
 
   if (searchTerm) {
-    // Inicializar buscador unificado
     if (typeof initBuscador === 'function') {
       initBuscador();
-      
-      // Esperar a que los equipos se carguen y luego buscar
-      setTimeout(() => {
-        const buscador = typeof getBuscador === 'function' ? getBuscador() : null;
-        if (buscador) {
-          buscador.search(searchTerm);
+    } else if (window.Buscador?.init) {
+      window.Buscador.init();
+    }
+
+    const waitForBuscador = () => new Promise((resolve) => {
+      const check = () => {
+        if (window.Buscador?.isInitialized()) {
+          resolve(window.Buscador);
+          return;
         }
-      }, 1500);
+        setTimeout(check, 100);
+      };
+      check();
+    });
+
+    const buscador = await Promise.race([
+      waitForBuscador(),
+      new Promise((resolve) => setTimeout(() => resolve(null), 5000))
+    ]);
+
+    if (buscador) {
+      buscador.search(searchTerm);
     }
   }
 };

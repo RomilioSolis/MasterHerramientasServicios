@@ -150,32 +150,28 @@ function addBubble(text, direction) {
     * Envía el mensaje a WhatsApp
     * @param {string} text
     */
-   function sendToWhatsApp(text) {
-     const input = document.getElementById(IDS.INPUT);
-     const clean = text.trim();
-     if (!clean) return;
-     if (_getUses() >= MAX_USES) { 
-       _applyLimitState(); 
-       return; 
-     }
-     
-     addBubble(clean, 'out');
-     _incrementUses();
-     _updateCounter();
-     
-     setTimeout(() => {
-       addBubble('✅ Tu mensaje está listo. Se abrirá WhatsApp para enviarlo.', 'in');
-       setTimeout(() => {
-         window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(clean), '_blank', 'noopener,noreferrer');
-       }, 500);
-     }, 600);
-     
-     if (input) {
-       input.value = '';
-       input.style.height = 'auto';
-     }
-     _applyLimitState();
-   }
+    function sendToWhatsApp(text) {
+      const input = document.getElementById(IDS.INPUT);
+      const clean = text.trim();
+      if (!clean) return;
+      if (_getUses() >= MAX_USES) { 
+        _applyLimitState(); 
+        return; 
+      }
+      
+      addBubble(clean, 'out');
+      _incrementUses();
+      _updateCounter();
+      
+      addBubble('✅ Tu mensaje está listo. Se abrirá WhatsApp para enviarlo.', 'in');
+      window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(clean), '_blank', 'noopener,noreferrer');
+      
+      if (input) {
+        input.value = '';
+        input.style.height = 'auto';
+      }
+      _applyLimitState();
+    }
    
    /**
     * Abre el chat
@@ -230,54 +226,19 @@ function addBubble(text, direction) {
      }
    }
    
-   /**
-    * Verifica si todos los elementos del widget están en el DOM
-    * @returns {boolean}
-    */
-   function _areElementsPresent() {
-     return !!document.getElementById(IDS.FAB) && 
-            !!document.getElementById(IDS.WINDOW);
-   }
-   
     /**
-     * Programa verificación de elementos del widget usando requestIdleCallback con backoff exponencial
-     * @param {function} callback
-     * @param {number} maxAttempts
-     * @param {number} baseInterval
+     * Verifica si todos los elementos del widget están en el DOM
+     * @returns {boolean}
      */
-    function _waitForElements(callback, maxAttempts, baseInterval) {
-      let attempts = 0;
-      
-      function check() {
-        if (_areElementsPresent()) {
-          callback();
-          return;
-        }
-        
-        attempts++;
-        if (attempts < maxAttempts) {
-          const interval = baseInterval * Math.min(attempts, 4);
-          if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(check, { timeout: interval });
-          } else {
-            setTimeout(check, interval);
-          }
-        } else {
-          console.warn('[ChatWidget] Elementos no aparecieron después de ' + maxAttempts + ' intentos');
-        }
-      }
-      
-      if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(check, { timeout: baseInterval });
-      } else {
-        setTimeout(check, baseInterval);
-      }
+    function _areElementsPresent() {
+      return !!document.getElementById(IDS.FAB) && 
+             !!document.getElementById(IDS.WINDOW);
     }
-   
-   /**
-    * Configura event delegation en el documento
-    *Funciona incluso si los elementos se inyectan después del load
-    */
+    
+    /**
+     * Configura event delegation en el documento
+     *Funciona incluso si los elementos se inyectan después del load
+     */
    function _setupEventDelegation() {
      if (_state.eventsConfigured) return;
      _state.eventsConfigured = true;
@@ -359,41 +320,32 @@ function addBubble(text, direction) {
           });
         }
       }, false);
-     
-     console.log('[ChatWidget] Event delegation configured');
-   }
-   
-   /**
+     }
+    
+    /**
     * Inicializa el widget (puede llamarse antes o después de que el HTML esté inyectado)
     * @returns {boolean} true si se inicializó, false si ya estaba inicializado
     */
-   function init() {
-     if (_state.initialized) return false;
-     _state.initialized = true;
-     
-     // Configurar event delegation inmediatamente (no depende del DOM)
-     _setupEventDelegation();
-     
-     // Esperar a que los elementos del HTML estén presentes
-     _waitForElements(function() {
-       // Ahora que los elementos existen, inicializar el contenido
-       const msgs = document.getElementById(IDS.MESSAGES);
-       if (msgs && msgs.children.length === 0) {
-         addBubble('👋 ¡Hola! Soy el asistente de Master Herramientas.\nEscribe tu consulta y te la enviamos directamente a nuestro WhatsApp 📲', 'in');
-       }
-       
-       _updateCounter();
-       _applyLimitState();
-       
-       console.log('[ChatWidget] Initialized (elements found)');
-     }, 50, 100); // 50 intentos cada 100ms = ~5 segundos max
-     
-     console.log('[ChatWidget] init() called, waiting for DOM elements...');
-     return true;
-   }
-   
-   // --- API PÚBLICA ---
-   return {
+    function init() {
+      if (_state.initialized) return false;
+      _state.initialized = true;
+      
+      _setupEventDelegation();
+      
+       if (_areElementsPresent()) {
+        const msgs = document.getElementById(IDS.MESSAGES);
+        if (msgs && msgs.children.length === 0) {
+          addBubble('👋 ¡Hola! Soy el asistente de Master Herramientas.\nEscribe tu consulta y te la enviamos directamente a nuestro WhatsApp 📲', 'in');
+        }
+        
+        _updateCounter();
+        _applyLimitState();
+      }
+      
+      return true;
+    }
+    
+    return {
      init: init,
      open: openChat,
      close: closeChat,

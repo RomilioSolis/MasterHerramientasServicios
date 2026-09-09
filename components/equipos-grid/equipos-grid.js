@@ -94,7 +94,7 @@ const EquiposGrid = (() => {
     const waLink = `${WHATSAPP.BASE}/${WHATSAPP.PHONE}?text=Hola,%20necesito%20cotizar%20${waText}`;
     
     return `
-      <article class="col-md-4 mb-4" itemscope itemtype="https://schema.org/Product" data-category="${category}">
+      <article class="col-md-4 mb-4" role="listitem" itemscope itemtype="https://schema.org/Product" data-category="${category}">
         <div class="card h-100">
           <div itemprop="brand" itemscope itemtype="https://schema.org/Brand" style="display: none;">
             <meta itemprop="name" content="Master Herramientas y Servicios">

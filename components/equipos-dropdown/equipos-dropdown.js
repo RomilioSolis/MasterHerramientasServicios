@@ -67,23 +67,15 @@ const EquiposDropdown = (() => {
   function _loadStyles() {
     return new Promise((resolve) => {
       if (document.getElementById('equipos-dropdown-styles')) {
-        console.log('EquiposDropdown: CSS ya cargado');
         resolve();
         return;
       }
-      console.log('EquiposDropdown: Cargando CSS...');
       const link = document.createElement('link');
       link.id = 'equipos-dropdown-styles';
       link.rel = 'stylesheet';
       link.href = 'components/equipos-dropdown/equipos-dropdown.css';
-      link.onload = () => {
-        console.log('EquiposDropdown: CSS cargado');
-        resolve();
-      };
-      link.onerror = (e) => {
-        console.error('EquiposDropdown: Error cargando CSS:', e);
-        resolve();
-      };
+      link.onload = resolve;
+      link.onerror = () => resolve();
       document.head.appendChild(link);
     });
   }
@@ -103,7 +95,7 @@ const EquiposDropdown = (() => {
     
     return `
       <div class="equipos-dropdown-overlay" id="equiposDropdownOverlay"></div>
-      <div class="equipos-dropdown-menu" id="equiposDropdownMenu" role="menu" aria-label="Categorías de equipos">
+      <div class="equipos-dropdown-menu" id="equiposDropdownMenu" role="navigation" aria-label="Categorías de equipos">
         <div class="equipos-dropdown-header">Categorías</div>
         <div class="equipos-dropdown-categories">
           ${categoriesHTML}
@@ -204,15 +196,7 @@ const EquiposDropdown = (() => {
     const trigger = document.querySelector(_SELECTORS.TRIGGER);
     const menu = document.querySelector(_SELECTORS.MENU);
     const overlay = document.querySelector(_SELECTORS.OVERLAY);
-    
-    console.log('EquiposDropdown _bindEvents:', {
-      trigger: !!trigger,
-      menu: !!menu,
-      overlay: !!overlay,
-      triggerId: trigger?.id,
-      menuId: menu?.id
-    });
-    
+
     if (!trigger || !menu) {
       console.error('EquiposDropdown: Trigger or menu not found!');
       return;
@@ -305,9 +289,8 @@ const EquiposDropdown = (() => {
         _bindEvents();
         _state.initialized = true;
         
-        _emit('equipos-dropdown:init');
-        console.log('EquiposDropdown initialized');
-      });
+     _emit('equipos-dropdown:init');
+    });
     },
     
     open() {

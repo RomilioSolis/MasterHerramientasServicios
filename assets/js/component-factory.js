@@ -170,22 +170,27 @@ const ComponentFactory = (function() {
        _loadCSS(config.css)['catch'](function(e) { console.error('[ComponentFactory] CSS error:', e.message); });
      }
 
-     if (config.html) {
-       if (!container) {
-         _state.loading[id] = false;
-         console.error('[ComponentFactory] Container no encontrado: #' + config.container);
-         return Promise.reject(new Error('Container no encontrado: #' + config.container));
-       }
-       _loadHTML(config.html).then(function(html) {
-         container.innerHTML = html;
-         _state.loaded[id] = true;
-         _state.loading[id] = false;
-         _emit('component:loaded', { id: id, config: config });
-       })['catch'](function(e) {
-         _state.loading[id] = false;
-         console.error('[ComponentFactory] HTML error:', e.message);
-       });
-     } else {
+      if (config.html) {
+        if (!container) {
+          _state.loading[id] = false;
+          return Promise.resolve();
+        }
+        // Skip HTML fetch if container already has content (inlined critical HTML)
+        if (container.children.length > 0) {
+          _state.loaded[id] = true;
+          _state.loading[id] = false;
+          _emit('component:loaded', { id: id, config: config, inlined: true });
+        } else {
+          _loadHTML(config.html).then(function(html) {
+            container.innerHTML = html;
+            _state.loaded[id] = true;
+            _state.loading[id] = false;
+            _emit('component:loaded', { id: id, config: config });
+          })['catch'](function(e) {
+            _state.loading[id] = false;
+          });
+        }
+      } else {
        _state.loaded[id] = true;
        _state.loading[id] = false;
        _emit('component:loaded', { id: id, config: config });

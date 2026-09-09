@@ -215,6 +215,25 @@
   font-size: 1.3rem;
 }
 
+.map-card .btn-whatsapp {
+  margin-top: 0.75rem;
+}
+
+.map-card .btn-whatsapp.btn-sm {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+.map-card .btn-whatsapp-secondary {
+  background: #1e5f2f !important;
+  box-shadow: 0 4px 15px rgba(30, 95, 47, 0.3);
+}
+
+.map-card .btn-whatsapp-secondary:hover {
+  background: #14471f !important;
+  box-shadow: 0 8px 25px rgba(20, 71, 31, 0.4);
+}
+
 /* Info item icon */
 .info-item > i,
 .card-icon i,

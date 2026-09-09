@@ -1,5 +1,28 @@
 {
   "dependencies": {
+    "playwright": "^1.63.0",
     "sharp": "^0.34.5"
-  }
+  },
+  "name": "master-herramientas",
+  "version": "1.0.0",
+  "description": "Proyecto web para alquiler de herramientas y servicios de construcción en Cali, Colombia.",
+  "main": "test_cookie_banner.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://RomilioSolis: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@github.com/RomilioSolis/MasterHerramientasServicios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RomilioSolis/MasterHerramientasServicios/issues"
+  },
+  "homepage": "https://github.com/RomilioSolis/MasterHerramientasServicios#readme"
 }

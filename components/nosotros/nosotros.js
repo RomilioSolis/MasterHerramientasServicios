@@ -5,11 +5,30 @@
 // ============================================
 const Nosotros = (() => {
    
-  // --- ESTADO PRIVADO ---
-  let _state = {
-    initialized: false,
-    mapa: null
-  };
+   // --- ESTADO PRIVADO ---
+   let _state = {
+     initialized: false,
+     mapa: null,
+     mapaInicializado: false
+   };
+   
+   let _mapaObserver = null;
+   
+   function _crearMapaObserver() {
+     if (_mapaObserver) return _mapaObserver;
+     
+     _mapaObserver = new IntersectionObserver((entries) => {
+       entries.forEach(entry => {
+         if (entry.isIntersecting && !_state.mapaInicializado) {
+           _state.mapaInicializado = true;
+           _initMapa();
+           _mapaObserver.unobserve(entry.target);
+         }
+       });
+     }, { rootMargin: '200px' });
+     
+     return _mapaObserver;
+   }
   
   // --- FUNCIONES PRIVADAS ---
   
@@ -25,18 +44,20 @@ const Nosotros = (() => {
     
     video.addEventListener('play', () => {
       textoCard.classList.add('hidden-text');
-      setTimeout(() => {
+      const onTransitionEnd = () => {
+        textoCard.removeEventListener('transitionend', onTransitionEnd);
         textoCard.style.display = 'none';
         videoCardContainer.classList.add('full-width');
-      }, 300);
+      };
+      textoCard.addEventListener('transitionend', onTransitionEnd, { once: true });
     });
     
     video.addEventListener('ended', () => {
       videoCardContainer.classList.remove('full-width');
       textoCard.style.display = '';
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         textoCard.classList.remove('hidden-text');
-      }, 10);
+      });
     });
   }
   
@@ -169,8 +190,19 @@ const Nosotros = (() => {
     */
   function _init() {
     _initVideo();
-    _initMapa();
     _initHorario();
+    
+    const mapaContainer = document.getElementById('nosotros-mapa');
+    if (mapaContainer) {
+      const observer = _crearMapaObserver();
+      observer.observe(mapaContainer);
+      if (mapaContainer.getBoundingClientRect().top < window.innerHeight && mapaContainer.getBoundingClientRect().bottom > 0) {
+        _state.mapaInicializado = true;
+        _initMapa();
+        observer.unobserve(mapaContainer);
+      }
+    }
+    
     _state.initialized = true;
   }
   
@@ -194,10 +226,14 @@ const Nosotros = (() => {
 // Inicialización
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => Nosotros.init(), 100);
+    if (typeof Nosotros.init === 'function') {
+      Nosotros.init();
+    }
   });
 } else {
-  setTimeout(() => Nosotros.init(), 100);
+  if (typeof Nosotros.init === 'function') {
+    Nosotros.init();
+  }
 }
 
 // Manejar resize (debounced to prevent forced reflow spam)

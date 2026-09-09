@@ -47,32 +47,20 @@ body[data-theme="light"] .navbar .nav-link {
 }
 
 /* Header modo oscuro - asegurar texto blanco */
-body[data-theme="dark"] .modern-header,
+[data-theme="dark"] .modern-header,
 body[data-theme="dark"] header.navbar {
   background-color: #800020 !important;
 }
-body[data-theme="dark"] .modern-header .logo-text,
+[data-theme="dark"] .modern-header .logo-text,
 body[data-theme="dark"] header .logo-text {
   color: #ffffff !important;
 }
-body[data-theme="dark"] .modern-header .nav-link {
+[data-theme="dark"] .modern-header .nav-link {
   color: #ffffff !important;
-}
-
-[data-theme="dark"] .modern-header {
-  background-color: #800020 !important;
 }
 
 [data-theme="light"] .modern-header {
   background-color: #ffffff !important;
-}
-
-[data-theme="dark"] .modern-header .logo-text {
-  color: #ffffff !important;
-}
-
-[data-theme="dark"] .modern-header .nav-link {
-  color: #ffffff !important;
 }
 
 [data-theme="dark"] p,

@@ -11,6 +11,7 @@ const EquiposLoader = (() => {
   // --- ESTADO PRIVADO ---
   let _state = {
     initialized: false,
+    initInProgress: false,
     equipos: [],
     categorias: [],
     empresa: {}
@@ -195,6 +196,16 @@ const EquiposLoader = (() => {
     }
   }
 
+  function _yieldToMain() {
+    return new Promise(resolve => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(resolve, { timeout: 100 });
+      } else {
+        setTimeout(resolve, 0);
+      }
+    });
+  }
+
   // Renderiza una card de equipo estilo streaming (ancha, con descripción y CTA)
   function _renderStreamingCard(equipo, track) {
     const waLink = _buildWhatsappLink(equipo);
@@ -292,9 +303,12 @@ const EquiposLoader = (() => {
     track.appendChild(card);
   }
 
-  // Renderiza todas las secciones grid (una por categoría)
   async function _renderStreamingSections(container, equiposAgrupados) {
-    for (const categoria of _state.categorias) {
+    const CHUNK_SIZE = 4;
+    const _idleCallback = window.requestIdleCallback ? window.requestIdleCallback.bind(window) : (cb, opts) => setTimeout(cb, 0);
+
+    for (let i = 0; i < _state.categorias.length; i++) {
+      const categoria = _state.categorias[i];
       const equipos = equiposAgrupados[categoria.id];
       if (!equipos || equipos.length === 0) continue;
 
@@ -310,24 +324,28 @@ const EquiposLoader = (() => {
 
       container.appendChild(section);
 
-      equipos.forEach(equipo => {
-        try { _renderStreamingCard(equipo, track); } catch (e) {
-          console.error('EquiposLoader: Error renderizando ' + equipo.id + ':', e.message);
-        }
-      });
+      for (let j = 0; j < equipos.length; j += CHUNK_SIZE) {
+        const chunk = equipos.slice(j, j + CHUNK_SIZE);
+        chunk.forEach(equipo => {
+          try { _renderStreamingCard(equipo, track); } catch (e) {
+            console.error('EquiposLoader: Error renderizando ' + equipo.id + ':', e.message);
+          }
+        });
+        await new Promise(resolve => _idleCallback(resolve, { timeout: 32 }));
+      }
 
       section.dataset.categoryLoaded = 'true';
+
+      if (i < _state.categorias.length - 1) {
+        await _yieldToMain();
+      }
     }
   }
 
   // --- API PÚBLICA DE INICIALIZACIÓN ---
   async function init() {
-    if (_state.initialized) {
-      console.log('EquiposLoader: Ya inicializado');
-      return;
-    }
-
-    console.log('EquiposLoader: Cargando datos desde JSON externo...');
+    if (_state.initialized || _state.initInProgress) return;
+    _state.initInProgress = true;
 
     try {
       await _loadAllData();
@@ -335,6 +353,7 @@ const EquiposLoader = (() => {
       const container = document.getElementById(CONTAINER_ID);
       if (!container) {
         console.warn('EquiposLoader: Contenedor #' + CONTAINER_ID + ' no encontrado');
+        _state.initInProgress = false;
         return;
       }
       container.innerHTML = '';
@@ -357,10 +376,11 @@ const EquiposLoader = (() => {
         timestamp: Date.now()
       });
 
-      _state.initialized = true;
-      console.log('EquiposLoader: ' + _state.equipos.length + ' equipos cargados exitosamente');
+       _state.initialized = true;
     } catch (error) {
       console.error('EquiposLoader: Error en inicialización:', error);
+    } finally {
+      _state.initInProgress = false;
     }
   }
 
@@ -395,27 +415,23 @@ if (typeof document !== 'undefined') {
 if (typeof document !== 'undefined') {
   document.addEventListener('component:loaded', function(e) {
     if (e.detail && e.detail.id === 'equipos') {
-      console.log('EquiposLoader: componente cargado dinámicamente, reinicializando...');
-      setTimeout(() => EquiposLoader.init(), 100);
+      EquiposLoader.init();
     }
   });
 }
 
-// Fallback de inicialización cuando el browser esté inactivo
 if (typeof window !== 'undefined') {
   if ('requestIdleCallback' in window) {
     window.requestIdleCallback(function() {
       if (!EquiposLoader.getEquipos().length) {
-        console.log('EquiposLoader: fallback init durante idle');
         EquiposLoader.init();
       }
     }, { timeout: 1500 });
   } else {
     setTimeout(function() {
       if (!EquiposLoader.getEquipos().length) {
-        console.log('EquiposLoader: fallback init después de 1s');
         EquiposLoader.init();
       }
-    }, 1000);
-  }
+     }, 1000);
+   }
 }
