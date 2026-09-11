@@ -126,6 +126,13 @@
 }
 .stream-chip.is-active i { color: #fff; }
 
+.stream-chip:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(189, 30, 30, 0.5), 0 0 16px rgba(189, 30, 30, 0.2);
+  animation: focus-ring 0.35s ease-out;
+}
+
 /* =========================================================
    SECCIÓN POR CATEGORÍA
    ========================================================= */
@@ -372,3 +379,81 @@
 }
 
 /* Botón "volver" y tarjetas legacy: definidos en assets/css/main.css (ITCSS, con variables) */
+
+/* ============ TOGGLE DE MODO: ALQUILER / VENTA (en hero de equipos) ============ */
+.equipos-mode-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.4rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.equipos-mode-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.75rem;
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.equipos-mode-btn i {
+  font-size: 1rem;
+}
+
+.equipos-mode-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.equipos-mode-btn.is-active {
+  background: #ffc107;
+  color: #1a1a2e;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.35);
+}
+
+.equipos-mode-btn.is-active i {
+  color: #1a1a2e;
+}
+
+.equipos-mode-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(189, 30, 30, 0.5), 0 0 16px rgba(189, 30, 30, 0.2);
+  animation: focus-ring 0.35s ease-out;
+}
+
+@media (max-width: 576px) {
+  .equipos-mode-btn {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.5rem;
+    gap: 0.3rem;
+  }
+  .equipos-mode-btn span {
+    display: none;
+  }
+  .equipos-mode-btn i {
+    font-size: 1.15rem;
+  }
+  .equipos-mode-toggle {
+    padding: 0.3rem;
+    gap: 0.4rem;
+  }
+}

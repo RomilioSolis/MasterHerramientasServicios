@@ -127,11 +127,37 @@ ul, ol {
 }
 
 /* ============================================
-   FOCUS STATES
-   ============================================ */
+    FOCUS STATES - ANIMADO
+    ============================================ */
+@keyframes focus-ring {
+  0% {
+    outline-offset: 0;
+    box-shadow: 0 0 0 0 rgba(189, 30, 30, 0.6), 0 0 0 0 rgba(189, 30, 30, 0);
+  }
+  30% {
+    outline-offset: 6px;
+    box-shadow: 0 0 0 8px rgba(189, 30, 30, 0.3), 0 0 20px rgba(189, 30, 30, 0.25);
+  }
+  100% {
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(189, 30, 30, 0.5), 0 0 16px rgba(189, 30, 30, 0.2);
+  }
+}
+
 :focus-visible {
   outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(189, 30, 30, 0.5), 0 0 16px rgba(189, 30, 30, 0.2);
+  animation: focus-ring 0.35s ease-out;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+*:focus-visible {
+  transition: box-shadow 0.2s ease-out, outline-offset 0.2s ease-out;
 }
 
 /* ============================================

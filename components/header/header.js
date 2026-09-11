@@ -9,7 +9,8 @@ const headerData = {
     },
     nav: [
         { href: '#nosotros', text: 'Nosotros' },
-        { href: '#equipos', text: 'Equipo', isDropdown: true },
+        { href: '#equipos', text: 'Alquiler de equipos', dataMode: 'alquiler' },
+        { href: '#equipos', text: 'Venta de equipos', dataMode: 'venta' },
         { href: '#contacto', text: 'Contacto' }
     ]
 };
@@ -43,10 +44,10 @@ function getHeaderHTML() {
                 </button>
                 <nav class="navigation-nav" aria-label="Navegación principal">
                     ${headerData.nav.map(item => {
-                        if (item.isDropdown) {
-                            return `<button type="button" id="equipos-dropdown-trigger" class="navigation-link" aria-label="Abrir catálogo de equipos" aria-expanded="false" aria-controls="equiposDropdownMenu" onclick="(window.toggleEquiposDropdownInternal || window.toggleEquiposDropdown || function() {})()">
-                                ${item.text} <i class="bi bi-chevron-down dropdown-arrow"></i>
-                            </button>`;
+                        if (item.dataMode) {
+                            return `<a href="${item.href}" class="navigation-link equipos-nav-link" data-mode="${item.dataMode}" aria-label="${item.text}">
+                                ${item.text}
+                            </a>`;
                         }
                         return `<a href="${item.href}" class="navigation-link">${item.text}</a>`;
                     }).join('')}
@@ -129,23 +130,43 @@ async function _loadScriptDuringIdle(src) {
        }).catch(e => console.error('Error cargando buscador-unificado.js:', e));
      }
 
-     // Detach MutationObservers after they've done their job
-     const setupObserver = (elementId, selector) => {
-       const el = document.getElementById(elementId);
-       if (!el) return null;
-       const observer = new MutationObserver((mutations) => {
-         const items = el.querySelectorAll(selector);
-         if (items.length > 0) {
-           observer.disconnect();
-         }
-       });
-       observer.observe(el, { childList: true, subtree: true });
-       return observer;
-     };
+// Detach MutationObservers after they've done their job
+      const setupObserver = (elementId, selector) => {
+        const el = document.getElementById(elementId);
+        if (!el) return null;
+        const observer = new MutationObserver((mutations) => {
+          const items = el.querySelectorAll(selector);
+          if (items.length > 0) {
+            observer.disconnect();
+          }
+        });
+        observer.observe(el, { childList: true, subtree: true });
+        return observer;
+      };
 
-     setupObserver('netflixRows', '.netflix-item');
-     setupObserver('herramientas-container', '.col-md-4');
-   }
+      setupObserver('netflixRows', '.netflix-item');
+      setupObserver('herramientas-container', '.col-md-4');
+
+      // Bind click handlers for Alquiler/Venta nav links to set mode before navigation
+      _bindEquiposNavLinks();
+    }
+
+    function _bindEquiposNavLinks() {
+      const links = document.querySelectorAll('.equipos-nav-link');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const mode = link.dataset.mode;
+          // Notificar al catálogo antes de navegar
+          document.dispatchEvent(new CustomEvent('equipos:mode:change', {
+            detail: { mode }
+          }));
+          if (typeof EventEmitter !== 'undefined') {
+            EventEmitter.emit('equipos:mode:change', { mode });
+          }
+          // Allow default navigation to #equipos
+        });
+      });
+    }
 
   document.addEventListener('DOMContentLoaded', loadHeaderComponent);
 

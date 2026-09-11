@@ -67,9 +67,11 @@
 /* ============================================
    ESTADO FOCUS
    ============================================ */
-.category-tabs .nav-link:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.25);
+.category-tabs .nav-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(189, 30, 30, 0.5), 0 0 16px rgba(189, 30, 30, 0.2);
+  animation: focus-ring 0.35s ease-out;
 }
 
 /* ============================================

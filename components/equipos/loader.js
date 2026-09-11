@@ -12,6 +12,7 @@ const EquiposLoader = (() => {
   let _state = {
     initialized: false,
     initInProgress: false,
+    mode: 'alquiler', // 'alquiler' | 'venta'
     equipos: [],
     categorias: [],
     empresa: {}
@@ -51,6 +52,34 @@ const EquiposLoader = (() => {
       acc[equipo.categoria].push(equipo);
       return acc;
     }, {});
+  }
+
+  function _getEquiposPorModo() {
+    if (_state.mode === 'venta') {
+      return _state.equipos.filter(eq => eq.venta && eq.venta > 0);
+    }
+    // Alquiler: equipos con precio de día o semana > 0
+    return _state.equipos.filter(eq =>
+      (eq.precioDia > 0 || eq.precioSemana > 0)
+    );
+  }
+
+  function _subscribeModeChange() {
+    function _onModeChange(detail) {
+      const mode = (detail && detail.mode) ? detail.mode : 'alquiler';
+      if (mode === _state.mode) return;
+      _state.mode = mode;
+      const container = document.getElementById(CONTAINER_ID);
+      if (!container) return;
+      container.innerHTML = '';
+      _renderStreamingHero(container);
+      _renderStreamingSections(container, _agruparPorCategoria(_getEquiposPorModo()));
+    }
+    if (typeof EventEmitter !== 'undefined') {
+      EventEmitter.on('equipos:mode:change', _onModeChange);
+    } else {
+      document.addEventListener('equipos:mode:change', (e) => _onModeChange(e.detail));
+    }
   }
 
   function _getCategoriaNombre(id) {
@@ -97,6 +126,15 @@ const EquiposLoader = (() => {
 
   // Renderiza el hero del catálogo (encabezado estilo streaming + chips de categorías)
   function _renderStreamingHero(container) {
+    if (!container) {
+      container = document.getElementById(CONTAINER_ID);
+    }
+    if (!container) return;
+
+    // Remove existing hero if present
+    const existingHero = container.querySelector('.stream-hero');
+    if (existingHero) existingHero.remove();
+
     const hero = document.createElement('div');
     hero.className = 'stream-hero';
 
@@ -105,7 +143,13 @@ const EquiposLoader = (() => {
 
     const titulo = document.createElement('h2');
     titulo.className = 'stream-hero-title';
-    titulo.textContent = 'Catálogo de Equipos';
+    titulo.textContent = _state.mode === 'venta' ? 'Venta de Equipos' : 'Catálogo de Equipos';
+
+    const subtitle = document.createElement('p');
+    subtitle.className = 'stream-hero-subtitle';
+    subtitle.innerHTML = _state.mode === 'venta'
+      ? '<strong>Equipos disponibles para venta</strong> — Consulta disponibilidad y precios'
+      : '<strong>Alquiler de equipos</strong> — Encuentra el equipo que necesitas para tu obra';
 
     const chips = document.createElement('nav');
     chips.className = 'stream-chips';
@@ -143,7 +187,44 @@ const EquiposLoader = (() => {
     });
 
     inner.appendChild(titulo);
+    inner.appendChild(subtitle);
     inner.appendChild(chips);
+
+    // Toggle de modo Alquiler/Venta dentro del hero
+    const modeToggle = document.createElement('div');
+    modeToggle.className = 'equipos-mode-toggle';
+    modeToggle.setAttribute('role', 'group');
+    modeToggle.setAttribute('aria-label', 'Modo de catálogo');
+
+    const modeAlquiler = document.createElement('button');
+    modeAlquiler.type = 'button';
+    modeAlquiler.className = 'equipos-mode-btn' + (_state.mode === 'alquiler' ? ' is-active' : '');
+    modeAlquiler.dataset.mode = 'alquiler';
+    modeAlquiler.innerHTML = '<i class="bi bi-box-seam"></i><span>Alquiler de equipos</span>';
+
+    const modeVenta = document.createElement('button');
+    modeVenta.type = 'button';
+    modeVenta.className = 'equipos-mode-btn' + (_state.mode === 'venta' ? ' is-active' : '');
+    modeVenta.dataset.mode = 'venta';
+    modeVenta.innerHTML = '<i class="bi bi-tag"></i><span>Venta de equipos</span>';
+
+    [modeAlquiler, modeVenta].forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.mode;
+        if (mode === _state.mode) return;
+        document.querySelectorAll('.equipos-mode-btn').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        document.dispatchEvent(new CustomEvent('equipos:mode:change', { detail: { mode } }));
+        if (typeof EventEmitter !== 'undefined') {
+          EventEmitter.emit('equipos:mode:change', { mode });
+        }
+      });
+    });
+
+    modeToggle.appendChild(modeAlquiler);
+    modeToggle.appendChild(modeVenta);
+    inner.appendChild(modeToggle);
+
     hero.appendChild(inner);
     container.appendChild(hero);
   }
@@ -292,8 +373,12 @@ const EquiposLoader = (() => {
     cta.className = 'stream-card-cta netflix-item-whatsapp';
     cta.target = '_blank';
     cta.rel = 'noopener';
-    cta.setAttribute('aria-label', 'Cotizar ' + equipo.nombre + ' por WhatsApp');
-    cta.innerHTML = '<i class="bi bi-whatsapp"></i><span>Cotizar por WhatsApp</span>';
+    cta.setAttribute('aria-label', _state.mode === 'venta'
+      ? 'Consultar venta de ' + equipo.nombre + ' por WhatsApp'
+      : 'Cotizar ' + equipo.nombre + ' por WhatsApp');
+    cta.innerHTML = '<i class="bi bi-whatsapp"></i><span>' + (_state.mode === 'venta'
+      ? 'Consultar venta'
+      : 'Cotizar por WhatsApp') + '</span>';
 
     body.appendChild(titleEl);
     body.appendChild(cta);
@@ -366,6 +451,8 @@ const EquiposLoader = (() => {
 
       // Filtrado por categoría: chips del hero + dropdown del header
       _subscribeCategorySelect();
+      // Suscribirse a cambios de modo (Alquiler/Venta)
+      _subscribeModeChange();
 
       _emit('equiposLoaded', {
         total: _state.equipos.length,
