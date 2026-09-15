@@ -1,0 +1,29 @@
+# Dependencias
+node_modules/
+
+# Editor y IDE
+.kilo/
+.kilocode/
+.vscode/
+.idea/
+
+# Playwright / Testing
+.playwright-mcp/
+playwright-report/
+test-results/
+
+# Perfiles de navegador / Chrome (capturados accidentalmente)
+# (rutas con backslashes de Windows - eliminar con git rm --cached)
+C:\Users\
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+Thumbs
+
+# Logs
+*.log
+
+# Entorno
+.env
+.env.*
