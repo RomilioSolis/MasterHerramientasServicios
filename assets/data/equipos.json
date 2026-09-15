@@ -48,7 +48,7 @@
       "Altura máxima: 1500mm",
       "Manivela de accionamiento rápido"
     ],
-    "imagen": "estibador.png"
+    "imagen": "estibador.webp"
   },
   {
     "id": "gatos-hidraulicos",
@@ -67,7 +67,7 @@
       "Altura máxima: 455mm",
       "Válvula de seguridad contra sobrecarga"
     ],
-    "imagen": "gatos.png"
+    "imagen": "gatos.webp"
   },
   {
     "id": "planta-electrica",
@@ -76,7 +76,7 @@
     "precioDia": 180000,
     "precioSemana": 900000,
     "disponible": true,
-    "imagen": "PlantaEnergia.png",
+    "imagen": "PlantaEnergia.webp",
     "descripcion": "Planta eléctrica diésel de 15kva trifásica, ideal para obras sin conexión eléctrica.",
     "caracteristicas": [
       "Potencia: 15kva / 12kW",
@@ -93,7 +93,7 @@
     "precioDia": 135000,
     "precioSemana": 675000,
     "disponible": true,
-    "imagen": "compresor.png",
+    "imagen": "compresor.webp",
     "descripcion": "Compresor de aire portátil de 185 CFM para martillo neumático, pintura y herramientas neumáticas.",
     "caracteristicas": [
       "Caudal: 185 CFM",
@@ -127,7 +127,7 @@
     "precioDia": 75000,
     "precioSemana": 375000,
     "disponible": true,
-    "imagen": "TrompoMezclador.png",
+    "imagen": "TrompoMezclador.webp",
     "descripcion": "Mezcladora de concreto de 300 litros con motor eléctrico. Ideal para obras medianas.",
     "caracteristicas": [
       "Capacidad: 300 litros",
@@ -144,7 +144,7 @@
     "precioDia": 65000,
     "precioSemana": 325000,
     "disponible": true,
-    "imagen": "VibroCompactadora.png",
+    "imagen": "VibroCompactadora.webp",
     "descripcion": "Compactadora de placa vibratoria para compactación de suelos, asfalto y base granular.",
     "caracteristicas": [
       "Peso: 85kg",
@@ -161,7 +161,7 @@
     "precioDia": 85000,
     "precioSemana": 425000,
     "disponible": true,
-    "imagen": "Hidrolavadora.png",
+    "imagen": "Hidrolavadora.webp",
     "descripcion": "Hidrolavadora de alta presión 3000 PSI para limpieza industrial de maquinaria, fachadas y vehículos.",
     "caracteristicas": [
       "Presión: 3000 PSI",
@@ -178,7 +178,7 @@
     "precioDia": 70000,
     "precioSemana": 350000,
     "disponible": true,
-    "imagen": "EquiOxicorte.png",
+    "imagen": "EquiOxicorte.webp",
     "descripcion": "Equipo completo de oxicorte con mangueras, antorcha y reguladores. Para corte de acero.",
     "caracteristicas": [
       "Corte hasta 150mm espesor",
@@ -195,7 +195,7 @@
     "precioDia": 150000,
     "precioSemana": 750000,
     "disponible": true,
-    "imagen": "Winches.png",
+    "imagen": "Winches.webp",
     "descripcion": "Winch eléctrico de 5 toneladas con cable de acero. Para tracción y elevación de cargas.",
     "caracteristicas": [
       "Capacidad: 5000kg",
@@ -212,7 +212,7 @@
     "precioDia": 55000,
     "precioSemana": 275000,
     "disponible": true,
-    "imagen": "MotoBombaLapi.png",
+    "imagen": "MotoBombaLapi.webp",
     "descripcion": "Bomba sumergible de 3 pulgadas para drenaje de agua limpia y sucia en obras y sótanos.",
     "caracteristicas": [
       "Diámetro: 3 pulgadas",
@@ -229,7 +229,7 @@
     "precioDia": 50000,
     "precioSemana": 250000,
     "disponible": true,
-    "imagen": "Motosierra.png",
+    "imagen": "Motosierra.webp",
     "descripcion": "Motosierra de cadena profesional 18 pulgadas para tala de árboles y trabajos forestales.",
     "caracteristicas": [
       "Espada: 18 pulgadas",
@@ -246,7 +246,7 @@
     "precioDia": 90000,
     "precioSemana": 450000,
     "disponible": true,
-    "imagen": "PlumaGrua.png",
+    "imagen": "PlumaGrua.webp",
     "descripcion": "Pluma grúa para camioneta con capacidad 1 tonelada. Desmontable para transporte.",
     "caracteristicas": [
       "Capacidad: 1000kg",
@@ -263,7 +263,7 @@
     "precioDia": 60000,
     "precioSemana": 300000,
     "disponible": true,
-    "imagen": "SondaElectrica.png",
+    "imagen": "SondaElectrica.webp",
     "descripcion": "Sonda eléctrica de 50 metros para desatasco de tuberías y cañerías.",
     "caracteristicas": [
       "Longitud cable: 50m",
@@ -297,7 +297,7 @@
     "precioDia": 30000,
     "precioSemana": 150000,
     "disponible": true,
-    "imagen": "GanchosColgantes.png",
+    "imagen": "GanchosColgantes.webp",
     "descripcion": "Juego de ganchos de elevación certificados de 2 toneladas para carga y descarga.",
     "caracteristicas": [
       "Capacidad: 2000kg",
@@ -314,7 +314,7 @@
     "precioDia": 40000,
     "precioSemana": 200000,
     "disponible": true,
-    "imagen": "Extractor.png",
+    "imagen": "Extractor.webp",
     "descripcion": "Extractor de aire axial de 300mm para ventilación en espacios cerrados y trabajos de soldadura.",
     "caracteristicas": [
       "Diámetro: 300mm",
@@ -331,7 +331,7 @@
     "precioDia": 170000,
     "precioSemana": 850000,
     "disponible": true,
-    "imagen": "ExtraNucleo.png",
+    "imagen": "ExtraNucleo.webp",
     "descripcion": "Máquina de extracción de núcleos para perforación de pozos en concreto y asfalto.",
     "caracteristicas": [
       "Diámetro máximo: 200mm",
@@ -348,7 +348,7 @@
     "precioDia": 50000,
     "precioSemana": 250000,
     "disponible": false,
-    "imagen": "Estanteria.png",
+    "imagen": "Estanteria.webp",
     "descripcion": "Sistema de estanterías modulares para almacenamiento temporal de materiales en obra.",
     "caracteristicas": [
       "Altura: 2.5m",
@@ -365,7 +365,7 @@
     "precioDia": 45000,
     "precioSemana": 225000,
     "disponible": true,
-    "imagen": "Esmeril.png",
+    "imagen": "Esmeril.webp",
     "descripcion": "Esmeriladora angular de 9 pulgadas para corte y desbaste de metal y concreto.",
     "caracteristicas": [
       "Disco: 9 pulgadas (230mm)",
@@ -382,7 +382,7 @@
     "precioDia": 65000,
     "precioSemana": 325000,
     "disponible": true,
-    "imagen": "Soldador.png",
+    "imagen": "Soldador.webp",
     "descripcion": "Soldadora inverter profesional MMA 250A para soldadura eléctrica de acero.",
     "caracteristicas": [
       "Corriente máxima: 250A",
@@ -399,7 +399,7 @@
     "precioDia": 40000,
     "precioSemana": 200000,
     "disponible": true,
-    "imagen": "CortadoraPorcelanato.png",
+    "imagen": "CortadoraPorcelanato.webp",
     "descripcion": "Cortadora eléctrica de cerámica y porcelanato con guía láser y mesa inclinable.",
     "caracteristicas": [
       "Corte máximo: 1200mm",
@@ -416,7 +416,7 @@
     "precioDia": 35000,
     "precioSemana": 175000,
     "disponible": true,
-    "imagen": "Diferencial.png",
+    "imagen": "Diferencial.webp",
     "descripcion": "Protección diferencial eléctrica portátil 63A para seguridad eléctrica en obras.",
     "caracteristicas": [
       "Corriente: 63A",
@@ -433,7 +433,7 @@
     "precioDia": 45000,
     "precioSemana": 225000,
     "disponible": true,
-    "imagen": "Carretilla.png",
+    "imagen": "Carretilla.webp",
     "descripcion": "Carretilla hidráulica manual de 2.5 toneladas para transporte de palets.",
     "caracteristicas": [
       "Capacidad: 2500kg",
@@ -450,7 +450,7 @@
     "precioDia": 55000,
     "precioSemana": 275000,
     "disponible": true,
-    "imagen": "Buggy.png",
+    "imagen": "Buggy.webp",
     "descripcion": "Vagoneta eléctrica para transporte de concreto y materiales en obra.",
     "caracteristicas": [
       "Capacidad: 80 litros",
@@ -467,7 +467,7 @@
     "precioDia": 45000,
     "precioSemana": 225000,
     "disponible": true,
-    "imagen": "Aspiradora.png",
+    "imagen": "Aspiradora.webp",
     "descripcion": "Aspiradora industrial húmedo/seco de 50 litros para limpieza de polvo, agua y residuos.",
     "caracteristicas": [
       "Capacidad: 50 litros",
@@ -501,7 +501,7 @@
     "precioDia": 25000,
     "precioSemana": 125000,
     "disponible": false,
-    "imagen": "Parasol.png",
+    "imagen": "Parasol.webp",
     "descripcion": "Parasol industrial de 3 metros diámetro para protección solar en obras.",
     "caracteristicas": [
       "Diámetro: 3m",
@@ -521,7 +521,7 @@
     "ventaLabel": "Venta: 100.000 C/U",
     "disponible": true,
     "carpeta": "Cerchas",
-    "imagen": "20250226_091008.jpg",
+    "imagen": "20250226_091008.webp",
     "descripcion": "Cerchas metálicas para estructuras de techado en obras de construcción.",
     "caracteristicas": [
       "Resistentes y duraderas",

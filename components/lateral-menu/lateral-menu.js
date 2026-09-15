@@ -9,50 +9,50 @@ const LateralMenu = (() => {
   // --- CONSTANTES PRIVADAS ---
   const _CATEGORIES_DATA = {
     elevacion: [
-      { name: 'Gatos Hidráulicos', img: '/assets/imagenes/gatosM/gatos.png', wa: 'gato%20hidraulico' },
-      { name: 'Gato Estibador', img: '/assets/imagenes/Estibador/estibador.png', wa: 'gato%20estibador' },
-      { name: 'Ganchos Colgantes', img: '/assets/imagenes/GanchosColgantes/GanchosColgantes.png', wa: 'ganchos%20colgantes' },
-      { name: 'Winches', img: '/assets/imagenes/Winches/Winches.png', wa: 'winche' },
-      { name: 'Pluma Grúa', img: '/assets/imagenes/PlumaGrua/PlumaGrua.png', wa: 'pluma%20grua' },
-      { name: 'Andamios Certificados', img: '/assets/imagenes/Andamios Certificados/Andamio Certificado 1.jpeg', wa: 'andamios%20certificados' }
+      { name: 'Gatos Hidráulicos', img: '/assets/imagenes/gatosM/gatos.webp', wa: 'gato%20hidraulico' },
+      { name: 'Gato Estibador', img: '/assets/imagenes/Estibador/estibador.webp', wa: 'gato%20estibador' },
+      { name: 'Ganchos Colgantes', img: '/assets/imagenes/GanchosColgantes/GanchosColgantes.webp', wa: 'ganchos%20colgantes' },
+      { name: 'Winches', img: '/assets/imagenes/Winches/Winches.webp', wa: 'winche' },
+      { name: 'Pluma Grúa', img: '/assets/imagenes/PlumaGrua/PlumaGrua.webp', wa: 'pluma%20grua' },
+      { name: 'Andamios Certificados', img: '/assets/imagenes/Andamios Certificados/Andamio Certificado 1.webp', wa: 'andamios%20certificados' }
     ],
     perforacion: [
       { name: 'Taladros', img: '/assets/imagenes/Taladros/Taladro.webp', wa: 'taladro' },
-      { name: 'Taladro Magnético', img: '/assets/imagenes/TaladroMagnetico/TaladroMagnetico1.jpeg', wa: 'taladro%20magnetico' },
-      { name: 'Extractores', img: '/assets/imagenes/Extractores/Extractor.png', wa: 'extractor' },
-      { name: 'Sonda Eléctrica', img: '/assets/imagenes/SondaElectrica/SondaElectrica.png', wa: 'sonda%20electrica' },
-      { name: 'Esmeriladora', img: '/assets/imagenes/Esmeril/Esmeril.png', wa: 'esmeriladora' },
-      { name: 'Equipo Oxicorte', img: '/assets/imagenes/Oxicorte/EquiOxicorte.png', wa: 'equipo%20oxicorte' },
-      { name: 'Cortadora Porcelanato', img: '/assets/imagenes/CortadoraPorcelanato/CortadoraPorcelanato.png', wa: 'cortadora%20porcelanato' },
-      { name: 'Extracción Núcleos', img: '/assets/imagenes/ExtraNucleo/ExtraNucleo.png', wa: 'extraccion%20nucleos' }
+      { name: 'Taladro Magnético', img: '/assets/imagenes/TaladroMagnetico/TaladroMagnetico1.webp', wa: 'taladro%20magnetico' },
+      { name: 'Extractores', img: '/assets/imagenes/Extractores/Extractor.webp', wa: 'extractor' },
+      { name: 'Sonda Eléctrica', img: '/assets/imagenes/SondaElectrica/SondaElectrica.webp', wa: 'sonda%20electrica' },
+      { name: 'Esmeriladora', img: '/assets/imagenes/Esmeril/Esmeril.webp', wa: 'esmeriladora' },
+      { name: 'Equipo Oxicorte', img: '/assets/imagenes/Oxicorte/EquiOxicorte.webp', wa: 'equipo%20oxicorte' },
+      { name: 'Cortadora Porcelanato', img: '/assets/imagenes/CortadoraPorcelanato/CortadoraPorcelanato.webp', wa: 'cortadora%20porcelanato' },
+      { name: 'Extracción Núcleos', img: '/assets/imagenes/ExtraNucleo/ExtraNucleo.webp', wa: 'extraccion%20nucleos' }
     ],
     mezclado: [
-      { name: 'Trompo Mezclador', img: '/assets/imagenes/TrompoMezclador/TrompoMezclador.png', wa: 'trompo%20mezclador' },
-      { name: 'Vibrocompactadora', img: '/assets/imagenes/VibroCompactadora/VibroCompactadora.png', wa: 'vibrocompactadora' }
+      { name: 'Trompo Mezclador', img: '/assets/imagenes/TrompoMezclador/TrompoMezclador.webp', wa: 'trompo%20mezclador' },
+      { name: 'Vibrocompactadora', img: '/assets/imagenes/VibroCompactadora/VibroCompactadora.webp', wa: 'vibrocompactadora' }
     ],
     limpieza: [
-      { name: 'Hidrolavadora', img: '/assets/imagenes/Hidrolavadora/Hidrolavadora.png', wa: 'hidrolavadora' },
-      { name: 'Aspiradora Industrial', img: '/assets/imagenes/Aspiradora/Aspiradora.png', wa: 'aspiradora%20industrial' },
-      { name: 'Motobomba Sumergible', img: '/assets/imagenes/Motobomba/MotoBombaLapi.png', wa: 'motobomba%20sumergible' }
+      { name: 'Hidrolavadora', img: '/assets/imagenes/Hidrolavadora/Hidrolavadora.webp', wa: 'hidrolavadora' },
+      { name: 'Aspiradora Industrial', img: '/assets/imagenes/Aspiradora/Aspiradora.webp', wa: 'aspiradora%20industrial' },
+      { name: 'Motobomba Sumergible', img: '/assets/imagenes/Motobomba/MotoBombaLapi.webp', wa: 'motobomba%20sumergible' }
     ],
     soldadura: [
-      { name: 'Soldadora', img: '/assets/imagenes/Soldador/Soldador.png', wa: 'soldadora' },
-      { name: 'Planta Eléctrica', img: '/assets/imagenes/PlantaElectrica/PlantaEnergia.png', wa: 'planta%20electrica' },
-      { name: 'Compresor', img: '/assets/imagenes/Compresor/compresor.png', wa: 'compresor' }
+      { name: 'Soldadora', img: '/assets/imagenes/Soldador/Soldador.webp', wa: 'soldadora' },
+      { name: 'Planta Eléctrica', img: '/assets/imagenes/PlantaElectrica/PlantaEnergia.webp', wa: 'planta%20electrica' },
+      { name: 'Compresor', img: '/assets/imagenes/Compresor/compresor.webp', wa: 'compresor' }
     ],
     construccion: [
-      { name: 'Andamios', img: '/assets/imagenes/Andamios/Andamios.png', wa: 'andamios' },
-      { name: 'Estanterías', img: '/assets/imagenes/Estanteria/Estanteria.png', wa: 'estanterias' },
-      { name: 'Parasoles', img: '/assets/imagenes/Parasol/Parasol.png', wa: 'parasoles' }
+      { name: 'Andamios', img: '/assets/imagenes/Andamios/Andamios.webp', wa: 'andamios' },
+      { name: 'Estanterías', img: '/assets/imagenes/Estanteria/Estanteria.webp', wa: 'estanterias' },
+      { name: 'Parasoles', img: '/assets/imagenes/Parasol/Parasol.webp', wa: 'parasoles' }
     ],
     movimiento: [
-      { name: 'Diferenciales', img: '/assets/imagenes/Diferencial/Diferencial.png', wa: 'diferenciales' },
-      { name: 'Carretilla', img: '/assets/imagenes/Carretilla/Carretilla.png', wa: 'carretilla' },
-      { name: 'Buggy', img: '/assets/imagenes/Buggy/Buggy.png', wa: 'buggy' }
+      { name: 'Diferenciales', img: '/assets/imagenes/Diferencial/Diferencial.webp', wa: 'diferenciales' },
+      { name: 'Carretilla', img: '/assets/imagenes/Carretilla/Carretilla.webp', wa: 'carretilla' },
+      { name: 'Buggy', img: '/assets/imagenes/Buggy/Buggy.webp', wa: 'buggy' }
     ],
     jardin: [
-      { name: 'Escaleras', img: '/assets/imagenes/Escaleras/escaleras.jpg', wa: 'escaleras' },
-      { name: 'Motosierra', img: '/assets/imagenes/Motosierra/Motosierra.png', wa: 'motosierra' }
+      { name: 'Escaleras', img: '/assets/imagenes/Escaleras/escaleras.webp', wa: 'escaleras' },
+      { name: 'Motosierra', img: '/assets/imagenes/Motosierra/Motosierra.webp', wa: 'motosierra' }
     ]
   };
   

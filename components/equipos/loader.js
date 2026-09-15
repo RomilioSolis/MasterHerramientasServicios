@@ -303,14 +303,17 @@ const EquiposLoader = (() => {
     poster.className = 'stream-card-poster netflix-item-image';
     poster.style.cursor = 'pointer';
 
-    const img = document.createElement('img');
-    img.src = firstImg;
-    img.alt = equipo.nombre;
-    img.loading = 'lazy';
-    img.width = 640;
-    img.height = 360;
-    img.onerror = function() { this.src = 'assets/imagenes/logo.png'; };
-    poster.appendChild(img);
+    const imgContainer = document.createElement('div');
+    const srcset = typeof ImgSrcset !== 'undefined' ? ImgSrcset.getSrcset(firstImg) : null;
+    const fallback = typeof ImgSrcset !== 'undefined' ? ImgSrcset.getFallbackSrc(firstImg) : firstImg;
+    const safeName = equipo.nombre.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+    if (srcset) {
+      imgContainer.innerHTML = '<picture><source srcset="' + srcset + '" type="image/webp"><img src="' + fallback + '" alt="' + safeName + '" loading="lazy" width="640" height="360" onerror="this.src=\'assets/imagenes/logo.png\'"></picture>';
+    } else {
+      imgContainer.innerHTML = '<img src="' + firstImg + '" alt="' + safeName + '" loading="lazy" width="640" height="360" onerror="this.src=\'assets/imagenes/logo.png\'">';
+    }
+    poster.appendChild(imgContainer);
 
     if (equipo.disponible !== false) {
       const badge = document.createElement('span');

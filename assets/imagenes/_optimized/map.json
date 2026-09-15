@@ -1,0 +1,1485 @@
+{
+  "Andamios/Andamios.png": {
+    "base": "Andamios",
+    "dir": "Andamios",
+    "original": "Andamios/Andamios.png",
+    "originalSize": {
+      "width": 1798,
+      "height": 3198
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Andamios/Andamios-400.webp",
+        "width": 400,
+        "height": 711
+      },
+      {
+        "rel": "_optimized/Andamios/Andamios-800.webp",
+        "width": 800,
+        "height": 1423
+      },
+      {
+        "rel": "_optimized/Andamios/Andamios-1200.webp",
+        "width": 1200,
+        "height": 2134
+      }
+    ]
+  },
+  "Andamios/Andamios2.jpg": {
+    "base": "Andamios2",
+    "dir": "Andamios",
+    "original": "Andamios/Andamios2.jpg",
+    "originalSize": {
+      "width": 261,
+      "height": 261
+    },
+    "sizes": []
+  },
+  "Andamios/Andamios3.jpg": {
+    "base": "Andamios3",
+    "dir": "Andamios",
+    "original": "Andamios/Andamios3.jpg",
+    "originalSize": {
+      "width": 261,
+      "height": 261
+    },
+    "sizes": []
+  },
+  "Andamios Certificados/Andamio Certificado 1.jpeg": {
+    "base": "Andamio Certificado 1",
+    "dir": "Andamios Certificados",
+    "original": "Andamios Certificados/Andamio Certificado 1.jpeg",
+    "originalSize": {
+      "width": 1200,
+      "height": 1600
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Andamios Certificados/Andamio Certificado 1-400.webp",
+        "width": 400,
+        "height": 533
+      },
+      {
+        "rel": "_optimized/Andamios Certificados/Andamio Certificado 1-800.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "rel": "_optimized/Andamios Certificados/Andamio Certificado 1-1200.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    ]
+  },
+  "Andamios Certificados/Andamio Certificado 2.jpeg": {
+    "base": "Andamio Certificado 2",
+    "dir": "Andamios Certificados",
+    "original": "Andamios Certificados/Andamio Certificado 2.jpeg",
+    "originalSize": {
+      "width": 1200,
+      "height": 1600
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Andamios Certificados/Andamio Certificado 2-400.webp",
+        "width": 400,
+        "height": 533
+      },
+      {
+        "rel": "_optimized/Andamios Certificados/Andamio Certificado 2-800.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "rel": "_optimized/Andamios Certificados/Andamio Certificado 2-1200.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    ]
+  },
+  "Aspiradora/Aspiradora.png": {
+    "base": "Aspiradora",
+    "dir": "Aspiradora",
+    "original": "Aspiradora/Aspiradora.png",
+    "originalSize": {
+      "width": 522,
+      "height": 522
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Aspiradora/Aspiradora-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "Buggy/Buggy.png": {
+    "base": "Buggy",
+    "dir": "Buggy",
+    "original": "Buggy/Buggy.png",
+    "originalSize": {
+      "width": 350,
+      "height": 360
+    },
+    "sizes": []
+  },
+  "Carretilla/Carretilla.png": {
+    "base": "Carretilla",
+    "dir": "Carretilla",
+    "original": "Carretilla/Carretilla.png",
+    "originalSize": {
+      "width": 1178,
+      "height": 962
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Carretilla/Carretilla-400.webp",
+        "width": 400,
+        "height": 327
+      },
+      {
+        "rel": "_optimized/Carretilla/Carretilla-800.webp",
+        "width": 800,
+        "height": 653
+      }
+    ]
+  },
+  "Cerchas/20250226_091008.jpg": {
+    "base": "20250226_091008",
+    "dir": "Cerchas",
+    "original": "Cerchas/20250226_091008.jpg",
+    "originalSize": {
+      "width": 4000,
+      "height": 1800
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Cerchas/20250226_091008-400.webp",
+        "width": 400,
+        "height": 180
+      },
+      {
+        "rel": "_optimized/Cerchas/20250226_091008-800.webp",
+        "width": 800,
+        "height": 360
+      },
+      {
+        "rel": "_optimized/Cerchas/20250226_091008-1200.webp",
+        "width": 1200,
+        "height": 540
+      }
+    ]
+  },
+  "Compresor/compresor.png": {
+    "base": "compresor",
+    "dir": "Compresor",
+    "original": "Compresor/compresor.png",
+    "originalSize": {
+      "width": 261,
+      "height": 261
+    },
+    "sizes": []
+  },
+  "CortadoraPorcelanato/CortadoraPorcelanato.png": {
+    "base": "CortadoraPorcelanato",
+    "dir": "CortadoraPorcelanato",
+    "original": "CortadoraPorcelanato/CortadoraPorcelanato.png",
+    "originalSize": {
+      "width": 806,
+      "height": 806
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/CortadoraPorcelanato/CortadoraPorcelanato-400.webp",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "rel": "_optimized/CortadoraPorcelanato/CortadoraPorcelanato-800.webp",
+        "width": 800,
+        "height": 800
+      }
+    ]
+  },
+  "CortadoraPorcelanato/cortadora 1.jpg": {
+    "base": "cortadora 1",
+    "dir": "CortadoraPorcelanato",
+    "original": "CortadoraPorcelanato/cortadora 1.jpg",
+    "originalSize": {
+      "width": 395,
+      "height": 395
+    },
+    "sizes": []
+  },
+  "Diferencial/Diferencial.png": {
+    "base": "Diferencial",
+    "dir": "Diferencial",
+    "original": "Diferencial/Diferencial.png",
+    "originalSize": {
+      "width": 417,
+      "height": 417
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Diferencial/Diferencial-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "Diferencial/Diferencial1.jpg": {
+    "base": "Diferencial1",
+    "dir": "Diferencial",
+    "original": "Diferencial/Diferencial1.jpg",
+    "originalSize": {
+      "width": 261,
+      "height": 261
+    },
+    "sizes": []
+  },
+  "Diferencial/Diferencial2.jpg": {
+    "base": "Diferencial2",
+    "dir": "Diferencial",
+    "original": "Diferencial/Diferencial2.jpg",
+    "originalSize": {
+      "width": 261,
+      "height": 261
+    },
+    "sizes": []
+  },
+  "Escaleras/escaleras.jpg": {
+    "base": "escaleras",
+    "dir": "Escaleras",
+    "original": "Escaleras/escaleras.jpg",
+    "originalSize": {
+      "width": 417,
+      "height": 417
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Escaleras/escaleras-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "Escaleras/escaleras1.jpg": {
+    "base": "escaleras1",
+    "dir": "Escaleras",
+    "original": "Escaleras/escaleras1.jpg",
+    "originalSize": {
+      "width": 403,
+      "height": 403
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Escaleras/escaleras1-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "Escaleras/escaleras2.jpg": {
+    "base": "escaleras2",
+    "dir": "Escaleras",
+    "original": "Escaleras/escaleras2.jpg",
+    "originalSize": {
+      "width": 403,
+      "height": 403
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Escaleras/escaleras2-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "Esmeril/Esmeril.png": {
+    "base": "Esmeril",
+    "dir": "Esmeril",
+    "original": "Esmeril/Esmeril.png",
+    "originalSize": {
+      "width": 948,
+      "height": 948
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Esmeril/Esmeril-400.webp",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "rel": "_optimized/Esmeril/Esmeril-800.webp",
+        "width": 800,
+        "height": 800
+      }
+    ]
+  },
+  "Estanteria/Estanteria.png": {
+    "base": "Estanteria",
+    "dir": "Estanteria",
+    "original": "Estanteria/Estanteria.png",
+    "originalSize": {
+      "width": 806,
+      "height": 806
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Estanteria/Estanteria-400.webp",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "rel": "_optimized/Estanteria/Estanteria-800.webp",
+        "width": 800,
+        "height": 800
+      }
+    ]
+  },
+  "Estibador/Estibador 10.jpg": {
+    "base": "Estibador 10",
+    "dir": "Estibador",
+    "original": "Estibador/Estibador 10.jpg",
+    "originalSize": {
+      "width": 4000,
+      "height": 1800
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Estibador/Estibador 10-400.webp",
+        "width": 400,
+        "height": 180
+      },
+      {
+        "rel": "_optimized/Estibador/Estibador 10-800.webp",
+        "width": 800,
+        "height": 360
+      },
+      {
+        "rel": "_optimized/Estibador/Estibador 10-1200.webp",
+        "width": 1200,
+        "height": 540
+      }
+    ]
+  },
+  "Estibador/Estibador 11.jpg": {
+    "base": "Estibador 11",
+    "dir": "Estibador",
+    "original": "Estibador/Estibador 11.jpg",
+    "originalSize": {
+      "width": 4000,
+      "height": 1800
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Estibador/Estibador 11-400.webp",
+        "width": 400,
+        "height": 180
+      },
+      {
+        "rel": "_optimized/Estibador/Estibador 11-800.webp",
+        "width": 800,
+        "height": 360
+      },
+      {
+        "rel": "_optimized/Estibador/Estibador 11-1200.webp",
+        "width": 1200,
+        "height": 540
+      }
+    ]
+  },
+  "Estibador/Estibador 12.jpg": {
+    "base": "Estibador 12",
+    "dir": "Estibador",
+    "original": "Estibador/Estibador 12.jpg",
+    "originalSize": {
+      "width": 3264,
+      "height": 1836
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Estibador/Estibador 12-400.webp",
+        "width": 400,
+        "height": 225
+      },
+      {
+        "rel": "_optimized/Estibador/Estibador 12-800.webp",
+        "width": 800,
+        "height": 450
+      },
+      {
+        "rel": "_optimized/Estibador/Estibador 12-1200.webp",
+        "width": 1200,
+        "height": 675
+      }
+    ]
+  },
+  "Estibador/Estibador 13.jpg": {
+    "base": "Estibador 13",
+    "dir": "Estibador",
+    "original": "Estibador/Estibador 13.jpg",
+    "originalSize": {
+      "width": 3264,
+      "height": 1836
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Estibador/Estibador 13-400.webp",
+        "width": 400,
+        "height": 225
+      },
+      {
+        "rel": "_optimized/Estibador/Estibador 13-800.webp",
+        "width": 800,
+        "height": 450
+      },
+      {
+        "rel": "_optimized/Estibador/Estibador 13-1200.webp",
+        "width": 1200,
+        "height": 675
+      }
+    ]
+  },
+  "Estibador/Estibador3.jpg": {
+    "base": "Estibador3",
+    "dir": "Estibador",
+    "original": "Estibador/Estibador3.jpg",
+    "originalSize": {
+      "width": 576,
+      "height": 1280
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Estibador/Estibador3-400.webp",
+        "width": 400,
+        "height": 889
+      }
+    ]
+  },
+  "Estibador/estibador.png": {
+    "base": "estibador",
+    "dir": "Estibador",
+    "original": "Estibador/estibador.png",
+    "originalSize": {
+      "width": 416,
+      "height": 416
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Estibador/estibador-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "ExtraNucleo/ExtraNucleo.png": {
+    "base": "ExtraNucleo",
+    "dir": "ExtraNucleo",
+    "original": "ExtraNucleo/ExtraNucleo.png",
+    "originalSize": {
+      "width": 1000,
+      "height": 1896
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/ExtraNucleo/ExtraNucleo-400.webp",
+        "width": 400,
+        "height": 758
+      },
+      {
+        "rel": "_optimized/ExtraNucleo/ExtraNucleo-800.webp",
+        "width": 800,
+        "height": 1517
+      }
+    ]
+  },
+  "ExtraNucleo/ExtraNucleo2.jpg": {
+    "base": "ExtraNucleo2",
+    "dir": "ExtraNucleo",
+    "original": "ExtraNucleo/ExtraNucleo2.jpg",
+    "originalSize": {
+      "width": 1366,
+      "height": 768
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/ExtraNucleo/ExtraNucleo2-400.webp",
+        "width": 400,
+        "height": 225
+      },
+      {
+        "rel": "_optimized/ExtraNucleo/ExtraNucleo2-800.webp",
+        "width": 800,
+        "height": 450
+      },
+      {
+        "rel": "_optimized/ExtraNucleo/ExtraNucleo2-1200.webp",
+        "width": 1200,
+        "height": 675
+      }
+    ]
+  },
+  "ExtraNucleo/ExtraNucleo3.jpg": {
+    "base": "ExtraNucleo3",
+    "dir": "ExtraNucleo",
+    "original": "ExtraNucleo/ExtraNucleo3.jpg",
+    "originalSize": {
+      "width": 377,
+      "height": 500
+    },
+    "sizes": []
+  },
+  "Extractores/Extractor.png": {
+    "base": "Extractor",
+    "dir": "Extractores",
+    "original": "Extractores/Extractor.png",
+    "originalSize": {
+      "width": 522,
+      "height": 522
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Extractores/Extractor-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "Extractores/Extractor1.jpg": {
+    "base": "Extractor1",
+    "dir": "Extractores",
+    "original": "Extractores/Extractor1.jpg",
+    "originalSize": {
+      "width": 260,
+      "height": 260
+    },
+    "sizes": []
+  },
+  "Extractores/Extractor2.jpg": {
+    "base": "Extractor2",
+    "dir": "Extractores",
+    "original": "Extractores/Extractor2.jpg",
+    "originalSize": {
+      "width": 260,
+      "height": 260
+    },
+    "sizes": []
+  },
+  "Ferreteria24Horas/Ferreteria24Horas.jpg": {
+    "base": "Ferreteria24Horas",
+    "dir": "Ferreteria24Horas",
+    "original": "Ferreteria24Horas/Ferreteria24Horas.jpg",
+    "originalSize": {
+      "width": 2503,
+      "height": 1771
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Ferreteria24Horas/Ferreteria24Horas-400.webp",
+        "width": 400,
+        "height": 283
+      },
+      {
+        "rel": "_optimized/Ferreteria24Horas/Ferreteria24Horas-800.webp",
+        "width": 800,
+        "height": 566
+      },
+      {
+        "rel": "_optimized/Ferreteria24Horas/Ferreteria24Horas-1200.webp",
+        "width": 1200,
+        "height": 849
+      }
+    ]
+  },
+  "GanchosColgantes/Andamios Colgantes 11.jpeg": {
+    "base": "Andamios Colgantes 11",
+    "dir": "GanchosColgantes",
+    "original": "GanchosColgantes/Andamios Colgantes 11.jpeg",
+    "originalSize": {
+      "width": 738,
+      "height": 1600
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/GanchosColgantes/Andamios Colgantes 11-400.webp",
+        "width": 400,
+        "height": 867
+      }
+    ]
+  },
+  "GanchosColgantes/Andamios Colgantes 12.jpeg": {
+    "base": "Andamios Colgantes 12",
+    "dir": "GanchosColgantes",
+    "original": "GanchosColgantes/Andamios Colgantes 12.jpeg",
+    "originalSize": {
+      "width": 1600,
+      "height": 737
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/GanchosColgantes/Andamios Colgantes 12-400.webp",
+        "width": 400,
+        "height": 184
+      },
+      {
+        "rel": "_optimized/GanchosColgantes/Andamios Colgantes 12-800.webp",
+        "width": 800,
+        "height": 369
+      },
+      {
+        "rel": "_optimized/GanchosColgantes/Andamios Colgantes 12-1200.webp",
+        "width": 1200,
+        "height": 553
+      }
+    ]
+  },
+  "GanchosColgantes/Andamios Colgantes 13.jpeg": {
+    "base": "Andamios Colgantes 13",
+    "dir": "GanchosColgantes",
+    "original": "GanchosColgantes/Andamios Colgantes 13.jpeg",
+    "originalSize": {
+      "width": 1600,
+      "height": 737
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/GanchosColgantes/Andamios Colgantes 13-400.webp",
+        "width": 400,
+        "height": 184
+      },
+      {
+        "rel": "_optimized/GanchosColgantes/Andamios Colgantes 13-800.webp",
+        "width": 800,
+        "height": 369
+      },
+      {
+        "rel": "_optimized/GanchosColgantes/Andamios Colgantes 13-1200.webp",
+        "width": 1200,
+        "height": 553
+      }
+    ]
+  },
+  "GanchosColgantes/Andamios Colgantes 14.jpeg": {
+    "base": "Andamios Colgantes 14",
+    "dir": "GanchosColgantes",
+    "original": "GanchosColgantes/Andamios Colgantes 14.jpeg",
+    "originalSize": {
+      "width": 1600,
+      "height": 738
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/GanchosColgantes/Andamios Colgantes 14-400.webp",
+        "width": 400,
+        "height": 185
+      },
+      {
+        "rel": "_optimized/GanchosColgantes/Andamios Colgantes 14-800.webp",
+        "width": 800,
+        "height": 369
+      },
+      {
+        "rel": "_optimized/GanchosColgantes/Andamios Colgantes 14-1200.webp",
+        "width": 1200,
+        "height": 554
+      }
+    ]
+  },
+  "GanchosColgantes/GanchosColgantes.png": {
+    "base": "GanchosColgantes",
+    "dir": "GanchosColgantes",
+    "original": "GanchosColgantes/GanchosColgantes.png",
+    "originalSize": {
+      "width": 790,
+      "height": 790
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/GanchosColgantes/GanchosColgantes-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "Hidrolavadora/Hidrolavadora.png": {
+    "base": "Hidrolavadora",
+    "dir": "Hidrolavadora",
+    "original": "Hidrolavadora/Hidrolavadora.png",
+    "originalSize": {
+      "width": 2400,
+      "height": 2400
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Hidrolavadora/Hidrolavadora-400.webp",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "rel": "_optimized/Hidrolavadora/Hidrolavadora-800.webp",
+        "width": 800,
+        "height": 800
+      },
+      {
+        "rel": "_optimized/Hidrolavadora/Hidrolavadora-1200.webp",
+        "width": 1200,
+        "height": 1200
+      }
+    ]
+  },
+  "Motobomba/MotoBombaLapi.png": {
+    "base": "MotoBombaLapi",
+    "dir": "Motobomba",
+    "original": "Motobomba/MotoBombaLapi.png",
+    "originalSize": {
+      "width": 806,
+      "height": 806
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Motobomba/MotoBombaLapi-400.webp",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "rel": "_optimized/Motobomba/MotoBombaLapi-800.webp",
+        "width": 800,
+        "height": 800
+      }
+    ]
+  },
+  "Motosierra/Motosierra.png": {
+    "base": "Motosierra",
+    "dir": "Motosierra",
+    "original": "Motosierra/Motosierra.png",
+    "originalSize": {
+      "width": 790,
+      "height": 790
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Motosierra/Motosierra-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "Oxicorte/EquiOxicorte.png": {
+    "base": "EquiOxicorte",
+    "dir": "Oxicorte",
+    "original": "Oxicorte/EquiOxicorte.png",
+    "originalSize": {
+      "width": 1600,
+      "height": 1600
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Oxicorte/EquiOxicorte-400.webp",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "rel": "_optimized/Oxicorte/EquiOxicorte-800.webp",
+        "width": 800,
+        "height": 800
+      },
+      {
+        "rel": "_optimized/Oxicorte/EquiOxicorte-1200.webp",
+        "width": 1200,
+        "height": 1200
+      }
+    ]
+  },
+  "Parasol/Parasol.png": {
+    "base": "Parasol",
+    "dir": "Parasol",
+    "original": "Parasol/Parasol.png",
+    "originalSize": {
+      "width": 522,
+      "height": 522
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Parasol/Parasol-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "PlantaElectrica/PlantaEnergia.png": {
+    "base": "PlantaEnergia",
+    "dir": "PlantaElectrica",
+    "original": "PlantaElectrica/PlantaEnergia.png",
+    "originalSize": {
+      "width": 790,
+      "height": 790
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/PlantaElectrica/PlantaEnergia-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "PlumaGrua/PlumaGrua.png": {
+    "base": "PlumaGrua",
+    "dir": "PlumaGrua",
+    "original": "PlumaGrua/PlumaGrua.png",
+    "originalSize": {
+      "width": 520,
+      "height": 520
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/PlumaGrua/PlumaGrua-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "PlumaGrua/PlumaGrua2.jpg": {
+    "base": "PlumaGrua2",
+    "dir": "PlumaGrua",
+    "original": "PlumaGrua/PlumaGrua2.jpg",
+    "originalSize": {
+      "width": 261,
+      "height": 261
+    },
+    "sizes": []
+  },
+  "Soldador/Soldador.png": {
+    "base": "Soldador",
+    "dir": "Soldador",
+    "original": "Soldador/Soldador.png",
+    "originalSize": {
+      "width": 522,
+      "height": 522
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Soldador/Soldador-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "SondaElectrica/SondaElectrica.png": {
+    "base": "SondaElectrica",
+    "dir": "SondaElectrica",
+    "original": "SondaElectrica/SondaElectrica.png",
+    "originalSize": {
+      "width": 522,
+      "height": 522
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/SondaElectrica/SondaElectrica-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "TaladroMagnetico/TaladroMagnetico1.jpeg": {
+    "base": "TaladroMagnetico1",
+    "dir": "TaladroMagnetico",
+    "original": "TaladroMagnetico/TaladroMagnetico1.jpeg",
+    "originalSize": {
+      "width": 900,
+      "height": 1600
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/TaladroMagnetico/TaladroMagnetico1-400.webp",
+        "width": 400,
+        "height": 711
+      },
+      {
+        "rel": "_optimized/TaladroMagnetico/TaladroMagnetico1-800.webp",
+        "width": 800,
+        "height": 1422
+      }
+    ]
+  },
+  "TaladroMagnetico/TaladroMagnetico2.jpeg": {
+    "base": "TaladroMagnetico2",
+    "dir": "TaladroMagnetico",
+    "original": "TaladroMagnetico/TaladroMagnetico2.jpeg",
+    "originalSize": {
+      "width": 900,
+      "height": 1600
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/TaladroMagnetico/TaladroMagnetico2-400.webp",
+        "width": 400,
+        "height": 711
+      },
+      {
+        "rel": "_optimized/TaladroMagnetico/TaladroMagnetico2-800.webp",
+        "width": 800,
+        "height": 1422
+      }
+    ]
+  },
+  "TaladroMagnetico/TaladroMagnetico3.jpeg": {
+    "base": "TaladroMagnetico3",
+    "dir": "TaladroMagnetico",
+    "original": "TaladroMagnetico/TaladroMagnetico3.jpeg",
+    "originalSize": {
+      "width": 900,
+      "height": 1600
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/TaladroMagnetico/TaladroMagnetico3-400.webp",
+        "width": 400,
+        "height": 711
+      },
+      {
+        "rel": "_optimized/TaladroMagnetico/TaladroMagnetico3-800.webp",
+        "width": 800,
+        "height": 1422
+      }
+    ]
+  },
+  "Taladros/Taladro3.jpg": {
+    "base": "Taladro3",
+    "dir": "Taladros",
+    "original": "Taladros/Taladro3.jpg",
+    "originalSize": {
+      "width": 960,
+      "height": 1280
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Taladros/Taladro3-400.webp",
+        "width": 400,
+        "height": 533
+      },
+      {
+        "rel": "_optimized/Taladros/Taladro3-800.webp",
+        "width": 800,
+        "height": 1067
+      }
+    ]
+  },
+  "Taladros/Taladro4.jpg": {
+    "base": "Taladro4",
+    "dir": "Taladros",
+    "original": "Taladros/Taladro4.jpg",
+    "originalSize": {
+      "width": 1280,
+      "height": 960
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Taladros/Taladro4-400.webp",
+        "width": 400,
+        "height": 300
+      },
+      {
+        "rel": "_optimized/Taladros/Taladro4-800.webp",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "rel": "_optimized/Taladros/Taladro4-1200.webp",
+        "width": 1200,
+        "height": 900
+      }
+    ]
+  },
+  "Taladros/Taladro5.jpg": {
+    "base": "Taladro5",
+    "dir": "Taladros",
+    "original": "Taladros/Taladro5.jpg",
+    "originalSize": {
+      "width": 960,
+      "height": 1280
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Taladros/Taladro5-400.webp",
+        "width": 400,
+        "height": 533
+      },
+      {
+        "rel": "_optimized/Taladros/Taladro5-800.webp",
+        "width": 800,
+        "height": 1067
+      }
+    ]
+  },
+  "TrompoMezclador/Trompo3.jpg": {
+    "base": "Trompo3",
+    "dir": "TrompoMezclador",
+    "original": "TrompoMezclador/Trompo3.jpg",
+    "originalSize": {
+      "width": 403,
+      "height": 403
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/TrompoMezclador/Trompo3-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "TrompoMezclador/Trompo4.jpg": {
+    "base": "Trompo4",
+    "dir": "TrompoMezclador",
+    "original": "TrompoMezclador/Trompo4.jpg",
+    "originalSize": {
+      "width": 403,
+      "height": 403
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/TrompoMezclador/Trompo4-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "TrompoMezclador/TrompoMezclador.png": {
+    "base": "TrompoMezclador",
+    "dir": "TrompoMezclador",
+    "original": "TrompoMezclador/TrompoMezclador.png",
+    "originalSize": {
+      "width": 522,
+      "height": 522
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/TrompoMezclador/TrompoMezclador-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "VibroCompactadora/VibroCompactadora.png": {
+    "base": "VibroCompactadora",
+    "dir": "VibroCompactadora",
+    "original": "VibroCompactadora/VibroCompactadora.png",
+    "originalSize": {
+      "width": 806,
+      "height": 806
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/VibroCompactadora/VibroCompactadora-400.webp",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "rel": "_optimized/VibroCompactadora/VibroCompactadora-800.webp",
+        "width": 800,
+        "height": 800
+      }
+    ]
+  },
+  "Winches/Winches.png": {
+    "base": "Winches",
+    "dir": "Winches",
+    "original": "Winches/Winches.png",
+    "originalSize": {
+      "width": 948,
+      "height": 948
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/Winches/Winches-400.webp",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "rel": "_optimized/Winches/Winches-800.webp",
+        "width": 800,
+        "height": 800
+      }
+    ]
+  },
+  "gatosM/GM1.jpg": {
+    "base": "GM1",
+    "dir": "gatosM",
+    "original": "gatosM/GM1.jpg",
+    "originalSize": {
+      "width": 921,
+      "height": 2048
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM1-400.webp",
+        "width": 400,
+        "height": 889
+      },
+      {
+        "rel": "_optimized/gatosM/GM1-800.webp",
+        "width": 800,
+        "height": 1779
+      }
+    ]
+  },
+  "gatosM/GM10.jpg": {
+    "base": "GM10",
+    "dir": "gatosM",
+    "original": "gatosM/GM10.jpg",
+    "originalSize": {
+      "width": 2048,
+      "height": 921
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM10-400.webp",
+        "width": 400,
+        "height": 180
+      },
+      {
+        "rel": "_optimized/gatosM/GM10-800.webp",
+        "width": 800,
+        "height": 360
+      },
+      {
+        "rel": "_optimized/gatosM/GM10-1200.webp",
+        "width": 1200,
+        "height": 540
+      }
+    ]
+  },
+  "gatosM/GM11.jpg": {
+    "base": "GM11",
+    "dir": "gatosM",
+    "original": "gatosM/GM11.jpg",
+    "originalSize": {
+      "width": 2048,
+      "height": 921
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM11-400.webp",
+        "width": 400,
+        "height": 180
+      },
+      {
+        "rel": "_optimized/gatosM/GM11-800.webp",
+        "width": 800,
+        "height": 360
+      },
+      {
+        "rel": "_optimized/gatosM/GM11-1200.webp",
+        "width": 1200,
+        "height": 540
+      }
+    ]
+  },
+  "gatosM/GM12.jpg": {
+    "base": "GM12",
+    "dir": "gatosM",
+    "original": "gatosM/GM12.jpg",
+    "originalSize": {
+      "width": 2048,
+      "height": 921
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM12-400.webp",
+        "width": 400,
+        "height": 180
+      },
+      {
+        "rel": "_optimized/gatosM/GM12-800.webp",
+        "width": 800,
+        "height": 360
+      },
+      {
+        "rel": "_optimized/gatosM/GM12-1200.webp",
+        "width": 1200,
+        "height": 540
+      }
+    ]
+  },
+  "gatosM/GM2.jpg": {
+    "base": "GM2",
+    "dir": "gatosM",
+    "original": "gatosM/GM2.jpg",
+    "originalSize": {
+      "width": 921,
+      "height": 2048
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM2-400.webp",
+        "width": 400,
+        "height": 889
+      },
+      {
+        "rel": "_optimized/gatosM/GM2-800.webp",
+        "width": 800,
+        "height": 1779
+      }
+    ]
+  },
+  "gatosM/GM3.jpg": {
+    "base": "GM3",
+    "dir": "gatosM",
+    "original": "gatosM/GM3.jpg",
+    "originalSize": {
+      "width": 921,
+      "height": 2048
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM3-400.webp",
+        "width": 400,
+        "height": 889
+      },
+      {
+        "rel": "_optimized/gatosM/GM3-800.webp",
+        "width": 800,
+        "height": 1779
+      }
+    ]
+  },
+  "gatosM/GM4.jpg": {
+    "base": "GM4",
+    "dir": "gatosM",
+    "original": "gatosM/GM4.jpg",
+    "originalSize": {
+      "width": 2048,
+      "height": 921
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM4-400.webp",
+        "width": 400,
+        "height": 180
+      },
+      {
+        "rel": "_optimized/gatosM/GM4-800.webp",
+        "width": 800,
+        "height": 360
+      },
+      {
+        "rel": "_optimized/gatosM/GM4-1200.webp",
+        "width": 1200,
+        "height": 540
+      }
+    ]
+  },
+  "gatosM/GM5.jpg": {
+    "base": "GM5",
+    "dir": "gatosM",
+    "original": "gatosM/GM5.jpg",
+    "originalSize": {
+      "width": 2048,
+      "height": 921
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM5-400.webp",
+        "width": 400,
+        "height": 180
+      },
+      {
+        "rel": "_optimized/gatosM/GM5-800.webp",
+        "width": 800,
+        "height": 360
+      },
+      {
+        "rel": "_optimized/gatosM/GM5-1200.webp",
+        "width": 1200,
+        "height": 540
+      }
+    ]
+  },
+  "gatosM/GM6.jpg": {
+    "base": "GM6",
+    "dir": "gatosM",
+    "original": "gatosM/GM6.jpg",
+    "originalSize": {
+      "width": 2048,
+      "height": 921
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM6-400.webp",
+        "width": 400,
+        "height": 180
+      },
+      {
+        "rel": "_optimized/gatosM/GM6-800.webp",
+        "width": 800,
+        "height": 360
+      },
+      {
+        "rel": "_optimized/gatosM/GM6-1200.webp",
+        "width": 1200,
+        "height": 540
+      }
+    ]
+  },
+  "gatosM/GM7.jpg": {
+    "base": "GM7",
+    "dir": "gatosM",
+    "original": "gatosM/GM7.jpg",
+    "originalSize": {
+      "width": 2048,
+      "height": 921
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM7-400.webp",
+        "width": 400,
+        "height": 180
+      },
+      {
+        "rel": "_optimized/gatosM/GM7-800.webp",
+        "width": 800,
+        "height": 360
+      },
+      {
+        "rel": "_optimized/gatosM/GM7-1200.webp",
+        "width": 1200,
+        "height": 540
+      }
+    ]
+  },
+  "gatosM/GM8.jpg": {
+    "base": "GM8",
+    "dir": "gatosM",
+    "original": "gatosM/GM8.jpg",
+    "originalSize": {
+      "width": 921,
+      "height": 2048
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM8-400.webp",
+        "width": 400,
+        "height": 889
+      },
+      {
+        "rel": "_optimized/gatosM/GM8-800.webp",
+        "width": 800,
+        "height": 1779
+      }
+    ]
+  },
+  "gatosM/GM9.jpg": {
+    "base": "GM9",
+    "dir": "gatosM",
+    "original": "gatosM/GM9.jpg",
+    "originalSize": {
+      "width": 2048,
+      "height": 921
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/GM9-400.webp",
+        "width": 400,
+        "height": 180
+      },
+      {
+        "rel": "_optimized/gatosM/GM9-800.webp",
+        "width": 800,
+        "height": 360
+      },
+      {
+        "rel": "_optimized/gatosM/GM9-1200.webp",
+        "width": 1200,
+        "height": 540
+      }
+    ]
+  },
+  "gatosM/gatos.png": {
+    "base": "gatos",
+    "dir": "gatosM",
+    "original": "gatosM/gatos.png",
+    "originalSize": {
+      "width": 417,
+      "height": 417
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/gatosM/gatos-400.webp",
+        "width": 400,
+        "height": 400
+      }
+    ]
+  },
+  "gatosM/gatos2.jpg": {
+    "base": "gatos2",
+    "dir": "gatosM",
+    "original": "gatosM/gatos2.jpg",
+    "originalSize": {
+      "width": 261,
+      "height": 261
+    },
+    "sizes": []
+  },
+  "gatosM/gatos3.jpg": {
+    "base": "gatos3",
+    "dir": "gatosM",
+    "original": "gatosM/gatos3.jpg",
+    "originalSize": {
+      "width": 261,
+      "height": 261
+    },
+    "sizes": []
+  },
+  "logo.png": {
+    "base": "logo",
+    "dir": ".",
+    "original": "logo.png",
+    "originalSize": {
+      "width": 2000,
+      "height": 2000
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/logo-400.webp",
+        "width": 400,
+        "height": 400
+      },
+      {
+        "rel": "_optimized/logo-800.webp",
+        "width": 800,
+        "height": 800
+      },
+      {
+        "rel": "_optimized/logo-1200.webp",
+        "width": 1200,
+        "height": 1200
+      }
+    ]
+  },
+  "miniatura-video.jpg": {
+    "base": "miniatura-video",
+    "dir": ".",
+    "original": "miniatura-video.jpg",
+    "originalSize": {
+      "width": 1280,
+      "height": 1714
+    },
+    "sizes": [
+      {
+        "rel": "_optimized/miniatura-video-400.webp",
+        "width": 400,
+        "height": 536
+      },
+      {
+        "rel": "_optimized/miniatura-video-800.webp",
+        "width": 800,
+        "height": 1071
+      },
+      {
+        "rel": "_optimized/miniatura-video-1200.webp",
+        "width": 1200,
+        "height": 1607
+      }
+    ]
+  }
+}

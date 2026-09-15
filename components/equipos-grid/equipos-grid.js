@@ -18,50 +18,50 @@ const EquiposGrid = (() => {
   // --- DATOS PRIVADOS ---
   const _DATA = {
     elevacion: [
-      { id: 'gatos-hidraulicos', name: 'Gatos Hidraulicos', img: '/assets/imagenes/gatosM/gatos.png', text: 'Gatos hidráulicos de alta capacidad para elevación.' },
-      { id: 'gato-estibador', name: 'Gato Estibador', img: '/assets/imagenes/Estibador/estibador.png', text: 'Gato estibador para movimiento de cargas.' },
-      { id: 'ganchos-colgantes', name: 'Ganchos Colgantes', img: '/assets/imagenes/GanchosColgantes/GanchosColgantes.png', text: 'Ganchos colgantes certificados.' },
-      { id: 'winches', name: 'Winches', img: '/assets/imagenes/Winches/Winches.png', text: 'Winches eléctricos y manuales.' },
-      { id: 'pluma-grua', name: 'Pluma Grúa', img: '/assets/imagenes/PlumaGrua/PlumaGrua.png', text: 'Pluma grúa para elevación de cargas.' },
+      { id: 'gatos-hidraulicos', name: 'Gatos Hidraulicos', img: '/assets/imagenes/gatosM/gatos.webp', text: 'Gatos hidráulicos de alta capacidad para elevación.' },
+      { id: 'gato-estibador', name: 'Gato Estibador', img: '/assets/imagenes/Estibador/estibador.webp', text: 'Gato estibador para movimiento de cargas.' },
+      { id: 'ganchos-colgantes', name: 'Ganchos Colgantes', img: '/assets/imagenes/GanchosColgantes/GanchosColgantes.webp', text: 'Ganchos colgantes certificados.' },
+      { id: 'winches', name: 'Winches', img: '/assets/imagenes/Winches/Winches.webp', text: 'Winches eléctricos y manuales.' },
+      { id: 'pluma-grua', name: 'Pluma Grúa', img: '/assets/imagenes/PlumaGrua/PlumaGrua.webp', text: 'Pluma grúa para elevación de cargas.' },
       { id: 'andamios-certificados', name: 'Andamios Certificados', img: '/assets/imagenes/Andamios Certificados/Andamio Certificado 1.webp', text: 'Torres de andamios certificados con garantía de seguridad.' }
     ],
     perforacion: [
       { id: 'taladros', name: 'Taladros', img: '/assets/imagenes/Taladros/Taladro.webp', text: 'Taladros industriales de percusión.' },
       { id: 'taladro-magnetico', name: 'Taladro Magnético', img: '/assets/imagenes/TaladroMagnetico/TaladroMagnetico1.webp', text: 'Taladro magnético para perforación de metal.' },
-      { id: 'extractores', name: 'Extractores', img: '/assets/imagenes/Extractores/Extractor.png', text: 'Extractores de ejes y rodamientos.' },
-      { id: 'sonda-electrica', name: 'Sonda Eléctrica', img: '/assets/imagenes/SondaElectrica/SondaElectrica.png', text: 'Sonda eléctrica para barrenado.' },
-      { id: 'esmeriladora', name: 'Esmeriladora', img: '/assets/imagenes/Esmeril/Esmeril.png', text: 'Esmeriladora angular de alta potencia.' },
-      { id: 'equipo-oxicorte', name: 'Equipo Oxicorte', img: '/assets/imagenes/Oxicorte/EquiOxicorte.png', text: 'Equipo de oxicorte para corte de metal.' },
-      { id: 'cortadora-porcelanato', name: 'Cortadora Porcelanato', img: '/assets/imagenes/CortadoraPorcelanato/CortadoraPorcelanato.png', text: 'Cortadora de porcelanato y cerámica.' },
-      { id: 'extraccion-nucleos', name: 'Extracción Núcleos', img: '/assets/imagenes/ExtraNucleo/ExtraNucleo.png', text: 'Equipo de extracción de núcleos de concreto.' }
+      { id: 'extractores', name: 'Extractores', img: '/assets/imagenes/Extractores/Extractor.webp', text: 'Extractores de ejes y rodamientos.' },
+      { id: 'sonda-electrica', name: 'Sonda Eléctrica', img: '/assets/imagenes/SondaElectrica/SondaElectrica.webp', text: 'Sonda eléctrica para barrenado.' },
+      { id: 'esmeriladora', name: 'Esmeriladora', img: '/assets/imagenes/Esmeril/Esmeril.webp', text: 'Esmeriladora angular de alta potencia.' },
+      { id: 'equipo-oxicorte', name: 'Equipo Oxicorte', img: '/assets/imagenes/Oxicorte/EquiOxicorte.webp', text: 'Equipo de oxicorte para corte de metal.' },
+      { id: 'cortadora-porcelanato', name: 'Cortadora Porcelanato', img: '/assets/imagenes/CortadoraPorcelanato/CortadoraPorcelanato.webp', text: 'Cortadora de porcelanato y cerámica.' },
+      { id: 'extraccion-nucleos', name: 'Extracción Núcleos', img: '/assets/imagenes/ExtraNucleo/ExtraNucleo.webp', text: 'Equipo de extracción de núcleos de concreto.' }
     ],
     mezclado: [
-      { id: 'trompo-mezclador', name: 'Trompo Mezclador', img: '/assets/imagenes/TrompoMezclador/TrompoMezclador.png', text: 'Trompo mezclador de concreto.' },
-      { id: 'vibrocompactadora', name: 'Vibrocompactadora', img: '/assets/imagenes/VibroCompactadora/VibroCompactadora.png', text: 'Vibrocompactadora para compactación de suelo.' }
+      { id: 'trompo-mezclador', name: 'Trompo Mezclador', img: '/assets/imagenes/TrompoMezclador/TrompoMezclador.webp', text: 'Trompo mezclador de concreto.' },
+      { id: 'vibrocompactadora', name: 'Vibrocompactadora', img: '/assets/imagenes/VibroCompactadora/VibroCompactadora.webp', text: 'Vibrocompactadora para compactación de suelo.' }
     ],
     limpieza: [
-      { id: 'hidrolavadora', name: 'Hidrolavadora', img: '/assets/imagenes/Hidrolavadora/Hidrolavadora.png', text: 'Hidrolavadora de alta presión.' },
-      { id: 'aspiradora-industrial', name: 'Aspiradora Industrial', img: '/assets/imagenes/Aspiradora/Aspiradora.png', text: 'Aspiradora industrial wet/dry.' },
-      { id: 'motobomba-sumergible', name: 'Motobomba Sumergible', img: '/assets/imagenes/Motobomba/MotoBombaLapi.png', text: 'Motobomba sumergible para achique.' }
+      { id: 'hidrolavadora', name: 'Hidrolavadora', img: '/assets/imagenes/Hidrolavadora/Hidrolavadora.webp', text: 'Hidrolavadora de alta presión.' },
+      { id: 'aspiradora-industrial', name: 'Aspiradora Industrial', img: '/assets/imagenes/Aspiradora/Aspiradora.webp', text: 'Aspiradora industrial wet/dry.' },
+      { id: 'motobomba-sumergible', name: 'Motobomba Sumergible', img: '/assets/imagenes/Motobomba/MotoBombaLapi.webp', text: 'Motobomba sumergible para achique.' }
     ],
     soldadura: [
-      { id: 'compresor', name: 'Compresor', img: '/assets/imagenes/Compresor/Compresor.png', text: 'Compresor de aire industrial.' },
-      { id: 'equipos-soldadura', name: 'Equipos de Soldadura', img: '/assets/imagenes/Soldador/Soldador.png', text: 'Equipos de soldadura inverter y TIG.' },
-      { id: 'planta-electrica', name: 'Planta Eléctrica', img: '/assets/imagenes/PlantaElectrica/PlantaEnergia.png', text: 'Planta eléctrica генератор.' }
+      { id: 'compresor', name: 'Compresor', img: '/assets/imagenes/Compresor/Compresor.webp', text: 'Compresor de aire industrial.' },
+      { id: 'equipos-soldadura', name: 'Equipos de Soldadura', img: '/assets/imagenes/Soldador/Soldador.webp', text: 'Equipos de soldadura inverter y TIG.' },
+      { id: 'planta-electrica', name: 'Planta Eléctrica', img: '/assets/imagenes/PlantaElectrica/PlantaEnergia.webp', text: 'Planta eléctrica генератор.' }
     ],
     construccion: [
-      { id: 'andamios', name: 'Andamios', img: '/assets/imagenes/Andamios/Andamios.png', text: 'Torres de andamios certificados.' },
-      { id: 'estanterias', name: 'Estanterías', img: '/assets/imagenes/Estanterias/Estanterias.png', text: 'Estanterías industriales.' },
-      { id: 'parasoles', name: 'Parasoles', img: '/assets/imagenes/Parasol/Parasol.png', text: 'Parasoles profesionales.' }
+      { id: 'andamios', name: 'Andamios', img: '/assets/imagenes/Andamios/Andamios.webp', text: 'Torres de andamios certificados.' },
+      { id: 'estanterias', name: 'Estanterías', img: '/assets/imagenes/Estanterias/Estanterias.webp', text: 'Estanterías industriales.' },
+      { id: 'parasoles', name: 'Parasoles', img: '/assets/imagenes/Parasol/Parasol.webp', text: 'Parasoles profesionales.' }
     ],
     movimiento: [
-      { id: 'diferenciales', name: 'Diferenciales', img: '/assets/imagenes/Diferencial/Diferencial.png', text: 'Diferenciales para movimiento de cargas.' },
-      { id: 'carretillas', name: 'Carretillas', img: '/assets/imagenes/Carretilla/Carretilla.png', text: 'Carretillas industriales.' },
-      { id: 'buggy', name: 'Buggy con Pico y Pala', img: '/assets/imagenes/Buggy/Buggy.png', text: 'Buggy para movimiento de material.' }
+      { id: 'diferenciales', name: 'Diferenciales', img: '/assets/imagenes/Diferencial/Diferencial.webp', text: 'Diferenciales para movimiento de cargas.' },
+      { id: 'carretillas', name: 'Carretillas', img: '/assets/imagenes/Carretilla/Carretilla.webp', text: 'Carretillas industriales.' },
+      { id: 'buggy', name: 'Buggy con Pico y Pala', img: '/assets/imagenes/Buggy/Buggy.webp', text: 'Buggy para movimiento de material.' }
     ],
     jardin: [
-      { id: 'escaleras', name: 'Escaleras', img: '/assets/imagenes/Escaleras/escaleras.jpg', text: 'Escaleras profesionales.' },
-      { id: 'motosierra', name: 'Motosierra', img: '/assets/imagenes/Motosierra/Motosierra.png', text: 'Motosierra de cadena.' }
+      { id: 'escaleras', name: 'Escaleras', img: '/assets/imagenes/Escaleras/escaleras.webp', text: 'Escaleras profesionales.' },
+      { id: 'motosierra', name: 'Motosierra', img: '/assets/imagenes/Motosierra/Motosierra.webp', text: 'Motosierra de cadena.' }
     ]
   };
   

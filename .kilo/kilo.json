@@ -9,6 +9,13 @@
         "-y",
         "@playwright/mcp@0.0.38"
       ]
+    },
+    "lighthouse": {
+      "type": "local",
+      "command": [
+        "npx",
+        "lighthouse-mcp"
+      ]
     }
   }
 }

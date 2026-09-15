@@ -60,7 +60,7 @@
         "name": "Master Herramientas y Servicios",
         "description": "Nuestra actividad principal es el alquiler y venta de herramientas desde 2014. Somos una empresa pequeña que ofrece servicios de demolición, extracción de núcleo, corte de pavimento y mantenimiento de equipos. Estamos ubicados en Cra. 23 #36-48, Barrio El Rodeo, al lado de la autopista sur oriental, Cali, y contamos con sucursal en Barrio Santa Monica.",
         "image": ["https://masterenherramientasyservicios.com.co/assets/imagenes/miniatura-video.webp"],
-        "logo": "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.png",
+        "logo": "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.webp",
         "priceRange": "$$",
         "foundingDate": "2014-08",
         "address": {"@type": "PostalAddress", "streetAddress": "Cra. 23 #36-48, Barrio El Rodeo", "addressLocality": "Cali", "addressRegion": "Valle del Cauca", "postalCode": "760001", "addressCountry": "CO"},
@@ -98,7 +98,7 @@
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Alquiler de Escaleras", "description": "Escaleras profesionales de diferentes alturas"}}
         ]}
       },
-      {"@type": "Organization", "@id": "https://masterenherramientasyservicios.com.co/#organization", "name": "Master Herramientas y Servicios", "url": "https://masterenherramientasyservicios.com.co/", "image": ["https://masterenherramientasyservicios.com.co/assets/imagenes/miniatura-video.webp", "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.png"], "logo": {"@type": "ImageObject", "url": "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.png"}, "contactPoint": {"@type": "ContactPoint", "telephone": "+573165345675", "contactType": "customer service", "areaServed": "CO", "availableLanguage": ["es", "es-CO"]}, "sameAs": ["https://www.facebook.com/MasterHerramientas", "https://www.instagram.com/MasterHerramientas", "https://wa.me/573165345675"]},
+      {"@type": "Organization", "@id": "https://masterenherramientasyservicios.com.co/#organization", "name": "Master Herramientas y Servicios", "url": "https://masterenherramientasyservicios.com.co/", "image": ["https://masterenherramientasyservicios.com.co/assets/imagenes/miniatura-video.webp", "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.webp"], "logo": {"@type": "ImageObject", "url": "https://masterenherramientasyservicios.com.co/assets/imagenes/logo.webp"}, "contactPoint": {"@type": "ContactPoint", "telephone": "+573165345675", "contactType": "customer service", "areaServed": "CO", "availableLanguage": ["es", "es-CO"]}, "sameAs": ["https://www.facebook.com/MasterHerramientas", "https://www.instagram.com/MasterHerramientas", "https://wa.me/573165345675"]},
       {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://masterenherramientasyservicios.com.co/"},
         {"@type": "ListItem", "position": 2, "name": "Equipos Disponibles", "item": "https://masterenherramientasyservicios.com.co/#equipos"},
@@ -125,7 +125,7 @@
 
   <!-- Favicon -->
    <link rel="icon" href="assets/imagenes/masterfavi.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="assets/imagenes/logo.png">
+  <link rel="apple-touch-icon" href="assets/imagenes/logo.webp">
 
    <!-- Preload header CSS crítico -->
   <link rel="preload" href="components/header/header.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -172,8 +172,8 @@
   <link rel="preload" href="assets/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
 
    <!-- Preload recursos críticos above-the-fold -->
-     <link rel="preload" href="assets/imagenes/miniatura-video.webp" as="image" imagesrcset="assets/imagenes/miniatura-video.webp 1x, assets/imagenes/miniatura-video.jpg 1x" imagesizes="400px">
-     <link rel="preload" href="assets/imagenes/logo.webp" as="image" imagesrcset="assets/imagenes/logo.webp 1x, assets/imagenes/logo.png 1x" imagesizes="180px">
+      <link rel="preload" href="assets/imagenes/miniatura-video.webp" as="image" imagesrcset="assets/imagenes/miniatura-video.webp 1x" imagesizes="400px">
+      <link rel="preload" href="assets/imagenes/logo.webp" as="image" imagesrcset="assets/imagenes/_optimized/logo-400.webp 400w, assets/imagenes/_optimized/logo-800.webp 800w, assets/imagenes/_optimized/logo-1200.webp 1200w" imagesizes="(max-width: 480px) 120px, (max-width: 768px) 150px, 180px">
   
   <!-- Meta tags adicionales para SEO móvil -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -331,7 +331,8 @@
               <div class="ratio ratio-16x9 rounded-3 overflow-hidden" style="--bs-aspect-ratio: 56.25%;min-height:320px">
                 <video id="nosotros-video" controls class="object-fit-cover" data-video-poster
                             poster="assets/imagenes/miniatura-video.webp"
-                        preload="none"
+                        preload="auto"
+                        fetchpriority="high"
                        aria-label="Video demostrativo de herramientas disponibles para alquiler">
                   <source src="assets/Videos/Video1.mp4" type="video/mp4">
                   <track kind="captions" src="assets/videos/captions.vtt" srclang="es" label="Español">
@@ -371,6 +372,9 @@
 
         <!-- Módulo de seguridad: sanitización y validación -->
         <script src="assets/js/utils/security.js" defer></script>
+
+        <!-- Image srcset utility (must load before loader.js) -->
+        <script src="assets/js/image-srcset-map.js" defer></script>
 
         <!-- Constantes centralizadas -->
         <script src="assets/js/constants.js" defer></script>
@@ -462,21 +466,6 @@
       });
     }, { rootMargin: '100px' });
     lazyCarousels.forEach(function(carousel) { carouselObserver.observe(carousel); });
-  });
-</script>
-
-<!-- Lazy load del video -->
-<script>
-   document.addEventListener('DOMContentLoaded', function() {
-    var video = document.querySelector('video[data-video-poster]');
-    if (!video) return;
-    var videoObserver = new IntersectionObserver(function(entries) {
-      if (entries[0].isIntersecting) {
-        video.preload = 'metadata';
-        videoObserver.unobserve(video);
-      }
-    }, { rootMargin: '200px' });
-videoObserver.observe(video);
   });
 </script>
 
